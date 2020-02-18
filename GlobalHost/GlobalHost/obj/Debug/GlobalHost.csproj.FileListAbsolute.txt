@@ -1,0 +1,9 @@
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\GlobalHost.exe.config
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\GlobalHost.exe
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\GlobalHost.pdb
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csprojAssemblyReference.cache
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Properties.Resources.resources
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csproj.GenerateResource.cache
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csproj.CoreCompileInputs.cache
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.exe
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.pdb
