@@ -17,7 +17,7 @@ namespace GlobalHost
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run();
+            //Application.Run();
         }
     }
 }
