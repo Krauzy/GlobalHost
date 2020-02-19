@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace GlobalHost.API
 {
-    class ConsultaCEP
+    class CEP
     {
         private string cep;
         private string logradouro;
@@ -17,7 +17,7 @@ namespace GlobalHost.API
         private string ibge;
         private string gia;
 
-        public ConsultaCEP(string c)
+        public CEP(string c)
         {
             BuscaCEP busca = new BuscaCEP();
             try

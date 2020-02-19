@@ -7,3 +7,6 @@ C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\Gl
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csproj.CoreCompileInputs.cache
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.exe
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.pdb
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csproj.CopyComplete
