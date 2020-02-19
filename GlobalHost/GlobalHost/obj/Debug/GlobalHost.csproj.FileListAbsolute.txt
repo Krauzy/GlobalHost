@@ -10,3 +10,9 @@ C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\Gl
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csproj.CopyComplete
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\PdfSharp.Charting.dll
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\PdfSharp.dll
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\PdfSharp.xml
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\PdfSharp.Charting.xml
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\de\PdfSharp.resources.dll
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\de\PdfSharp.Charting.resources.dll

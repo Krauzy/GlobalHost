@@ -18,6 +18,7 @@ namespace GlobalHost
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run();
+            PDF.Create();
         }
     }
 }

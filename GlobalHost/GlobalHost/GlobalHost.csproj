@@ -60,8 +60,8 @@
     <Compile Include="API\Animation.cs" />
     <Compile Include="API\CEP.cs" />
     <Compile Include="API\Dolar.cs" />
+    <Compile Include="API\PDF.cs" />
     <Compile Include="API\Validate.cs" />
-    <Compile Include="API\Word.cs" />
     <Compile Include="Connected Services\WebServiceDolar\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
