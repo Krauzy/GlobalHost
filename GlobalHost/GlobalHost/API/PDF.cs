@@ -25,6 +25,10 @@ namespace GlobalHost.API
             string descricao = "documentos";
             double peso = 5.00;
             int volume = 18;
+            string destinacao_comercial = "Não";
+            double cambio = 4.33890;
+            string remessa_dolar = "-";
+            string remessa_real = "-";
 
             PdfDocument doc = new PdfDocument();
             PdfPage page = doc.AddPage();
@@ -98,8 +102,18 @@ namespace GlobalHost.API
             textFormatter.DrawString("Peso Bruto (Kg)", arial_9_bold, XBrushes.Black, new XRect(50, 195, page.Width, page.Height));
             textFormatter.DrawString(peso.ToString(), arial_7, XBrushes.Black, new XRect(50, 207, page.Width, page.Height));
 
-            textFormatter.DrawString("Volumes", arial_9_bold, XBrushes.Black, new XRect(50, 170, page.Width, page.Height));
-            textFormatter.DrawString(volume.ToString(), arial_7, XBrushes.Black, new XRect(50, 182, page.Width, page.Height));
+            textFormatter.DrawString("Volumes", arial_9_bold, XBrushes.Black, new XRect(185, 195, page.Width, page.Height));
+            textFormatter.DrawString(volume.ToString(), arial_7, XBrushes.Black, new XRect(185, 207, page.Width, page.Height));
+
+            textFormatter.DrawString("Destinação Comercial", arial_9_bold, XBrushes.Black, new XRect(335, 195, page.Width, page.Height));
+            textFormatter.DrawString(destinacao_comercial, arial_7, XBrushes.Black, new XRect(335, 207, page.Width, page.Height));
+
+            textFormatter.DrawString("Taxa de Câmbio", arial_9_bold, XBrushes.Black, new XRect(440, 195, page.Width, page.Height));
+            textFormatter.DrawString(cambio.ToString(), arial_7, XBrushes.Black, new XRect(440, 207, page.Width, page.Height));
+
+            textFormatter.DrawString("Valor Total Remessa", arial_9_bold, XBrushes.Black, new XRect(50, 220, page.Width, page.Height));
+            textFormatter.DrawString("US$ " + remessa_dolar + " / R$ " + remessa_real, arial_7, XBrushes.Black, new XRect(50, 232, page.Width, page.Height));
+
             SaveFile("arquivo", doc);
         }
         

@@ -20,5 +20,15 @@ namespace GlobalHost.API
             };
             return dolar;
         }
+
+        public static double ConvertToDolar(double real)
+        {
+            return (real * getDolar());
+        }
+
+        public static double ConvertToReal(double dolar)
+        {
+            return dolar * getDolar();
+        }
     }
 }
