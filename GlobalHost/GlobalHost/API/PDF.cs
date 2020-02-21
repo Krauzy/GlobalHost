@@ -8,28 +8,14 @@ namespace GlobalHost.API
 {
     class PDF
     {
-        public static void Create()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Qualidade do Código", "IDE0067:Descartar objetos antes de perder o escopo", Justification = "...")]
+        public static void Create(string dir, int versao, DateTime data_dir, string lote, 
+            string modalidade, string remessa, string situacao, string manifesto, DateTime data_manifesto,
+            string master, string despacho, string operador, string descricao, double peso, int volume, 
+            string destinacao_comercial, double cambio, string remessa_real, string remessa_dolar,
+            string frete_real, string frete_dolar, string modo_pagamento, string tributo_dolar, string tributo_real,
+            string imposto_importação, string documentos_anexos)
         {
-            string dir = "200000367421";
-            int versao = 1;
-            DateTime data_dir = new DateTime(2020, 2, 14, 9, 12, 0);
-            string lote = "CGF2020021400057";
-            string modalidade = "Expressa";
-            string remessa = "07432182953";
-            string situacao = "Desembaraçada";
-            string manifesto = "CGF202000011844";
-            DateTime data_manifesto = new DateTime(2020, 2, 14, 9, 12, 0);
-            string master = "07432182953";
-            string despacho = "0817600 - GRU - AEROPORTO INTERNACIONAL DE SÃO PAULO - SP";
-            string operador = "CGF TRANSPORTES INTERNACIONAIS LTDA";
-            string descricao = "documentos";
-            double peso = 5.00;
-            int volume = 18;
-            string destinacao_comercial = "Não";
-            double cambio = 4.33890;
-            string remessa_dolar = "-";
-            string remessa_real = "-";
-
             PdfDocument doc = new PdfDocument();
             PdfPage page = doc.AddPage();
             XGraphics graphics = XGraphics.FromPdfPage(page);
@@ -113,6 +99,27 @@ namespace GlobalHost.API
 
             textFormatter.DrawString("Valor Total Remessa", arial_9_bold, XBrushes.Black, new XRect(50, 220, page.Width, page.Height));
             textFormatter.DrawString("US$ " + remessa_dolar + " / R$ " + remessa_real, arial_7, XBrushes.Black, new XRect(50, 232, page.Width, page.Height));
+
+            textFormatter.DrawString("Valor Frete", arial_9_bold, XBrushes.Black, new XRect(185, 220, page.Width, page.Height));
+            textFormatter.DrawString("US$ " + frete_dolar + " / R$ " + frete_real, arial_7, XBrushes.Black, new XRect(185, 232, page.Width, page.Height));
+
+            textFormatter.DrawString("Modo de Pagamento", arial_9_bold, XBrushes.Black, new XRect(335, 220, page.Width, page.Height));
+            textFormatter.DrawString(modo_pagamento, arial_7, XBrushes.Black, new XRect(335, 232, page.Width, page.Height));
+
+            textFormatter.DrawString("Valor Tributável", arial_9_bold, XBrushes.Black, new XRect(440, 220, page.Width, page.Height));
+            textFormatter.DrawString("US$ " + tributo_dolar + " / R$ " + tributo_real, arial_7, XBrushes.Black, new XRect(440, 232, page.Width, page.Height));
+
+            textFormatter.DrawString("Imposto de Importação (II)", arial_9_bold, XBrushes.Black, new XRect(50, 245, page.Width, page.Height));
+            textFormatter.DrawString("R$ " + imposto_importação, arial_7, XBrushes.Black, new XRect(50, 257, page.Width, page.Height));
+
+            textFormatter.DrawString("Documentos Anexos", arial_9_bold, XBrushes.Black, new XRect(335, 245, page.Width, page.Height));
+            textFormatter.DrawString(documentos_anexos, arial_7, XBrushes.Black, new XRect(335, 257, page.Width, page.Height));
+
+            //Destinatário
+            graphics.DrawRectangle(XBrushes.LightGray, 45, 280, 500, 13);
+            textFormatter.DrawString("Destinatário", arial_9_bold, XBrushes.Black, new XRect(50, 281, page.Width, page.Height));
+            graphics.DrawLine(XPens.Black, 45, 280, 545, 280);
+            graphics.DrawLine(XPens.Black, 45, 293, 545, 293);
 
             SaveFile("arquivo", doc);
         }

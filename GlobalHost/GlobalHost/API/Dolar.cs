@@ -18,17 +18,32 @@ namespace GlobalHost.API
             {
                 dolar = 0;
             };
-            return dolar;
+            string x = "" + ((double)dolar / 10000);
+            return Convert.ToDouble(x.Substring(0, x.IndexOf(',') + 3));
         }
 
         public static double ConvertToDolar(double real)
         {
-            return (real * getDolar());
+            string x = "" + (real / getDolar());
+            return Convert.ToDouble(x.Substring(0, x.IndexOf(',') + 3));
+        }
+
+        public static double ConvertToDolar(string real)
+        {
+            string x = "" + (Convert.ToDouble(real) / getDolar());
+            return Convert.ToDouble(x.Substring(0, x.IndexOf(',') + 3));
         }
 
         public static double ConvertToReal(double dolar)
         {
-            return dolar * getDolar();
+            string x = "" + (dolar * getDolar());
+            return Convert.ToDouble(x.Substring(0, x.IndexOf(',') + 3));
+        }
+
+        public static double ConvertToReal(string dolar)
+        {
+            string x = "" + (Convert.ToDouble(dolar) * getDolar());
+            return Convert.ToDouble(x.Substring(0, x.IndexOf(',') + 3));
         }
     }
 }
