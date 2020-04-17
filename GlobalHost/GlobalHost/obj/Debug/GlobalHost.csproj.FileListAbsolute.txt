@@ -16,3 +16,4 @@ C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\Pd
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\PdfSharp.Charting.xml
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\de\PdfSharp.resources.dll
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\de\PdfSharp.Charting.resources.dll
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\Tulpep.NotificationWindow.dll
