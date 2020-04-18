@@ -7,7 +7,10 @@ namespace GlobalHost.Persistencia
 {
     class Banco
     {
-        private readonly string strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\ProjetoMVC\Proj-Aula-BD-novo-embranco\Banco\Banco.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;" 
+            + @"AttachDbFilename=C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\Database\GlobalDB.mdf;" 
+            + @"Integrated Security=True;" 
+            + @"Connect Timeout=30";
 
         private SqlConnection con;
         private SqlTransaction trans;
