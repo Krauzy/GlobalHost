@@ -16,5 +16,20 @@ namespace GlobalHost.Visao
         {
             InitializeComponent();
         }
+
+        private void panel28_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel39_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel44_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

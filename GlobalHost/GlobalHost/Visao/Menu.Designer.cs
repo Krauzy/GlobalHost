@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.paneMenu = new System.Windows.Forms.Panel();
             this.btSobre = new System.Windows.Forms.Button();
             this.btCot = new System.Windows.Forms.Button();
             this.btServ = new System.Windows.Forms.Button();
@@ -40,20 +40,26 @@
             this.ScreenSobre = new GlobalHost.Visao.Sobre();
             this.ScreenCotacao = new GlobalHost.Visao.Cotacao();
             this.pnHome = new GlobalHost.Visao.PaneHome();
-            this.panel1.SuspendLayout();
+            this.paneServ = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.bt = new System.Windows.Forms.Button();
+            this.paneMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.paneServ.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // paneMenu
             // 
-            this.panel1.Controls.Add(this.btSobre);
-            this.panel1.Controls.Add(this.btCot);
-            this.panel1.Controls.Add(this.btServ);
-            this.panel1.Controls.Add(this.btHome);
-            this.panel1.Location = new System.Drawing.Point(0, 99);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(227, 490);
-            this.panel1.TabIndex = 1;
+            this.paneMenu.Controls.Add(this.btSobre);
+            this.paneMenu.Controls.Add(this.btCot);
+            this.paneMenu.Controls.Add(this.btServ);
+            this.paneMenu.Controls.Add(this.btHome);
+            this.paneMenu.Location = new System.Drawing.Point(0, 99);
+            this.paneMenu.Name = "paneMenu";
+            this.paneMenu.Size = new System.Drawing.Size(227, 490);
+            this.paneMenu.TabIndex = 1;
             // 
             // btSobre
             // 
@@ -184,6 +190,73 @@
             this.pnHome.Size = new System.Drawing.Size(1031, 562);
             this.pnHome.TabIndex = 7;
             // 
+            // paneServ
+            // 
+            this.paneServ.Controls.Add(this.button1);
+            this.paneServ.Controls.Add(this.button2);
+            this.paneServ.Controls.Add(this.button3);
+            this.paneServ.Controls.Add(this.bt);
+            this.paneServ.Location = new System.Drawing.Point(0, 99);
+            this.paneServ.Name = "paneServ";
+            this.paneServ.Size = new System.Drawing.Size(227, 490);
+            this.paneServ.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.button1.Location = new System.Drawing.Point(0, 180);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(225, 59);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "SERVIÇO 4";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.button2.Location = new System.Drawing.Point(0, 120);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(225, 59);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "SERVIÇO 3";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.button3.Location = new System.Drawing.Point(0, 60);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(225, 59);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "SERVIÇO 2";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // bt
+            // 
+            this.bt.BackColor = System.Drawing.Color.Transparent;
+            this.bt.FlatAppearance.BorderSize = 0;
+            this.bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.bt.Location = new System.Drawing.Point(0, 0);
+            this.bt.Name = "bt";
+            this.bt.Size = new System.Drawing.Size(225, 59);
+            this.bt.TabIndex = 0;
+            this.bt.Text = "SERVIÇO 1";
+            this.bt.UseVisualStyleBackColor = false;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,15 +268,17 @@
             this.Controls.Add(this.ScreenCotacao);
             this.Controls.Add(this.brMinimize);
             this.Controls.Add(this.btClose);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.paneServ);
+            this.Controls.Add(this.paneMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
-            this.panel1.ResumeLayout(false);
+            this.paneMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.paneServ.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,7 +287,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel paneMenu;
         private System.Windows.Forms.Button btClose;
         private System.Windows.Forms.Button brMinimize;
         private System.Windows.Forms.Button btSobre;
@@ -222,5 +297,10 @@
         private Cotacao ScreenCotacao;
         private Sobre ScreenSobre;
         private PaneHome pnHome;
+        private System.Windows.Forms.Panel paneServ;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button bt;
     }
 }

@@ -17,6 +17,7 @@ namespace GlobalHost.Visao
         public Menu()
         {
             InitializeComponent();
+            paneMenu.BringToFront();
             //
             btHome.ForeColor = Color.White;
             btHome.BackColor = Color.FromArgb(0, 122, 204);
@@ -128,6 +129,7 @@ namespace GlobalHost.Visao
             ser = true;
             sobre = false;
             changeBool();
+            paneServ.BringToFront();
         }
 
         private void btCot_Click(object sender, EventArgs e)
