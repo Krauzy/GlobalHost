@@ -106,6 +106,12 @@
     <Compile Include="Visao\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\PaneHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\PaneHome.Designer.cs">
+      <DependentUpon>PaneHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Param.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\PaneHome.resx">
+      <DependentUpon>PaneHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Param.resx">
       <DependentUpon>Param.cs</DependentUpon>
@@ -232,6 +241,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\courier.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-folha-de-papel-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

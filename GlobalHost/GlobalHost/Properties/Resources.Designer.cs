@@ -93,6 +93,16 @@ namespace GlobalHost.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_folha_de_papel_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-folha-de-papel-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_semi_truck_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-semi-truck-100", resourceCulture);

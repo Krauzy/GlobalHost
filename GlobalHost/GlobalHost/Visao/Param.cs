@@ -1,5 +1,5 @@
 ﻿using GlobalHost.Controlador;
-using System.Threading;
+using System;
 using System.Windows.Forms;
 
 namespace GlobalHost.Visao
@@ -9,16 +9,15 @@ namespace GlobalHost.Visao
         public Param()
         {
             InitializeComponent();
-            //Thread T = new Thread(new ThreadStart(init));
-            //T.Start();
             init();
         }
 
         private void init()
         {
+            DateTime data = Controle.getParametro().Data_abertura;
             lbCNPJ.Text = Controle.getParametro().Cnpj;
             lbAtividade.Text = Controle.getParametro().Atividade;
-            lbData.Text = "" + Controle.getParametro().Data_abertura;
+            lbData.Text = data.Day + "/" + data.Month + "/" + data.Year;
             lbEmail.Text = Controle.getParametro().Email;
             lbEndereco.Text = Controle.getParametro().Endereco;
             lbNome.Text = Controle.getParametro().Nome_fantasia;

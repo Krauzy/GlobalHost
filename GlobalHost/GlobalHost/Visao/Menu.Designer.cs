@@ -37,8 +37,9 @@
             this.btClose = new System.Windows.Forms.Button();
             this.brMinimize = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ScreenCotacao = new GlobalHost.Visao.Cotacao();
             this.ScreenSobre = new GlobalHost.Visao.Sobre();
+            this.ScreenCotacao = new GlobalHost.Visao.Cotacao();
+            this.pnHome = new GlobalHost.Visao.PaneHome();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -159,14 +160,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // ScreenCotacao
-            // 
-            this.ScreenCotacao.BackColor = System.Drawing.Color.White;
-            this.ScreenCotacao.Location = new System.Drawing.Point(225, 27);
-            this.ScreenCotacao.Name = "ScreenCotacao";
-            this.ScreenCotacao.Size = new System.Drawing.Size(1031, 562);
-            this.ScreenCotacao.TabIndex = 5;
-            // 
             // ScreenSobre
             // 
             this.ScreenSobre.BackColor = System.Drawing.Color.White;
@@ -175,12 +168,29 @@
             this.ScreenSobre.Size = new System.Drawing.Size(1031, 562);
             this.ScreenSobre.TabIndex = 6;
             // 
+            // ScreenCotacao
+            // 
+            this.ScreenCotacao.BackColor = System.Drawing.Color.White;
+            this.ScreenCotacao.Location = new System.Drawing.Point(225, 27);
+            this.ScreenCotacao.Name = "ScreenCotacao";
+            this.ScreenCotacao.Size = new System.Drawing.Size(1031, 562);
+            this.ScreenCotacao.TabIndex = 5;
+            // 
+            // pnHome
+            // 
+            this.pnHome.BackColor = System.Drawing.Color.White;
+            this.pnHome.Location = new System.Drawing.Point(225, 27);
+            this.pnHome.Name = "pnHome";
+            this.pnHome.Size = new System.Drawing.Size(1031, 562);
+            this.pnHome.TabIndex = 7;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1255, 590);
+            this.Controls.Add(this.pnHome);
             this.Controls.Add(this.ScreenSobre);
             this.Controls.Add(this.ScreenCotacao);
             this.Controls.Add(this.brMinimize);
@@ -211,5 +221,6 @@
         private System.Windows.Forms.Button btHome;
         private Cotacao ScreenCotacao;
         private Sobre ScreenSobre;
+        private PaneHome pnHome;
     }
 }

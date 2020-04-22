@@ -25,6 +25,7 @@ namespace GlobalHost.Visao
             ser = false;
             sobre = false;
             changeBool();
+            pnHome.BringToFront();
             //
 
         }
@@ -115,7 +116,7 @@ namespace GlobalHost.Visao
             ser = false;
             sobre = false;
             changeBool();
-            //pnHome.BringToFront();
+            pnHome.BringToFront();
         }
 
         private void btServ_Click(object sender, EventArgs e)
