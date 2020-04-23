@@ -13,6 +13,9 @@ namespace GlobalHost.Visao
         private bool home = false;
         private bool ser = false;
         private bool sobre = false;
+        private bool ger = false;
+        private bool fun = false;
+        private bool rel = false;
 
         public Menu()
         {
@@ -28,7 +31,25 @@ namespace GlobalHost.Visao
             changeBool();
             pnHome.BringToFront();
             //
+        }
 
+        private void changeBoolServ()
+        {
+            if (ger == false)
+            {
+                btGer.ForeColor = Color.FromArgb(51, 51, 51);
+                btGer.BackColor = Color.White;
+            }
+            if (fun == false)
+            {
+                btFun.ForeColor = Color.FromArgb(51, 51, 51);
+                btFun.BackColor = Color.White;
+            }
+            if (rel == false)
+            {
+                btRel.ForeColor = Color.FromArgb(51, 51, 51);
+                btRel.BackColor = Color.White;
+            }
         }
 
         private void changeBool()
@@ -129,7 +150,15 @@ namespace GlobalHost.Visao
             ser = true;
             sobre = false;
             changeBool();
+            pnHome.BringToFront();
             paneServ.BringToFront();
+            btGer.ForeColor = Color.White;
+            btGer.BackColor = Color.FromArgb(0, 122, 204);
+            ger = true;
+            fun = false;
+            rel = false;
+            changeBoolServ();
+            pnGerenciamento.BringToFront();
         }
 
         private void btCot_Click(object sender, EventArgs e)
@@ -144,5 +173,50 @@ namespace GlobalHost.Visao
             ScreenCotacao.BringToFront();
         }
 
+        private void btGer_Click(object sender, EventArgs e)
+        {
+            ((Button)sender).ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.FromArgb(0, 122, 204);
+            ger = true;
+            fun = false;
+            rel = false;
+            changeBoolServ();
+            pnGerenciamento.BringToFront();
+        }
+
+        private void btFun_Click(object sender, EventArgs e)
+        {
+            ((Button)sender).ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.FromArgb(0, 122, 204);
+            ger = false;
+            fun = true;
+            rel = false;
+            changeBoolServ();
+            pnFuncoes.BringToFront();
+        }
+
+        private void btRel_Click(object sender, EventArgs e)
+        {
+            ((Button)sender).ForeColor = Color.White;
+            ((Button)sender).BackColor = Color.FromArgb(0, 122, 204);
+            ger = false;
+            fun = false;
+            rel = true;
+            changeBoolServ();
+            pnRelatorios.BringToFront();
+        }
+
+        private void btVoltar_Click(object sender, EventArgs e)
+        {
+            btHome.ForeColor = Color.White;
+            btHome.BackColor = Color.FromArgb(0, 122, 204);
+            cot = false;
+            home = true;
+            ser = false;
+            sobre = false;
+            changeBool();
+            pnHome.BringToFront();
+            paneMenu.BringToFront();
+        }
     }
 }

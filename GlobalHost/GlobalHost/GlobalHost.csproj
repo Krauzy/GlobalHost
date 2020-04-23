@@ -89,9 +89,12 @@
     <Compile Include="Controlador\Controle.cs" />
     <Compile Include="Modelo\Parametros.cs" />
     <Compile Include="Modelo\Tipo_Carga.cs" />
+    <Compile Include="Modelo\Tipo_Transporte.cs" />
+    <Compile Include="Modelo\Transportadora.cs" />
     <Compile Include="Persistencia\Banco.cs" />
     <Compile Include="Persistencia\ParametrosDB.cs" />
     <Compile Include="Persistencia\Tipo_CargaDB.cs" />
+    <Compile Include="Persistencia\Tipo_TransporteDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Visao\Cotacao.cs">
@@ -117,6 +120,12 @@
     </Compile>
     <Compile Include="Visao\Param.Designer.cs">
       <DependentUpon>Param.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Servicos\ScreenTipo_Transporte.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\ScreenTipo_Transporte.Designer.cs">
+      <DependentUpon>ScreenTipo_Transporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Sobre.cs">
       <SubType>UserControl</SubType>
@@ -145,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Param.resx">
       <DependentUpon>Param.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\ScreenTipo_Transporte.resx">
+      <DependentUpon>ScreenTipo_Transporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Sobre.resx">
       <DependentUpon>Sobre.cs</DependentUpon>
@@ -209,9 +221,7 @@
   <ItemGroup>
     <None Include="Resources\logo-cgf-200x47.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Visao\Servicos\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
