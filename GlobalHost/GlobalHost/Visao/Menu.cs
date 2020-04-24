@@ -218,5 +218,10 @@ namespace GlobalHost.Visao
             pnHome.BringToFront();
             paneMenu.BringToFront();
         }
+
+        private void btTipoTransporte_Click(object sender, EventArgs e)
+        {
+            scrTipo_Transporte.BringToFront();
+        }
     }
 }

@@ -96,5 +96,51 @@ namespace GlobalHost.Controlador
             TransportadoraDB DB = new TransportadoraDB();
             return DB.Update(t);
         }
+
+        public DataTable getTransportadora(object obj)
+        {
+            TransportadoraDB DB = new TransportadoraDB();
+            DataTable table = new DataTable();
+            List<object> list = new List<object>();
+            if(obj.GetType() == typeof(int))
+            {
+                Transportadora t = DB.get((int)obj);
+                list.Add(t);
+            }
+            else if(obj.GetType() == typeof(string))
+            {
+                if (((string)obj).Length > 0)
+                    list = DB.getList((string)obj);
+                else
+                    list = DB.getAll();
+            }
+            table.Columns.Add("id", typeof(int));
+            table.Columns.Add("nome", typeof(string));
+            table.Columns.Add("valor", typeof(double));
+            table.Columns.Add("max_carga", typeof(int));
+            table.Columns.Add("endereco", typeof(string));
+            table.Columns.Add("contato", typeof(string));
+            table.Columns.Add("telefone", typeof(string));
+            table.Columns.Add("email", typeof(string));
+            table.Columns.Add("cnpj", typeof(string));
+            table.Columns.Add("tipo", typeof(Tipo_Transporte));
+            foreach(var item in list)
+            {
+                DataRow linha = table.NewRow();
+                Transportadora t = (Transportadora)item;
+                linha["id"] = t.Id;
+                linha["nome"] = t.Nome;
+                linha["valor"] = t.Valor;
+                linha["max_carga"] = t.Max_carga;
+                linha["endereco"] = t.Endereco;
+                linha["contato"] = t.Contato;
+                linha["telefone"] = t.Telefone;
+                linha["email"] = t.Email;
+                linha["cnpj"] = t.Cnpj;
+                linha["tipo"] = t.Tipo;
+                table.Rows.Add(linha);
+            }
+            return table;
+        }
     }
 }

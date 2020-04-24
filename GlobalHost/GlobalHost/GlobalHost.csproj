@@ -95,6 +95,7 @@
     <Compile Include="Persistencia\ParametrosDB.cs" />
     <Compile Include="Persistencia\Tipo_CargaDB.cs" />
     <Compile Include="Persistencia\Tipo_TransporteDB.cs" />
+    <Compile Include="Persistencia\TransportadoraDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Visao\Cotacao.cs">
@@ -221,7 +222,9 @@
   <ItemGroup>
     <None Include="Resources\logo-cgf-200x47.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\insert2.png" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
@@ -254,6 +257,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-folha-de-papel-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alterar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lixo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alterar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lixo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

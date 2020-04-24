@@ -45,7 +45,7 @@
             this.pnGerenciamento = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btTipoTransporte = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -64,6 +64,7 @@
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
+            this.scrTipo_Transporte = new GlobalHost.Visao.Servicos.ScreenTipo_Transporte();
             this.pnHome = new GlobalHost.Visao.PaneHome();
             this.ScreenSobre = new GlobalHost.Visao.Sobre();
             this.ScreenCotacao = new GlobalHost.Visao.Cotacao();
@@ -266,7 +267,7 @@
             // 
             this.pnGerenciamento.Controls.Add(this.button6);
             this.pnGerenciamento.Controls.Add(this.button5);
-            this.pnGerenciamento.Controls.Add(this.button4);
+            this.pnGerenciamento.Controls.Add(this.btTipoTransporte);
             this.pnGerenciamento.Controls.Add(this.button3);
             this.pnGerenciamento.Controls.Add(this.button2);
             this.pnGerenciamento.Controls.Add(this.button1);
@@ -303,19 +304,20 @@
             this.button5.Text = "CLIENTE";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btTipoTransporte
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(374, 224);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(149, 111);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "TIPO DE TRANSPORTE";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btTipoTransporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btTipoTransporte.FlatAppearance.BorderSize = 0;
+            this.btTipoTransporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btTipoTransporte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTipoTransporte.ForeColor = System.Drawing.Color.White;
+            this.btTipoTransporte.Location = new System.Drawing.Point(374, 224);
+            this.btTipoTransporte.Name = "btTipoTransporte";
+            this.btTipoTransporte.Size = new System.Drawing.Size(149, 111);
+            this.btTipoTransporte.TabIndex = 3;
+            this.btTipoTransporte.Text = "TIPO DE TRANSPORTE";
+            this.btTipoTransporte.UseVisualStyleBackColor = false;
+            this.btTipoTransporte.Click += new System.EventHandler(this.btTipoTransporte_Click);
             // 
             // button3
             // 
@@ -568,6 +570,14 @@
             this.button19.Text = "FUNCIONÁRIO";
             this.button19.UseVisualStyleBackColor = false;
             // 
+            // scrTipo_Transporte
+            // 
+            this.scrTipo_Transporte.BackColor = System.Drawing.Color.White;
+            this.scrTipo_Transporte.Location = new System.Drawing.Point(225, 27);
+            this.scrTipo_Transporte.Name = "scrTipo_Transporte";
+            this.scrTipo_Transporte.Size = new System.Drawing.Size(1031, 562);
+            this.scrTipo_Transporte.TabIndex = 13;
+            // 
             // pnHome
             // 
             this.pnHome.BackColor = System.Drawing.Color.White;
@@ -606,6 +616,7 @@
             this.Controls.Add(this.pnGerenciamento);
             this.Controls.Add(this.pnFuncoes);
             this.Controls.Add(this.pnRelatorios);
+            this.Controls.Add(this.scrTipo_Transporte);
             this.Controls.Add(this.pnHome);
             this.Controls.Add(this.ScreenSobre);
             this.Controls.Add(this.ScreenCotacao);
@@ -647,7 +658,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btTipoTransporte;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel pnFuncoes;
@@ -665,5 +676,6 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button18;
+        private Servicos.ScreenTipo_Transporte scrTipo_Transporte;
     }
 }
