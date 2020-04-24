@@ -48,8 +48,8 @@ namespace GlobalHost.Persistencia
             }
             return result;
         }
-
-        public Tipo_Carga Get(string desc)
+        /*
+        public Tipo_Carga get(string desc)
         {
             DataTable dt = new DataTable();
             Tipo_Carga tp = null;
@@ -66,8 +66,8 @@ namespace GlobalHost.Persistencia
             banco.Disconnect();
             return tp;
         }
-
-        public Tipo_Carga Get(int id)
+        */
+        public Tipo_Carga get(int id)
         {
             DataTable dt = new DataTable();
             Tipo_Carga tc = null;
@@ -85,7 +85,7 @@ namespace GlobalHost.Persistencia
             return tc;
         }
 
-        public List<object> GetList(string op)
+        public List<object> getList(string op)
         {
             List<object> list = new List<object>();
             DataTable dt = new DataTable();
@@ -108,7 +108,7 @@ namespace GlobalHost.Persistencia
             return list;
         }
 
-        public List<object> GetAll()
+        public List<object> getAll()
         {
             List<object> list = new List<object>();
             DataTable dt = new DataTable();

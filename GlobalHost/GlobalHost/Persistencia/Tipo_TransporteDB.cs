@@ -93,7 +93,7 @@ namespace GlobalHost.Persistencia
         {
             DataTable dt = new DataTable();
             List<object> lista = new List<object>();
-            string SQL = @"SELECT * FROM Tipo_Transporte";
+            string SQL = @"SELECT * FROM Tipo_Transporte ORDER BY id";
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt);
             if (dt.Rows.Count > 0)
