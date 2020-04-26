@@ -7,11 +7,7 @@ namespace GlobalHost.Persistencia
 {
     class Banco
     {
-        private readonly string strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;" 
-            + @"AttachDbFilename=C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\Database\GlobalDB.mdf;" 
-            + @"Integrated Security=True;" 
-            + @"Connect Timeout=30";
-
+        private readonly string strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\GlobalDB.mdf;Integrated Security=True;Connect Timeout=30";
         private SqlConnection con;
         private SqlTransaction trans;
 
@@ -32,7 +28,7 @@ namespace GlobalHost.Persistencia
             }
             catch (Exception e)
             {
-                MessageBox.Show(null, "Connection Failed: " + e.Message, "ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(null, "Falha de Conexão: " + e.Message, "ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return result;
         }
@@ -86,7 +82,7 @@ namespace GlobalHost.Persistencia
             }
             catch (Exception e)
             {
-                MessageBox.Show(null, "Error on Execute Query: " + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(null, "Erro de Consulta: " + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -104,7 +100,7 @@ namespace GlobalHost.Persistencia
             }
             catch (Exception e)
             {
-                MessageBox.Show(null, "Erro execute nonquery" + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(null, "Error de Execução: " + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

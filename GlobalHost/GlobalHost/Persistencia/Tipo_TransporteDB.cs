@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 
 namespace GlobalHost.Persistencia
 {
@@ -22,7 +23,7 @@ namespace GlobalHost.Persistencia
                 Tipo_Transporte tt = (Tipo_Transporte)obj;
                 string SQL = @"INSERT INTO Tipo_Transporte (descricao, max_peso, dimensoes) VALUES (@desc, @peso, @dim)";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, "@desc", tt.Descricao, "@peso", tt.Max_peso, tt.Dimensoes);
+                result = banco.ExecuteNonQuery(SQL, "@desc", tt.Descricao, "@peso", tt.Max_peso, "@dim", tt.Dimensoes);
                 banco.Disconnect();
             }
             return result;
@@ -45,7 +46,7 @@ namespace GlobalHost.Persistencia
                 Tipo_Transporte tt = (Tipo_Transporte)obj;
                 string SQL = @"UPDATE Tipo_Transporte SET descricao = @desc, max_peso = @peso, dimensoes = @dim WHERE id = " + tt.Id;
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, "@desc", tt.Descricao, "@peso", tt.Max_peso, tt.Dimensoes);
+                result = banco.ExecuteNonQuery(SQL, "@desc", tt.Descricao, "@peso", tt.Max_peso, "@dim", tt.Dimensoes);
                 banco.Disconnect();
             }
             return result;
@@ -62,7 +63,7 @@ namespace GlobalHost.Persistencia
             {
                 tt = new Tipo_Transporte((int)dt.Rows[0]["id"],
                                               dt.Rows[0]["descricao"].ToString(),
-                                      (double)dt.Rows[0]["max_peso"],
+                             Convert.ToDouble(dt.Rows[0]["max_peso"].ToString()),
                                               dt.Rows[0]["dimensoes"].ToString());
             }
             banco.Disconnect();
@@ -73,17 +74,20 @@ namespace GlobalHost.Persistencia
         {
             DataTable dt = new DataTable();
             List<object> lista = new List<object>();
-            string SQL = @"SELECT * FROM Tipo_Transporte WHERE @op";
+            string SQL = @"SELECT * FROM Tipo_Transporte WHERE " + op;
             banco.Connect();
-            banco.ExecuteQuery(SQL, out dt, "@op", op);
+            banco.ExecuteQuery(SQL, out dt);
             if (dt.Rows.Count > 0)
             {
                 Tipo_Transporte tt;
-                tt = new Tipo_Transporte((int)dt.Rows[0]["id"],
-                                              dt.Rows[0]["descricao"].ToString(),
-                                      (double)dt.Rows[0]["max_peso"],
-                                              dt.Rows[0]["dimensoes"].ToString());
-                lista.Add(tt);
+                for(int i = 0; i < dt.Rows.Count; i++)
+                {
+                    tt = new Tipo_Transporte((int)dt.Rows[i]["id"],
+                                                  dt.Rows[i]["descricao"].ToString(),
+                                 Convert.ToDouble(dt.Rows[i]["max_peso"].ToString()),
+                                                  dt.Rows[i]["dimensoes"].ToString());
+                    lista.Add(tt);
+                }
             }
             banco.Disconnect();
             return lista;
@@ -93,17 +97,20 @@ namespace GlobalHost.Persistencia
         {
             DataTable dt = new DataTable();
             List<object> lista = new List<object>();
-            string SQL = @"SELECT * FROM Tipo_Transporte ORDER BY id";
+            string SQL = @"Select * from Tipo_Transporte";
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt);
             if (dt.Rows.Count > 0)
             {
                 Tipo_Transporte tt;
-                tt = new Tipo_Transporte((int)dt.Rows[0]["id"],
-                                              dt.Rows[0]["descricao"].ToString(),
-                                      (double)dt.Rows[0]["max_peso"],
-                                              dt.Rows[0]["dimensoes"].ToString());
-                lista.Add(tt);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    tt = new Tipo_Transporte((int)dt.Rows[i]["id"],
+                                                  dt.Rows[i]["descricao"].ToString(),
+                                 Convert.ToDouble(dt.Rows[i]["max_peso"].ToString()),
+                                                  dt.Rows[i]["dimensoes"].ToString());
+                    lista.Add(tt);
+                }
             }
             banco.Disconnect();
             return lista;
