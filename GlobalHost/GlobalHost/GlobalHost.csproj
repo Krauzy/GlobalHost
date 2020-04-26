@@ -84,6 +84,7 @@
     <Compile Include="API\Loading.cs" />
     <Compile Include="API\Quot.cs" />
     <Compile Include="API\PDF.cs" />
+    <Compile Include="API\TextFile.cs" />
     <Compile Include="API\Validate.cs" />
     <Compile Include="Connected Services\WebServiceDolar\Reference.cs">
       <AutoGen>True</AutoGen>

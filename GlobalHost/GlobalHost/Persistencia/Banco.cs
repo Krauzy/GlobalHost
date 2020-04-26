@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GlobalHost.API;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -10,6 +11,7 @@ namespace GlobalHost.Persistencia
         private readonly string strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\GlobalDB.mdf;Integrated Security=True;Connect Timeout=30";
         private SqlConnection con;
         private SqlTransaction trans;
+        private string path = @"C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\log.txt";
 
         public Banco ()
         {
@@ -75,6 +77,10 @@ namespace GlobalHost.Persistencia
                 cmd.Transaction = trans;
                 for (int i = 0; i < parametros.Length; i += 2)
                     cmd.Parameters.AddWithValue(parametros[i].ToString(), parametros[i + 1]);
+                string n = sql;
+                for (int i = 0; i < parametros.Length; i += 2)
+                    n = n.Replace(parametros[i].ToString(), parametros[i + 1].ToString());
+                TextFile.Write(path, "[" + DateTime.Now + "] " + n.ToUpper());
                 SqlDataReader dr = cmd.ExecuteReader();
                 dt.Load(dr);
                 dr.Close();
@@ -95,6 +101,10 @@ namespace GlobalHost.Persistencia
                 cmd.Transaction = trans;
                 for (int i = 0; i < parametros.Length; i += 2)
                     cmd.Parameters.AddWithValue(parametros[i].ToString(), parametros[i + 1]);
+                string n = sql;
+                for (int i = 0; i < parametros.Length; i += 2)
+                    n = n.Replace(parametros[i].ToString(), parametros[i + 1].ToString());
+                TextFile.Write(path, "[" + DateTime.Now + "] " + n.ToUpper());
                 cmd.ExecuteNonQuery();
                 return true;
             }
