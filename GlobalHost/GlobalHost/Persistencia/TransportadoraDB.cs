@@ -70,7 +70,7 @@ namespace GlobalHost.Persistencia
             {
                 t = new Transportadora((int)dt.Rows[0]["id"],
                                             dt.Rows[0]["nome"].ToString(),
-                                    (double)dt.Rows[0]["valor"],
+                           Convert.ToDouble(dt.Rows[0]["valor"].ToString()),
                                        (int)dt.Rows[0]["max_carga"],
                                             dt.Rows[0]["endereco"].ToString(),
                                             dt.Rows[0]["contato"].ToString(),
@@ -88,24 +88,24 @@ namespace GlobalHost.Persistencia
             DataTable dt = new DataTable();
             List<object> list = new List<object>();
             Tipo_TransporteDB DB = new Tipo_TransporteDB();
-            string SQL = @"SELECT * FROM Transportadora WHERE @op";
+            string SQL = @"SELECT * FROM Transportadora WHERE " + op;
             banco.Connect();
-            banco.ExecuteQuery(SQL, out dt, "@op", op);
+            banco.ExecuteQuery(SQL, out dt);
             if (dt.Rows.Count > 0)
             {
                 Transportadora t;
                 for(int i = 0; i < dt.Rows.Count; i++)
                 {
-                    t = new Transportadora((int)dt.Rows[0]["id"],
-                                                dt.Rows[0]["nome"].ToString(),
-                                        (double)dt.Rows[0]["valor"],
-                                           (int)dt.Rows[0]["max_carga"],
-                                                dt.Rows[0]["endereco"].ToString(),
-                                                dt.Rows[0]["contato"].ToString(),
-                                                dt.Rows[0]["telefone"].ToString(),
-                                                dt.Rows[0]["email"].ToString(),
-                                                dt.Rows[0]["cnpj"].ToString(),
-                                    DB.get((int)dt.Rows[0]["tipo"]));
+                    t = new Transportadora((int)dt.Rows[i]["id"],
+                                                dt.Rows[i]["nome"].ToString(),
+                               Convert.ToDouble(dt.Rows[i]["valor"].ToString()),
+                                           (int)dt.Rows[i]["max_carga"],
+                                                dt.Rows[i]["endereco"].ToString(),
+                                                dt.Rows[i]["contato"].ToString(),
+                                                dt.Rows[i]["telefone"].ToString(),
+                                                dt.Rows[i]["email"].ToString(),
+                                                dt.Rows[i]["cnpj"].ToString(),
+                                    DB.get((int)dt.Rows[i]["tipo"]));
                     list.Add(t);
                 }
             }
@@ -126,16 +126,16 @@ namespace GlobalHost.Persistencia
                 Transportadora t;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    t = new Transportadora((int)dt.Rows[0]["id"],
-                                                dt.Rows[0]["nome"].ToString(),
-                                        (double)dt.Rows[0]["valor"],
-                                           (int)dt.Rows[0]["max_carga"],
-                                                dt.Rows[0]["endereco"].ToString(),
-                                                dt.Rows[0]["contato"].ToString(),
-                                                dt.Rows[0]["telefone"].ToString(),
-                                                dt.Rows[0]["email"].ToString(),
-                                                dt.Rows[0]["cnpj"].ToString(),
-                                    DB.get((int)dt.Rows[0]["tipo"]));
+                    t = new Transportadora((int)dt.Rows[i]["id"],
+                                                dt.Rows[i]["nome"].ToString(),
+                               Convert.ToDouble(dt.Rows[i]["valor"].ToString()),
+                                           (int)dt.Rows[i]["max_carga"],
+                                                dt.Rows[i]["endereco"].ToString(),
+                                                dt.Rows[i]["contato"].ToString(),
+                                                dt.Rows[i]["telefone"].ToString(),
+                                                dt.Rows[i]["email"].ToString(),
+                                                dt.Rows[i]["cnpj"].ToString(),
+                                    DB.get((int)dt.Rows[i]["tipo"]));
                     list.Add(t);
                 }
             }

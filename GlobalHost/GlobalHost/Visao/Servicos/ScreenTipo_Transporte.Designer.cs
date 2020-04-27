@@ -30,14 +30,22 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvTipo = new System.Windows.Forms.DataGridView();
+            this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_dim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolExluir = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoTransporteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.globalDBDataSet = new GlobalHost.GlobalDBDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,28 +58,24 @@
             this.txtComprimento = new System.Windows.Forms.TextBox();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.tipo_TransporteTableAdapter = new GlobalHost.GlobalDBDataSetTableAdapters.Tipo_TransporteTableAdapter();
+            this.txtBusca = new System.Windows.Forms.TextBox();
+            this.cbFiltro = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxpesoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dimensoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.globalDBDataSet = new GlobalHost.GlobalDBDataSet();
-            this.tipoTransporteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tipo_TransporteTableAdapter = new GlobalHost.GlobalDBDataSetTableAdapters.Tipo_TransporteTableAdapter();
-            this.txtBusca = new System.Windows.Forms.TextBox();
-            this.cbFiltro = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_dim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolExluir = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.globalDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoTransporteBindingSource)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoTransporteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.globalDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -117,17 +121,21 @@
             this.col_id,
             this.col_desc,
             this.col_peso,
-            this.col_dim});
+            this.col_dim,
+            this.idDataGridViewTextBoxColumn,
+            this.descricaoDataGridViewTextBoxColumn,
+            this.maxpesoDataGridViewTextBoxColumn,
+            this.dimensoesDataGridViewTextBoxColumn});
             this.dgvTipo.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvTipo.DataSource = this.tipoTransporteBindingSource;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTipo.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTipo.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvTipo.EnableHeadersVisualStyles = false;
             this.dgvTipo.Location = new System.Drawing.Point(647, 174);
             this.dgvTipo.Name = "dgvTipo";
@@ -136,6 +144,78 @@
             this.dgvTipo.Size = new System.Drawing.Size(339, 357);
             this.dgvTipo.TabIndex = 6;
             this.dgvTipo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipo_CellDoubleClick);
+            // 
+            // col_id
+            // 
+            this.col_id.DataPropertyName = "id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle2.NullValue = "-";
+            this.col_id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.col_id.HeaderText = "ID";
+            this.col_id.Name = "col_id";
+            this.col_id.ReadOnly = true;
+            this.col_id.Width = 50;
+            // 
+            // col_desc
+            // 
+            this.col_desc.DataPropertyName = "descricao";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.col_desc.DefaultCellStyle = dataGridViewCellStyle3;
+            this.col_desc.HeaderText = "Descrição";
+            this.col_desc.Name = "col_desc";
+            this.col_desc.ReadOnly = true;
+            this.col_desc.Width = 150;
+            // 
+            // col_peso
+            // 
+            this.col_peso.DataPropertyName = "max_peso";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.col_peso.DefaultCellStyle = dataGridViewCellStyle4;
+            this.col_peso.HeaderText = "Peso Máximo";
+            this.col_peso.Name = "col_peso";
+            this.col_peso.ReadOnly = true;
+            this.col_peso.Width = 60;
+            // 
+            // col_dim
+            // 
+            this.col_dim.DataPropertyName = "dimensoes";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.col_dim.DefaultCellStyle = dataGridViewCellStyle5;
+            this.col_dim.HeaderText = "Dimensões";
+            this.col_dim.Name = "col_dim";
+            this.col_dim.ReadOnly = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolExluir});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(110, 26);
+            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
+            // 
+            // toolExluir
+            // 
+            this.toolExluir.Name = "toolExluir";
+            this.toolExluir.Size = new System.Drawing.Size(109, 22);
+            this.toolExluir.Text = "Excluir";
+            // 
+            // tipoTransporteBindingSource
+            // 
+            this.tipoTransporteBindingSource.DataMember = "Tipo_Transporte";
+            this.tipoTransporteBindingSource.DataSource = this.globalDBDataSet;
+            // 
+            // globalDBDataSet
+            // 
+            this.globalDBDataSet.DataSetName = "GlobalDBDataSet";
+            this.globalDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label3
             // 
@@ -156,7 +236,7 @@
             this.txtNome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtNome.Location = new System.Drawing.Point(177, 134);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(353, 23);
+            this.txtNome.Size = new System.Drawing.Size(407, 23);
             this.txtNome.TabIndex = 10;
             // 
             // label4
@@ -273,6 +353,86 @@
             this.label9.TabIndex = 22;
             this.label9.Text = "(Largura x Altura x Comprimento)";
             // 
+            // txtID
+            // 
+            this.txtID.BackColor = System.Drawing.Color.White;
+            this.txtID.Enabled = false;
+            this.txtID.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtID.Location = new System.Drawing.Point(52, 134);
+            this.txtID.Name = "txtID";
+            this.txtID.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtID.Size = new System.Drawing.Size(78, 23);
+            this.txtID.TabIndex = 8;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
+            // 
+            // tipo_TransporteTableAdapter
+            // 
+            this.tipo_TransporteTableAdapter.ClearBeforeFill = true;
+            // 
+            // txtBusca
+            // 
+            this.txtBusca.BackColor = System.Drawing.Color.White;
+            this.txtBusca.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtBusca.Location = new System.Drawing.Point(647, 134);
+            this.txtBusca.Name = "txtBusca";
+            this.txtBusca.Size = new System.Drawing.Size(205, 23);
+            this.txtBusca.TabIndex = 33;
+            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
+            // 
+            // cbFiltro
+            // 
+            this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFiltro.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cbFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cbFiltro.FormattingEnabled = true;
+            this.cbFiltro.Items.AddRange(new object[] {
+            "ID",
+            "Descrição",
+            "Peso",
+            "Dimensão"});
+            this.cbFiltro.Location = new System.Drawing.Point(858, 133);
+            this.cbFiltro.Name = "cbFiltro";
+            this.cbFiltro.Size = new System.Drawing.Size(128, 25);
+            this.cbFiltro.TabIndex = 34;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label11.Location = new System.Drawing.Point(643, 111);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 19);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Buscar";
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "descricao";
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "descricao";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            // 
+            // maxpesoDataGridViewTextBoxColumn
+            // 
+            this.maxpesoDataGridViewTextBoxColumn.DataPropertyName = "max_peso";
+            this.maxpesoDataGridViewTextBoxColumn.HeaderText = "max_peso";
+            this.maxpesoDataGridViewTextBoxColumn.Name = "maxpesoDataGridViewTextBoxColumn";
+            // 
+            // dimensoesDataGridViewTextBoxColumn
+            // 
+            this.dimensoesDataGridViewTextBoxColumn.DataPropertyName = "dimensoes";
+            this.dimensoesDataGridViewTextBoxColumn.HeaderText = "dimensoes";
+            this.dimensoesDataGridViewTextBoxColumn.Name = "dimensoesDataGridViewTextBoxColumn";
+            // 
             // btnCancelar
             // 
             this.btnCancelar.Enabled = false;
@@ -306,7 +466,7 @@
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(94, 78);
             this.btnOk.TabIndex = 31;
-            this.btnOk.Text = "Excluir";
+            this.btnOk.Text = "OK";
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -365,133 +525,6 @@
             this.btnInserir.UseVisualStyleBackColor = true;
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
-            // txtID
-            // 
-            this.txtID.BackColor = System.Drawing.Color.White;
-            this.txtID.Enabled = false;
-            this.txtID.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtID.Location = new System.Drawing.Point(52, 134);
-            this.txtID.Name = "txtID";
-            this.txtID.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtID.Size = new System.Drawing.Size(78, 23);
-            this.txtID.TabIndex = 8;
-            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
-            // 
-            // globalDBDataSet
-            // 
-            this.globalDBDataSet.DataSetName = "GlobalDBDataSet";
-            this.globalDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tipoTransporteBindingSource
-            // 
-            this.tipoTransporteBindingSource.DataMember = "Tipo_Transporte";
-            this.tipoTransporteBindingSource.DataSource = this.globalDBDataSet;
-            // 
-            // tipo_TransporteTableAdapter
-            // 
-            this.tipo_TransporteTableAdapter.ClearBeforeFill = true;
-            // 
-            // txtBusca
-            // 
-            this.txtBusca.BackColor = System.Drawing.Color.White;
-            this.txtBusca.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtBusca.Location = new System.Drawing.Point(647, 134);
-            this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(205, 23);
-            this.txtBusca.TabIndex = 33;
-            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
-            // 
-            // cbFiltro
-            // 
-            this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFiltro.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.cbFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.cbFiltro.FormattingEnabled = true;
-            this.cbFiltro.Items.AddRange(new object[] {
-            "ID",
-            "Descrição",
-            "Peso",
-            "Dimensão"});
-            this.cbFiltro.Location = new System.Drawing.Point(858, 133);
-            this.cbFiltro.Name = "cbFiltro";
-            this.cbFiltro.Size = new System.Drawing.Size(128, 25);
-            this.cbFiltro.TabIndex = 34;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label11.Location = new System.Drawing.Point(643, 111);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 19);
-            this.label11.TabIndex = 36;
-            this.label11.Text = "Buscar";
-            // 
-            // col_id
-            // 
-            this.col_id.DataPropertyName = "id";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle6.NullValue = "-";
-            this.col_id.DefaultCellStyle = dataGridViewCellStyle6;
-            this.col_id.HeaderText = "ID";
-            this.col_id.Name = "col_id";
-            this.col_id.ReadOnly = true;
-            this.col_id.Width = 50;
-            // 
-            // col_desc
-            // 
-            this.col_desc.DataPropertyName = "descricao";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.col_desc.DefaultCellStyle = dataGridViewCellStyle13;
-            this.col_desc.HeaderText = "Descrição";
-            this.col_desc.Name = "col_desc";
-            this.col_desc.ReadOnly = true;
-            this.col_desc.Width = 150;
-            // 
-            // col_peso
-            // 
-            this.col_peso.DataPropertyName = "max_peso";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.col_peso.DefaultCellStyle = dataGridViewCellStyle14;
-            this.col_peso.HeaderText = "Peso Máximo";
-            this.col_peso.Name = "col_peso";
-            this.col_peso.ReadOnly = true;
-            this.col_peso.Width = 60;
-            // 
-            // col_dim
-            // 
-            this.col_dim.DataPropertyName = "dimensoes";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.col_dim.DefaultCellStyle = dataGridViewCellStyle15;
-            this.col_dim.HeaderText = "Dimensões";
-            this.col_dim.Name = "col_dim";
-            this.col_dim.ReadOnly = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolExluir});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(110, 26);
-            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
-            // 
-            // toolExluir
-            // 
-            this.toolExluir.Name = "toolExluir";
-            this.toolExluir.Size = new System.Drawing.Size(180, 22);
-            this.toolExluir.Text = "Excluir";
-            // 
             // ScreenTipo_Transporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -524,9 +557,9 @@
             this.Name = "ScreenTipo_Transporte";
             this.Size = new System.Drawing.Size(1031, 562);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.globalDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoTransporteBindingSource)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tipoTransporteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.globalDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -567,5 +600,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_dim;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolExluir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maxpesoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dimensoesDataGridViewTextBoxColumn;
     }
 }

@@ -231,7 +231,7 @@ namespace GlobalHost.Visao.Servicos
             {
                 if (txtPeso.Text != "" && txtLargura.Text != "" && txtComprimento.Text != "" && txtAltura.Text != "")
                     if (Controle.Insere_Tipo_Transporte(txtNome.Text, peso, L + ";" + A + ";" + C) == true)
-                        MessageBox.Show(txtNome.Text + " inserido com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show(txtNome.Text + " inserido com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -239,7 +239,7 @@ namespace GlobalHost.Visao.Servicos
             {
                 if (txtID.Text != "" && txtPeso.Text != "" && txtLargura.Text != "" && txtComprimento.Text != "" && txtAltura.Text != "")
                     if (Controle.Altera_Tipo_Transporte(Convert.ToInt32(txtID.Text), txtNome.Text, peso, L + ";" + A + ";" + C) == true)
-                        MessageBox.Show(txtNome.Text + " alterado com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show(txtNome.Text + " alterado com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
                         MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -249,11 +249,33 @@ namespace GlobalHost.Visao.Servicos
                 {
                     string n = Controle.getTipo_Transporte(Convert.ToInt32(id)).Rows[0]["descricao"].ToString();
                     if (Controle.Remove_Tipo_Transporte(Convert.ToInt32(id)) == true)
-                        MessageBox.Show(n + " removido com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show(n + " removido com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
                         MessageBox.Show("Falha ao remover " + n + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            ins = false;
+            alt = false;
+            exc = false;
+            changeBool();
+
+            txtID.Text = string.Empty;
+            txtNome.Text = string.Empty;
+            txtPeso.Text = string.Empty;
+            txtLargura.Text = string.Empty;
+            txtAltura.Text = string.Empty;
+            txtComprimento.Text = string.Empty;
+
+            txtID.Text = "";
+            txtNome.Text = "";
+            txtPeso.Text = "";
+            txtLargura.Text = "";
+            txtAltura.Text = "";
+            txtComprimento.Text = "";
+
+            btnOk.Enabled = false;
+            btnCancelar.Enabled = false;
+
             data = Controle.getTipo_Transporte("");
             dgvTipo.DataSource = data;
         }
@@ -262,23 +284,31 @@ namespace GlobalHost.Visao.Servicos
         {
             if (txtBusca.Text != string.Empty)
             {
-                switch (cbFiltro.Text)
+                try
                 {
-                    case "ID":
-                        data = Controle.getTipo_Transporte("id = " + Convert.ToInt32(txtBusca.Text));
-                        break;
+                    switch (cbFiltro.Text)
+                    {
+                        case "ID":
+                            data = Controle.getTipo_Transporte("id = " + Convert.ToInt32(txtBusca.Text));
+                            break;
 
-                    case "Descrição":
-                        data = Controle.getTipo_Transporte("descricao LIKE '%" + txtBusca.Text + "%'");
-                        break;
+                        case "Descrição":
+                            data = Controle.getTipo_Transporte("descricao LIKE '%" + txtBusca.Text + "%'");
+                            break;
 
-                    case "Peso":
-                        data = Controle.getTipo_Transporte("max_peso >= " + Convert.ToInt32(txtBusca.Text));
-                        break;
+                        case "Peso":
+                            data = Controle.getTipo_Transporte("max_peso >= " + Convert.ToInt32(txtBusca.Text));
+                            break;
 
-                    case "Dimensão":
-                        data = Controle.getTipo_Transporte("dimensoes LIKE '%" + txtBusca.Text + "%'");
-                        break;
+                        case "Dimensão":
+                            data = Controle.getTipo_Transporte("dimensoes LIKE '%" + txtBusca.Text + "%'");
+                            break;
+                    }
+                }
+                catch(Exception)
+                {
+                    //MessageBox.Show(ex.Message, "Erro ao realizar consulta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    data = Controle.getTipo_Transporte("");
                 }
             }
             else
@@ -302,13 +332,15 @@ namespace GlobalHost.Visao.Servicos
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-           if(contextMenuStrip1.Items[0].Selected == true)
-           {
+            if(contextMenuStrip1.Items[0].Selected == true)
+            {
                 if (dgvTipo.SelectedRows.Count == 1)
                 {
-                    Controle.Remove_Tipo_Transporte(Convert.ToInt32(dgvTipo.SelectedRows[0].Cells["col_id"].Value.ToString()));
+                    string n = dgvTipo.SelectedRows[0].Cells["col_desc"].Value.ToString();
+                    if (Controle.Remove_Tipo_Transporte(Convert.ToInt32(dgvTipo.SelectedRows[0].Cells["col_id"].Value.ToString())))
+                        MessageBox.Show(n + " removido com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-           }
+            }
             data = Controle.getTipo_Transporte("");
             dgvTipo.DataSource = data;
         }

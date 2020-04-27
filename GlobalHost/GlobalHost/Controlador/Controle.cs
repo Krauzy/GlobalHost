@@ -87,12 +87,12 @@ namespace GlobalHost.Controlador
             return DB.Delete(id);
         }
 
-        public static bool Altera_Transportadora(string nome, double valor, int max_carga, string endereco, string contato, string telefone, string email, string cnpj, int tipo)
+        public static bool Altera_Transportadora(int id, string nome, double valor, int max_carga, string endereco, string contato, string telefone, string email, string cnpj, int tipo)
         {
             DataTable dt = getTipo_Transporte(tipo);
             Tipo_Transporte tt = new Tipo_Transporte((int)dt.Rows[0]["id"], dt.Rows[0]["descricao"].ToString(),
                 (double)dt.Rows[0]["max_peso"], dt.Rows[0]["dimensoes"].ToString());
-            Transportadora t = new Transportadora(nome, valor, max_carga, endereco, contato, telefone, email, cnpj, tt);
+            Transportadora t = new Transportadora(id, nome, valor, max_carga, endereco, contato, telefone, email, cnpj, tt);
             TransportadoraDB DB = new TransportadoraDB();
             return DB.Update(t);
         }
@@ -111,8 +111,9 @@ namespace GlobalHost.Controlador
             {
                 if (((string)obj).Length > 0)
                     list = DB.getList((string)obj);
-                else
+                else 
                     list = DB.getAll();
+
             }
             table.Columns.Add("id", typeof(int));
             table.Columns.Add("nome", typeof(string));

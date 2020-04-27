@@ -43,31 +43,32 @@
             this.btFun = new System.Windows.Forms.Button();
             this.btGer = new System.Windows.Forms.Button();
             this.pnGerenciamento = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btTransportadora = new System.Windows.Forms.Button();
+            this.btCliente = new System.Windows.Forms.Button();
             this.btTipoTransporte = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btTipoCarga = new System.Windows.Forms.Button();
+            this.btRemessa = new System.Windows.Forms.Button();
+            this.btFuncionario = new System.Windows.Forms.Button();
             this.pnFuncoes = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.pnRelatorios = new System.Windows.Forms.Panel();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.scrTipo_Transporte = new GlobalHost.Visao.Servicos.ScreenTipo_Transporte();
             this.pnHome = new GlobalHost.Visao.PaneHome();
             this.ScreenSobre = new GlobalHost.Visao.Sobre();
             this.ScreenCotacao = new GlobalHost.Visao.Cotacao();
+            this.scrTransportadora = new GlobalHost.Visao.Servicos.Screen_Transportadora();
             this.paneMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.paneServ.SuspendLayout();
@@ -265,44 +266,45 @@
             // 
             // pnGerenciamento
             // 
-            this.pnGerenciamento.Controls.Add(this.button6);
-            this.pnGerenciamento.Controls.Add(this.button5);
+            this.pnGerenciamento.Controls.Add(this.btTransportadora);
+            this.pnGerenciamento.Controls.Add(this.btCliente);
             this.pnGerenciamento.Controls.Add(this.btTipoTransporte);
-            this.pnGerenciamento.Controls.Add(this.button3);
-            this.pnGerenciamento.Controls.Add(this.button2);
-            this.pnGerenciamento.Controls.Add(this.button1);
+            this.pnGerenciamento.Controls.Add(this.btTipoCarga);
+            this.pnGerenciamento.Controls.Add(this.btRemessa);
+            this.pnGerenciamento.Controls.Add(this.btFuncionario);
             this.pnGerenciamento.Location = new System.Drawing.Point(225, 27);
             this.pnGerenciamento.Name = "pnGerenciamento";
             this.pnGerenciamento.Size = new System.Drawing.Size(1031, 562);
             this.pnGerenciamento.TabIndex = 8;
             // 
-            // button6
+            // btTransportadora
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(374, 103);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(304, 115);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "TRANSPORTADORA";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btTransportadora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btTransportadora.FlatAppearance.BorderSize = 0;
+            this.btTransportadora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btTransportadora.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTransportadora.ForeColor = System.Drawing.Color.White;
+            this.btTransportadora.Location = new System.Drawing.Point(374, 103);
+            this.btTransportadora.Name = "btTransportadora";
+            this.btTransportadora.Size = new System.Drawing.Size(304, 115);
+            this.btTransportadora.TabIndex = 5;
+            this.btTransportadora.Text = "TRANSPORTADORA";
+            this.btTransportadora.UseVisualStyleBackColor = false;
+            this.btTransportadora.Click += new System.EventHandler(this.btTransportadora_Click);
             // 
-            // button5
+            // btCliente
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(229, 103);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(139, 334);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "CLIENTE";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btCliente.FlatAppearance.BorderSize = 0;
+            this.btCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCliente.ForeColor = System.Drawing.Color.White;
+            this.btCliente.Location = new System.Drawing.Point(229, 103);
+            this.btCliente.Name = "btCliente";
+            this.btCliente.Size = new System.Drawing.Size(139, 334);
+            this.btCliente.TabIndex = 4;
+            this.btCliente.Text = "CLIENTE";
+            this.btCliente.UseVisualStyleBackColor = false;
             // 
             // btTipoTransporte
             // 
@@ -319,47 +321,47 @@
             this.btTipoTransporte.UseVisualStyleBackColor = false;
             this.btTipoTransporte.Click += new System.EventHandler(this.btTipoTransporte_Click);
             // 
-            // button3
+            // btTipoCarga
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(529, 224);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(149, 111);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "TIPO DE CARGA";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btTipoCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btTipoCarga.FlatAppearance.BorderSize = 0;
+            this.btTipoCarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btTipoCarga.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTipoCarga.ForeColor = System.Drawing.Color.White;
+            this.btTipoCarga.Location = new System.Drawing.Point(529, 224);
+            this.btTipoCarga.Name = "btTipoCarga";
+            this.btTipoCarga.Size = new System.Drawing.Size(149, 111);
+            this.btTipoCarga.TabIndex = 2;
+            this.btTipoCarga.Text = "TIPO DE CARGA";
+            this.btTipoCarga.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btRemessa
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(684, 103);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 334);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "REMESSA";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btRemessa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btRemessa.FlatAppearance.BorderSize = 0;
+            this.btRemessa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btRemessa.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRemessa.ForeColor = System.Drawing.Color.White;
+            this.btRemessa.Location = new System.Drawing.Point(684, 103);
+            this.btRemessa.Name = "btRemessa";
+            this.btRemessa.Size = new System.Drawing.Size(149, 334);
+            this.btRemessa.TabIndex = 1;
+            this.btRemessa.Text = "REMESSA";
+            this.btRemessa.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btFuncionario
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(374, 341);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(304, 96);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "FUNCIONÁRIO";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btFuncionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btFuncionario.FlatAppearance.BorderSize = 0;
+            this.btFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btFuncionario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btFuncionario.ForeColor = System.Drawing.Color.White;
+            this.btFuncionario.Location = new System.Drawing.Point(374, 341);
+            this.btFuncionario.Name = "btFuncionario";
+            this.btFuncionario.Size = new System.Drawing.Size(304, 96);
+            this.btFuncionario.TabIndex = 0;
+            this.btFuncionario.Text = "FUNCIONÁRIO";
+            this.btFuncionario.UseVisualStyleBackColor = false;
             // 
             // pnFuncoes
             // 
@@ -376,89 +378,19 @@
             this.pnFuncoes.Size = new System.Drawing.Size(1031, 562);
             this.pnFuncoes.TabIndex = 10;
             // 
-            // button7
+            // button14
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(201, 205);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(113, 219);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "Pedido";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(320, 205);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(113, 115);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "Autorização";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(439, 101);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(134, 219);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "Abrir Frete";
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(579, 101);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(134, 219);
-            this.button10.TabIndex = 3;
-            this.button10.Text = "Fechar Frete";
-            this.button10.UseVisualStyleBackColor = false;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(719, 101);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(119, 163);
-            this.button11.TabIndex = 4;
-            this.button11.Text = "Despesas";
-            this.button11.UseVisualStyleBackColor = false;
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(719, 270);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(119, 154);
-            this.button12.TabIndex = 5;
-            this.button12.Text = "Pagamentos";
-            this.button12.UseVisualStyleBackColor = false;
+            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.ForeColor = System.Drawing.Color.White;
+            this.button14.Location = new System.Drawing.Point(320, 326);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(393, 98);
+            this.button14.TabIndex = 7;
+            this.button14.Text = "Controle de Transporte";
+            this.button14.UseVisualStyleBackColor = false;
             // 
             // button13
             // 
@@ -474,19 +406,89 @@
             this.button13.Text = "Recebimentos";
             this.button13.UseVisualStyleBackColor = false;
             // 
-            // button14
+            // button12
             // 
-            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.Color.White;
-            this.button14.Location = new System.Drawing.Point(320, 326);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(393, 98);
-            this.button14.TabIndex = 7;
-            this.button14.Text = "Controle de Transporte";
-            this.button14.UseVisualStyleBackColor = false;
+            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.Color.White;
+            this.button12.Location = new System.Drawing.Point(719, 270);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(119, 154);
+            this.button12.TabIndex = 5;
+            this.button12.Text = "Pagamentos";
+            this.button12.UseVisualStyleBackColor = false;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.Location = new System.Drawing.Point(719, 101);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(119, 163);
+            this.button11.TabIndex = 4;
+            this.button11.Text = "Despesas";
+            this.button11.UseVisualStyleBackColor = false;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Location = new System.Drawing.Point(579, 101);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(134, 219);
+            this.button10.TabIndex = 3;
+            this.button10.Text = "Fechar Frete";
+            this.button10.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Location = new System.Drawing.Point(439, 101);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(134, 219);
+            this.button9.TabIndex = 2;
+            this.button9.Text = "Abrir Frete";
+            this.button9.UseVisualStyleBackColor = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(320, 205);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(113, 115);
+            this.button8.TabIndex = 1;
+            this.button8.Text = "Autorização";
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(201, 205);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(113, 219);
+            this.button7.TabIndex = 0;
+            this.button7.Text = "Pedido";
+            this.button7.UseVisualStyleBackColor = false;
             // 
             // pnRelatorios
             // 
@@ -499,34 +501,6 @@
             this.pnRelatorios.Name = "pnRelatorios";
             this.pnRelatorios.Size = new System.Drawing.Size(1031, 562);
             this.pnRelatorios.TabIndex = 11;
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(273, 115);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(151, 319);
-            this.button15.TabIndex = 0;
-            this.button15.Text = "REMESSA";
-            this.button15.UseVisualStyleBackColor = false;
-            // 
-            // button16
-            // 
-            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button16.FlatAppearance.BorderSize = 0;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.ForeColor = System.Drawing.Color.White;
-            this.button16.Location = new System.Drawing.Point(430, 326);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(303, 108);
-            this.button16.TabIndex = 1;
-            this.button16.Text = "CARGA";
-            this.button16.UseVisualStyleBackColor = false;
             // 
             // button17
             // 
@@ -542,19 +516,19 @@
             this.button17.Text = "TRANSPORTE";
             this.button17.UseVisualStyleBackColor = false;
             // 
-            // button18
+            // button16
             // 
-            this.button18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button18.FlatAppearance.BorderSize = 0;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.ForeColor = System.Drawing.Color.White;
-            this.button18.Location = new System.Drawing.Point(579, 219);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(154, 101);
-            this.button18.TabIndex = 0;
-            this.button18.Text = "CLIENTE";
-            this.button18.UseVisualStyleBackColor = false;
+            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button16.FlatAppearance.BorderSize = 0;
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.ForeColor = System.Drawing.Color.White;
+            this.button16.Location = new System.Drawing.Point(430, 326);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(303, 108);
+            this.button16.TabIndex = 1;
+            this.button16.Text = "CARGA";
+            this.button16.UseVisualStyleBackColor = false;
             // 
             // button19
             // 
@@ -569,6 +543,34 @@
             this.button19.TabIndex = 0;
             this.button19.Text = "FUNCIONÁRIO";
             this.button19.UseVisualStyleBackColor = false;
+            // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button18.FlatAppearance.BorderSize = 0;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.ForeColor = System.Drawing.Color.White;
+            this.button18.Location = new System.Drawing.Point(579, 219);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(154, 101);
+            this.button18.TabIndex = 0;
+            this.button18.Text = "CLIENTE";
+            this.button18.UseVisualStyleBackColor = false;
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.ForeColor = System.Drawing.Color.White;
+            this.button15.Location = new System.Drawing.Point(273, 115);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(151, 319);
+            this.button15.TabIndex = 0;
+            this.button15.Text = "REMESSA";
+            this.button15.UseVisualStyleBackColor = false;
             // 
             // scrTipo_Transporte
             // 
@@ -602,6 +604,14 @@
             this.ScreenCotacao.Size = new System.Drawing.Size(1031, 562);
             this.ScreenCotacao.TabIndex = 5;
             // 
+            // scrTransportadora
+            // 
+            this.scrTransportadora.BackColor = System.Drawing.Color.White;
+            this.scrTransportadora.Location = new System.Drawing.Point(225, 27);
+            this.scrTransportadora.Name = "scrTransportadora";
+            this.scrTransportadora.Size = new System.Drawing.Size(1031, 562);
+            this.scrTransportadora.TabIndex = 14;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -616,6 +626,7 @@
             this.Controls.Add(this.pnGerenciamento);
             this.Controls.Add(this.pnFuncoes);
             this.Controls.Add(this.pnRelatorios);
+            this.Controls.Add(this.scrTransportadora);
             this.Controls.Add(this.scrTipo_Transporte);
             this.Controls.Add(this.pnHome);
             this.Controls.Add(this.ScreenSobre);
@@ -655,12 +666,12 @@
         private System.Windows.Forms.Button btFun;
         private System.Windows.Forms.Button btGer;
         private System.Windows.Forms.Panel pnGerenciamento;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btFuncionario;
+        private System.Windows.Forms.Button btTransportadora;
+        private System.Windows.Forms.Button btCliente;
         private System.Windows.Forms.Button btTipoTransporte;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btTipoCarga;
+        private System.Windows.Forms.Button btRemessa;
         private System.Windows.Forms.Panel pnFuncoes;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
@@ -677,5 +688,6 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button18;
         private Servicos.ScreenTipo_Transporte scrTipo_Transporte;
+        private Servicos.Screen_Transportadora scrTransportadora;
     }
 }

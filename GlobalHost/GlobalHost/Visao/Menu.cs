@@ -221,7 +221,21 @@ namespace GlobalHost.Visao
 
         private void btTipoTransporte_Click(object sender, EventArgs e)
         {
+            ger = false;
+            fun = false;
+            rel = false;
+            changeBoolServ();
             scrTipo_Transporte.BringToFront();
+        }
+
+        private void btTransportadora_Click(object sender, EventArgs e)
+        {
+            ger = false;
+            fun = false;
+            rel = false;
+            changeBoolServ();
+            scrTransportadora.load();
+            scrTransportadora.BringToFront();
         }
     }
 }

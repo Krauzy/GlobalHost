@@ -35,7 +35,6 @@ namespace GlobalHost.Modelo
 
         public Transportadora(string nome, double valor, int max_carga, string endereco, string contato, string telefone, string email, string cnpj, Tipo_Transporte tipo)
         {
-            //this.id = id;
             this.nome = nome;
             this.valor = valor;
             this.max_carga = max_carga;
@@ -56,6 +55,11 @@ namespace GlobalHost.Modelo
         public string Telefone { get => telefone; set => telefone = value; }
         public string Email { get => email; set => email = value; }
         public string Cnpj { get => cnpj; set => cnpj = value; }
-        internal Tipo_Transporte Tipo { get => tipo; set => tipo = value; }
+        public Tipo_Transporte Tipo { get => tipo; set => tipo = value; }
+
+        public override string ToString()
+        {
+            return this.nome;
+        }
     }
 }

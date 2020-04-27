@@ -97,6 +97,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GlobalDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GlobalDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlobalDBDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Parametros.cs" />
     <Compile Include="Modelo\Tipo_Carga.cs" />
     <Compile Include="Modelo\Tipo_Transporte.cs" />
@@ -138,6 +143,12 @@
     <Compile Include="Visao\Servicos\ScreenTipo_Transporte.Designer.cs">
       <DependentUpon>ScreenTipo_Transporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\Servicos\Screen_Transportadora.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Screen_Transportadora.Designer.cs">
+      <DependentUpon>Screen_Transportadora.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Sobre.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -168,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\ScreenTipo_Transporte.resx">
       <DependentUpon>ScreenTipo_Transporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Screen_Transportadora.resx">
+      <DependentUpon>Screen_Transportadora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Sobre.resx">
       <DependentUpon>Sobre.cs</DependentUpon>
@@ -207,6 +221,17 @@
     </None>
     <None Include="GlobalDBDataSet.xss">
       <DependentUpon>GlobalDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GlobalDBDataSet1.xsc">
+      <DependentUpon>GlobalDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GlobalDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GlobalDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GlobalDBDataSet1.xss">
+      <DependentUpon>GlobalDBDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
