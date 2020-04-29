@@ -91,7 +91,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Controlador\Controle.cs" />
+    <Compile Include="Controlador\Controle_Parametro.cs" />
+    <Compile Include="Controlador\Controle_TipoTransporte.cs" />
+    <Compile Include="Controlador\Controle_Transportadora.cs" />
     <Compile Include="GlobalDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -336,6 +338,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GlobalDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\config.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

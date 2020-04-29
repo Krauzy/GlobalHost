@@ -1,6 +1,8 @@
 ﻿using GlobalHost.Modelo;
 using System;
 using System.Data;
+using System.Drawing;
+using System.IO;
 
 namespace GlobalHost.Persistencia
 {
@@ -13,17 +15,34 @@ namespace GlobalHost.Persistencia
             banco = new Banco();
         }
         
+        private byte[] ImageToBinary(Image img)
+        {
+            using(MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, img.RawFormat);
+                return ms.ToArray();
+            }
+        }
+
+        private Image BinaryToImage(byte[] bytes)
+        {
+            using(MemoryStream ms = new MemoryStream(bytes))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
         public bool Insert(object obj)
         {
             bool result = false;
             if(obj.GetType() == typeof(Parametros))
             {
                 Parametros p = (Parametros)obj;
-                string SQL = @"INSERT INTO Parametros (nome_fantasia, razao_social, cnpj, data_abertura, endereco, email, site, atividade, status, telefone) "
-                    + @"VALUES (@nome, @razao, @cnpj, @data, @end, @email, @site, @ati, @sta, @tel)";
+                string SQL = @"INSERT INTO Parametros (nome_fantasia, razao_social, cnpj, data_abertura, endereco, email, site, atividade, status, telefone, logo) "
+                    + @"VALUES (@nome, @razao, @cnpj, @data, @end, @email, @site, @ati, @sta, @tel, @logo)";
                 banco.Connect();
                 result = banco.ExecuteNonQuery(SQL, "@nome", p.Nome_fantasia, "@razao", p.Razao_social, "@cnpj", p.Cnpj, "@data", p.Data_abertura, 
-                    "@end", p.Endereco, "@email", p.Email, "@site", p.Site, "@ati", p.Atividade, "@sta", p.Status, "@tel", p.Telefone);
+                    "@end", p.Endereco, "@email", p.Email, "@site", p.Site, "@ati", p.Atividade, "@sta", p.Status, "@tel", p.Telefone, "@logo", this.ImageToBinary(p.Logo));
                 banco.Disconnect();
             }
             return result;
@@ -45,11 +64,11 @@ namespace GlobalHost.Persistencia
             {
                 this.Delete();
                 Parametros p = (Parametros)obj;
-                string SQL = @"INSERT INTO Parametros (nome_fantasia, razao_social, cnpj, data_abertura, endereco, email, site, atividade, status, telefone) "
-                    + @"VALUES (@nome, @razao, @cnpj, @data, @end, @email, @site, @ati, @sta, @tel)";
+                string SQL = @"INSERT INTO Parametros (nome_fantasia, razao_social, cnpj, data_abertura, endereco, email, site, atividade, status, telefone, logo) "
+                    + @"VALUES (@nome, @razao, @cnpj, @data, @end, @email, @site, @ati, @sta, @tel, @logo)";
                 banco.Connect();
                 result = banco.ExecuteNonQuery(SQL, "@nome", p.Nome_fantasia, "@razao", p.Razao_social, "@cnpj", p.Cnpj, "@data", p.Data_abertura,
-                    "@end", p.Endereco, "@email", p.Email, "@site", p.Site, "@ati", p.Atividade, "@sta", p.Status, "@tel", p.Telefone);
+                    "@end", p.Endereco, "@email", p.Email, "@site", p.Site, "@ati", p.Atividade, "@sta", p.Status, "@tel", p.Telefone, "@logo", this.ImageToBinary(p.Logo));
                 banco.Disconnect();
             }
             return result;
@@ -74,7 +93,8 @@ namespace GlobalHost.Persistencia
                                     dt.Rows[0]["site"].ToString(),
                                     dt.Rows[0]["atividade"].ToString(),
                                     dt.Rows[0]["status"].ToString(),
-                                    dt.Rows[0]["telefone"].ToString());
+                                    dt.Rows[0]["telefone"].ToString(),
+                                    this.BinaryToImage((byte[])dt.Rows[0]["logo"]));
 
             }
             banco.Disconnect();

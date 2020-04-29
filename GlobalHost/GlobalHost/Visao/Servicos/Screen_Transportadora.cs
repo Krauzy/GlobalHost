@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GlobalHost.Controlador;
 
@@ -24,11 +21,11 @@ namespace GlobalHost.Visao.Servicos
         {
             InitializeComponent();
 
-            cbTipoTransporte.DataSource = Controle.getTipo_Transporte("");
+            cbTipoTransporte.DataSource = Controle_TipoTransporte.get("");
             cbTipoTransporte.DisplayMember = "descricao";
             cbTipoTransporte.ValueMember = "id";
 
-            data = Controle.getTransportadora("");
+            data = Controle_Transportadora.get("");
             dgvTransportadora.DataSource = data;
 
             cbFiltro.SelectedIndex = 0;
@@ -37,7 +34,7 @@ namespace GlobalHost.Visao.Servicos
 
         public void load()
         {
-            cbTipoTransporte.DataSource = Controle.getTipo_Transporte("");
+            cbTipoTransporte.DataSource = Controle_TipoTransporte.get("");
             cbTipoTransporte.DisplayMember = "descricao";
             cbTipoTransporte.ValueMember = "id";
             cbTipoTransporte.SelectedIndex = 0;
@@ -163,10 +160,9 @@ namespace GlobalHost.Visao.Servicos
                     && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
                     && txtCNPJ.Text != string.Empty && txtNum.Value >= 1)
                 {
-                    if(Controle.Insere_Transportadora(txtNome.Text, V, (int)txtNum.Value,txtEndereco.Text, txtContato.Text, txtTelefone.Text, txtEmail.Text, txtCNPJ.Text, (int)cbTipoTransporte.SelectedValue) == true)
-                        MessageBox.Show(txtNome.Text + " inserido com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
+                    if(!Controle_Transportadora.insert(txtNome.Text, V, (int)txtNum.Value,txtEndereco.Text, txtContato.Text, txtTelefone.Text, txtEmail.Text, txtCNPJ.Text, (int)cbTipoTransporte.SelectedValue))
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
                 }
             }
             else if(alt == true)
@@ -175,22 +171,17 @@ namespace GlobalHost.Visao.Servicos
                     && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
                     && txtCNPJ.Text != string.Empty && txtNum.Value >= 1)
                 {
-                    if (Controle.Altera_Transportadora(ID, txtNome.Text, V, (int)txtNum.Value, txtEndereco.Text, txtContato.Text, txtTelefone.Text, txtEmail.Text, txtCNPJ.Text, (int)cbTipoTransporte.SelectedValue) == true)
-                        MessageBox.Show(txtNome.Text + " alterado com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (!Controle_Transportadora.update(ID, txtNome.Text, V, (int)txtNum.Value, txtEndereco.Text, txtContato.Text, txtTelefone.Text, txtEmail.Text, txtCNPJ.Text, (int)cbTipoTransporte.SelectedValue))
+                        MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);                        
                 }
             }
             else if(exc == true)
             {
                 if(txtID.Text != string.Empty)
                 {
-                    string n = Controle.getTransportadora(ID).Rows[0]["nome"].ToString();
-                    if(Controle.Remove_Transportadora(ID) == true)
-                        MessageBox.Show(n + " excluído com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
+                    string n = Controle_Transportadora.get(ID).Rows[0]["nome"].ToString();
+                    if(!Controle_Transportadora.delete(ID))
                         MessageBox.Show("Falha ao exluir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
                 }
             }
             ins = false;
@@ -223,8 +214,10 @@ namespace GlobalHost.Visao.Servicos
             btnOk.Enabled = false;
             btnCancelar.Enabled = false;
 
-            data = Controle.getTransportadora("");
+            data = Controle_Transportadora.get("");
             dgvTransportadora.DataSource = data;
+
+            this.ActiveControl = null;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -258,6 +251,8 @@ namespace GlobalHost.Visao.Servicos
 
             btnOk.Enabled = false;
             btnCancelar.Enabled = false;
+
+            this.ActiveControl = null;
         }
 
         private void txtID_TextChanged(object sender, EventArgs e)
@@ -329,11 +324,11 @@ namespace GlobalHost.Visao.Servicos
                 if(dgvTransportadora.SelectedRows.Count == 1)
                 {
                     string n = dgvTransportadora.SelectedRows[0].Cells["nome"].Value.ToString();
-                    if (Controle.Remove_Transportadora(Convert.ToInt32(dgvTransportadora.SelectedRows[0].Cells["id"].Value.ToString())))
-                        MessageBox.Show(n + " excluído com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!Controle_Transportadora.delete(Convert.ToInt32(dgvTransportadora.SelectedRows[0].Cells["id"].Value.ToString())))
+                        MessageBox.Show("Erro ao excluir " + n, "Falha na execução", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            data = Controle.getTransportadora("");
+            data = Controle_Transportadora.get("");
             dgvTransportadora.DataSource = data;
         }
 
@@ -345,40 +340,40 @@ namespace GlobalHost.Visao.Servicos
                 {
                     switch (cbFiltro.Text)
                     {
-                        case "ID":
-                            data = Controle.getTransportadora(Convert.ToInt32(txtBusca.Text));
-                            break;
-
                         case "Nome":
-                            data = Controle.getTransportadora("nome LIKE '%" + txtBusca.Text + "%'");
+                            data = Controle_Transportadora.get("nome LIKE '%" + txtBusca.Text + "%'");
                             break;
 
                         case "Valor":
-                            data = Controle.getTransportadora("valor > " + Convert.ToDouble(txtBusca.Text));
+                            data = Controle_Transportadora.get("valor > " + Convert.ToDouble(txtBusca.Text));
                             break;
 
                         case "Carga Máxima":
-                            data = Controle.getTransportadora("max_carga > " + Convert.ToInt32(txtBusca.Text));
+                            data = Controle_Transportadora.get("max_carga > " + Convert.ToInt32(txtBusca.Text));
                             break;
 
                         case "Endereço":
-                            data = Controle.getTransportadora("endereco LIKE '%" + txtBusca.Text + "%'");
+                            data = Controle_Transportadora.get("endereco LIKE '%" + txtBusca.Text + "%'");
                             break;
 
                         case "Contato":
-                            data = Controle.getTransportadora("contato LIKE '%" + txtBusca.Text + "%'");
+                            Controle_Transportadora.get("contato LIKE '%" + txtBusca.Text + "%'");
+                            break;
+
+                        case "Telefone":
+                            data = Controle_Transportadora.get("telefone LIKE '%" + txtBusca.Text + "%'");
                             break;
 
                         case "E-mail":
-                            data = Controle.getTransportadora("email LIKE '%" + txtBusca.Text + "%'");
+                            data = Controle_Transportadora.get("email LIKE '%" + txtBusca.Text + "%'");
                             break;
-
+                        
                         case "CNPJ":
-                            data = Controle.getTransportadora("cnpj LIKE '%" + txtBusca.Text + "%'");
+                            data = Controle_Transportadora.get("cnpj LIKE '%" + txtBusca.Text + "%'");
                             break;
 
                         case "Tipo de Transporte":
-                            data = Controle.getTransportadora("");
+                            data = Controle_Transportadora.get("");
                             DataTable temp = data.Clone();
                             temp.Clear();
                             foreach (DataRow linha in data.Rows)
@@ -391,11 +386,11 @@ namespace GlobalHost.Visao.Servicos
                 }
                 catch (Exception)
                 {
-                    data = Controle.getTransportadora("");
+                    data = Controle_Transportadora.get("");
                 }
             }
             else
-                data = Controle.getTransportadora("");
+                data = Controle_Transportadora.get("");
             dgvTransportadora.DataSource = data;
         }
     }

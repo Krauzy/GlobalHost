@@ -23,7 +23,6 @@ namespace GlobalHost.Modelo
 
         public Tipo_Transporte(string descricao, double max_peso, string dimensoes)
         {
-            //this.id = id;
             this.descricao = descricao;
             this.max_peso = max_peso;
             this.dimensoes = dimensoes;

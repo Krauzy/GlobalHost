@@ -36,14 +36,14 @@ namespace GlobalHost.Visao
             lbLibraResult.Text = "£" + moeda.ToString();
 
             moeda = Quot.getIene();
-            if (moeda < 0.05)
+            if (moeda < 0.042)
                 lbIeneResult.ForeColor = Color.Green;
             else
                 lbIeneResult.ForeColor = Color.Red;
             lbIeneResult.Text = "¥" + moeda.ToString();
 
             moeda = Quot.getDolarCanadense();
-            if (moeda < 5)
+            if (moeda < 4)
                 lbDolarCanResult.ForeColor = Color.Green;
             else
                 lbDolarCanResult.ForeColor = Color.Red;

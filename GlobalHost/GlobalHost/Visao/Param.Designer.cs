@@ -46,6 +46,23 @@
             this.lbTelefone = new System.Windows.Forms.Label();
             this.lbAtividade = new System.Windows.Forms.Label();
             this.lbSite = new System.Windows.Forms.LinkLabel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btConfig = new System.Windows.Forms.Button();
+            this.picBox = new System.Windows.Forms.PictureBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.btCancelar = new System.Windows.Forms.Button();
+            this.btOk = new System.Windows.Forms.Button();
+            this.txtRazao = new System.Windows.Forms.TextBox();
+            this.txtEnd = new System.Windows.Forms.TextBox();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtEcon = new System.Windows.Forms.TextBox();
+            this.txtSite = new System.Windows.Forms.TextBox();
+            this.btImage = new System.Windows.Forms.Button();
+            this.txtImage = new System.Windows.Forms.TextBox();
+            this.txtCnpj = new System.Windows.Forms.MaskedTextBox();
+            this.txtTel = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -229,12 +246,172 @@
             this.lbSite.Text = "link";
             this.lbSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbSite_LinkClicked);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(552, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(126, 17);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Logo da Empresa:";
+            // 
+            // btConfig
+            // 
+            this.btConfig.FlatAppearance.BorderSize = 0;
+            this.btConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btConfig.Image = global::GlobalHost.Properties.Resources.config;
+            this.btConfig.Location = new System.Drawing.Point(749, 286);
+            this.btConfig.Name = "btConfig";
+            this.btConfig.Size = new System.Drawing.Size(25, 25);
+            this.btConfig.TabIndex = 20;
+            this.btConfig.UseVisualStyleBackColor = true;
+            this.btConfig.Click += new System.EventHandler(this.btConfig_Click);
+            // 
+            // picBox
+            // 
+            this.picBox.Location = new System.Drawing.Point(555, 29);
+            this.picBox.Name = "picBox";
+            this.picBox.Size = new System.Drawing.Size(200, 47);
+            this.picBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picBox.TabIndex = 19;
+            this.picBox.TabStop = false;
+            // 
+            // txtNome
+            // 
+            this.txtNome.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtNome.Location = new System.Drawing.Point(15, 29);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(152, 23);
+            this.txtNome.TabIndex = 21;
+            // 
+            // btCancelar
+            // 
+            this.btCancelar.Location = new System.Drawing.Point(658, 288);
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btCancelar.TabIndex = 22;
+            this.btCancelar.Text = "Cancelar";
+            this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
+            // 
+            // btOk
+            // 
+            this.btOk.Location = new System.Drawing.Point(577, 288);
+            this.btOk.Name = "btOk";
+            this.btOk.Size = new System.Drawing.Size(75, 23);
+            this.btOk.TabIndex = 23;
+            this.btOk.Text = "OK";
+            this.btOk.UseVisualStyleBackColor = true;
+            this.btOk.Click += new System.EventHandler(this.btOk_Click);
+            // 
+            // txtRazao
+            // 
+            this.txtRazao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtRazao.Location = new System.Drawing.Point(228, 29);
+            this.txtRazao.Name = "txtRazao";
+            this.txtRazao.Size = new System.Drawing.Size(242, 23);
+            this.txtRazao.TabIndex = 24;
+            // 
+            // txtEnd
+            // 
+            this.txtEnd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtEnd.Location = new System.Drawing.Point(15, 126);
+            this.txtEnd.Name = "txtEnd";
+            this.txtEnd.Size = new System.Drawing.Size(455, 23);
+            this.txtEnd.TabIndex = 26;
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(228, 78);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(123, 23);
+            this.dtpDate.TabIndex = 27;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtEmail.Location = new System.Drawing.Point(15, 179);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(152, 23);
+            this.txtEmail.TabIndex = 28;
+            // 
+            // txtEcon
+            // 
+            this.txtEcon.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtEcon.Location = new System.Drawing.Point(15, 234);
+            this.txtEcon.Name = "txtEcon";
+            this.txtEcon.Size = new System.Drawing.Size(455, 23);
+            this.txtEcon.TabIndex = 30;
+            // 
+            // txtSite
+            // 
+            this.txtSite.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtSite.Location = new System.Drawing.Point(15, 290);
+            this.txtSite.Name = "txtSite";
+            this.txtSite.Size = new System.Drawing.Size(152, 23);
+            this.txtSite.TabIndex = 31;
+            // 
+            // btImage
+            // 
+            this.btImage.Location = new System.Drawing.Point(555, 82);
+            this.btImage.Name = "btImage";
+            this.btImage.Size = new System.Drawing.Size(102, 23);
+            this.btImage.TabIndex = 32;
+            this.btImage.Text = "Escolher Arquivo";
+            this.btImage.UseVisualStyleBackColor = true;
+            this.btImage.Click += new System.EventHandler(this.btImage_Click);
+            // 
+            // txtImage
+            // 
+            this.txtImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImage.Location = new System.Drawing.Point(656, 83);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.Size = new System.Drawing.Size(100, 21);
+            this.txtImage.TabIndex = 33;
+            // 
+            // txtCnpj
+            // 
+            this.txtCnpj.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtCnpj.Location = new System.Drawing.Point(15, 78);
+            this.txtCnpj.Mask = "99.999.999/9999-99";
+            this.txtCnpj.Name = "txtCnpj";
+            this.txtCnpj.Size = new System.Drawing.Size(129, 23);
+            this.txtCnpj.TabIndex = 34;
+            // 
+            // txtTel
+            // 
+            this.txtTel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtTel.Location = new System.Drawing.Point(228, 179);
+            this.txtTel.Mask = "(99) 9999-9999";
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(129, 23);
+            this.txtTel.TabIndex = 34;
+            // 
             // Param
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(569, 318);
+            this.ClientSize = new System.Drawing.Size(780, 326);
+            this.Controls.Add(this.txtTel);
+            this.Controls.Add(this.txtCnpj);
+            this.Controls.Add(this.txtImage);
+            this.Controls.Add(this.btImage);
+            this.Controls.Add(this.txtSite);
+            this.Controls.Add(this.txtEcon);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.dtpDate);
+            this.Controls.Add(this.txtEnd);
+            this.Controls.Add(this.txtRazao);
+            this.Controls.Add(this.btOk);
+            this.Controls.Add(this.btCancelar);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.btConfig);
+            this.Controls.Add(this.picBox);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.lbSite);
             this.Controls.Add(this.lbAtividade);
             this.Controls.Add(this.lbTelefone);
@@ -257,6 +434,7 @@
             this.Name = "Param";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parâmetros da Empresa";
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,5 +460,21 @@
         private System.Windows.Forms.Label lbTelefone;
         private System.Windows.Forms.Label lbAtividade;
         private System.Windows.Forms.LinkLabel lbSite;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox picBox;
+        private System.Windows.Forms.Button btConfig;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Button btCancelar;
+        private System.Windows.Forms.Button btOk;
+        private System.Windows.Forms.TextBox txtRazao;
+        private System.Windows.Forms.TextBox txtEnd;
+        private System.Windows.Forms.DateTimePicker dtpDate;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtEcon;
+        private System.Windows.Forms.TextBox txtSite;
+        private System.Windows.Forms.Button btImage;
+        private System.Windows.Forms.TextBox txtImage;
+        private System.Windows.Forms.MaskedTextBox txtCnpj;
+        private System.Windows.Forms.MaskedTextBox txtTel;
     }
 }

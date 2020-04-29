@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace GlobalHost.Modelo
 {
@@ -15,6 +16,23 @@ namespace GlobalHost.Modelo
         private string atividade;
         private string status;
         private string telefone;
+        private Image logo;
+
+        public Parametros(int id, string nome_fantasia, string razao_social, string cnpj, DateTime data_abertura, string endereco, string email, string site, string atividade, string status, string telefone, Image logo)
+        {
+            this.id = id;
+            this.nome_fantasia = nome_fantasia;
+            this.razao_social = razao_social;
+            this.cnpj = cnpj;
+            this.data_abertura = data_abertura;
+            this.endereco = endereco;
+            this.email = email;
+            this.site = site;
+            this.atividade = atividade;
+            this.status = status;
+            this.telefone = telefone;
+            this.logo = logo;
+        }
 
         public Parametros(int id, string nome_fantasia, string razao_social, string cnpj, DateTime data_abertura, string endereco, string email, string site, string atividade, string status, string telefone)
         {
@@ -29,6 +47,21 @@ namespace GlobalHost.Modelo
             this.atividade = atividade;
             this.status = status;
             this.telefone = telefone;
+        }
+
+        public Parametros(string nome_fantasia, string razao_social, string cnpj, DateTime data_abertura, string endereco, string email, string site, string atividade, string status, string telefone, Image logo)
+        {
+            this.nome_fantasia = nome_fantasia;
+            this.razao_social = razao_social;
+            this.cnpj = cnpj;
+            this.data_abertura = data_abertura;
+            this.endereco = endereco;
+            this.email = email;
+            this.site = site;
+            this.atividade = atividade;
+            this.status = status;
+            this.telefone = telefone;
+            this.logo = logo;
         }
 
         public Parametros(string nome_fantasia, string razao_social, string cnpj, DateTime data_abertura, string endereco, string email, string site, string atividade, string status, string telefone)
@@ -56,5 +89,6 @@ namespace GlobalHost.Modelo
         public string Atividade { get => atividade; set => atividade = value; }
         public string Status { get => status; set => status = value; }
         public string Telefone { get => telefone; set => telefone = value; }
+        public Image Logo { get => logo; set => logo = value; }
     }
 }

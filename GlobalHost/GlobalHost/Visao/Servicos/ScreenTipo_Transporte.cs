@@ -21,7 +21,7 @@ namespace GlobalHost.Visao.Servicos
         public ScreenTipo_Transporte()
         {
             InitializeComponent();
-            data = Controle.getTipo_Transporte("");          
+            data = Controle_TipoTransporte.get("");
             dgvTipo.DataSource = data;
             cbFiltro.SelectedItem = cbFiltro.Items[0];
         }
@@ -149,7 +149,6 @@ namespace GlobalHost.Visao.Servicos
                     txtID.Select(txtID.Text.Length, 0);
                 }
             }
-                
         }
 
         private void txtPeso_TextChanged(object sender, EventArgs e)
@@ -226,32 +225,26 @@ namespace GlobalHost.Visao.Servicos
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Nome: " + txtNome.Text + "\nPeso: " + peso + "\nDimensões: " + L + ";" + A + ";" + C);
             if (ins == true)
             {
                 if (txtPeso.Text != "" && txtLargura.Text != "" && txtComprimento.Text != "" && txtAltura.Text != "")
-                    if (Controle.Insere_Tipo_Transporte(txtNome.Text, peso, L + ";" + A + ";" + C) == true)
-                        MessageBox.Show(txtNome.Text + " inserido com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
+                    if (!Controle_TipoTransporte.insert(txtNome.Text, peso, L + ";" + A + ";" + C))
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
             }
             else if (alt == true)
             {
                 if (txtID.Text != "" && txtPeso.Text != "" && txtLargura.Text != "" && txtComprimento.Text != "" && txtAltura.Text != "")
-                    if (Controle.Altera_Tipo_Transporte(Convert.ToInt32(txtID.Text), txtNome.Text, peso, L + ";" + A + ";" + C) == true)
-                        MessageBox.Show(txtNome.Text + " alterado com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (!Controle_TipoTransporte.update(Convert.ToInt32(txtID.Text), txtNome.Text, peso, L + ";" + A + ";" + C))
+                        MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);                        
             }
             else if (exc == true)
             {
                 if (txtID.Text != "")
                 {
-                    string n = Controle.getTipo_Transporte(Convert.ToInt32(id)).Rows[0]["descricao"].ToString();
-                    if (Controle.Remove_Tipo_Transporte(Convert.ToInt32(id)) == true)
-                        MessageBox.Show(n + " removido com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show("Falha ao remover " + n + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string n = Controle_TipoTransporte.get(Convert.ToInt32(id)).Rows[0]["descricao"].ToString();
+                    if (!Controle_TipoTransporte.delete(Convert.ToInt32(id)))
+                        MessageBox.Show("Falha ao remover " + n + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);                        
                 }
             }
             ins = false;
@@ -276,7 +269,7 @@ namespace GlobalHost.Visao.Servicos
             btnOk.Enabled = false;
             btnCancelar.Enabled = false;
 
-            data = Controle.getTipo_Transporte("");
+            data = Controle_TipoTransporte.get("");
             dgvTipo.DataSource = data;
         }
 
@@ -288,31 +281,23 @@ namespace GlobalHost.Visao.Servicos
                 {
                     switch (cbFiltro.Text)
                     {
-                        case "ID":
-                            data = Controle.getTipo_Transporte("id = " + Convert.ToInt32(txtBusca.Text));
-                            break;
-
                         case "Descrição":
-                            data = Controle.getTipo_Transporte("descricao LIKE '%" + txtBusca.Text + "%'");
+                            data = Controle_TipoTransporte.get("descricao LIKE '%" + txtBusca.Text + "%'");
                             break;
 
                         case "Peso":
-                            data = Controle.getTipo_Transporte("max_peso >= " + Convert.ToInt32(txtBusca.Text));
+                            data = Controle_TipoTransporte.get("max_peso >= " + Convert.ToInt32(txtBusca.Text));
                             break;
 
                         case "Dimensão":
-                            data = Controle.getTipo_Transporte("dimensoes LIKE '%" + txtBusca.Text + "%'");
+                            data = Controle_TipoTransporte.get("dimensoes LIKE '%" + txtBusca.Text + "%'");
                             break;
                     }
                 }
-                catch(Exception)
-                {
-                    //MessageBox.Show(ex.Message, "Erro ao realizar consulta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    data = Controle.getTipo_Transporte("");
-                }
+                catch(Exception) { data = Controle_TipoTransporte.get(""); }
             }
             else
-                data = Controle.getTipo_Transporte("");
+                data = Controle_TipoTransporte.get("");
             dgvTipo.DataSource = data;
         }
 
@@ -337,11 +322,11 @@ namespace GlobalHost.Visao.Servicos
                 if (dgvTipo.SelectedRows.Count == 1)
                 {
                     string n = dgvTipo.SelectedRows[0].Cells["col_desc"].Value.ToString();
-                    if (Controle.Remove_Tipo_Transporte(Convert.ToInt32(dgvTipo.SelectedRows[0].Cells["col_id"].Value.ToString())))
-                        MessageBox.Show(n + " removido com êxito!", "Operação concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!Controle_TipoTransporte.delete(Convert.ToInt32(dgvTipo.SelectedRows[0].Cells["col_id"].Value.ToString())))
+                        MessageBox.Show("Erro ao remover " + n, "Falha de execução", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            data = Controle.getTipo_Transporte("");
+            data = Controle_TipoTransporte.get("");
             dgvTipo.DataSource = data;
         }
     }
