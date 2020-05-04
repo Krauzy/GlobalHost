@@ -46,7 +46,7 @@ namespace GlobalHost.Modelo
         //Sem endereço e Telefone
         public Cliente(int id,string nome, DateTime dtnascimento, string cpf_cnpj, string cep, string email)
         {
-            this.id = id;
+            this.Id = id;
             this.nome = nome;
             this.endereco = null;
             this.dtnascimento = dtnascimento;
@@ -58,7 +58,7 @@ namespace GlobalHost.Modelo
         //Com endereço e telefone
         public Cliente(int id,string nome, string endereco, DateTime dtnascimento, string cpf_cnpj, string cep, string email, string telefone)
         {
-            this.id = id;
+            this.Id = id;
             this.nome = nome;
             this.endereco = endereco;
             this.dtnascimento = dtnascimento;
@@ -74,5 +74,6 @@ namespace GlobalHost.Modelo
         public string Cep { get => cep; set => cep = value; }
         public string Email { get => email; set => email = value; }
         public string Telefone { get => telefone; set => telefone = value; }
+        public int Id { get => id; set => id = value; }
     }
 }
