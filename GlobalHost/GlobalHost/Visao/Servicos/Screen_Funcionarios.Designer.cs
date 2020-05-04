@@ -28,8 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Screen_Funcionarios
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "Screen_Funcionarios";
+            this.Size = new System.Drawing.Size(1031, 562);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

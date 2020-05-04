@@ -623,14 +623,14 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.paneServ);
             this.Controls.Add(this.paneMenu);
-            this.Controls.Add(this.pnGerenciamento);
-            this.Controls.Add(this.pnFuncoes);
-            this.Controls.Add(this.pnRelatorios);
             this.Controls.Add(this.scrTransportadora);
             this.Controls.Add(this.scrTipo_Transporte);
             this.Controls.Add(this.pnHome);
             this.Controls.Add(this.ScreenSobre);
             this.Controls.Add(this.ScreenCotacao);
+            this.Controls.Add(this.pnGerenciamento);
+            this.Controls.Add(this.pnFuncoes);
+            this.Controls.Add(this.pnRelatorios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";

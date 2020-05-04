@@ -51,3 +51,4 @@ C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\ob
 C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csproj.CopyComplete
 C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.exe
 C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.pdb
+C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Screen_Funcionarios.resources
