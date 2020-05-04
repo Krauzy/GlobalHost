@@ -92,6 +92,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controlador\Controle_Funcionario.cs" />
+    <Compile Include="Controlador\Controle_Login.cs" />
     <Compile Include="Controlador\Controle_Parametro.cs" />
     <Compile Include="Controlador\Controle_TipoTransporte.cs" />
     <Compile Include="Controlador\Controle_Transportadora.cs" />
@@ -156,6 +158,12 @@
     <Compile Include="Visao\Servicos\Screen_Funcionarios.Designer.cs">
       <DependentUpon>Screen_Funcionarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\Servicos\Screen_Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Screen_Login.Designer.cs">
+      <DependentUpon>Screen_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Servicos\Screen_Transportadora.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -195,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Screen_Funcionarios.resx">
       <DependentUpon>Screen_Funcionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Screen_Login.resx">
+      <DependentUpon>Screen_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Screen_Transportadora.resx">
       <DependentUpon>Screen_Transportadora.cs</DependentUpon>
