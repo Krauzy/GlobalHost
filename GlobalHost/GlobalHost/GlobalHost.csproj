@@ -105,6 +105,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GlobalDBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Cliente.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
     <Compile Include="Modelo\Login.cs" />
     <Compile Include="Modelo\Parametros.cs" />
