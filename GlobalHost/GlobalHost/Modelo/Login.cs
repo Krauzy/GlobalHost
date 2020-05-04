@@ -32,5 +32,10 @@ namespace GlobalHost.Modelo
         public int Id { get => id; set => id = value; }
         public string Usuario { get => usuario; set => usuario = value; }
         public string Senha { get => senha; set => senha = value; }
+        
+        public override string ToString()
+        {
+            return this.usuario;
+        }
     }
 }

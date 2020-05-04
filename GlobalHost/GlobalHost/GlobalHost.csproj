@@ -82,6 +82,7 @@
     <Compile Include="API\Animation.cs" />
     <Compile Include="API\CEP.cs" />
     <Compile Include="API\Loading.cs" />
+    <Compile Include="API\MD5Sample.cs" />
     <Compile Include="API\Quot.cs" />
     <Compile Include="API\PDF.cs" />
     <Compile Include="API\TextFile.cs" />
@@ -104,11 +105,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GlobalDBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Funcionario.cs" />
+    <Compile Include="Modelo\Login.cs" />
     <Compile Include="Modelo\Parametros.cs" />
     <Compile Include="Modelo\Tipo_Carga.cs" />
     <Compile Include="Modelo\Tipo_Transporte.cs" />
     <Compile Include="Modelo\Transportadora.cs" />
     <Compile Include="Persistencia\Banco.cs" />
+    <Compile Include="Persistencia\FuncionarioDB.cs" />
+    <Compile Include="Persistencia\LoginDB.cs" />
     <Compile Include="Persistencia\ParametrosDB.cs" />
     <Compile Include="Persistencia\Tipo_CargaDB.cs" />
     <Compile Include="Persistencia\Tipo_TransporteDB.cs" />
