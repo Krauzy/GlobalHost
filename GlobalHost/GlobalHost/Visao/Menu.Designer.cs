@@ -68,7 +68,7 @@
             this.pnHome = new GlobalHost.Visao.PaneHome();
             this.ScreenSobre = new GlobalHost.Visao.Sobre();
             this.ScreenCotacao = new GlobalHost.Visao.Cotacao();
-            this.scrTransportadora = new GlobalHost.Visao.Servicos.Screen_Transportadora();
+            this.scrFuncionario = new GlobalHost.Visao.Servicos.Screen_Funcionarios();
             this.paneMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.paneServ.SuspendLayout();
@@ -362,6 +362,7 @@
             this.btFuncionario.TabIndex = 0;
             this.btFuncionario.Text = "FUNCIONÁRIO";
             this.btFuncionario.UseVisualStyleBackColor = false;
+            this.btFuncionario.Click += new System.EventHandler(this.btFuncionario_Click);
             // 
             // pnFuncoes
             // 
@@ -604,13 +605,13 @@
             this.ScreenCotacao.Size = new System.Drawing.Size(1031, 562);
             this.ScreenCotacao.TabIndex = 5;
             // 
-            // scrTransportadora
+            // scrFuncionario
             // 
-            this.scrTransportadora.BackColor = System.Drawing.Color.White;
-            this.scrTransportadora.Location = new System.Drawing.Point(225, 27);
-            this.scrTransportadora.Name = "scrTransportadora";
-            this.scrTransportadora.Size = new System.Drawing.Size(1031, 562);
-            this.scrTransportadora.TabIndex = 14;
+            this.scrFuncionario.BackColor = System.Drawing.Color.White;
+            this.scrFuncionario.Location = new System.Drawing.Point(225, 27);
+            this.scrFuncionario.Name = "scrFuncionario";
+            this.scrFuncionario.Size = new System.Drawing.Size(1031, 562);
+            this.scrFuncionario.TabIndex = 14;
             // 
             // Menu
             // 
@@ -623,14 +624,14 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.paneServ);
             this.Controls.Add(this.paneMenu);
-            this.Controls.Add(this.scrTransportadora);
+            this.Controls.Add(this.pnGerenciamento);
+            this.Controls.Add(this.pnFuncoes);
+            this.Controls.Add(this.pnRelatorios);
+            this.Controls.Add(this.scrFuncionario);
             this.Controls.Add(this.scrTipo_Transporte);
             this.Controls.Add(this.pnHome);
             this.Controls.Add(this.ScreenSobre);
             this.Controls.Add(this.ScreenCotacao);
-            this.Controls.Add(this.pnGerenciamento);
-            this.Controls.Add(this.pnFuncoes);
-            this.Controls.Add(this.pnRelatorios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
@@ -689,5 +690,6 @@
         private System.Windows.Forms.Button button18;
         private Servicos.ScreenTipo_Transporte scrTipo_Transporte;
         private Servicos.Screen_Transportadora scrTransportadora;
+        private Servicos.Screen_Funcionarios scrFuncionario;
     }
 }

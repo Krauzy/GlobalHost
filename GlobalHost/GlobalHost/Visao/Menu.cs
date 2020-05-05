@@ -237,5 +237,14 @@ namespace GlobalHost.Visao
             scrTransportadora.load();
             scrTransportadora.BringToFront();
         }
+
+        private void btFuncionario_Click(object sender, EventArgs e)
+        {
+            ger = false;
+            fun = false;
+            rel = false;
+            changeBoolServ();
+            scrFuncionario.BringToFront();
+        }
     }
 }

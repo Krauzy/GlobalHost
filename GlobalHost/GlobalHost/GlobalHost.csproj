@@ -92,6 +92,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controlador\Controle_Funcionario.cs" />
+    <Compile Include="Controlador\Controle_Login.cs" />
     <Compile Include="Controlador\Controle_Parametro.cs" />
     <Compile Include="Controlador\Controle_Cliente.cs" />
     <Compile Include="Controlador\Controle_TipoCarga.cs" />
