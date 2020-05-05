@@ -35,6 +35,13 @@
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_cpf_cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpNascimento = new System.Windows.Forms.DateTimePicker();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -56,13 +63,6 @@
             this.btnInserir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_cpf_cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,6 +155,55 @@
             this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionario.Size = new System.Drawing.Size(339, 357);
             this.dgvFuncionario.TabIndex = 104;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 50;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.Width = 150;
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "dtNascimento";
+            this.valor.HeaderText = "Data de Nascimento";
+            this.valor.Name = "valor";
+            this.valor.Width = 75;
+            // 
+            // col_cpf_cnpj
+            // 
+            this.col_cpf_cnpj.DataPropertyName = "cpf_cnpj";
+            this.col_cpf_cnpj.HeaderText = "CPF/CNPJ";
+            this.col_cpf_cnpj.Name = "col_cpf_cnpj";
+            this.col_cpf_cnpj.Width = 120;
+            // 
+            // contato
+            // 
+            this.contato.DataPropertyName = "endereco";
+            this.contato.HeaderText = "Endereco";
+            this.contato.Name = "contato";
+            this.contato.Width = 250;
+            // 
+            // cnpj
+            // 
+            this.cnpj.DataPropertyName = "telefone";
+            this.cnpj.HeaderText = "Telefone";
+            this.cnpj.Name = "cnpj";
+            this.cnpj.Width = 150;
+            // 
+            // tipo
+            // 
+            this.tipo.DataPropertyName = "email";
+            this.tipo.HeaderText = "E-mail";
+            this.tipo.Name = "tipo";
             // 
             // dtpNascimento
             // 
@@ -348,6 +397,7 @@
             this.btnOk.Text = "OK";
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnExcluir
             // 
@@ -421,55 +471,6 @@
             this.label2.Size = new System.Drawing.Size(929, 37);
             this.label2.TabIndex = 79;
             this.label2.Text = "________________________________________________";
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 50;
-            // 
-            // nome
-            // 
-            this.nome.DataPropertyName = "nome";
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            this.nome.Width = 150;
-            // 
-            // valor
-            // 
-            this.valor.DataPropertyName = "dtNascimento";
-            this.valor.HeaderText = "Data de Nascimento";
-            this.valor.Name = "valor";
-            this.valor.Width = 75;
-            // 
-            // col_cpf_cnpj
-            // 
-            this.col_cpf_cnpj.DataPropertyName = "cpf_cnpj";
-            this.col_cpf_cnpj.HeaderText = "CPF/CNPJ";
-            this.col_cpf_cnpj.Name = "col_cpf_cnpj";
-            this.col_cpf_cnpj.Width = 120;
-            // 
-            // contato
-            // 
-            this.contato.DataPropertyName = "endereco";
-            this.contato.HeaderText = "Endereco";
-            this.contato.Name = "contato";
-            this.contato.Width = 250;
-            // 
-            // cnpj
-            // 
-            this.cnpj.DataPropertyName = "telefone";
-            this.cnpj.HeaderText = "Telefone";
-            this.cnpj.Name = "cnpj";
-            this.cnpj.Width = 150;
-            // 
-            // tipo
-            // 
-            this.tipo.DataPropertyName = "email";
-            this.tipo.HeaderText = "E-mail";
-            this.tipo.Name = "tipo";
             // 
             // Screen_Cliente
             // 

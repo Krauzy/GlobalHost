@@ -16,5 +16,10 @@ namespace GlobalHost.Visao.Servicos
         {
             InitializeComponent();
         }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
