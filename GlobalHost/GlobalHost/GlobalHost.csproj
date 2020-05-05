@@ -150,11 +150,11 @@
     <Compile Include="Visao\Param.Designer.cs">
       <DependentUpon>Param.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visao\Scree_Login.cs">
+    <Compile Include="Visao\Screen_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Visao\Scree_Login.Designer.cs">
-      <DependentUpon>Scree_Login.cs</DependentUpon>
+    <Compile Include="Visao\Screen_Login.Designer.cs">
+      <DependentUpon>Screen_Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Servicos\Screen_Cliente.cs">
       <SubType>Form</SubType>
@@ -214,8 +214,8 @@
     <EmbeddedResource Include="Visao\Param.resx">
       <DependentUpon>Param.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visao\Scree_Login.resx">
-      <DependentUpon>Scree_Login.cs</DependentUpon>
+    <EmbeddedResource Include="Visao\Screen_Login.resx">
+      <DependentUpon>Screen_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\ScreenTipo_Transporte.resx">
       <DependentUpon>ScreenTipo_Transporte.cs</DependentUpon>
@@ -385,6 +385,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GlobalDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\icons8-visível-18.png" />
+    <None Include="Resources\user100.png" />
     <None Include="Resources\config.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

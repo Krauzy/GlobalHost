@@ -154,11 +154,12 @@ namespace GlobalHost.Visao.Servicos
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            bool result_cnpj = API.Validate.CNPJ(txtCNPJ.Text);
             if(ins == true)
             {
                 if(txtNome.Text != string.Empty && txtValor.Text != string.Empty && txtContato.Text != string.Empty 
                     && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
-                    && txtCNPJ.Text != string.Empty && txtNum.Value >= 1)
+                    && txtCNPJ.Text != string.Empty && txtNum.Value >= 1 && result_cnpj)
                 {
                     if(!Controle_Transportadora.insert(txtNome.Text, V, (int)txtNum.Value,txtEndereco.Text, txtContato.Text, txtTelefone.Text, txtEmail.Text, txtCNPJ.Text, (int)cbTipoTransporte.SelectedValue))
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -169,7 +170,7 @@ namespace GlobalHost.Visao.Servicos
             {
                 if (txtID.Text != string.Empty && txtNome.Text != string.Empty && txtValor.Text != string.Empty && txtContato.Text != string.Empty
                     && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
-                    && txtCNPJ.Text != string.Empty && txtNum.Value >= 1)
+                    && txtCNPJ.Text != string.Empty && txtNum.Value >= 1 && result_cnpj)
                 {
                     if (!Controle_Transportadora.update(ID, txtNome.Text, V, (int)txtNum.Value, txtEndereco.Text, txtContato.Text, txtTelefone.Text, txtEmail.Text, txtCNPJ.Text, (int)cbTipoTransporte.SelectedValue))
                         MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);                        
@@ -357,7 +358,7 @@ namespace GlobalHost.Visao.Servicos
                             break;
 
                         case "Contato":
-                            Controle_Transportadora.get("contato LIKE '%" + txtBusca.Text + "%'");
+                            data = Controle_Transportadora.get("contato LIKE '%" + txtBusca.Text + "%'");
                             break;
 
                         case "Telefone":

@@ -153,6 +153,16 @@ namespace GlobalHost.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_visível_18 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-visível-18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_water_transportation_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-water-transportation-100", resourceCulture);
@@ -236,6 +246,16 @@ namespace GlobalHost.Properties {
         internal static System.Drawing.Bitmap ok {
             get {
                 object obj = ResourceManager.GetObject("ok", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user100 {
+            get {
+                object obj = ResourceManager.GetObject("user100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

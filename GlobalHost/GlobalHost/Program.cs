@@ -15,7 +15,7 @@ namespace GlobalHost
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Visao.Menu());
+            Application.Run(new Visao.Screen_Login());
             //OpenFileDialog open = new OpenFileDialog();
             //if (open.ShowDialog() == DialogResult.OK)
             //{
