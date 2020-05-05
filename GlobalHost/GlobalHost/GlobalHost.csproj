@@ -150,6 +150,12 @@
     <Compile Include="Visao\Param.Designer.cs">
       <DependentUpon>Param.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\Scree_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Scree_Login.Designer.cs">
+      <DependentUpon>Scree_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Servicos\Screen_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Param.resx">
       <DependentUpon>Param.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Scree_Login.resx">
+      <DependentUpon>Scree_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\ScreenTipo_Transporte.resx">
       <DependentUpon>ScreenTipo_Transporte.cs</DependentUpon>
