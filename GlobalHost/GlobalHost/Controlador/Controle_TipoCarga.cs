@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace GlobalHost.Controlador
 {
-    class ControleTipoCarga
+    class Controle_TipoCarga
     {
         //Tipo_Carga
         public static bool insert(string descricao, double peso, string dimsensoes)
