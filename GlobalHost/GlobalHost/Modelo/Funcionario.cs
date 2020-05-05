@@ -18,13 +18,13 @@ namespace GlobalHost.Modelo
         private DateTime dtdemissao;
         private string telefone;
         private string email;
-        private int login;
+        private Login login;
 
         public Funcionario()
         {
         }
 
-        public Funcionario(int id, string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, int login)
+        public Funcionario(int id, string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, Login login)
         {
             this.id = id;
             this.nome = nome;
@@ -39,7 +39,7 @@ namespace GlobalHost.Modelo
             this.login = login;
         }
 
-        public Funcionario(string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, int login)
+        public Funcionario(string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, Login login)
         {
             this.nome = nome;
             this.dtnascimento = dtnascimento;
@@ -63,6 +63,6 @@ namespace GlobalHost.Modelo
         public DateTime Dtdemissao { get => dtdemissao; set => dtdemissao = value; }
         public string Telefone { get => telefone; set => telefone = value; }
         public string Email { get => email; set => email = value; }
-        public int Login { get => login; set => login = value; }
+        public Login Login { get => login; set => login = value; }
     }
 }

@@ -11,16 +11,16 @@ namespace GlobalHost.Controlador
 {
     class Controle_Funcionario
     {
-        public static bool insert (string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, int login)
+        public static bool insert (string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, Login login)
         {
             Funcionario f = new Funcionario(nome, dtnascimento, cpf, salario, endereco, dtadmissao, dtdemissao, telefone, email, login);
             FuncionarioDB DB = new FuncionarioDB();
             return DB.Insert(f);
         }
 
-        public static bool update(string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, int login)
+        public static bool update(int id, string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, Login login)
         {
-            Funcionario f = new Funcionario(nome, dtnascimento, cpf, salario, endereco, dtadmissao, dtdemissao, telefone, email, login);
+            Funcionario f = new Funcionario(id,nome, dtnascimento, cpf, salario, endereco, dtadmissao, dtdemissao, telefone, email, login);
             FuncionarioDB DB = new FuncionarioDB();
             return DB.Update(f);
         }
@@ -59,7 +59,7 @@ namespace GlobalHost.Controlador
             table.Columns.Add("dtdemissao", typeof(DateTime));
             table.Columns.Add("telefone", typeof(string));
             table.Columns.Add("email", typeof(string));
-            table.Columns.Add("login", typeof(int));
+            table.Columns.Add("login", typeof(Login));
 
             foreach (var item in list)
             {
