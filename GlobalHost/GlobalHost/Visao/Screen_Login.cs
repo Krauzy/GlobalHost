@@ -103,5 +103,12 @@ namespace GlobalHost.Visao
         {
             MessageBox.Show("Função em obra... previsão [versão 1.0.0]", "Espere", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+
+        private void btEntrar_Click(object sender, EventArgs e)
+        {
+            Visao.Menu ex = new Menu();
+            Visible = false;
+            ex.ShowDialog();
+        }
     }
 }

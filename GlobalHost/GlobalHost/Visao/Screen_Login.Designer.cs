@@ -125,6 +125,7 @@
             this.btEntrar.TabIndex = 19;
             this.btEntrar.Text = "ENTRAR";
             this.btEntrar.UseVisualStyleBackColor = true;
+            this.btEntrar.Click += new System.EventHandler(this.btEntrar_Click);
             // 
             // btClose
             // 
