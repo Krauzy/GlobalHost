@@ -13,12 +13,12 @@ namespace GlobalHost.Modelo
         private double peso;
         private string dimensoes; // L;A;C -> "10;22;45"
 
-        public Tipo_Carga(int id, string descricao, double peso, string dimsensoes)
+        public Tipo_Carga(int id, string descricao, double peso, string dimensoes)
         {
             this.id = id;
             this.descricao = descricao;
             this.peso = peso;
-            this.dimensoes = dimsensoes;
+            this.dimensoes = dimensoes;
         }
 
         public Tipo_Carga(string descricao, double peso, string dimsensoes)

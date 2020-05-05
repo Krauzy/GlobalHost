@@ -92,9 +92,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Controlador\Controle_Funcionario.cs" />
-    <Compile Include="Controlador\Controle_Login.cs" />
     <Compile Include="Controlador\Controle_Parametro.cs" />
+    <Compile Include="Controlador\Controle_Cliente.cs" />
+    <Compile Include="Controlador\Controle_TipoCarga.cs" />
     <Compile Include="Controlador\Controle_TipoTransporte.cs" />
     <Compile Include="Controlador\Controle_Transportadora.cs" />
     <Compile Include="GlobalDBDataSet.Designer.cs">
@@ -107,6 +107,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GlobalDBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Cliente.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
     <Compile Include="Modelo\Login.cs" />
     <Compile Include="Modelo\Parametros.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Modelo\Transportadora.cs" />
     <Compile Include="Persistencia\Banco.cs" />
     <Compile Include="Persistencia\FuncionarioDB.cs" />
+    <Compile Include="Persistencia\ClienteDB.cs" />
     <Compile Include="Persistencia\LoginDB.cs" />
     <Compile Include="Persistencia\ParametrosDB.cs" />
     <Compile Include="Persistencia\Tipo_CargaDB.cs" />
@@ -158,12 +160,6 @@
     <Compile Include="Visao\Servicos\Screen_Funcionarios.Designer.cs">
       <DependentUpon>Screen_Funcionarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visao\Servicos\Screen_Login.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Visao\Servicos\Screen_Login.Designer.cs">
-      <DependentUpon>Screen_Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="Visao\Servicos\Screen_Transportadora.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -203,9 +199,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Screen_Funcionarios.resx">
       <DependentUpon>Screen_Funcionarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Visao\Servicos\Screen_Login.resx">
-      <DependentUpon>Screen_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Screen_Transportadora.resx">
       <DependentUpon>Screen_Transportadora.cs</DependentUpon>
