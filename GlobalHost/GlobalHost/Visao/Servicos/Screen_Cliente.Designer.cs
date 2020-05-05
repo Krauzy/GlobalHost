@@ -47,7 +47,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtContato = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtEndereco = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -63,6 +62,9 @@
             this.btnInserir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.mtbCPF_CNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.mtbCEP = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,14 +97,11 @@
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Items.AddRange(new object[] {
             "Nome",
-            "Valor",
-            "Carga Máxima",
             "Endereço",
-            "Contato",
             "Telefone",
             "E-mail",
-            "CNPJ",
-            "Tipo de Transporte"});
+            "CPF/CNPJ",
+            "E-mail"});
             this.cbFiltro.Location = new System.Drawing.Point(849, 133);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(149, 24);
@@ -259,18 +258,6 @@
             this.label9.TabIndex = 97;
             this.label9.Text = "E-mail";
             // 
-            // txtContato
-            // 
-            this.txtContato.BackColor = System.Drawing.Color.White;
-            this.txtContato.Enabled = false;
-            this.txtContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContato.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtContato.Location = new System.Drawing.Point(299, 188);
-            this.txtContato.Name = "txtContato";
-            this.txtContato.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtContato.Size = new System.Drawing.Size(299, 22);
-            this.txtContato.TabIndex = 91;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -350,6 +337,7 @@
             this.txtID.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtID.Size = new System.Drawing.Size(107, 22);
             this.txtID.TabIndex = 89;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // label3
             // 
@@ -379,6 +367,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnOk
             // 
@@ -415,6 +404,7 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -432,6 +422,7 @@
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnInserir
             // 
@@ -449,6 +440,7 @@
             this.btnInserir.Text = "Inserir";
             this.btnInserir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // label1
             // 
@@ -472,12 +464,42 @@
             this.label2.TabIndex = 79;
             this.label2.Text = "________________________________________________";
             // 
+            // mtbCPF_CNPJ
+            // 
+            this.mtbCPF_CNPJ.Location = new System.Drawing.Point(299, 190);
+            this.mtbCPF_CNPJ.Mask = "___.___.___./";
+            this.mtbCPF_CNPJ.Name = "mtbCPF_CNPJ";
+            this.mtbCPF_CNPJ.Size = new System.Drawing.Size(299, 20);
+            this.mtbCPF_CNPJ.TabIndex = 108;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label6.Location = new System.Drawing.Point(461, 278);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 20);
+            this.label6.TabIndex = 110;
+            this.label6.Text = "CEP";
+            // 
+            // mtbCEP
+            // 
+            this.mtbCEP.Location = new System.Drawing.Point(465, 303);
+            this.mtbCEP.Mask = "__.___-___";
+            this.mtbCEP.Name = "mtbCEP";
+            this.mtbCEP.Size = new System.Drawing.Size(133, 20);
+            this.mtbCEP.TabIndex = 111;
+            // 
             // Screen_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1031, 562);
+            this.Controls.Add(this.mtbCEP);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.mtbCPF_CNPJ);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.cbFiltro);
@@ -487,7 +509,6 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtContato);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtEndereco);
             this.Controls.Add(this.label7);
@@ -523,7 +544,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtContato;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.Label label7;
@@ -546,5 +566,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contato;
         private System.Windows.Forms.DataGridViewTextBoxColumn cnpj;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.MaskedTextBox mtbCPF_CNPJ;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.MaskedTextBox mtbCEP;
     }
 }
