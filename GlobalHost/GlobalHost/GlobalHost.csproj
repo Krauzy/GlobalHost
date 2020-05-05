@@ -148,6 +148,18 @@
     <Compile Include="Visao\Param.Designer.cs">
       <DependentUpon>Param.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\Servicos\Screen_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Screen_Cliente.Designer.cs">
+      <DependentUpon>Screen_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Servicos\Screen_TipoCarga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Screen_TipoCarga.Designer.cs">
+      <DependentUpon>Screen_TipoCarga.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Servicos\ScreenTipo_Transporte.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -197,8 +209,14 @@
     <EmbeddedResource Include="Visao\Servicos\ScreenTipo_Transporte.resx">
       <DependentUpon>ScreenTipo_Transporte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Screen_Cliente.resx">
+      <DependentUpon>Screen_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Screen_Funcionarios.resx">
       <DependentUpon>Screen_Funcionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Screen_TipoCarga.resx">
+      <DependentUpon>Screen_TipoCarga.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Screen_Transportadora.resx">
       <DependentUpon>Screen_Transportadora.cs</DependentUpon>

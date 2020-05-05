@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace GlobalHost.Controlador
 {
-    class ControleCliente
+    class Controle_Cliente
     {
         //Cliente
         public static bool insert(string nome, string endereco, DateTime dtnascimento, string cpf_cnpj, string cep, string email, string telefone)
