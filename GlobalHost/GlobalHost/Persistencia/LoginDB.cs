@@ -51,6 +51,23 @@ namespace GlobalHost.Persistencia
             return result;
         }
 
+        public Login get(int id)
+        {
+            string SQL = @"SELECT * FROM Login WHERE id = " + id;
+            DataTable dt = new DataTable();
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out dt);
+            banco.Disconnect();
+            Login log = new Login();
+            if(dt.Rows.Count > 0)
+            {
+                log = new Login((int)dt.Rows[0]["id"],
+                                    dt.Rows[0]["usuario"].ToString(),
+                                    dt.Rows[0]["senha"].ToString());
+            }
+            return log;
+        }
+
         public bool check(string user, string pass)
         {
             
