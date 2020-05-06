@@ -50,6 +50,7 @@ namespace GlobalHost.Persistencia
             }
             return result;
         }
+
         public Cliente get(int id)
         {
             DataTable dt = new DataTable();
@@ -100,6 +101,7 @@ namespace GlobalHost.Persistencia
             banco.Disconnect();
             return list;
         }
+
         public List<object> getAll()
         {
             List<object> list = new List<object>();
@@ -119,8 +121,7 @@ namespace GlobalHost.Persistencia
                                     dt.Rows[0]["cpf_cnpj"].ToString(),
                                     dt.Rows[0]["cep"].ToString(),
                                     dt.Rows[0]["email"].ToString(),
-                                    dt.Rows[0]["telefone"].ToString()
-                                    );
+                                    dt.Rows[0]["telefone"].ToString());
                     list.Add(c);
                 }
             }

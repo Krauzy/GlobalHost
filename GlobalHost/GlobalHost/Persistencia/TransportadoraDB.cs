@@ -50,7 +50,7 @@ namespace GlobalHost.Persistencia
                 Transportadora t = (Transportadora)obj;
                 string SQL = @"UPDATE Transportadora SET nome = @nome, valor = @valor, max_carga = @carga, endereco = @end," 
                     + @" contato = @cont, telefone = @tel, email = @email, cnpj = @cnpj, tipo = @tipo WHERE id = " + t.Id;
-                banco.Disconnect();
+                banco.Connect();
                 result = banco.ExecuteNonQuery(SQL, "@nome", t.Nome, "@valor", t.Valor, "@carga", t.Max_carga, "@end", t.Endereco,
                     "@cont", t.Contato, "@tel", t.Telefone, "@email", t.Email, "@cnpj", t.Cnpj, "@tipo", t.Tipo.Id);
                 banco.Disconnect();

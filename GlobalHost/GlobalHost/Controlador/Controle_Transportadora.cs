@@ -67,6 +67,7 @@ namespace GlobalHost.Controlador
             table.Columns.Add("email", typeof(string));
             table.Columns.Add("cnpj", typeof(string));
             table.Columns.Add("tipo", typeof(Tipo_Transporte));
+            list.Remove(null);
             foreach (var item in list)
             {
                 DataRow linha = table.NewRow();

@@ -64,6 +64,7 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.scrTrans = new GlobalHost.Visao.Servicos.Screen_Transportadora();
             this.scrTipo_Transporte = new GlobalHost.Visao.Servicos.ScreenTipo_Transporte();
             this.pnHome = new GlobalHost.Visao.PaneHome();
             this.ScreenSobre = new GlobalHost.Visao.Sobre();
@@ -305,6 +306,7 @@
             this.btCliente.TabIndex = 4;
             this.btCliente.Text = "CLIENTE";
             this.btCliente.UseVisualStyleBackColor = false;
+            this.btCliente.Click += new System.EventHandler(this.btCliente_Click);
             // 
             // btTipoTransporte
             // 
@@ -334,6 +336,7 @@
             this.btTipoCarga.TabIndex = 2;
             this.btTipoCarga.Text = "TIPO DE CARGA";
             this.btTipoCarga.UseVisualStyleBackColor = false;
+            this.btTipoCarga.Click += new System.EventHandler(this.btTipoCarga_Click);
             // 
             // btRemessa
             // 
@@ -573,6 +576,14 @@
             this.button15.Text = "REMESSA";
             this.button15.UseVisualStyleBackColor = false;
             // 
+            // scrTrans
+            // 
+            this.scrTrans.BackColor = System.Drawing.Color.White;
+            this.scrTrans.Location = new System.Drawing.Point(225, 27);
+            this.scrTrans.Name = "scrTrans";
+            this.scrTrans.Size = new System.Drawing.Size(1031, 562);
+            this.scrTrans.TabIndex = 15;
+            // 
             // scrTipo_Transporte
             // 
             this.scrTipo_Transporte.BackColor = System.Drawing.Color.White;
@@ -619,19 +630,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1255, 590);
+            this.Controls.Add(this.scrTrans);
             this.Controls.Add(this.brMinimize);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.paneServ);
             this.Controls.Add(this.paneMenu);
-            this.Controls.Add(this.pnGerenciamento);
-            this.Controls.Add(this.pnFuncoes);
-            this.Controls.Add(this.pnRelatorios);
-            this.Controls.Add(this.scrFuncionario);
             this.Controls.Add(this.scrTipo_Transporte);
             this.Controls.Add(this.pnHome);
             this.Controls.Add(this.ScreenSobre);
             this.Controls.Add(this.ScreenCotacao);
+            this.Controls.Add(this.pnGerenciamento);
+            this.Controls.Add(this.pnFuncoes);
+            this.Controls.Add(this.pnRelatorios);
+            this.Controls.Add(this.scrFuncionario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
@@ -691,5 +703,6 @@
         private Servicos.ScreenTipo_Transporte scrTipo_Transporte;
         private Servicos.Screen_Transportadora scrTransportadora;
         private Servicos.Screen_Funcionarios scrFuncionario;
+        private Servicos.Screen_Transportadora scrTrans;
     }
 }

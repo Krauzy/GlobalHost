@@ -156,6 +156,12 @@
     <Compile Include="Visao\Screen_Login.Designer.cs">
       <DependentUpon>Screen_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\Servicos\CEPTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\CEPTool.Designer.cs">
+      <DependentUpon>CEPTool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Servicos\Screen_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Screen_Login.resx">
       <DependentUpon>Screen_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\CEPTool.resx">
+      <DependentUpon>CEPTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\ScreenTipo_Transporte.resx">
       <DependentUpon>ScreenTipo_Transporte.cs</DependentUpon>

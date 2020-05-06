@@ -109,6 +109,7 @@ namespace GlobalHost.Visao
             Visao.Menu ex = new Menu();
             Visible = false;
             ex.ShowDialog();
+            this.Close();
         }
     }
 }

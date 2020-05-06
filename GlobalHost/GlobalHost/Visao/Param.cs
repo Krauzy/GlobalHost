@@ -2,6 +2,7 @@
 using GlobalHost.Controlador;
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace GlobalHost.Visao
@@ -14,7 +15,14 @@ namespace GlobalHost.Visao
             InitializeComponent();
             btOk.Visible = false;
             btCancelar.Visible = false;
-            init();
+            var t = new Thread(() =>
+            {
+                init();
+            });
+            Cursor.Current = Cursors.AppStarting;
+            t.Start();
+            t.Join();
+            Cursor.Current = Cursors.Arrow;
         }
 
         private void init()
@@ -135,12 +143,22 @@ namespace GlobalHost.Visao
 
         private void btOk_Click(object sender, EventArgs e)
         {
-            if (!Controle_Parametro.update(txtNome.Text, txtRazao.Text, txtCnpj.Text, dtpDate.Value, txtEnd.Text, txtEmail.Text, txtSite.Text, txtEcon.Text, "Ativo", txtTel.Text, picBox.Image))
-                MessageBox.Show("Não foi possível efetuar modificação nos parâmetros", "Erro ao atualizar inforamções", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            init();
-            btConfig.Enabled = true;
-            btOk.Visible = false;
-            btCancelar.Visible = false;
+            if (txtNome.Text != "")
+            {
+                if (API.Validate.CNPJ(txtCnpj.Text))
+                {
+                    if (!Controle_Parametro.update(txtNome.Text, txtRazao.Text, txtCnpj.Text, dtpDate.Value, txtEnd.Text, txtEmail.Text, txtSite.Text, txtEcon.Text, "Ativo", txtTel.Text, picBox.Image))
+                        MessageBox.Show("Não foi possível efetuar modificação nos parâmetros", "Erro ao atualizar informações", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    init();
+                    btConfig.Enabled = true;
+                    btOk.Visible = false;
+                    btCancelar.Visible = false;
+                }
+                else
+                    MessageBox.Show("CNPJ Inválido", "Erro de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Nome Inválido", "Eroo de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btCancelar_Click(object sender, EventArgs e)

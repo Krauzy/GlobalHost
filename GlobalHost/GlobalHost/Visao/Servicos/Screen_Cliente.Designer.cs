@@ -467,7 +467,7 @@
             // mtbCPF_CNPJ
             // 
             this.mtbCPF_CNPJ.Location = new System.Drawing.Point(299, 190);
-            this.mtbCPF_CNPJ.Mask = "___.___.___./";
+            this.mtbCPF_CNPJ.Mask = "000.000.000-00";
             this.mtbCPF_CNPJ.Name = "mtbCPF_CNPJ";
             this.mtbCPF_CNPJ.Size = new System.Drawing.Size(299, 20);
             this.mtbCPF_CNPJ.TabIndex = 108;
@@ -524,7 +524,7 @@
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Screen_Cliente";
             this.Text = "Screen_Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();

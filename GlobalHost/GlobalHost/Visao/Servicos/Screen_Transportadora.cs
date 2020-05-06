@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 using GlobalHost.Controlador;
+using System.ServiceModel.Channels;
 
 namespace GlobalHost.Visao.Servicos
 {
@@ -56,6 +57,7 @@ namespace GlobalHost.Visao.Servicos
             txtValor.Enabled = true;
             txtContato.Enabled = true;
             txtEndereco.Enabled = true;
+            btCEP.Enabled = true;
             txtTelefone.Enabled = true;
             txtEmail.Enabled = true;
             txtCNPJ.Enabled = true;
@@ -84,6 +86,7 @@ namespace GlobalHost.Visao.Servicos
             txtValor.Enabled = true;
             txtContato.Enabled = true;
             txtEndereco.Enabled = true;
+            btCEP.Enabled = true;
             txtTelefone.Enabled = true;
             txtEmail.Enabled = true;
             txtCNPJ.Enabled = true;
@@ -110,6 +113,7 @@ namespace GlobalHost.Visao.Servicos
             txtValor.Enabled = false;
             txtContato.Enabled = false;
             txtEndereco.Enabled = false;
+            btCEP.Enabled = false;
             txtTelefone.Enabled = false;
             txtEmail.Enabled = false;
             txtCNPJ.Enabled = false;
@@ -154,37 +158,174 @@ namespace GlobalHost.Visao.Servicos
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            bool result_cnpj = API.Validate.CNPJ(txtCNPJ.Text);
             if(ins == true)
             {
-                if(txtNome.Text != string.Empty && txtValor.Text != string.Empty && txtContato.Text != string.Empty 
-                    && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
-                    && txtCNPJ.Text != string.Empty && txtNum.Value >= 1 && result_cnpj)
+                bool t = false;
+                string mes = "";
+                int cont = 0;
+                if(txtNome.Text == string.Empty)
                 {
-                    if(!Controle_Transportadora.insert(txtNome.Text, V, (int)txtNum.Value,txtEndereco.Text, txtContato.Text, txtTelefone.Text, txtEmail.Text, txtCNPJ.Text, (int)cbTipoTransporte.SelectedValue))
-                        MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        
+                    t = true;
+                    cont++;
+                    mes += "Nome, ";
                 }
+                if (txtValor.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Valor, ";
+                }
+                if (txtContato.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Contato, ";
+                }
+                if (txtEndereco.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Endereço, ";
+                }
+                if(txtTelefone.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Telefone, ";
+                }
+                if(txtEmail.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Email, ";
+                }
+                if(txtCNPJ.Text == string.Empty || !API.Validate.CNPJ(txtCNPJ.Text))
+                {
+                    t = true;
+                    cont++;
+                    mes += "CNPJ, ";
+                }
+
+                if (t == false)
+                {
+                    if (!Controle_Transportadora.insert(txtNome.Text, V, (int)txtNum.Value, txtEndereco.Text, txtContato.Text, txtTelefone.Text, txtEmail.Text, txtCNPJ.Text, (int)cbTipoTransporte.SelectedValue))
+                        MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        _default();
+                }
+                else
+                {
+                    if(cont == 1)
+                        MessageBox.Show("O campo " + mes.Replace(",", "") + "está vazio ou possui valor inválido", "Erro ao inserir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show("Os campos " + mes + "estão vazios ou possuem valor inválido", "Erro ao inserir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
             else if(alt == true)
             {
-                if (txtID.Text != string.Empty && txtNome.Text != string.Empty && txtValor.Text != string.Empty && txtContato.Text != string.Empty
-                    && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
-                    && txtCNPJ.Text != string.Empty && txtNum.Value >= 1 && result_cnpj)
+                bool t = false;
+                string mes = "";
+                int cont = 0;
+                if(txtID.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "ID, ";
+                }
+                if (txtNome.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Nome, ";
+                }
+                if (txtValor.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Valor, ";
+                }
+                if (txtContato.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Contato, ";
+                }
+                if (txtEndereco.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Endereço, ";
+                }
+                if (txtTelefone.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Telefone, ";
+                }
+                if (txtEmail.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Email, ";
+                }
+                if (txtCNPJ.Text == string.Empty || !API.Validate.CNPJ(txtCNPJ.Text))
+                {
+                    t = true;
+                    cont++;
+                    mes += "CNPJ, ";
+                }
+
+                if(t == false)
                 {
                     if (!Controle_Transportadora.update(ID, txtNome.Text, V, (int)txtNum.Value, txtEndereco.Text, txtContato.Text, txtTelefone.Text, txtEmail.Text, txtCNPJ.Text, (int)cbTipoTransporte.SelectedValue))
-                        MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);                        
+                        MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        _default();
                 }
+                else
+                {
+                    if (cont == 1)
+                        MessageBox.Show("O campo " + mes.Replace(",", "") + "está vazio ou possui valor inválido", "Erro ao alterar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show("Os campos " + mes + "estão vazios ou possuem valor inválido", "Erro ao alterar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }                                   
             }
             else if(exc == true)
             {
-                if(txtID.Text != string.Empty)
+                bool t = false;
+                string mes = "";
+                if (txtID.Text == string.Empty)
                 {
-                    string n = Controle_Transportadora.get(ID).Rows[0]["nome"].ToString();
-                    if(!Controle_Transportadora.delete(ID))
-                        MessageBox.Show("Falha ao exluir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    t = true;
+                    mes += "ID";
                 }
+
+                if(t == false)
+                {
+                    try
+                    {
+                        string n = Controle_Transportadora.get(ID).Rows[0]["nome"].ToString();
+                        if (MessageBox.Show("Deseja realmente excluir " + n + "?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            if (!Controle_Transportadora.delete(ID))
+                                MessageBox.Show("Falha ao exluir " + n + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch(IndexOutOfRangeException)
+                    {
+                        MessageBox.Show("ID não existente!", "Erro ao excluir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O campo " + mes + " está vazio ou possui valor inválido", "Erro ao excluir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }                
             }
+            
+            this.ActiveControl = null;
+        }
+
+        private void _default()
+        {
             ins = false;
             alt = false;
             exc = false;
@@ -195,6 +336,7 @@ namespace GlobalHost.Visao.Servicos
             txtValor.Enabled = false;
             txtContato.Enabled = false;
             txtEndereco.Enabled = false;
+            btCEP.Enabled = false;
             txtTelefone.Enabled = false;
             txtEmail.Enabled = false;
             txtCNPJ.Enabled = false;
@@ -217,8 +359,6 @@ namespace GlobalHost.Visao.Servicos
 
             data = Controle_Transportadora.get("");
             dgvTransportadora.DataSource = data;
-
-            this.ActiveControl = null;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -233,6 +373,7 @@ namespace GlobalHost.Visao.Servicos
             txtValor.Enabled = false;
             txtContato.Enabled = false;
             txtEndereco.Enabled = false;
+            btCEP.Enabled = false;
             txtTelefone.Enabled = false;
             txtEmail.Enabled = false;
             txtCNPJ.Enabled = false;
@@ -305,7 +446,7 @@ namespace GlobalHost.Visao.Servicos
         {
             if(dgvTransportadora.SelectedRows.Count == 1)
             {
-                txtID.Text = dgvTransportadora.SelectedRows[0].Cells["id"].Value.ToString();
+                txtID.Text = dgvTransportadora.SelectedRows[0].Cells["col_id"].Value.ToString();
                 txtNome.Text = dgvTransportadora.SelectedRows[0].Cells["nome"].Value.ToString();
                 txtValor.Text = dgvTransportadora.SelectedRows[0].Cells["valor"].Value.ToString();
                 txtNum.Value = Convert.ToInt32(dgvTransportadora.SelectedRows[0].Cells["max_carga"].Value.ToString());
@@ -325,8 +466,9 @@ namespace GlobalHost.Visao.Servicos
                 if(dgvTransportadora.SelectedRows.Count == 1)
                 {
                     string n = dgvTransportadora.SelectedRows[0].Cells["nome"].Value.ToString();
-                    if (!Controle_Transportadora.delete(Convert.ToInt32(dgvTransportadora.SelectedRows[0].Cells["id"].Value.ToString())))
-                        MessageBox.Show("Erro ao excluir " + n, "Falha na execução", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (MessageBox.Show("Deseja realmente excluir " + n + "?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (!Controle_Transportadora.delete(Convert.ToInt32(dgvTransportadora.SelectedRows[0].Cells["col_id"].Value.ToString())))
+                            MessageBox.Show("Erro ao excluir " + n, "Falha na execução", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             data = Controle_Transportadora.get("");
@@ -346,11 +488,11 @@ namespace GlobalHost.Visao.Servicos
                             break;
 
                         case "Valor":
-                            data = Controle_Transportadora.get("valor > " + Convert.ToDouble(txtBusca.Text));
+                            data = Controle_Transportadora.get("valor >= " + Convert.ToDouble(txtBusca.Text));
                             break;
 
                         case "Carga Máxima":
-                            data = Controle_Transportadora.get("max_carga > " + Convert.ToInt32(txtBusca.Text));
+                            data = Controle_Transportadora.get("max_carga >= " + Convert.ToInt32(txtBusca.Text));
                             break;
 
                         case "Endereço":
@@ -393,6 +535,14 @@ namespace GlobalHost.Visao.Servicos
             else
                 data = Controle_Transportadora.get("");
             dgvTransportadora.DataSource = data;
+        }
+
+        private void btCEP_Click(object sender, EventArgs e)
+        {
+            CEPTool ex = new CEPTool();
+            ex.ShowDialog();
+            if(!ex.IsCancel)
+                txtEndereco.Text = ex.Str;
         }
     }
 }

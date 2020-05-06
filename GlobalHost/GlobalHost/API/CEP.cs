@@ -26,15 +26,15 @@ namespace GlobalHost.API
                 {
                     ViaCEPModel Modelo = busca.GetModelo(c);
 
-                    this.cep = Modelo.Cep;
-                    this.logradouro = Modelo.Logradouro;
-                    this.complemento = Modelo.Complemento;
-                    this.bairro = Modelo.Bairro;
-                    this.localidade = Modelo.Localidade;
-                    this.uf = Modelo.UF;
-                    this.unidade = Modelo.Unidade;
-                    this.ibge = Modelo.IBGE;
-                    this.gia = Modelo.GIA;
+                    this.cep = val(Modelo.Cep);
+                    this.logradouro = val(Modelo.Logradouro);
+                    this.complemento = val(Modelo.Complemento);
+                    this.bairro = val(Modelo.Bairro);
+                    this.localidade = val(Modelo.Localidade);
+                    this.uf = val(Modelo.UF);
+                    this.unidade = val(Modelo.Unidade);
+                    this.ibge = val(Modelo.IBGE);
+                    this.gia = val(Modelo.GIA);
 
                 }
             }
@@ -42,6 +42,13 @@ namespace GlobalHost.API
             {
                 MessageBox.Show(e.ToString(), "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private string val(string str)
+        {
+            return str.Trim().Replace("Ã£", "Ã").Replace("Ã©", "É").Replace("Ã§", "Ç")
+                .Replace("Ãº", "Ú").Replace("Ãª", "Ê").Replace("Ã¡", "Á").Replace("Ã´", "Ô")
+                .Replace("Ã¢", "Â").Replace("Ã³", "Ó").ToUpper();
         }
 
         public string Cep

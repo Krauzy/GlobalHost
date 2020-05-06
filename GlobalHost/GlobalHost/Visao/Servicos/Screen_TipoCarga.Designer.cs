@@ -501,7 +501,7 @@
             this.Controls.Add(this.dgvTipo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Screen_TipoCarga";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipo)).EndInit();

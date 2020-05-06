@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GlobalHost.Visao.Servicos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -234,8 +235,8 @@ namespace GlobalHost.Visao
             fun = false;
             rel = false;
             changeBoolServ();
-            scrTransportadora.load();
-            scrTransportadora.BringToFront();
+            scrTrans.load();
+            scrTrans.BringToFront();
         }
 
         private void btFuncionario_Click(object sender, EventArgs e)
@@ -245,6 +246,18 @@ namespace GlobalHost.Visao
             rel = false;
             changeBoolServ();
             scrFuncionario.BringToFront();
+        }
+
+        private void btTipoCarga_Click(object sender, EventArgs e)
+        {
+            Screen_TipoCarga ex = new Screen_TipoCarga();
+            ex.ShowDialog();
+        }
+
+        private void btCliente_Click(object sender, EventArgs e)
+        {
+            Screen_Cliente ex = new Screen_Cliente();
+            ex.ShowDialog();
         }
     }
 }
