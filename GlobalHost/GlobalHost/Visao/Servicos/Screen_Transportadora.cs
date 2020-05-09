@@ -41,6 +41,8 @@ namespace GlobalHost.Visao.Servicos
             ordTipo.Visible = false;
             ordOrder.Visible = false;
             V = 0;
+
+            txtValor.Text = ",00";
         }
 
         public void load()
@@ -215,7 +217,7 @@ namespace GlobalHost.Visao.Servicos
                     cont++;
                     mes += "Nome, ";
                 }
-                if (txtValor.Text == string.Empty)
+                if (txtValor.Text == string.Empty && V > 0)
                 {
                     t = true;
                     cont++;
@@ -601,34 +603,8 @@ namespace GlobalHost.Visao.Servicos
 
         private void txtValor_TextChanged_1(object sender, EventArgs e)
         {
-            if(txtValor.Text != string.Empty && txtValor.Text[txtValor.Text.Length - 1] != ',')
-            {
-                try
-                {
-                    V = Convert.ToDouble(txtValor.Text);
-                    if (V < 0)
-                    {
-                        V = 0;
-                        txtValor.Text = V.ToString();
-                    }
-                    if (!txtValor.Text.Contains(","))
-                        txtValor.Text += ",00";
-                    txtValor.Select(txtValor.Text.Length-3, 0);
-                }
-                catch (Exception)
-                {
-                    txtValor.Text = V.ToString();
-                    if(!txtValor.Text.Contains(","))
-                        txtValor.Text += ",00";
-                }
-            }
-            else
-            {
-                if(txtValor.Text != string.Empty)
-                {
-                    txtValor.Text = txtValor.Text.Replace(",00", "");
-                }
-            }
+            txtValor.Text = API.Validate.MONEY(txtValor.Text);
+            V = Convert.ToDouble(txtValor.Text);
         }
     }
 }

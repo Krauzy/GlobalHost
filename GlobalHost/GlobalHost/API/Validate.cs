@@ -110,5 +110,46 @@ namespace GlobalHost.API
         {
             return System.Text.RegularExpressions.Regex.IsMatch(email, ("(?<user>[^@]+)@(?<host>.+)"));
         }
+
+        public static string MONEY(string value)
+        {
+            char[] numbers = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ',' };
+            if (value.Contains(","))
+            {
+                try
+                {
+                    int k = value.IndexOf(',');
+                    value = value.Remove(k + 3);
+                }
+                catch { }
+            }
+            else
+            {
+                value += ",00";
+            }
+            //
+            if (value != string.Empty)
+            {
+                int max = value.Length;
+                for (int i = 0; i < max; i++)
+                {
+                    bool result = false;
+                    foreach(char n in numbers)
+                    {
+                        if (value[i] == n)
+                            result = true;
+                    }
+
+                    if (!result)
+                    {
+                        value = value.Replace(value[i].ToString(), string.Empty);
+                        if (i != 0)
+                            i--;
+                        max = value.Length;
+                    }
+                }
+            }
+            return value;
+        }
     }
 }

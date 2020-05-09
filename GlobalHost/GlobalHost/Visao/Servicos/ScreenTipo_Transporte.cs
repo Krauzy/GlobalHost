@@ -24,6 +24,12 @@ namespace GlobalHost.Visao.Servicos
             data = Controle_TipoTransporte.get("");
             dgvTipo.DataSource = data;
             cbFiltro.SelectedItem = cbFiltro.Items[0];
+
+            ordID.Visible = false;
+            ordDescricao.Visible = false;
+            ordPeso.Visible = false;
+            ordDimensoes.Visible = false;
+            ordOrder.Visible = false;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -31,10 +37,13 @@ namespace GlobalHost.Visao.Servicos
             btnInserir.ForeColor = Color.White;
             btnInserir.BackColor = Color.FromArgb(0, 122, 204);
             btnInserir.Image = GlobalHost.Properties.Resources.insert;
+
             ins = true;
             alt = false;
             exc = false;
+            
             changeBool();
+            
             txtID.Enabled = false;
             txtNome.Enabled = true;
             txtPeso.Enabled = true;
@@ -42,6 +51,13 @@ namespace GlobalHost.Visao.Servicos
             txtAltura.Enabled = true;
             txtComprimento.Enabled = true;
             txtID.Text = "";
+
+            ordID.Visible = false;
+            ordDescricao.Visible = true;
+            ordPeso.Visible = true;
+            ordDimensoes.Visible = true;
+            ordOrder.Visible = true;
+
             btnOk.Enabled = true;
             btnCancelar.Enabled = true;
         }
@@ -51,16 +67,26 @@ namespace GlobalHost.Visao.Servicos
             btnAlterar.ForeColor = Color.White;
             btnAlterar.BackColor = Color.FromArgb(0, 122, 204);
             btnAlterar.Image = GlobalHost.Properties.Resources.alterar;
+            
             ins = false;
             alt = true;
             exc = false;
+            
             changeBool();
+            
             txtID.Enabled = true;
             txtNome.Enabled = true;
             txtPeso.Enabled = true;
             txtLargura.Enabled = true;
             txtAltura.Enabled = true;
             txtComprimento.Enabled = true;
+
+            ordID.Visible = true;
+            ordDescricao.Visible = true;
+            ordPeso.Visible = true;
+            ordDimensoes.Visible = true;
+            ordOrder.Visible = true;
+
             btnOk.Enabled = true;
             btnCancelar.Enabled = true;
         }
@@ -70,10 +96,13 @@ namespace GlobalHost.Visao.Servicos
             btnExcluir.ForeColor = Color.White;
             btnExcluir.BackColor = Color.FromArgb(0, 122, 204);
             btnExcluir.Image = GlobalHost.Properties.Resources.lixo;
+            
             ins = false;
             alt = false;
             exc = true;
+            
             changeBool();
+            
             txtID.Enabled = true;
             txtNome.Enabled = false;
             txtPeso.Enabled = false;
@@ -85,6 +114,13 @@ namespace GlobalHost.Visao.Servicos
             txtLargura.Text = "";
             txtAltura.Text = "";
             txtComprimento.Text = "";
+
+            ordID.Visible = true;
+            ordDescricao.Visible = false;
+            ordPeso.Visible = false;
+            ordDimensoes.Visible = false;
+            ordOrder.Visible = true;
+
             btnOk.Enabled = true;
             btnCancelar.Enabled = true;
         }
@@ -116,7 +152,9 @@ namespace GlobalHost.Visao.Servicos
             ins = false;
             alt = false;
             exc = false;
+            
             changeBool();
+            
             txtID.Enabled = false;
             txtNome.Enabled = false;
             txtPeso.Enabled = false;
@@ -129,6 +167,13 @@ namespace GlobalHost.Visao.Servicos
             txtLargura.Text = "";
             txtAltura.Text = "";
             txtComprimento.Text = "";
+
+            ordID.Visible = false;
+            ordDescricao.Visible = false;
+            ordPeso.Visible = false;
+            ordDimensoes.Visible = false;
+            ordOrder.Visible = false;
+
             btnOk.Enabled = false;
             btnCancelar.Enabled = false;
         }
@@ -153,7 +198,7 @@ namespace GlobalHost.Visao.Servicos
 
         private void txtPeso_TextChanged(object sender, EventArgs e)
         {
-            if(txtPeso.Text != "" && txtPeso.Text[txtPeso.Text.Length-1] != ',')
+            if(txtPeso.Text != "" && txtPeso.Text[txtPeso.Text.Length - 1] != ',')
             {
                 try
                 {
@@ -227,26 +272,146 @@ namespace GlobalHost.Visao.Servicos
         {
             if (ins == true)
             {
-                if (txtPeso.Text != "" && txtLargura.Text != "" && txtComprimento.Text != "" && txtAltura.Text != "")
+                bool t = false;
+                string mes = "";
+                int cont = 0;
+                if (txtNome.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Nome, ";
+                }
+                if (txtPeso.Text == string.Empty && peso > 0)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Peso, ";
+                }
+                if (txtLargura.Text == string.Empty && L > 0)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Largura, ";
+                }
+                if (txtAltura.Text == string.Empty && A > 0)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Altura, ";
+                }
+                if (txtComprimento.Text == string.Empty && C > 0)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Comprimento, ";
+                }
+
+                if(t == false)
+                {
                     if (!Controle_TipoTransporte.insert(txtNome.Text, peso, L + ";" + A + ";" + C))
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        _default();
+                }
+                else
+                {
+                    if(cont == 1)
+                        MessageBox.Show("O campo " + mes.Replace(",", "") + "está vazio ou possui valor inválido", "Erro ao inserir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show("Os campos " + mes + "estão vazios ou possuem valor inválido", "Erro ao inserir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }  
                         
             }
             else if (alt == true)
             {
-                if (txtID.Text != "" && txtPeso.Text != "" && txtLargura.Text != "" && txtComprimento.Text != "" && txtAltura.Text != "")
+                bool t = false;
+                string mes = "";
+                int cont = 0;
+                if (txtID.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "ID, ";
+                }
+                if (txtNome.Text == string.Empty)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Nome, ";
+                }
+                if (txtPeso.Text == string.Empty && peso > 0)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Peso, ";
+                }
+                if (txtLargura.Text == string.Empty && L > 0)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Largura, ";
+                }
+                if (txtAltura.Text == string.Empty && A > 0)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Altura, ";
+                }
+                if (txtComprimento.Text == string.Empty && C > 0)
+                {
+                    t = true;
+                    cont++;
+                    mes += "Comprimento, ";
+                }
+
+                if (t == false)
+                {
                     if (!Controle_TipoTransporte.update(Convert.ToInt32(txtID.Text), txtNome.Text, peso, L + ";" + A + ";" + C))
-                        MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);                        
+                        MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        _default();
+                }
+                else
+                {
+                    if (cont == 1)
+                        MessageBox.Show("O campo " + mes.Replace(",", "") + "está vazio ou possui valor inválido", "Erro ao inserir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show("Os campos " + mes + "estão vazios ou possuem valor inválido", "Erro ao inserir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }                                        
             }
             else if (exc == true)
             {
-                if (txtID.Text != "")
+                bool t = false;
+                string mes = "";
+                int cont = 0;
+                if (txtID.Text == string.Empty)
                 {
-                    string n = Controle_TipoTransporte.get(Convert.ToInt32(id)).Rows[0]["descricao"].ToString();
-                    if (!Controle_TipoTransporte.delete(Convert.ToInt32(id)))
-                        MessageBox.Show("Falha ao remover " + n + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);                        
+                    t = true;
+                    cont++;
+                    mes += "ID, ";
+                }
+
+                if (t == false)
+                {
+                    try
+                    {
+                        string n = Controle_TipoTransporte.get(Convert.ToInt32(id)).Rows[0]["descricao"].ToString();
+                        if (MessageBox.Show("Deseja realmente excluir " + n + "?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            if (!Controle_TipoTransporte.delete(Convert.ToInt32(id)))
+                                MessageBox.Show("Falha ao remover " + n + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            else
+                                _default();
+                    }
+                    catch(IndexOutOfRangeException)
+                    {
+                        MessageBox.Show("ID não existente!", "Erro ao excluir", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }                                            
                 }
             }
+        }
+
+        private void _default()
+        {
             ins = false;
             alt = false;
             exc = false;
@@ -271,6 +436,8 @@ namespace GlobalHost.Visao.Servicos
 
             data = Controle_TipoTransporte.get("");
             dgvTipo.DataSource = data;
+
+            this.ActiveControl = null;
         }
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
