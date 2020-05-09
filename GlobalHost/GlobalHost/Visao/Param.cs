@@ -10,6 +10,7 @@ namespace GlobalHost.Visao
     public partial class Param : Form
     {
         private DateTime data;
+        private Visao.Menu menu;
         public Param()
         {
             InitializeComponent();
@@ -23,6 +24,11 @@ namespace GlobalHost.Visao
             t.Start();
             t.Join();
             Cursor.Current = Cursors.Arrow;
+        }
+
+        public void LoadLogo(Visao.Menu menu)
+        {
+            this.menu = menu;
         }
 
         private void init()
@@ -159,6 +165,7 @@ namespace GlobalHost.Visao
             }
             else
                 MessageBox.Show("Nome Inválido", "Eroo de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.menu.LoadLogo();
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
@@ -173,8 +180,8 @@ namespace GlobalHost.Visao
         {
             OpenFileDialog open = new OpenFileDialog();
             open.FileName = "";
-            open.Title = "Abrir Imagem(200 x 100)";
-            open.Filter = "Arquivos de Imagem (*.jpg;*.gif;*.bmp;*.png)|*.jpg;*.gif;*.bmp;*.png";
+            open.Title = "Abrir Imagem (200 x 100)";
+            open.Filter = "Arquivos de Imagem (*.jpg;*.bmp;*.png)|*.jpg;*.bmp;*.png";
             if (open.ShowDialog() == DialogResult.OK)
             {
                 try

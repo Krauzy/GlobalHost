@@ -1,4 +1,5 @@
-﻿using GlobalHost.Visao.Servicos;
+﻿using GlobalHost.Controlador;
+using GlobalHost.Visao.Servicos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,11 @@ namespace GlobalHost.Visao
             changeBool();
             pnHome.BringToFront();
             //
+        }
+
+        public void LoadLogo()
+        {
+            pictureBox1.Image = Controle_Parametro.getLogo();
         }
 
         private void changeBoolServ()

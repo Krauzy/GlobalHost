@@ -25,5 +25,12 @@ namespace GlobalHost.Controlador
             Parametros p = new Parametros(nome, razao, cnpj, data, endereco, email, site, atividade, status, telefone, logo);
             return DB.Update(p);
         }
+
+        public static Image getLogo()
+        {
+            ParametrosDB DB = new ParametrosDB();
+            Parametros P = DB.get();
+            return P.Logo;
+        }
     }
 }

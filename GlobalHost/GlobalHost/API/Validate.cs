@@ -6,7 +6,7 @@ namespace GlobalHost.API
     {
         public static bool CPF(string value)
         {
-            value = value.Trim().Replace(".", "").Replace("-", "").Replace("/", "");
+            value = value.Trim().Replace(".", "").Replace("-", "").Replace("/", "").Replace(",", "");
             if (value.Length == 11)
             {
                 int[] cpf = new int[11];
@@ -60,7 +60,7 @@ namespace GlobalHost.API
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
 
-            value = value.Trim().Replace(".", "").Replace("-", "").Replace("/", "");
+            value = value.Trim().Replace(".", "").Replace("-", "").Replace("/", "").Replace(",", "");
             if (value.Length != 14)
                 return false;
 
