@@ -701,7 +701,7 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button18;
         private Servicos.ScreenTipo_Transporte scrTipo_Transporte;
-        private Servicos.Screen_Transportadora scrTransportadora;
+        //private Servicos.Screen_Transportadora scrTransportadora;
         private Servicos.Screen_Funcionarios scrFuncionario;
         private Servicos.Screen_Transportadora scrTrans;
     }

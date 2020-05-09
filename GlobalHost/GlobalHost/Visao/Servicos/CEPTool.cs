@@ -24,7 +24,7 @@ namespace GlobalHost.Visao.Servicos
         private void txtCEP_TextChanged(object sender, EventArgs e)
         {
             string cep = txtCEP.Text.Trim().Replace(".", "").Replace(",", "").Replace("-", "");
-            if (cep.Length == 8)
+            if (cep.Length == 8 && API.Validate.CEP(cep))
             {
                 API.CEP CEP = null;
                 var t = new Thread(() =>
@@ -55,9 +55,9 @@ namespace GlobalHost.Visao.Servicos
             if(txtBairro.Text != string.Empty && txtCidade.Text != string.Empty && txtLog.Text != string.Empty && txtUF.Text != string.Empty)
             {
                 if (txtNum.Text == string.Empty)
-                    str = txtLog.Text + " - " + txtBairro.Text + " - " + txtCidade.Text + " - " + txtUF.Text + " - " + this.cep + " - Brasil";
+                    str = txtLog.Text + " - " + txtBairro.Text + " - " + txtCidade.Text + " - " + txtUF.Text + " - " + this.cep + " - BRASIL";
                 else
-                    str = txtLog.Text + " - " + txtNum.Text + " - " + txtBairro.Text + " - " + txtCidade.Text + " - " + txtUF.Text + " - " + this.cep + " - Brasil";
+                    str = txtLog.Text + " - " + txtNum.Text + " - " + txtBairro.Text + " - " + txtCidade.Text + " - " + txtUF.Text + " - " + this.cep + " - BRASIL";
 
                 this.Close();
                 isCancel = false;

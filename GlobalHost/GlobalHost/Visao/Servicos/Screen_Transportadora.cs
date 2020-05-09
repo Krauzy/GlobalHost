@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 using GlobalHost.Controlador;
-using System.ServiceModel.Channels;
 
 namespace GlobalHost.Visao.Servicos
 {
@@ -31,6 +28,19 @@ namespace GlobalHost.Visao.Servicos
 
             cbFiltro.SelectedIndex = 0;
             cbTipoTransporte.SelectedIndex = 0;
+
+            ordID.Visible = false;
+            ordNome.Visible = false;
+            ordValor.Visible = false;
+            ordContato.Visible = false;
+            ordEndereco.Visible = false;
+            ordTelefone.Visible = false;
+            ordEmail.Visible = false;
+            ordCNPJ.Visible = false;
+            ordCarga.Visible = false;
+            ordTipo.Visible = false;
+            ordOrder.Visible = false;
+            V = 0;
         }
 
         public void load()
@@ -64,6 +74,18 @@ namespace GlobalHost.Visao.Servicos
             txtNum.Enabled = true;
             cbTipoTransporte.Enabled = true;
 
+            ordID.Visible = false;
+            ordNome.Visible = true;
+            ordValor.Visible = true;
+            ordContato.Visible = true;
+            ordEndereco.Visible = true;
+            ordTelefone.Visible = true;
+            ordEmail.Visible = true;
+            ordCNPJ.Visible = true;
+            ordCarga.Visible = true;
+            ordTipo.Visible = true;
+            ordOrder.Visible = true;
+
             txtID.Text = string.Empty;
 
             btnOk.Enabled = true;
@@ -92,6 +114,18 @@ namespace GlobalHost.Visao.Servicos
             txtCNPJ.Enabled = true;
             txtNum.Enabled = true;
             cbTipoTransporte.Enabled = true;
+
+            ordID.Visible = true;
+            ordNome.Visible = true;
+            ordValor.Visible = true;
+            ordContato.Visible = true;
+            ordEndereco.Visible = true;
+            ordTelefone.Visible = true;
+            ordEmail.Visible = true;
+            ordCNPJ.Visible = true;
+            ordCarga.Visible = true;
+            ordTipo.Visible = true;
+            ordOrder.Visible = true;
 
             btnOk.Enabled = true;
             btnCancelar.Enabled = true;
@@ -129,6 +163,18 @@ namespace GlobalHost.Visao.Servicos
             txtCNPJ.Text = string.Empty;
             txtNum.Value = 1;
             cbTipoTransporte.SelectedIndex = 0;
+
+            ordID.Visible = true;
+            ordNome.Visible = false;
+            ordValor.Visible = false;
+            ordContato.Visible = false;
+            ordEndereco.Visible = false;
+            ordTelefone.Visible = false;
+            ordEmail.Visible = false;
+            ordCNPJ.Visible = false;
+            ordCarga.Visible = false;
+            ordTipo.Visible = false;
+            ordOrder.Visible = true;
 
             btnOk.Enabled = true;
             btnCancelar.Enabled = true;
@@ -193,7 +239,7 @@ namespace GlobalHost.Visao.Servicos
                     cont++;
                     mes += "Telefone, ";
                 }
-                if(txtEmail.Text == string.Empty)
+                if(txtEmail.Text == string.Empty && !API.Validate.EMAIL(txtEmail.Text))
                 {
                     t = true;
                     cont++;
@@ -309,6 +355,8 @@ namespace GlobalHost.Visao.Servicos
                         if (MessageBox.Show("Deseja realmente excluir " + n + "?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             if (!Controle_Transportadora.delete(ID))
                                 MessageBox.Show("Falha ao exluir " + n + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            else
+                                _default();
                     }
                     catch(IndexOutOfRangeException)
                     {
@@ -354,6 +402,18 @@ namespace GlobalHost.Visao.Servicos
             txtNum.Value = 1;
             cbTipoTransporte.SelectedIndex = 0;
 
+            ordID.Visible = false;
+            ordNome.Visible = false;
+            ordValor.Visible = false;
+            ordContato.Visible = false;
+            ordEndereco.Visible = false;
+            ordTelefone.Visible = false;
+            ordEmail.Visible = false;
+            ordCNPJ.Visible = false;
+            ordCarga.Visible = false;
+            ordTipo.Visible = false;
+            ordOrder.Visible = false;
+
             btnOk.Enabled = false;
             btnCancelar.Enabled = false;
 
@@ -391,6 +451,18 @@ namespace GlobalHost.Visao.Servicos
             txtNum.Value = 1;
             cbTipoTransporte.SelectedIndex = 0;
 
+            ordID.Visible = false;
+            ordNome.Visible = false;
+            ordValor.Visible = false;
+            ordContato.Visible = false;
+            ordEndereco.Visible = false;
+            ordTelefone.Visible = false;
+            ordEmail.Visible = false;
+            ordCNPJ.Visible = false;
+            ordCarga.Visible = false;
+            ordTipo.Visible = false;
+            ordOrder.Visible = false;
+
             btnOk.Enabled = false;
             btnCancelar.Enabled = false;
 
@@ -410,24 +482,6 @@ namespace GlobalHost.Visao.Servicos
                 {
                     txtID.Text = ID.ToString();
                     txtID.Select(txtID.Text.Length, 0);
-                }
-            }
-        }
-
-        private void txtValor_TextChanged(object sender, EventArgs e)
-        {
-            if (txtValor.Text != "" && txtValor.Text[txtValor.Text.Length - 1] != ',')
-            {
-                try
-                {
-                    V = Convert.ToDouble(txtValor.Text);
-                    txtValor.Text = "" + V;
-                    txtValor.Select(txtValor.Text.Length, 0);
-                }
-                catch (Exception)
-                {
-                    txtValor.Text = "" + V;
-                    txtValor.Select(txtValor.Text.Length, 0);
                 }
             }
         }
@@ -543,6 +597,33 @@ namespace GlobalHost.Visao.Servicos
             ex.ShowDialog();
             if(!ex.IsCancel)
                 txtEndereco.Text = ex.Str;
+        }
+
+        private void txtValor_TextChanged_1(object sender, EventArgs e)
+        {
+            if(txtValor.Text != string.Empty && txtValor.Text[txtValor.Text.Length - 1] != ',')
+            {
+                try
+                {
+                    V = Convert.ToDouble(txtValor.Text);
+                    if (!txtValor.Text.Contains(","))
+                        txtValor.Text += ",00";
+                    txtValor.Select(txtValor.Text.Length-3, 0);
+                }
+                catch (Exception)
+                {
+                    txtValor.Text = V.ToString();
+                    if(!txtValor.Text.Contains(","))
+                        txtValor.Text += ",00";
+                }
+            }
+            else
+            {
+                if(txtValor.Text != string.Empty)
+                {
+                    txtValor.Text = txtValor.Text.Replace(",00", "");
+                }
+            }
         }
     }
 }

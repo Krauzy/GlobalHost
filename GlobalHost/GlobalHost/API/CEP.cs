@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
 
@@ -25,17 +26,17 @@ namespace GlobalHost.API
                 if (c.Length == 8)
                 {
                     ViaCEPModel Modelo = busca.GetModelo(c);
-
-                    this.cep = val(Modelo.Cep);
-                    this.logradouro = val(Modelo.Logradouro);
-                    this.complemento = val(Modelo.Complemento);
-                    this.bairro = val(Modelo.Bairro);
-                    this.localidade = val(Modelo.Localidade);
-                    this.uf = val(Modelo.UF);
-                    this.unidade = val(Modelo.Unidade);
-                    this.ibge = val(Modelo.IBGE);
-                    this.gia = val(Modelo.GIA);
-
+                    
+                        this.cep = val(Modelo.Cep);
+                        this.logradouro = val(Modelo.Logradouro);
+                        this.complemento = val(Modelo.Complemento);
+                        this.bairro = val(Modelo.Bairro);
+                        this.localidade = val(Modelo.Localidade);
+                        this.uf = val(Modelo.UF);
+                        this.unidade = val(Modelo.Unidade);
+                        this.ibge = val(Modelo.IBGE);
+                        this.gia = val(Modelo.GIA);
+                    
                 }
             }
             catch (Exception e)
@@ -46,12 +47,18 @@ namespace GlobalHost.API
 
         private string val(string str)
         {
-            return str.Trim().Replace("Ã£", "Ã").Replace("Ã©", "É").Replace("Ã§", "Ç")
+            if(str != null && str != string.Empty)
+                return str.Trim().Replace("Ã£", "Ã").Replace("Ã©", "É").Replace("Ã§", "Ç")
                 .Replace("Ãº", "Ú").Replace("Ãª", "Ê").Replace("Ã¡", "Á").Replace("Ã´", "Ô")
                 .Replace("Ã¢", "Â").Replace("Ã³", "Ó").ToUpper();
+            else
+            {
+                return "";
+            }
         }
+                    
 
-        public string Cep
+    public string Cep
         {
             get => cep;
             set => cep = value;

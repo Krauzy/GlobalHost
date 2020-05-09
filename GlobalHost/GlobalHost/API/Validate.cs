@@ -93,5 +93,22 @@ namespace GlobalHost.API
             return value.EndsWith(digito);
 
         }
+
+        public static bool CEP(string cep)
+        {
+            cep = cep.Trim().Replace("-", "").Replace(",", "").Replace(".", "");
+            if (cep.Length == 8)
+            {
+                cep = cep.Substring(0, 5) + "-" + cep.Substring(5, 3);
+                return System.Text.RegularExpressions.Regex.IsMatch(cep, ("[0-9]{5}-[0-9]{3}"));
+            }
+            else
+                return false;
+        }
+
+        public static bool EMAIL(string email)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(email, ("(?<user>[^@]+)@(?<host>.+)"));
+        }
     }
 }

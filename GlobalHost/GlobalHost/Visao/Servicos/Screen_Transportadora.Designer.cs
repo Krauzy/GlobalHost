@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtEndereco = new System.Windows.Forms.TextBox();
@@ -54,16 +53,6 @@
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.dgvTransportadora = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolExluir = new System.Windows.Forms.ToolStripMenuItem();
-            this.transportadoraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.globalDBDataSet1 = new GlobalHost.GlobalDBDataSet1();
-            this.transportadoraTableAdapter = new GlobalHost.GlobalDBDataSet1TableAdapters.TransportadoraTableAdapter();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtCNPJ = new System.Windows.Forms.MaskedTextBox();
-            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.btCEP = new System.Windows.Forms.Button();
             this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,11 +63,6 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnInserir = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +73,33 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnpjDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolExluir = new System.Windows.Forms.ToolStripMenuItem();
+            this.transportadoraBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.globalDBDataSet1 = new GlobalHost.GlobalDBDataSet1();
+            this.transportadoraTableAdapter = new GlobalHost.GlobalDBDataSet1TableAdapters.TransportadoraTableAdapter();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtCNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btCEP = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnInserir = new System.Windows.Forms.Button();
+            this.ordID = new System.Windows.Forms.Label();
+            this.ordNome = new System.Windows.Forms.Label();
+            this.ordValor = new System.Windows.Forms.Label();
+            this.ordContato = new System.Windows.Forms.Label();
+            this.ordEndereco = new System.Windows.Forms.Label();
+            this.ordTelefone = new System.Windows.Forms.Label();
+            this.ordEmail = new System.Windows.Forms.Label();
+            this.ordCNPJ = new System.Windows.Forms.Label();
+            this.ordCarga = new System.Windows.Forms.Label();
+            this.ordTipo = new System.Windows.Forms.Label();
+            this.ordOrder = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransportadora)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -164,19 +175,6 @@
             this.label4.Size = new System.Drawing.Size(57, 19);
             this.label4.TabIndex = 0;
             this.label4.Text = "Nome";
-            // 
-            // txtValor
-            // 
-            this.txtValor.BackColor = System.Drawing.Color.White;
-            this.txtValor.Enabled = false;
-            this.txtValor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtValor.Location = new System.Drawing.Point(52, 187);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtValor.Size = new System.Drawing.Size(107, 23);
-            this.txtValor.TabIndex = 12;
-            this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
             // 
             // label5
             // 
@@ -371,14 +369,14 @@
             this.dgvTransportadora.BackgroundColor = System.Drawing.Color.White;
             this.dgvTransportadora.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvTransportadora.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTransportadora.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTransportadora.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTransportadora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTransportadora.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_id,
@@ -403,30 +401,160 @@
             this.tipoDataGridViewTextBoxColumn});
             this.dgvTransportadora.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvTransportadora.DataSource = this.transportadoraBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTransportadora.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTransportadora.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTransportadora.EnableHeadersVisualStyles = false;
             this.dgvTransportadora.Location = new System.Drawing.Point(647, 174);
             this.dgvTransportadora.Name = "dgvTransportadora";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTransportadora.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTransportadora.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTransportadora.RowHeadersVisible = false;
             this.dgvTransportadora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTransportadora.Size = new System.Drawing.Size(339, 357);
             this.dgvTransportadora.TabIndex = 39;
             this.dgvTransportadora.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTransportadora_CellDoubleClick);
+            // 
+            // col_id
+            // 
+            this.col_id.DataPropertyName = "id";
+            this.col_id.HeaderText = "ID";
+            this.col_id.Name = "col_id";
+            this.col_id.ReadOnly = true;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.Width = 150;
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "valor";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.Width = 75;
+            // 
+            // max_carga
+            // 
+            this.max_carga.DataPropertyName = "max_carga";
+            this.max_carga.HeaderText = "Carga Máxima";
+            this.max_carga.Name = "max_carga";
+            this.max_carga.Width = 120;
+            // 
+            // endereco
+            // 
+            this.endereco.DataPropertyName = "endereco";
+            this.endereco.HeaderText = "Endereço";
+            this.endereco.Name = "endereco";
+            this.endereco.Width = 400;
+            // 
+            // contato
+            // 
+            this.contato.DataPropertyName = "contato";
+            this.contato.HeaderText = "Contato";
+            this.contato.Name = "contato";
+            this.contato.Width = 250;
+            // 
+            // telefone
+            // 
+            this.telefone.DataPropertyName = "telefone";
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.Width = 150;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "E-mail";
+            this.email.Name = "email";
+            this.email.Width = 150;
+            // 
+            // cnpj
+            // 
+            this.cnpj.DataPropertyName = "cnpj";
+            this.cnpj.HeaderText = "CNPJ";
+            this.cnpj.Name = "cnpj";
+            this.cnpj.Width = 150;
+            // 
+            // tipo
+            // 
+            this.tipo.DataPropertyName = "tipo";
+            this.tipo.HeaderText = "Tipo";
+            this.tipo.Name = "tipo";
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            // 
+            // valorDataGridViewTextBoxColumn
+            // 
+            this.valorDataGridViewTextBoxColumn.DataPropertyName = "valor";
+            this.valorDataGridViewTextBoxColumn.HeaderText = "valor";
+            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            // 
+            // maxcargaDataGridViewTextBoxColumn
+            // 
+            this.maxcargaDataGridViewTextBoxColumn.DataPropertyName = "max_carga";
+            this.maxcargaDataGridViewTextBoxColumn.HeaderText = "max_carga";
+            this.maxcargaDataGridViewTextBoxColumn.Name = "maxcargaDataGridViewTextBoxColumn";
+            // 
+            // enderecoDataGridViewTextBoxColumn
+            // 
+            this.enderecoDataGridViewTextBoxColumn.DataPropertyName = "endereco";
+            this.enderecoDataGridViewTextBoxColumn.HeaderText = "endereco";
+            this.enderecoDataGridViewTextBoxColumn.Name = "enderecoDataGridViewTextBoxColumn";
+            // 
+            // contatoDataGridViewTextBoxColumn
+            // 
+            this.contatoDataGridViewTextBoxColumn.DataPropertyName = "contato";
+            this.contatoDataGridViewTextBoxColumn.HeaderText = "contato";
+            this.contatoDataGridViewTextBoxColumn.Name = "contatoDataGridViewTextBoxColumn";
+            // 
+            // telefoneDataGridViewTextBoxColumn
+            // 
+            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "telefone";
+            this.telefoneDataGridViewTextBoxColumn.HeaderText = "telefone";
+            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // cnpjDataGridViewTextBoxColumn
+            // 
+            this.cnpjDataGridViewTextBoxColumn.DataPropertyName = "cnpj";
+            this.cnpjDataGridViewTextBoxColumn.HeaderText = "cnpj";
+            this.cnpjDataGridViewTextBoxColumn.Name = "cnpjDataGridViewTextBoxColumn";
+            // 
+            // tipoDataGridViewTextBoxColumn
+            // 
+            this.tipoDataGridViewTextBoxColumn.DataPropertyName = "tipo";
+            this.tipoDataGridViewTextBoxColumn.HeaderText = "tipo";
+            this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
             // 
             // contextMenuStrip1
             // 
@@ -524,75 +652,6 @@
             this.btCEP.UseVisualStyleBackColor = true;
             this.btCEP.Click += new System.EventHandler(this.btCEP_Click);
             // 
-            // col_id
-            // 
-            this.col_id.DataPropertyName = "id";
-            this.col_id.HeaderText = "ID";
-            this.col_id.Name = "col_id";
-            this.col_id.ReadOnly = true;
-            // 
-            // nome
-            // 
-            this.nome.DataPropertyName = "nome";
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            this.nome.Width = 150;
-            // 
-            // valor
-            // 
-            this.valor.DataPropertyName = "valor";
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            this.valor.Width = 75;
-            // 
-            // max_carga
-            // 
-            this.max_carga.DataPropertyName = "max_carga";
-            this.max_carga.HeaderText = "Carga Máxima";
-            this.max_carga.Name = "max_carga";
-            this.max_carga.Width = 120;
-            // 
-            // endereco
-            // 
-            this.endereco.DataPropertyName = "endereco";
-            this.endereco.HeaderText = "Endereço";
-            this.endereco.Name = "endereco";
-            this.endereco.Width = 400;
-            // 
-            // contato
-            // 
-            this.contato.DataPropertyName = "contato";
-            this.contato.HeaderText = "Contato";
-            this.contato.Name = "contato";
-            this.contato.Width = 250;
-            // 
-            // telefone
-            // 
-            this.telefone.DataPropertyName = "telefone";
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            this.telefone.Width = 150;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "email";
-            this.email.HeaderText = "E-mail";
-            this.email.Name = "email";
-            this.email.Width = 150;
-            // 
-            // cnpj
-            // 
-            this.cnpj.DataPropertyName = "cnpj";
-            this.cnpj.HeaderText = "CNPJ";
-            this.cnpj.Name = "cnpj";
-            this.cnpj.Width = 150;
-            // 
-            // tipo
-            // 
-            this.tipo.DataPropertyName = "tipo";
-            this.tipo.HeaderText = "Tipo";
-            this.tipo.Name = "tipo";
-            // 
             // btnCancelar
             // 
             this.btnCancelar.Enabled = false;
@@ -685,72 +744,144 @@
             this.btnInserir.UseVisualStyleBackColor = true;
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
-            // idDataGridViewTextBoxColumn
+            // ordID
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ordID.AutoSize = true;
+            this.ordID.ForeColor = System.Drawing.Color.Red;
+            this.ordID.Location = new System.Drawing.Point(66, 112);
+            this.ordID.Name = "ordID";
+            this.ordID.Size = new System.Drawing.Size(11, 13);
+            this.ordID.TabIndex = 64;
+            this.ordID.Text = "*";
             // 
-            // nomeDataGridViewTextBoxColumn
+            // ordNome
             // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.ordNome.AutoSize = true;
+            this.ordNome.ForeColor = System.Drawing.Color.Red;
+            this.ordNome.Location = new System.Drawing.Point(234, 114);
+            this.ordNome.Name = "ordNome";
+            this.ordNome.Size = new System.Drawing.Size(11, 13);
+            this.ordNome.TabIndex = 65;
+            this.ordNome.Text = "*";
             // 
-            // valorDataGridViewTextBoxColumn
+            // ordValor
             // 
-            this.valorDataGridViewTextBoxColumn.DataPropertyName = "valor";
-            this.valorDataGridViewTextBoxColumn.HeaderText = "valor";
-            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            this.ordValor.AutoSize = true;
+            this.ordValor.ForeColor = System.Drawing.Color.Red;
+            this.ordValor.Location = new System.Drawing.Point(126, 166);
+            this.ordValor.Name = "ordValor";
+            this.ordValor.Size = new System.Drawing.Size(11, 13);
+            this.ordValor.TabIndex = 66;
+            this.ordValor.Text = "*";
             // 
-            // maxcargaDataGridViewTextBoxColumn
+            // ordContato
             // 
-            this.maxcargaDataGridViewTextBoxColumn.DataPropertyName = "max_carga";
-            this.maxcargaDataGridViewTextBoxColumn.HeaderText = "max_carga";
-            this.maxcargaDataGridViewTextBoxColumn.Name = "maxcargaDataGridViewTextBoxColumn";
+            this.ordContato.AutoSize = true;
+            this.ordContato.ForeColor = System.Drawing.Color.Red;
+            this.ordContato.Location = new System.Drawing.Point(247, 166);
+            this.ordContato.Name = "ordContato";
+            this.ordContato.Size = new System.Drawing.Size(11, 13);
+            this.ordContato.TabIndex = 67;
+            this.ordContato.Text = "*";
             // 
-            // enderecoDataGridViewTextBoxColumn
+            // ordEndereco
             // 
-            this.enderecoDataGridViewTextBoxColumn.DataPropertyName = "endereco";
-            this.enderecoDataGridViewTextBoxColumn.HeaderText = "endereco";
-            this.enderecoDataGridViewTextBoxColumn.Name = "enderecoDataGridViewTextBoxColumn";
+            this.ordEndereco.AutoSize = true;
+            this.ordEndereco.ForeColor = System.Drawing.Color.Red;
+            this.ordEndereco.Location = new System.Drawing.Point(125, 222);
+            this.ordEndereco.Name = "ordEndereco";
+            this.ordEndereco.Size = new System.Drawing.Size(11, 13);
+            this.ordEndereco.TabIndex = 68;
+            this.ordEndereco.Text = "*";
             // 
-            // contatoDataGridViewTextBoxColumn
+            // ordTelefone
             // 
-            this.contatoDataGridViewTextBoxColumn.DataPropertyName = "contato";
-            this.contatoDataGridViewTextBoxColumn.HeaderText = "contato";
-            this.contatoDataGridViewTextBoxColumn.Name = "contatoDataGridViewTextBoxColumn";
+            this.ordTelefone.AutoSize = true;
+            this.ordTelefone.ForeColor = System.Drawing.Color.Red;
+            this.ordTelefone.Location = new System.Drawing.Point(526, 223);
+            this.ordTelefone.Name = "ordTelefone";
+            this.ordTelefone.Size = new System.Drawing.Size(11, 13);
+            this.ordTelefone.TabIndex = 69;
+            this.ordTelefone.Text = "*";
             // 
-            // telefoneDataGridViewTextBoxColumn
+            // ordEmail
             // 
-            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "telefone";
-            this.telefoneDataGridViewTextBoxColumn.HeaderText = "telefone";
-            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
+            this.ordEmail.AutoSize = true;
+            this.ordEmail.ForeColor = System.Drawing.Color.Red;
+            this.ordEmail.Location = new System.Drawing.Point(101, 278);
+            this.ordEmail.Name = "ordEmail";
+            this.ordEmail.Size = new System.Drawing.Size(11, 13);
+            this.ordEmail.TabIndex = 70;
+            this.ordEmail.Text = "*";
             // 
-            // emailDataGridViewTextBoxColumn
+            // ordCNPJ
             // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.ordCNPJ.AutoSize = true;
+            this.ordCNPJ.ForeColor = System.Drawing.Color.Red;
+            this.ordCNPJ.Location = new System.Drawing.Point(502, 279);
+            this.ordCNPJ.Name = "ordCNPJ";
+            this.ordCNPJ.Size = new System.Drawing.Size(11, 13);
+            this.ordCNPJ.TabIndex = 71;
+            this.ordCNPJ.Text = "*";
             // 
-            // cnpjDataGridViewTextBoxColumn
+            // ordCarga
             // 
-            this.cnpjDataGridViewTextBoxColumn.DataPropertyName = "cnpj";
-            this.cnpjDataGridViewTextBoxColumn.HeaderText = "cnpj";
-            this.cnpjDataGridViewTextBoxColumn.Name = "cnpjDataGridViewTextBoxColumn";
+            this.ordCarga.AutoSize = true;
+            this.ordCarga.ForeColor = System.Drawing.Color.Red;
+            this.ordCarga.Location = new System.Drawing.Point(248, 340);
+            this.ordCarga.Name = "ordCarga";
+            this.ordCarga.Size = new System.Drawing.Size(11, 13);
+            this.ordCarga.TabIndex = 72;
+            this.ordCarga.Text = "*";
             // 
-            // tipoDataGridViewTextBoxColumn
+            // ordTipo
             // 
-            this.tipoDataGridViewTextBoxColumn.DataPropertyName = "tipo";
-            this.tipoDataGridViewTextBoxColumn.HeaderText = "tipo";
-            this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
+            this.ordTipo.AutoSize = true;
+            this.ordTipo.ForeColor = System.Drawing.Color.Red;
+            this.ordTipo.Location = new System.Drawing.Point(483, 340);
+            this.ordTipo.Name = "ordTipo";
+            this.ordTipo.Size = new System.Drawing.Size(11, 13);
+            this.ordTipo.TabIndex = 73;
+            this.ordTipo.Text = "*";
+            // 
+            // ordOrder
+            // 
+            this.ordOrder.AutoSize = true;
+            this.ordOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ordOrder.ForeColor = System.Drawing.Color.Red;
+            this.ordOrder.Location = new System.Drawing.Point(34, 401);
+            this.ordOrder.Name = "ordOrder";
+            this.ordOrder.Size = new System.Drawing.Size(96, 12);
+            this.ordOrder.TabIndex = 74;
+            this.ordOrder.Text = "* Campos obrigatórios";
+            // 
+            // txtValor
+            // 
+            this.txtValor.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtValor.Location = new System.Drawing.Point(52, 187);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(100, 23);
+            this.txtValor.TabIndex = 75;
+            this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged_1);
             // 
             // Screen_Transportadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txtValor);
+            this.Controls.Add(this.ordOrder);
+            this.Controls.Add(this.ordTipo);
+            this.Controls.Add(this.ordCarga);
+            this.Controls.Add(this.ordCNPJ);
+            this.Controls.Add(this.ordEmail);
+            this.Controls.Add(this.ordTelefone);
+            this.Controls.Add(this.ordEndereco);
+            this.Controls.Add(this.ordContato);
+            this.Controls.Add(this.ordValor);
+            this.Controls.Add(this.ordNome);
+            this.Controls.Add(this.ordID);
             this.Controls.Add(this.btCEP);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.label13);
@@ -775,7 +906,6 @@
             this.Controls.Add(this.txtEndereco);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtValor);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label4);
@@ -803,7 +933,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtEndereco;
@@ -854,5 +983,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cnpjDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label ordID;
+        private System.Windows.Forms.Label ordNome;
+        private System.Windows.Forms.Label ordValor;
+        private System.Windows.Forms.Label ordContato;
+        private System.Windows.Forms.Label ordEndereco;
+        private System.Windows.Forms.Label ordTelefone;
+        private System.Windows.Forms.Label ordEmail;
+        private System.Windows.Forms.Label ordCNPJ;
+        private System.Windows.Forms.Label ordCarga;
+        private System.Windows.Forms.Label ordTipo;
+        private System.Windows.Forms.Label ordOrder;
+        private System.Windows.Forms.TextBox txtValor;
     }
 }
