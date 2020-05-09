@@ -133,6 +133,7 @@ namespace GlobalHost.Visao
             ser = false;
             sobre = true;
             changeBool();
+            ScreenSobre.LoadLogo(this);
             ScreenSobre.BringToFront();
         }
 

@@ -103,11 +103,11 @@
             this.panel77 = new System.Windows.Forms.Panel();
             this.panel78 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbRazao = new System.Windows.Forms.Label();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.panel61 = new System.Windows.Forms.Panel();
             this.panel72 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -716,26 +716,26 @@
             this.panel25.Size = new System.Drawing.Size(74, 69);
             this.panel25.TabIndex = 1;
             // 
-            // label1
+            // lbRazao
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label1.Location = new System.Drawing.Point(777, 109);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 17);
-            this.label1.TabIndex = 60;
-            this.label1.Text = "Cgf Transportes Internacionais Ltda";
+            this.lbRazao.AutoSize = true;
+            this.lbRazao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRazao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.lbRazao.Location = new System.Drawing.Point(777, 109);
+            this.lbRazao.Name = "lbRazao";
+            this.lbRazao.Size = new System.Drawing.Size(234, 17);
+            this.lbRazao.TabIndex = 60;
+            this.lbRazao.Text = "Cgf Transportes Internacionais Ltda";
             // 
-            // pictureBox1
+            // picLogo
             // 
-            this.pictureBox1.Image = global::GlobalHost.Properties.Resources.logo_cgf_200x47;
-            this.pictureBox1.Location = new System.Drawing.Point(774, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(242, 88);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 59;
-            this.pictureBox1.TabStop = false;
+            this.picLogo.Image = global::GlobalHost.Properties.Resources.logo_cgf_200x47;
+            this.picLogo.Location = new System.Drawing.Point(774, 18);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(242, 88);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLogo.TabIndex = 59;
+            this.picLogo.TabStop = false;
             // 
             // panel61
             // 
@@ -760,8 +760,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel72);
             this.Controls.Add(this.panel61);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lbRazao);
+            this.Controls.Add(this.picLogo);
             this.Controls.Add(this.panel25);
             this.Controls.Add(this.panel78);
             this.Controls.Add(this.panel77);
@@ -839,7 +839,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "PaneHome";
             this.Size = new System.Drawing.Size(1031, 562);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -922,8 +922,8 @@
         private System.Windows.Forms.Panel panel77;
         private System.Windows.Forms.Panel panel78;
         private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbRazao;
+        private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Panel panel61;
         private System.Windows.Forms.Panel panel72;
     }

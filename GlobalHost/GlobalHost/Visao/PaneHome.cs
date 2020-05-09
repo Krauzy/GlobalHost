@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GlobalHost.Controlador;
 
 namespace GlobalHost.Visao
 {
@@ -15,6 +16,8 @@ namespace GlobalHost.Visao
         public PaneHome()
         {
             InitializeComponent();
+            picLogo.Image = Controle_Parametro.getLogo();
+            lbRazao.Text = Controle_Parametro.get().Razao_social;
         }
 
         private void panel28_Paint(object sender, PaintEventArgs e)

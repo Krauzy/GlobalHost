@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using GlobalHost.Controlador;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GlobalHost.Visao
@@ -24,6 +19,9 @@ namespace GlobalHost.Visao
             pass = "";
             eye = false;
             txtSenha.UseSystemPasswordChar = true;
+            picBox.Image = Controle_Parametro.getLogo();
+
+            this.ActiveControl = btEntrar;
         }
 
         private void txtUsuario_Click(object sender, EventArgs e)
@@ -87,7 +85,9 @@ namespace GlobalHost.Visao
         {
             if(txtSenha.Text != "Senha")
             {
+                txtSenha.Text = txtSenha.Text.Trim().Replace(" ", "");
                 pass = txtSenha.Text;
+                txtSenha.Select(txtSenha.Text.Length, 0);
             }
         }
 

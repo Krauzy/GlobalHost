@@ -16,6 +16,21 @@ namespace GlobalHost.Visao
             InitializeComponent();
             btOk.Visible = false;
             btCancelar.Visible = false;
+            btImage.Location = new Point(btImage.Location.X, picBox.Location.Y + picBox.Size.Height + 6);
+            txtImage.Location = new Point(txtImage.Location.X, picBox.Location.Y + picBox.Size.Height + 7);
+
+            ordNome.Visible = false;
+            ordRazao.Visible = false;
+            ordLogo.Visible = false;
+            ordCNPJ.Visible = false;
+            ordData.Visible = false;
+            ordEndereco.Visible = false;
+            ordEmail.Visible = false;
+            ordTelefone.Visible = false;
+            ordAtividade.Visible = false;
+            ordSite.Visible = false;
+            ordOrder.Visible = false;
+
             var t = new Thread(() =>
             {
                 init();
@@ -145,6 +160,18 @@ namespace GlobalHost.Visao
 
             txtImage.Visible = true;
             btImage.Visible = true;
+
+            ordNome.Visible = true;
+            ordRazao.Visible = true;
+            ordLogo.Visible = true;
+            ordCNPJ.Visible = true;
+            ordData.Visible = true;
+            ordEndereco.Visible = true;
+            ordEmail.Visible = true;
+            ordTelefone.Visible = true;
+            ordAtividade.Visible = true;
+            ordSite.Visible = true;
+            ordOrder.Visible = true;
         }
 
         private void btOk_Click(object sender, EventArgs e)
@@ -159,21 +186,46 @@ namespace GlobalHost.Visao
                     btConfig.Enabled = true;
                     btOk.Visible = false;
                     btCancelar.Visible = false;
+
+                    ordNome.Visible = false;
+                    ordRazao.Visible = false;
+                    ordLogo.Visible = false;
+                    ordCNPJ.Visible = false;
+                    ordData.Visible = false;
+                    ordEndereco.Visible = false;
+                    ordEmail.Visible = false;
+                    ordTelefone.Visible = false;
+                    ordAtividade.Visible = false;
+                    ordSite.Visible = false;
+                    ordOrder.Visible = false;
                 }
                 else
                     MessageBox.Show("CNPJ Inválido", "Erro de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
                 MessageBox.Show("Nome Inválido", "Eroo de validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
             this.menu.LoadLogo();
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
-        {            
+        {
             init();
             btConfig.Enabled = true;
             btOk.Visible = false;
             btCancelar.Visible = false;
+            ///////////////////////////////////////
+            ordNome.Visible = false;
+            ordRazao.Visible = false;
+            ordLogo.Visible = false;
+            ordCNPJ.Visible = false;
+            ordData.Visible = false;
+            ordEndereco.Visible = false;
+            ordEmail.Visible = false;
+            ordTelefone.Visible = false;
+            ordAtividade.Visible = false;
+            ordSite.Visible = false;
+            ordOrder.Visible = false;
         }
 
         private void btImage_Click(object sender, EventArgs e)

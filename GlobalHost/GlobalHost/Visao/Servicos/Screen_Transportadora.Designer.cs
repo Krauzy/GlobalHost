@@ -857,6 +857,7 @@
             // 
             // txtValor
             // 
+            this.txtValor.Enabled = false;
             this.txtValor.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtValor.Location = new System.Drawing.Point(52, 187);

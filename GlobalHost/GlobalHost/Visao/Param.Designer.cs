@@ -62,6 +62,17 @@
             this.txtImage = new System.Windows.Forms.TextBox();
             this.txtCnpj = new System.Windows.Forms.MaskedTextBox();
             this.txtTel = new System.Windows.Forms.MaskedTextBox();
+            this.ordNome = new System.Windows.Forms.Label();
+            this.ordRazao = new System.Windows.Forms.Label();
+            this.ordLogo = new System.Windows.Forms.Label();
+            this.ordCNPJ = new System.Windows.Forms.Label();
+            this.ordData = new System.Windows.Forms.Label();
+            this.ordEndereco = new System.Windows.Forms.Label();
+            this.ordEmail = new System.Windows.Forms.Label();
+            this.ordTelefone = new System.Windows.Forms.Label();
+            this.ordAtividade = new System.Windows.Forms.Label();
+            this.ordSite = new System.Windows.Forms.Label();
+            this.ordOrder = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -390,12 +401,134 @@
             this.txtTel.Size = new System.Drawing.Size(129, 23);
             this.txtTel.TabIndex = 34;
             // 
+            // ordNome
+            // 
+            this.ordNome.AutoSize = true;
+            this.ordNome.ForeColor = System.Drawing.Color.Red;
+            this.ordNome.Location = new System.Drawing.Point(116, 8);
+            this.ordNome.Name = "ordNome";
+            this.ordNome.Size = new System.Drawing.Size(11, 13);
+            this.ordNome.TabIndex = 70;
+            this.ordNome.Text = "*";
+            // 
+            // ordRazao
+            // 
+            this.ordRazao.AutoSize = true;
+            this.ordRazao.ForeColor = System.Drawing.Color.Red;
+            this.ordRazao.Location = new System.Drawing.Point(314, 8);
+            this.ordRazao.Name = "ordRazao";
+            this.ordRazao.Size = new System.Drawing.Size(11, 13);
+            this.ordRazao.TabIndex = 71;
+            this.ordRazao.Text = "*";
+            // 
+            // ordLogo
+            // 
+            this.ordLogo.AutoSize = true;
+            this.ordLogo.ForeColor = System.Drawing.Color.Red;
+            this.ordLogo.Location = new System.Drawing.Point(672, 8);
+            this.ordLogo.Name = "ordLogo";
+            this.ordLogo.Size = new System.Drawing.Size(11, 13);
+            this.ordLogo.TabIndex = 72;
+            this.ordLogo.Text = "*";
+            // 
+            // ordCNPJ
+            // 
+            this.ordCNPJ.AutoSize = true;
+            this.ordCNPJ.ForeColor = System.Drawing.Color.Red;
+            this.ordCNPJ.Location = new System.Drawing.Point(53, 57);
+            this.ordCNPJ.Name = "ordCNPJ";
+            this.ordCNPJ.Size = new System.Drawing.Size(11, 13);
+            this.ordCNPJ.TabIndex = 73;
+            this.ordCNPJ.Text = "*";
+            // 
+            // ordData
+            // 
+            this.ordData.AutoSize = true;
+            this.ordData.ForeColor = System.Drawing.Color.Red;
+            this.ordData.Location = new System.Drawing.Point(345, 57);
+            this.ordData.Name = "ordData";
+            this.ordData.Size = new System.Drawing.Size(11, 13);
+            this.ordData.TabIndex = 74;
+            this.ordData.Text = "*";
+            // 
+            // ordEndereco
+            // 
+            this.ordEndereco.AutoSize = true;
+            this.ordEndereco.ForeColor = System.Drawing.Color.Red;
+            this.ordEndereco.Location = new System.Drawing.Point(79, 105);
+            this.ordEndereco.Name = "ordEndereco";
+            this.ordEndereco.Size = new System.Drawing.Size(11, 13);
+            this.ordEndereco.TabIndex = 75;
+            this.ordEndereco.Text = "*";
+            // 
+            // ordEmail
+            // 
+            this.ordEmail.AutoSize = true;
+            this.ordEmail.ForeColor = System.Drawing.Color.Red;
+            this.ordEmail.Location = new System.Drawing.Point(55, 158);
+            this.ordEmail.Name = "ordEmail";
+            this.ordEmail.Size = new System.Drawing.Size(11, 13);
+            this.ordEmail.TabIndex = 76;
+            this.ordEmail.Text = "*";
+            // 
+            // ordTelefone
+            // 
+            this.ordTelefone.AutoSize = true;
+            this.ordTelefone.ForeColor = System.Drawing.Color.Red;
+            this.ordTelefone.Location = new System.Drawing.Point(284, 158);
+            this.ordTelefone.Name = "ordTelefone";
+            this.ordTelefone.Size = new System.Drawing.Size(11, 13);
+            this.ordTelefone.TabIndex = 77;
+            this.ordTelefone.Text = "*";
+            // 
+            // ordAtividade
+            // 
+            this.ordAtividade.AutoSize = true;
+            this.ordAtividade.ForeColor = System.Drawing.Color.Red;
+            this.ordAtividade.Location = new System.Drawing.Point(215, 213);
+            this.ordAtividade.Name = "ordAtividade";
+            this.ordAtividade.Size = new System.Drawing.Size(11, 13);
+            this.ordAtividade.TabIndex = 78;
+            this.ordAtividade.Text = "*";
+            // 
+            // ordSite
+            // 
+            this.ordSite.AutoSize = true;
+            this.ordSite.ForeColor = System.Drawing.Color.Red;
+            this.ordSite.Location = new System.Drawing.Point(40, 269);
+            this.ordSite.Name = "ordSite";
+            this.ordSite.Size = new System.Drawing.Size(11, 13);
+            this.ordSite.TabIndex = 79;
+            this.ordSite.Text = "*";
+            // 
+            // ordOrder
+            // 
+            this.ordOrder.AutoSize = true;
+            this.ordOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ordOrder.ForeColor = System.Drawing.Color.Red;
+            this.ordOrder.Location = new System.Drawing.Point(226, 296);
+            this.ordOrder.Name = "ordOrder";
+            this.ordOrder.Size = new System.Drawing.Size(96, 12);
+            this.ordOrder.TabIndex = 80;
+            this.ordOrder.Text = "* Campos obrigatórios";
+            // 
             // Param
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(780, 326);
+            this.Controls.Add(this.ordOrder);
+            this.Controls.Add(this.ordSite);
+            this.Controls.Add(this.ordAtividade);
+            this.Controls.Add(this.ordTelefone);
+            this.Controls.Add(this.ordEmail);
+            this.Controls.Add(this.ordEndereco);
+            this.Controls.Add(this.ordData);
+            this.Controls.Add(this.ordCNPJ);
+            this.Controls.Add(this.ordLogo);
+            this.Controls.Add(this.ordRazao);
+            this.Controls.Add(this.ordNome);
             this.Controls.Add(this.txtTel);
             this.Controls.Add(this.txtCnpj);
             this.Controls.Add(this.txtImage);
@@ -476,5 +609,16 @@
         private System.Windows.Forms.TextBox txtImage;
         private System.Windows.Forms.MaskedTextBox txtCnpj;
         private System.Windows.Forms.MaskedTextBox txtTel;
+        private System.Windows.Forms.Label ordNome;
+        private System.Windows.Forms.Label ordRazao;
+        private System.Windows.Forms.Label ordLogo;
+        private System.Windows.Forms.Label ordCNPJ;
+        private System.Windows.Forms.Label ordData;
+        private System.Windows.Forms.Label ordEndereco;
+        private System.Windows.Forms.Label ordEmail;
+        private System.Windows.Forms.Label ordTelefone;
+        private System.Windows.Forms.Label ordAtividade;
+        private System.Windows.Forms.Label ordSite;
+        private System.Windows.Forms.Label ordOrder;
     }
 }

@@ -606,6 +606,11 @@ namespace GlobalHost.Visao.Servicos
                 try
                 {
                     V = Convert.ToDouble(txtValor.Text);
+                    if (V < 0)
+                    {
+                        V = 0;
+                        txtValor.Text = V.ToString();
+                    }
                     if (!txtValor.Text.Contains(","))
                         txtValor.Text += ",00";
                     txtValor.Select(txtValor.Text.Length-3, 0);
