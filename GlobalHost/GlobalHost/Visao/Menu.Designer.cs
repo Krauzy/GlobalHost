@@ -57,7 +57,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btPedido = new System.Windows.Forms.Button();
             this.pnRelatorios = new System.Windows.Forms.Panel();
             this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
@@ -70,6 +70,7 @@
             this.ScreenSobre = new GlobalHost.Visao.Sobre();
             this.ScreenCotacao = new GlobalHost.Visao.Cotacao();
             this.scrFuncionario = new GlobalHost.Visao.Servicos.Screen_Funcionarios();
+            this.scrPedido = new GlobalHost.Visao.Servicos.Funcoes.Screen_Pedido();
             this.paneMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.paneServ.SuspendLayout();
@@ -376,7 +377,7 @@
             this.pnFuncoes.Controls.Add(this.button10);
             this.pnFuncoes.Controls.Add(this.button9);
             this.pnFuncoes.Controls.Add(this.button8);
-            this.pnFuncoes.Controls.Add(this.button7);
+            this.pnFuncoes.Controls.Add(this.btPedido);
             this.pnFuncoes.Location = new System.Drawing.Point(225, 27);
             this.pnFuncoes.Name = "pnFuncoes";
             this.pnFuncoes.Size = new System.Drawing.Size(1031, 562);
@@ -480,19 +481,20 @@
             this.button8.Text = "Autorização";
             this.button8.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btPedido
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(201, 205);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(113, 219);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "Pedido";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btPedido.FlatAppearance.BorderSize = 0;
+            this.btPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btPedido.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPedido.ForeColor = System.Drawing.Color.White;
+            this.btPedido.Location = new System.Drawing.Point(201, 205);
+            this.btPedido.Name = "btPedido";
+            this.btPedido.Size = new System.Drawing.Size(113, 219);
+            this.btPedido.TabIndex = 0;
+            this.btPedido.Text = "Pedido";
+            this.btPedido.UseVisualStyleBackColor = false;
+            this.btPedido.Click += new System.EventHandler(this.btPedido_Click);
             // 
             // pnRelatorios
             // 
@@ -624,26 +626,35 @@
             this.scrFuncionario.Size = new System.Drawing.Size(1031, 562);
             this.scrFuncionario.TabIndex = 14;
             // 
+            // scrPedido
+            // 
+            this.scrPedido.BackColor = System.Drawing.Color.White;
+            this.scrPedido.Location = new System.Drawing.Point(225, 27);
+            this.scrPedido.Name = "scrPedido";
+            this.scrPedido.Size = new System.Drawing.Size(1031, 562);
+            this.scrPedido.TabIndex = 16;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1255, 590);
-            this.Controls.Add(this.scrTrans);
             this.Controls.Add(this.brMinimize);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.paneServ);
             this.Controls.Add(this.paneMenu);
+            this.Controls.Add(this.pnFuncoes);
+            this.Controls.Add(this.pnRelatorios);
+            this.Controls.Add(this.scrFuncionario);
+            this.Controls.Add(this.scrPedido);
+            this.Controls.Add(this.scrTrans);
             this.Controls.Add(this.scrTipo_Transporte);
             this.Controls.Add(this.pnHome);
             this.Controls.Add(this.ScreenSobre);
             this.Controls.Add(this.ScreenCotacao);
             this.Controls.Add(this.pnGerenciamento);
-            this.Controls.Add(this.pnFuncoes);
-            this.Controls.Add(this.pnRelatorios);
-            this.Controls.Add(this.scrFuncionario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
@@ -686,7 +697,7 @@
         private System.Windows.Forms.Button btTipoCarga;
         private System.Windows.Forms.Button btRemessa;
         private System.Windows.Forms.Panel pnFuncoes;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btPedido;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button13;
@@ -704,5 +715,6 @@
         //private Servicos.Screen_Transportadora scrTransportadora;
         private Servicos.Screen_Funcionarios scrFuncionario;
         private Servicos.Screen_Transportadora scrTrans;
+        private Servicos.Funcoes.Screen_Pedido scrPedido;
     }
 }
