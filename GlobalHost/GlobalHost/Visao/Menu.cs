@@ -266,5 +266,14 @@ namespace GlobalHost.Visao
             Screen_Cliente ex = new Screen_Cliente();
             ex.ShowDialog();
         }
+
+        private void btPedido_Click(object sender, EventArgs e)
+        {
+            ger = false;
+            fun = false;
+            rel = false;
+            changeBoolServ();
+            scrPedido.BringToFront();
+        }
     }
 }
