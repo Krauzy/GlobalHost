@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Screen_Login));
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.MaskedTextBox();
             this.linkFrgtPass = new System.Windows.Forms.LinkLabel();
@@ -36,8 +38,12 @@
             this.picBox = new System.Windows.Forms.PictureBox();
             this.btEntrar = new System.Windows.Forms.Button();
             this.btClose = new System.Windows.Forms.Button();
+            this.PopUp = new System.Windows.Forms.NotifyIcon(this.components);
+            this.LittleMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.itFechar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
+            this.LittleMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -144,6 +150,26 @@
             this.btClose.MouseEnter += new System.EventHandler(this.btClose_MouseEnter);
             this.btClose.MouseLeave += new System.EventHandler(this.btClose_MouseLeave);
             // 
+            // PopUp
+            // 
+            this.PopUp.Icon = ((System.Drawing.Icon)(resources.GetObject("PopUp.Icon")));
+            this.PopUp.Text = "Global Host";
+            this.PopUp.Visible = true;
+            // 
+            // LittleMenu
+            // 
+            this.LittleMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itFechar});
+            this.LittleMenu.Name = "LittleMenu";
+            this.LittleMenu.Size = new System.Drawing.Size(181, 48);
+            // 
+            // itFechar
+            // 
+            this.itFechar.Name = "itFechar";
+            this.itFechar.Size = new System.Drawing.Size(180, 22);
+            this.itFechar.Text = "Fechar";
+            this.itFechar.Click += new System.EventHandler(this.itFechar_Click);
+            // 
             // Screen_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +190,7 @@
             this.Text = "Scree_Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
+            this.LittleMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +206,8 @@
         private System.Windows.Forms.Button btEye;
         private System.Windows.Forms.Button btEntrar;
         private System.Windows.Forms.Button btClose;
+        private System.Windows.Forms.NotifyIcon PopUp;
+        private System.Windows.Forms.ContextMenuStrip LittleMenu;
+        private System.Windows.Forms.ToolStripMenuItem itFechar;
     }
 }

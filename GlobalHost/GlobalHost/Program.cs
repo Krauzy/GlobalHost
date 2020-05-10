@@ -8,12 +8,14 @@ namespace GlobalHost
 {
     static class Program
     {
+        public static string Global_User;
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            Global_User = "";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Visao.Screen_Login());

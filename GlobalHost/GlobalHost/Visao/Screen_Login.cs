@@ -1,6 +1,7 @@
 ﻿using GlobalHost.Controlador;
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace GlobalHost.Visao
@@ -20,6 +21,7 @@ namespace GlobalHost.Visao
             eye = false;
             txtSenha.UseSystemPasswordChar = true;
             picBox.Image = Controle_Parametro.getLogo();
+            PopUp.ContextMenuStrip = LittleMenu;
 
             this.ActiveControl = btEntrar;
         }
@@ -106,9 +108,18 @@ namespace GlobalHost.Visao
 
         private void btEntrar_Click(object sender, EventArgs e)
         {
+            Program.Global_User = txtUsuario.Text;
+            PopUp.ShowBalloonTip(1, "Notificação de Login", "Bem Vindo " + Program.Global_User, ToolTipIcon.Info);
             Visao.Menu ex = new Menu();
             Visible = false;
+            Thread.Sleep(1500);
+            PopUp.Dispose();
             ex.ShowDialog();
+            this.Close();
+        }
+
+        private void itFechar_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
