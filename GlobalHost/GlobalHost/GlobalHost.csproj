@@ -126,6 +126,7 @@
     <Compile Include="Modelo\Transportadora.cs" />
     <Compile Include="Modelo\Transporte.cs" />
     <Compile Include="Persistencia\Banco.cs" />
+    <Compile Include="Persistencia\CargaDB.cs" />
     <Compile Include="Persistencia\FuncionarioDB.cs" />
     <Compile Include="Persistencia\ClienteDB.cs" />
     <Compile Include="Persistencia\LoginDB.cs" />
