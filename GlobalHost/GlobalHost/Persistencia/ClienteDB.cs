@@ -19,12 +19,12 @@ namespace GlobalHost.Persistencia
         public bool Insert(object obj)
         {
             bool result = false;
-            if (obj.GetType() == typeof(Login))
+            if (obj.GetType() == typeof(Cliente))
             {
-                Login log = (Login)obj;
-                string SQL = @"INSERT INTO Cliente (usuario, senha) VALUES (@nome, @senha)";
+                Cliente c = (Cliente)obj;
+                string SQL = @"INSERT INTO Cliente (nome, endereco,dtnascimento,cpf_cnpj,cep,email,telefone) VALUES (@nome, @endereco,@dtnascimento,@cpf_cnpj,@cep,email,@telefone)";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, "@usuario", log.Usuario, "@senha", log.Senha);
+                result = banco.ExecuteNonQuery(SQL, "@nome",c.Nome, "@endereco", c.Endereco, "@dtnascimento", c.Dtnascimento, "@cpf_cnpj", c.Cpf_cnpj, "@cep", c.Cep, "@email", c.Email, "@telefone", c.Telefone);
                 banco.Disconnect();
             }
             return result;
@@ -41,12 +41,12 @@ namespace GlobalHost.Persistencia
         public bool Update(object obj)
         {
             bool result = false;
-            if (obj.GetType() == typeof(Login))
+            if (obj.GetType() == typeof(Cliente))
             {
-                Login log = (Login)obj;
-                string SQL = @"UPDATE Cliente SET usuario = @usuario, senha = @senha";
+                Cliente c = (Cliente)obj;
+                string SQL = @"UPDATE Cliente SET nome = @nome, endereco = @endereco, dtnascimento = @dtnascimento, cpf_cnpj = @cpf_cnpj, cep = @cep, email = @email, telefone = @telefone";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, "@usuario", log.Usuario, "@senha",log.Senha);
+                result = banco.ExecuteNonQuery(SQL, "@nome", c.Nome, "@endereco", c.Endereco, "@dtnascimento", c.Dtnascimento, "@cpf_cnpj", c.Cpf_cnpj, "@cep", c.Cep, "@email", c.Email, "@telefone", c.Telefone);
             }
             return result;
         }

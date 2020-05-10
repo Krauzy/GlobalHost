@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GlobalHost.API;
 using GlobalHost.Controlador;
+using PdfSharp.Pdf.Filters;
 
 namespace GlobalHost.Visao.Servicos
 {
@@ -18,6 +20,8 @@ namespace GlobalHost.Visao.Servicos
         private bool exclui = false;
         private DataTable data;
         private int ID;
+
+
         public Screen_Cliente()
         {
             InitializeComponent();
@@ -59,7 +63,7 @@ namespace GlobalHost.Visao.Servicos
             if (insere == true)
             {
                 if (txtNome.Text != string.Empty && mtbCPF_CNPJ.Text != string.Empty && mtbCEP.Text != string.Empty
-                    && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty && dtpNascimento.Text != string.Empty)
+                    && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtEmail.Text.Contains("@") && txtTelefone.Text != string.Empty && dtpNascimento.Text != string.Empty)
                 {
                     if (!Controle_Cliente.insert(txtNome.Text, txtEndereco.Text,(DateTime)dtpNascimento.Value,mtbCPF_CNPJ.Text, mtbCEP.Text,txtEmail.Text,txtTelefone.Text))
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -69,7 +73,7 @@ namespace GlobalHost.Visao.Servicos
             else if (altera == true)
             {
                 if (txtNome.Text != string.Empty && mtbCPF_CNPJ.Text != string.Empty && mtbCEP.Text != string.Empty
-                    && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty && dtpNascimento.Text != string.Empty)
+                    && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtEmail.Text.Contains("@") && txtTelefone.Text != string.Empty && dtpNascimento.Text != string.Empty)
                 {
                     if (!Controle_Cliente.update(Convert.ToInt32(txtID.Text), txtNome.Text, txtEndereco.Text, (DateTime)dtpNascimento.Value, mtbCPF_CNPJ.Text, mtbCEP.Text, txtEmail.Text, txtTelefone.Text))
                         MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -119,6 +123,11 @@ namespace GlobalHost.Visao.Servicos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            if(insere == altera == exclui == false)
+            {
+                if (MessageBox.Show("Deseja mesmo sair?", "SAÍDA", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    this.Close();
+            }
             insere = false;
             altera = false;
             exclui = false;
@@ -143,7 +152,7 @@ namespace GlobalHost.Visao.Servicos
             dtpNascimento.Text = string.Empty;
 
             btnOk.Enabled = false;
-            btnCancelar.Enabled = false;
+            //btnCancelar.Enabled = false;
             this.ActiveControl = null;
         }
 
@@ -206,6 +215,7 @@ namespace GlobalHost.Visao.Servicos
 
         private void txtID_TextChanged(object sender, EventArgs e)
         {
+            Filters.numericField(txtID);
             if (txtID.Text != "")
             {
                 try
@@ -219,6 +229,41 @@ namespace GlobalHost.Visao.Servicos
                     txtID.Select(txtID.Text.Length, 0);
                 }
             }
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            Filters.alphanumericField(txtNome);
+        }
+
+        private void mtbCPF_CNPJ_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            Filters.numericField(mtbCPF_CNPJ);
+        }
+
+        private void txtEndereco_TextChanged(object sender, EventArgs e)
+        {
+            Filters.mixedField(txtEndereco);
+        }
+
+        private void txtTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            Filters.numericField(txtTelefone);
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtbCEP_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            Filters.numericField(mtbCEP);
+        }
+
+        private void txtBusca_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

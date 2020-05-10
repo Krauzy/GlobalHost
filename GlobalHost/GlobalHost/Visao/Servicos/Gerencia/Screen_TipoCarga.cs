@@ -1,4 +1,5 @@
-﻿using GlobalHost.Controlador;
+﻿using GlobalHost.API;
+using GlobalHost.Controlador;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -118,6 +119,11 @@ namespace GlobalHost.Visao.Servicos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            if (ins == alt == exc == false)
+            {
+                if (MessageBox.Show("Deseja mesmo sair?", "SAÍDA", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    this.Close();
+            }
             ins = false;
             alt = false;
             exc = false;
@@ -135,7 +141,7 @@ namespace GlobalHost.Visao.Servicos
             txtAltura.Text = "";
             txtComprimento.Text = "";
             btnOk.Enabled = false;
-            btnCancelar.Enabled = false;
+            //btnCancelar.Enabled = false;
         }
 
         private void txtID_TextChanged(object sender, EventArgs e)
@@ -319,20 +325,50 @@ namespace GlobalHost.Visao.Servicos
                 txtComprimento.Text = str.GetValue(2).ToString();
             }
         }
-        /*
-        private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+
+        private void txtID_TextChanged_1(object sender, EventArgs e)
         {
-            if (contextMenuStrip1.Items[0].Selected == true)
-            {
-                if (dgvTipo.SelectedRows.Count == 1)
-                {
-                    string n = dgvTipo.SelectedRows[0].Cells["col_desc"].Value.ToString();
-                    if (!Controle_TipoTransporte.delete(Convert.ToInt32(dgvTipo.SelectedRows[0].Cells["col_id"].Value.ToString())))
-                        MessageBox.Show("Erro ao remover " + n, "Falha de execução", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            data = Controle_TipoTransporte.get("");
-            dgvTipo.DataSource = data;
-        }*/
+            Filters.numericField(txtID);
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            Filters.mixedField(txtNome);
+        }
+
+        private void txtPeso_TextChanged_1(object sender, EventArgs e)
+        {
+            Filters.numericField(txtPeso);
+        }
+
+        private void txtLargura_TextChanged_1(object sender, EventArgs e)
+        {
+            Filters.numericField(txtLargura);
+        }
+
+        private void txtAltura_TextChanged_1(object sender, EventArgs e)
+        {
+            Filters.numericField(txtAltura);
+        }
+
+        private void txtComprimento_TextChanged_1(object sender, EventArgs e)
+        {
+            Filters.numericField(txtComprimento);
+        }
+        /*
+private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+{
+if (contextMenuStrip1.Items[0].Selected == true)
+{
+if (dgvTipo.SelectedRows.Count == 1)
+{
+string n = dgvTipo.SelectedRows[0].Cells["col_desc"].Value.ToString();
+if (!Controle_TipoTransporte.delete(Convert.ToInt32(dgvTipo.SelectedRows[0].Cells["col_id"].Value.ToString())))
+MessageBox.Show("Erro ao remover " + n, "Falha de execução", MessageBoxButtons.OK, MessageBoxIcon.Error);
+}
+}
+data = Controle_TipoTransporte.get("");
+dgvTipo.DataSource = data;
+}*/
     }
 }
