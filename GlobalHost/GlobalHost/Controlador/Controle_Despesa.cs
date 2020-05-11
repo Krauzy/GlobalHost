@@ -10,7 +10,7 @@ namespace GlobalHost.Controlador
     class Controle_Despesa
     {
 
-        public void baixa()
+        public static void baixa(object o)
         {
             /*
             List<ContasAPagar> l = Controle_ContasAPagar("situacao = PAGO");
