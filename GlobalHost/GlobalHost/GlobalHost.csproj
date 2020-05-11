@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="API\Animation.cs" />
     <Compile Include="API\CEP.cs" />
+    <Compile Include="API\Filters.cs" />
     <Compile Include="API\Loading.cs" />
     <Compile Include="API\MD5Sample.cs" />
     <Compile Include="API\Quot.cs" />
@@ -92,6 +93,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controlador\Controle_Despesa.cs" />
     <Compile Include="Controlador\Controle_Funcionario.cs" />
     <Compile Include="Controlador\Controle_Login.cs" />
     <Compile Include="Controlador\Controle_Parametro.cs" />
@@ -109,24 +111,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GlobalDBDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Carga.cs" />
     <Compile Include="Modelo\Cliente.cs" />
-    <Compile Include="Modelo\Despesa.cs" />
-    <Compile Include="Modelo\Frete.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
     <Compile Include="Modelo\Login.cs" />
-    <Compile Include="Modelo\Orcamento.cs" />
-    <Compile Include="Modelo\Pagamento.cs" />
     <Compile Include="Modelo\Parametros.cs" />
-    <Compile Include="Modelo\Pedido.cs" />
-    <Compile Include="Modelo\Recebimento.cs" />
-    <Compile Include="Modelo\Remessa.cs" />
     <Compile Include="Modelo\Tipo_Carga.cs" />
     <Compile Include="Modelo\Tipo_Transporte.cs" />
     <Compile Include="Modelo\Transportadora.cs" />
-    <Compile Include="Modelo\Transporte.cs" />
     <Compile Include="Persistencia\Banco.cs" />
-    <Compile Include="Persistencia\CargaDB.cs" />
     <Compile Include="Persistencia\FuncionarioDB.cs" />
     <Compile Include="Persistencia\ClienteDB.cs" />
     <Compile Include="Persistencia\LoginDB.cs" />
@@ -177,6 +169,12 @@
     </Compile>
     <Compile Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.Designer.cs">
       <DependentUpon>Screen_Pedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Screen_RealizarPagamento.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Screen_RealizarPagamento.Designer.cs">
+      <DependentUpon>Screen_RealizarPagamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Servicos\Gerencia\Screen_Cliente.cs">
       <SubType>Form</SubType>
@@ -244,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.resx">
       <DependentUpon>Screen_Pedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_RealizarPagamento.resx">
+      <DependentUpon>Screen_RealizarPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Gerencia\ScreenTipo_Transporte.resx">
       <DependentUpon>ScreenTipo_Transporte.cs</DependentUpon>
