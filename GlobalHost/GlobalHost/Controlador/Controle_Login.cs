@@ -33,9 +33,21 @@ namespace GlobalHost.Controlador
 
         public static bool delete(int id)
         {
-            FuncionarioDB DB = new FuncionarioDB();
+            LoginDB DB = new LoginDB();
             return DB.Delete(id);
         }
 
+        public static bool check(string login, string senha)
+        {
+            LoginDB DB = new LoginDB();
+            return DB.check(login, senha);
+        }
+
+        public static int get(string user)
+        {
+            LoginDB DB = new LoginDB();
+            Login l = DB.get(user);
+            return l.Id;
+        }
     }
 }

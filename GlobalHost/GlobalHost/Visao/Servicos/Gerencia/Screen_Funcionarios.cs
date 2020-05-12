@@ -40,6 +40,8 @@ namespace GlobalHost.Visao.Servicos
             dtpAdmissao.Enabled = false;
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
+
+            dgvFuncionario.DataSource = Controle_Funcionario.get("");
         }
 
         public bool validate ()
@@ -152,7 +154,7 @@ namespace GlobalHost.Visao.Servicos
                     && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
                     && dtpAdmissao.Text != string.Empty && dtpDemissao.Text != string.Empty && dtpNascimento.Text != string.Empty && result_CPF && txtLogin.Text != string.Empty && mtbSenha.Text != string.Empty)
                 {
-                    if (!Controle_Funcionario.insert(txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, txtSenha.Text, nivel))
+                    if (!Controle_Funcionario.insert(txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, mtbSenha.Text, nivel))
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
@@ -165,7 +167,7 @@ namespace GlobalHost.Visao.Servicos
                     && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
                     && dtpAdmissao.Text != string.Empty && dtpDemissao.Text != string.Empty && dtpNascimento.Text != string.Empty && result_CPF && txtLogin.Text != string.Empty && mtbSenha.Text != string.Empty)
                 {
-                    if (!Controle_Funcionario.update(Convert.ToInt32(txtID.Text),txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, txtSenha.Text, nivel))
+                    if (!Controle_Funcionario.update(Convert.ToInt32(txtID.Text),txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, mtbSenha.Text, nivel))
                         MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -306,16 +308,16 @@ namespace GlobalHost.Visao.Servicos
         {
             if (dgvFuncionario.SelectedRows.Count == 1)
             {
-                txtID.Text = dgvFuncionario.SelectedRows[0].Cells["ID"].Value.ToString();
-                txtNome.Text = dgvFuncionario.SelectedRows[0].Cells["Nome"].Value.ToString();
-                dtpNascimento.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["Data de Nascimento"].Value.ToString());
-                mtbCPF.Text = dgvFuncionario.SelectedRows[0].Cells["CPF"].Value.ToString();
-                txtSalario.Text = ""+Convert.ToDouble(dgvFuncionario.SelectedRows[0].Cells["Salario"].Value.ToString());
-                txtEndereco.Text = dgvFuncionario.SelectedRows[0].Cells["Endereco"].Value.ToString();
-                dtpAdmissao.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["Data de Admissão"].Value.ToString());
-                dtpDemissao.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["Data de Demissão"].Value.ToString());
-                txtTelefone.Text = dgvFuncionario.SelectedRows[0].Cells["Telefone"].Value.ToString();
-                txtEmail.Text = dgvFuncionario.SelectedRows[0].Cells["E-mail"].Value.ToString();
+                txtID.Text = dgvFuncionario.SelectedRows[0].Cells["id"].Value.ToString();
+                txtNome.Text = dgvFuncionario.SelectedRows[0].Cells["nome"].Value.ToString();
+                dtpNascimento.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["dtNascimento"].Value);
+                mtbCPF.Text = dgvFuncionario.SelectedRows[0].Cells["cpf"].Value.ToString();
+                txtSalario.Text = Convert.ToDouble(dgvFuncionario.SelectedRows[0].Cells["salario"].Value).ToString();
+                txtEndereco.Text = dgvFuncionario.SelectedRows[0].Cells["endereco"].Value.ToString();
+                dtpAdmissao.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["dtAdmissao"].Value);
+                dtpDemissao.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["dtDemissao"].Value);
+                txtTelefone.Text = dgvFuncionario.SelectedRows[0].Cells["telefone"].Value.ToString();
+                txtEmail.Text = dgvFuncionario.SelectedRows[0].Cells["email"].Value.ToString();
             }
         }
 
@@ -360,6 +362,14 @@ namespace GlobalHost.Visao.Servicos
             else
                 data = Controle_Funcionario.get("");
             dgvFuncionario.DataSource = data;
+        }
+
+        private void btCEP_Click(object sender, EventArgs e)
+        {
+            CEPTool ex = new CEPTool();
+            ex.ShowDialog();
+            if (!ex.IsCancel)
+                txtEndereco.Text = ex.Str;
         }
     }    
 }

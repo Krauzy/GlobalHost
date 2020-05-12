@@ -19,11 +19,7 @@ namespace GlobalHost.Controlador
             LoginDB dblog = new LoginDB();
             if (dblog.Insert(l))
             {
-                Banco banco = new Banco();
-                banco.Connect();
-                int n = banco.GetIdentity();
-                l.Id = n;
-                banco.Disconnect();
+                l.Id = dblog.getId();
                 Funcionario f = new Funcionario(nome, dtnascimento, cpf, salario, endereco, dtadmissao, dtdemissao, telefone, email, l);
                 FuncionarioDB DB = new FuncionarioDB();
                 return DB.Insert(f);

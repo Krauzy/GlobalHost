@@ -16,6 +16,7 @@ namespace GlobalHost.Persistencia
         {
             banco = new Banco();
         }
+
         public bool Insert(object obj)
         {
             bool result = false;
@@ -29,6 +30,7 @@ namespace GlobalHost.Persistencia
             }
             return result;
         }
+
         public bool Delete(int id)
         {
             string SQL = @"DELETE FROM Login WHERE id = @id on cascade";
@@ -69,6 +71,24 @@ namespace GlobalHost.Persistencia
             return log;
         }
 
+        public Login get(string user)
+        {
+            string SQL = @"SELECT * FROM Login WHERE usuario LIKE '%" + user + "%'";
+            DataTable dt = new DataTable();
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out dt);
+            banco.Disconnect();
+            Login log = new Login();
+            if (dt.Rows.Count > 0)
+            {
+                log = new Login((int)dt.Rows[0]["id"],
+                                    dt.Rows[0]["usuario"].ToString(),
+                                    dt.Rows[0]["senha"].ToString(),
+                                    (int)dt.Rows[0]["nivel"]);
+            }
+            return log;
+        }
+
         public bool check(string user, string pass)
         {           
             string SQL = @"SELECT * FROM Login WHERE usuario = @user and senha = @pass";
@@ -77,6 +97,16 @@ namespace GlobalHost.Persistencia
             banco.ExecuteQuery(SQL, out dt, "@user", user, "@pass", pass);
             banco.Disconnect();
             return dt.Rows.Count > 0;
+        }
+
+        public int getId()
+        {
+            string SQL = @"SELECT id FROM Login GROUP BY id HAVING MAX(id) = id";
+            DataTable dt = new DataTable();
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out dt);
+            banco.Disconnect();
+            return (int)dt.Rows[dt.Rows.Count - 1]["id"];
         }
     }
 }

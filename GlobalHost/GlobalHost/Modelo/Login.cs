@@ -22,12 +22,14 @@ namespace GlobalHost.Modelo
             this.id = id;
             this.usuario = usuario;
             this.senha = senha;
+            this.nivel = nivel;
         }
 
         public Login(string usuario, string senha, int nivel)
         {
             this.usuario = usuario;
             this.senha = senha;
+            this.nivel = nivel;
         }
 
         public int Id { get => id; set => id = value; }

@@ -108,14 +108,20 @@ namespace GlobalHost.Visao
 
         private void btEntrar_Click(object sender, EventArgs e)
         {
-            Program.Global_User = txtUsuario.Text;
-            PopUp.ShowBalloonTip(1, "Notificação de Login", "Bem Vindo " + Program.Global_User, ToolTipIcon.Info);
-            Visao.Menu ex = new Menu();
-            Visible = false;
-            Thread.Sleep(1500);
-            PopUp.Dispose();
-            ex.ShowDialog();
-            this.Close();
+            if(Controle_Login.check(txtUsuario.Text, txtSenha.Text))
+            {
+                int lid = Controle_Login.get(txtUsuario.Text);
+                Program.Global_User = Controle_Funcionario.get("login = " + lid).Rows[0]["nome"].ToString();
+                PopUp.ShowBalloonTip(1, "Notificação de Login", "Bem Vindo " + Program.Global_User, ToolTipIcon.Info);
+                Visao.Menu ex = new Menu();
+                Visible = false;
+                ex.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuário ou Senha incorreto(s)", "Erro de login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void itFechar_Click(object sender, EventArgs e)
