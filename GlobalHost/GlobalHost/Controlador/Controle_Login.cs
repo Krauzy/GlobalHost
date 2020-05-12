@@ -11,19 +11,19 @@ namespace GlobalHost.Controlador
     class Controle_Login
     {
 
-        public static bool insert (string usuario, string senha)
+        public static bool insert (string usuario, string senha, int nivel)
         {
-            Login log = new Login(usuario,senha);
+            Login log = new Login(usuario,senha,nivel);
             LoginDB DB = new LoginDB();
             return DB.Insert(log);
         }
 
-        public static bool update(string usuario, string senha)
+        public static bool update(string usuario, string senha, int nivel)
         {
             LoginDB DB = new LoginDB();
             if (DB.check(usuario, senha))
             {
-                Login log = new Login(usuario, senha);
+                Login log = new Login(usuario, senha, nivel);
                 return DB.Update(log);
             }
             else
@@ -33,9 +33,21 @@ namespace GlobalHost.Controlador
 
         public static bool delete(int id)
         {
-            FuncionarioDB DB = new FuncionarioDB();
+            LoginDB DB = new LoginDB();
             return DB.Delete(id);
         }
 
+        public static bool check(string login, string senha)
+        {
+            LoginDB DB = new LoginDB();
+            return DB.check(login, senha);
+        }
+
+        public static int get(string user)
+        {
+            LoginDB DB = new LoginDB();
+            Login l = DB.get(user);
+            return l.Id;
+        }
     }
 }

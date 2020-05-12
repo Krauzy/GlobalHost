@@ -24,7 +24,9 @@ namespace GlobalHost.Visao.Servicos
         public Screen_Funcionarios()
         {
             InitializeComponent();
+            mtbSenha.UseSystemPasswordChar = true;
             cbFiltro.SelectedIndex = 0;
+            cbNivel.SelectedIndex = 0;
             txtSalario.Enabled = false;
             txtBusca.Enabled = true;
             mtbCPF.Enabled = false;
@@ -32,10 +34,20 @@ namespace GlobalHost.Visao.Servicos
             txtEndereco.Enabled = false;
             txtID.Enabled = false;
             txtNome.Enabled = false;
+            txtLogin.Enabled = false;
+            mtbSenha.Enabled = false;
             txtTelefone.Enabled = false;
             dtpAdmissao.Enabled = false;
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
+
+            dgvFuncionario.DataSource = Controle_Funcionario.get("");
+        }
+
+        public bool validate ()
+        {
+
+            return true;
         }
 
         private void changeBool()
@@ -72,16 +84,15 @@ namespace GlobalHost.Visao.Servicos
             dtpAdmissao.Enabled = true;
             dtpDemissao.Enabled = true;
             dtpNascimento.Enabled = true;
-
+            txtLogin.Enabled = true;
+            mtbSenha.Enabled = true;
+            cbNivel.Enabled = true;
             insere = true;
             altera = false;
             exclui = false;
             changeBool();
-
             btnOk.Enabled = true;
-            btnCancelar.Enabled = true;
-
-            
+            btnCancelar.Enabled = true;       
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -96,12 +107,13 @@ namespace GlobalHost.Visao.Servicos
             dtpAdmissao.Enabled = true;
             dtpDemissao.Enabled = true;
             dtpNascimento.Enabled = true;
-
+            txtLogin.Enabled = true;
+            mtbSenha.Enabled = true;
+            cbNivel.Enabled = true;
             insere = false;
             altera = true;
             exclui = false;
             changeBool();
-
             btnOk.Enabled = true;
             btnCancelar.Enabled = true;
         }
@@ -118,37 +130,44 @@ namespace GlobalHost.Visao.Servicos
             dtpAdmissao.Enabled = false;
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
-
+            txtLogin.Enabled = false;
+            mtbSenha.Enabled = false;
+            cbNivel.Enabled = false;
             insere = false;
             altera = false;
             exclui = true;
             changeBool();
-
             btnOk.Enabled = true;
             btnCancelar.Enabled = true;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            int nivel = 0;
+            if (cbNivel.SelectedIndex == 1)
+                nivel = 1;
+          
             bool result_CPF = API.Validate.CPF(mtbCPF.Text);
             if (insere == true)
             {
                 if (txtNome.Text != string.Empty && mtbCPF.Text != string.Empty && txtSalario.Text != string.Empty
                     && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
-                    && dtpAdmissao.Text != string.Empty && dtpDemissao.Text != string.Empty && dtpNascimento.Text != string.Empty && result_CPF)
+                    && dtpAdmissao.Text != string.Empty && dtpDemissao.Text != string.Empty && dtpNascimento.Text != string.Empty && result_CPF && txtLogin.Text != string.Empty && mtbSenha.Text != string.Empty)
                 {
-                    if (!Controle_Funcionario.insert(txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, new Login(123,"user","123")))
+                    if (!Controle_Funcionario.insert(txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, mtbSenha.Text, nivel))
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
+                else
+                    MessageBox.Show("Preencha todos os campos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (altera == true)
             {
                 if (txtNome.Text != string.Empty && mtbCPF.Text != string.Empty && txtSalario.Text != string.Empty
                     && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
-                    && dtpAdmissao.Text != string.Empty && dtpDemissao.Text != string.Empty && dtpNascimento.Text != string.Empty && result_CPF)
+                    && dtpAdmissao.Text != string.Empty && dtpDemissao.Text != string.Empty && dtpNascimento.Text != string.Empty && result_CPF && txtLogin.Text != string.Empty && mtbSenha.Text != string.Empty)
                 {
-                    if (!Controle_Funcionario.update(Convert.ToInt32(txtID.Text),txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, new Login(123, "user", "123")))
+                    if (!Controle_Funcionario.update(Convert.ToInt32(txtID.Text),txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, mtbSenha.Text, nivel))
                         MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -167,13 +186,19 @@ namespace GlobalHost.Visao.Servicos
             exclui = false;
             changeBool();
 
+            cbFiltro.SelectedIndex = 0;
+            cbNivel.SelectedIndex = 0;
+            cbNivel.Enabled = false;
+           
             txtID.Enabled = false;
             txtSalario.Enabled = false;
             mtbCPF.Enabled = false;
+            mtbSenha.Enabled = false;
             txtEmail.Enabled = false;
             txtEndereco.Enabled = false;
             txtNome.Enabled = false;
             txtTelefone.Enabled = false;
+            txtLogin.Enabled = false;
             dtpAdmissao.Enabled = false;
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
@@ -184,9 +209,11 @@ namespace GlobalHost.Visao.Servicos
             txtEndereco.Text = string.Empty;
             txtTelefone.Text = string.Empty;
             txtEmail.Text = string.Empty;
-            mtbCPF.Text = string.Empty;
             txtBusca.Text = string.Empty;
-
+            txtLogin.Text = string.Empty;
+            mtbSenha.Text = string.Empty;
+            mtbCPF.Text = string.Empty;
+            
             dtpAdmissao.Text = string.Empty;
             dtpDemissao.Text = string.Empty;
             dtpNascimento.Text = string.Empty;
@@ -241,14 +268,17 @@ namespace GlobalHost.Visao.Servicos
             altera = false;
             exclui = false;
             changeBool();
-
+            cbNivel.SelectedIndex = 0;
+            cbFiltro.SelectedIndex = 0;
             txtSalario.Enabled = false;
             mtbCPF.Enabled = false;
+            mtbSenha.Enabled = false;
             txtEmail.Enabled = false;
             txtEndereco.Enabled = false;
             txtID.Enabled = false;
             txtNome.Enabled = false;
             txtTelefone.Enabled = false;
+            txtLogin.Enabled = false;
             dtpAdmissao.Enabled = false;
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
@@ -259,6 +289,8 @@ namespace GlobalHost.Visao.Servicos
             txtEndereco.Text = string.Empty;
             txtTelefone.Text = string.Empty;
             txtEmail.Text = string.Empty;
+            txtLogin.Text = string.Empty;
+            mtbSenha.Text = string.Empty;
             mtbCPF.Text = string.Empty;
             txtBusca.Text = string.Empty;
 
@@ -276,16 +308,16 @@ namespace GlobalHost.Visao.Servicos
         {
             if (dgvFuncionario.SelectedRows.Count == 1)
             {
-                txtID.Text = dgvFuncionario.SelectedRows[0].Cells["ID"].Value.ToString();
-                txtNome.Text = dgvFuncionario.SelectedRows[0].Cells["Nome"].Value.ToString();
-                dtpNascimento.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["Data de Nascimento"].Value.ToString());
-                mtbCPF.Text = dgvFuncionario.SelectedRows[0].Cells["CPF"].Value.ToString();
-                txtSalario.Text = ""+Convert.ToDouble(dgvFuncionario.SelectedRows[0].Cells["Salario"].Value.ToString());
-                txtEndereco.Text = dgvFuncionario.SelectedRows[0].Cells["Endereco"].Value.ToString();
-                dtpAdmissao.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["Data de Admissão"].Value.ToString());
-                dtpDemissao.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["Data de Demissão"].Value.ToString());
-                txtTelefone.Text = dgvFuncionario.SelectedRows[0].Cells["Telefone"].Value.ToString();
-                txtEmail.Text = dgvFuncionario.SelectedRows[0].Cells["E-mail"].Value.ToString();
+                txtID.Text = dgvFuncionario.SelectedRows[0].Cells["id"].Value.ToString();
+                txtNome.Text = dgvFuncionario.SelectedRows[0].Cells["nome"].Value.ToString();
+                dtpNascimento.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["dtNascimento"].Value);
+                mtbCPF.Text = dgvFuncionario.SelectedRows[0].Cells["cpf"].Value.ToString();
+                txtSalario.Text = Convert.ToDouble(dgvFuncionario.SelectedRows[0].Cells["salario"].Value).ToString();
+                txtEndereco.Text = dgvFuncionario.SelectedRows[0].Cells["endereco"].Value.ToString();
+                dtpAdmissao.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["dtAdmissao"].Value);
+                dtpDemissao.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["dtDemissao"].Value);
+                txtTelefone.Text = dgvFuncionario.SelectedRows[0].Cells["telefone"].Value.ToString();
+                txtEmail.Text = dgvFuncionario.SelectedRows[0].Cells["email"].Value.ToString();
             }
         }
 
@@ -331,6 +363,13 @@ namespace GlobalHost.Visao.Servicos
                 data = Controle_Funcionario.get("");
             dgvFuncionario.DataSource = data;
         }
-    }
-    
+
+        private void btCEP_Click(object sender, EventArgs e)
+        {
+            CEPTool ex = new CEPTool();
+            ex.ShowDialog();
+            if (!ex.IsCancel)
+                txtEndereco.Text = ex.Str;
+        }
+    }    
 }

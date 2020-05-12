@@ -603,8 +603,11 @@ namespace GlobalHost.Visao.Servicos
 
         private void txtValor_TextChanged_1(object sender, EventArgs e)
         {
-            txtValor.Text = API.Validate.MONEY(txtValor.Text);
-            V = Convert.ToDouble(txtValor.Text);
+            if(txtValor.Text != string.Empty)
+            {
+                txtValor.Text = API.Validate.MONEY(txtValor.Text);
+                V = Convert.ToDouble(txtValor.Text);
+            }
         }
     }
 }

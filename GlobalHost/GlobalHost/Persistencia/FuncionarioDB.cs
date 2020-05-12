@@ -95,17 +95,17 @@ namespace GlobalHost.Persistencia
                 Funcionario fun;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    fun = new Funcionario((int)dt.Rows[0]["id"],
-                                    dt.Rows[0]["nome"].ToString(),
-                                    (DateTime)dt.Rows[0]["dtnascimento"],
-                                    dt.Rows[0]["cpf"].ToString(),
-                                    (double)dt.Rows[0]["salario"],
-                                    dt.Rows[0]["endereco"].ToString(),
-                                    (DateTime)dt.Rows[0]["dtadmissao"],
-                                    (DateTime)dt.Rows[0]["dtdemissao"],
-                                    dt.Rows[0]["telefone"].ToString(),
-                                    dt.Rows[0]["email"].ToString(),
-                                    DB.get((int)dt.Rows[0]["login"]));
+                    fun = new Funcionario((int)dt.Rows[i]["id"],
+                                    dt.Rows[i]["nome"].ToString(),
+                                    Convert.ToDateTime(dt.Rows[i]["dtnascimento"]),
+                                    dt.Rows[i]["cpf"].ToString(),
+                                    Convert.ToDouble(dt.Rows[i]["salario"]),
+                                    dt.Rows[i]["endereco"].ToString(),
+                                    Convert.ToDateTime(dt.Rows[i]["dtadmissao"]),
+                                    Convert.ToDateTime(dt.Rows[i]["dtdemissao"]),
+                                    dt.Rows[i]["telefone"].ToString(),
+                                    dt.Rows[i]["email"].ToString(),
+                                    DB.get((int)dt.Rows[i]["login"]));
                     list.Add(fun);
                 }
             }
@@ -125,17 +125,17 @@ namespace GlobalHost.Persistencia
                 Funcionario fun;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    fun = new Funcionario((int)dt.Rows[0]["id"],
-                                    dt.Rows[0]["nome"].ToString(),
-                                    (DateTime)dt.Rows[0]["dtnascimento"],
-                                    dt.Rows[0]["cpf"].ToString(),
-                                    (double)dt.Rows[0]["salario"],
-                                    dt.Rows[0]["endereco"].ToString(),
-                                    (DateTime)dt.Rows[0]["dtadmissao"],
-                                    (DateTime)dt.Rows[0]["dtdemissao"],
-                                    dt.Rows[0]["telefone"].ToString(),
-                                    dt.Rows[0]["email"].ToString(),
-                                    DB.get((int)dt.Rows[0]["login"]));
+                    fun = new Funcionario((int)dt.Rows[i]["id"],
+                                    dt.Rows[i]["nome"].ToString(),
+                                    Convert.ToDateTime(dt.Rows[i]["dtnascimento"]),
+                                    dt.Rows[i]["cpf"].ToString(),
+                                    Convert.ToDouble(dt.Rows[i]["salario"]),
+                                    dt.Rows[i]["endereco"].ToString(),
+                                    Convert.ToDateTime(dt.Rows[i]["dtadmissao"]),
+                                    Convert.ToDateTime(dt.Rows[i]["dtdemissao"]),
+                                    dt.Rows[i]["telefone"].ToString(),
+                                    dt.Rows[i]["email"].ToString(),
+                                    DB.get((int)dt.Rows[i]["login"]));
                     list.Add(fun);
                 }
             }

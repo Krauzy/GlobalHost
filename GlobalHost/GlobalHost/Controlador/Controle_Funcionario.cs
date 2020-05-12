@@ -6,21 +6,32 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GlobalHost.Controlador
 {
     class Controle_Funcionario
     {
-        public static bool insert (string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, Login login)
+
+        public static bool insert (string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, string login, string senha, int nivel)
         {
-            Funcionario f = new Funcionario(nome, dtnascimento, cpf, salario, endereco, dtadmissao, dtdemissao, telefone, email, login);
-            FuncionarioDB DB = new FuncionarioDB();
-            return DB.Insert(f);
+            Login l = new Login(login, senha, nivel);
+            LoginDB dblog = new LoginDB();
+            if (dblog.Insert(l))
+            {
+                l.Id = dblog.getId();
+                Funcionario f = new Funcionario(nome, dtnascimento, cpf, salario, endereco, dtadmissao, dtdemissao, telefone, email, l);
+                FuncionarioDB DB = new FuncionarioDB();
+                return DB.Insert(f);
+            }
+            else
+                return false;
         }
 
-        public static bool update(int id, string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, Login login)
+        public static bool update(int id, string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, string login, string senha, int nivel)
         {
-            Funcionario f = new Funcionario(id,nome, dtnascimento, cpf, salario, endereco, dtadmissao, dtdemissao, telefone, email, login);
+            Login l = new Login(login, senha, nivel);
+            Funcionario f = new Funcionario(id,nome, dtnascimento, cpf, salario, endereco, dtadmissao, dtdemissao, telefone, email, l);
             FuncionarioDB DB = new FuncionarioDB();
             return DB.Update(f);
         }
@@ -28,7 +39,8 @@ namespace GlobalHost.Controlador
         public static bool delete(int id)
         {
             FuncionarioDB DB = new FuncionarioDB();
-            return DB.Delete(id);
+            LoginDB dblog = new LoginDB();
+            return dblog.Delete(DB.get(id).Login.Id);
         }
 
         public static DataTable get (object obj)
