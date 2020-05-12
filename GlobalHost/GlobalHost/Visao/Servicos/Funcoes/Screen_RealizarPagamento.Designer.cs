@@ -115,9 +115,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label3.Location = new System.Drawing.Point(144, 110);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 20);
+            this.label3.Size = new System.Drawing.Size(163, 20);
             this.label3.TabIndex = 30;
-            this.label3.Text = "Despesas zeradas";
+            this.label3.Text = "Despesas quitadas";
             // 
             // label4
             // 

@@ -33,6 +33,7 @@ namespace GlobalHost.Visao.Servicos
             txtID.Enabled = false;
             txtNome.Enabled = false;
             txtTelefone.Enabled = false;
+            //mtbCEP.Enabled = false;
             dtpNascimento.Enabled = false;
         }
 
@@ -67,8 +68,10 @@ namespace GlobalHost.Visao.Servicos
                 {
                     if (!Controle_Cliente.insert(txtNome.Text, txtEndereco.Text,(DateTime)dtpNascimento.Value,mtbCPF_CNPJ.Text, mtbCEP.Text,txtEmail.Text,txtTelefone.Text))
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else MessageBox.Show("Inserção feita com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 }
+                else MessageBox.Show("Falha, campos inválidos!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (altera == true)
             {
@@ -77,7 +80,9 @@ namespace GlobalHost.Visao.Servicos
                 {
                     if (!Controle_Cliente.update(Convert.ToInt32(txtID.Text), txtNome.Text, txtEndereco.Text, (DateTime)dtpNascimento.Value, mtbCPF_CNPJ.Text, mtbCEP.Text, txtEmail.Text, txtTelefone.Text))
                         MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else MessageBox.Show("Alteração feita com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+                else MessageBox.Show("Falha, campos inválidos!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (exclui == true)
             {
@@ -86,7 +91,9 @@ namespace GlobalHost.Visao.Servicos
                     string n = Controle_Cliente.get(ID).Rows[0]["nome"].ToString();
                     if (!Controle_Cliente.delete(ID))
                         MessageBox.Show("Falha ao exluir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else MessageBox.Show("Exclusão feita com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+                else MessageBox.Show("Falha, campos inválidos!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             insere = false;
@@ -116,7 +123,7 @@ namespace GlobalHost.Visao.Servicos
             btnCancelar.Enabled = false;
 
             data = Controle_Cliente.get("");
-            dgvFuncionario.DataSource = data;
+            dgvCliente.DataSource = data;
 
             this.ActiveControl = null;
         }
@@ -243,12 +250,11 @@ namespace GlobalHost.Visao.Servicos
 
         private void txtEndereco_TextChanged(object sender, EventArgs e)
         {
-            Filters.mixedField(txtEndereco);
+            //Filters.mixedField(txtEndereco);
         }
 
         private void txtTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            Filters.numericField(txtTelefone);
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
@@ -258,12 +264,12 @@ namespace GlobalHost.Visao.Servicos
 
         private void mtbCEP_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            Filters.numericField(mtbCEP);
         }
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
-
+            dgvCliente.Rows.Clear();
+            dgvCliente.Rows.Add(Controle_Cliente.get(cbFiltro.SelectedItem.ToString().ToLower() + " = " +txtBusca.Text));
         }
     }
 }
