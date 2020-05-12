@@ -74,13 +74,11 @@ namespace GlobalHost.Persistencia
             return c;
         }
         
-        public List<object> getList(string filter)
+        public List<object> getList(string nome)
         {
             List<object> list = new List<object>();
             DataTable dt = new DataTable();
-            string SQL = @"SELECT * FROM Cliente"; 
-            if (filter != string.Empty) 
-                SQL += " WHERE " + filter; 
+            string SQL = @"SELECT * FROM Cliente WHERE nome like  %" + nome + "% ORDER BY id";
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt);
             if (dt.Rows.Count > 0)
