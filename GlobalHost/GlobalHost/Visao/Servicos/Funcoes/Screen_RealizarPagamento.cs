@@ -20,7 +20,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void btPagar_Click(object sender, EventArgs e)
         {
-            Controle_Despesa.baixa();
+            //Controle_Despesa.baixa();
         }
     }
 }
