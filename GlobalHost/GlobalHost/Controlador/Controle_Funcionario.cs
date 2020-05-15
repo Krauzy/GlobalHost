@@ -3,10 +3,6 @@ using GlobalHost.Persistencia;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GlobalHost.Controlador
 {
@@ -39,8 +35,7 @@ namespace GlobalHost.Controlador
         public static bool delete(int id)
         {
             FuncionarioDB DB = new FuncionarioDB();
-            LoginDB dblog = new LoginDB();
-            return dblog.Delete(DB.get(id).Login.Id);
+            return DB.Delete(id);
         }
 
         public static DataTable get (object obj)

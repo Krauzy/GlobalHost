@@ -108,7 +108,20 @@ namespace GlobalHost.API
 
         public static bool EMAIL(string email)
         {
-            return System.Text.RegularExpressions.Regex.IsMatch(email, ("(?<user>[^@]+)@(?<host>.+)"));
+            bool result = false;
+            string n;
+            if (email.Contains("@"))
+            {
+                n = email.Substring(email.IndexOf('@'));
+                if(n.Contains("."))
+                {
+                    n = n.Substring(n.IndexOf('.'));
+                    if (n.Contains("."))
+                        result = true;
+                }
+            }
+            return result;
+            //return System.Text.RegularExpressions.Regex.IsMatch(email, ("(?<user>[^@]+)@(?<host>.+)"));
         }
 
         public static string MONEY(string value)

@@ -38,14 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvTipo = new System.Windows.Forms.DataGridView();
-            this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_dim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxpesoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dimensoesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolExluir = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoTransporteBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -79,6 +71,10 @@
             this.ordPeso = new System.Windows.Forms.Label();
             this.ordDimensoes = new System.Windows.Forms.Label();
             this.ordOrder = new System.Windows.Forms.Label();
+            this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_dim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipo)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tipoTransporteBindingSource)).BeginInit();
@@ -128,11 +124,7 @@
             this.col_id,
             this.col_desc,
             this.col_peso,
-            this.col_dim,
-            this.idDataGridViewTextBoxColumn,
-            this.descricaoDataGridViewTextBoxColumn,
-            this.maxpesoDataGridViewTextBoxColumn,
-            this.dimensoesDataGridViewTextBoxColumn});
+            this.col_dim});
             this.dgvTipo.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvTipo.DataSource = this.tipoTransporteBindingSource;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -151,79 +143,6 @@
             this.dgvTipo.Size = new System.Drawing.Size(339, 357);
             this.dgvTipo.TabIndex = 6;
             this.dgvTipo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipo_CellDoubleClick);
-            // 
-            // col_id
-            // 
-            this.col_id.DataPropertyName = "id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle2.NullValue = "-";
-            this.col_id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.col_id.HeaderText = "ID";
-            this.col_id.Name = "col_id";
-            this.col_id.ReadOnly = true;
-            this.col_id.Width = 50;
-            // 
-            // col_desc
-            // 
-            this.col_desc.DataPropertyName = "descricao";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.col_desc.DefaultCellStyle = dataGridViewCellStyle3;
-            this.col_desc.HeaderText = "Descrição";
-            this.col_desc.Name = "col_desc";
-            this.col_desc.ReadOnly = true;
-            this.col_desc.Width = 150;
-            // 
-            // col_peso
-            // 
-            this.col_peso.DataPropertyName = "max_peso";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.col_peso.DefaultCellStyle = dataGridViewCellStyle4;
-            this.col_peso.HeaderText = "Peso Máximo";
-            this.col_peso.Name = "col_peso";
-            this.col_peso.ReadOnly = true;
-            this.col_peso.Width = 60;
-            // 
-            // col_dim
-            // 
-            this.col_dim.DataPropertyName = "dimensoes";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.col_dim.DefaultCellStyle = dataGridViewCellStyle5;
-            this.col_dim.HeaderText = "Dimensões";
-            this.col_dim.Name = "col_dim";
-            this.col_dim.ReadOnly = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "descricao";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            // 
-            // maxpesoDataGridViewTextBoxColumn
-            // 
-            this.maxpesoDataGridViewTextBoxColumn.DataPropertyName = "max_peso";
-            this.maxpesoDataGridViewTextBoxColumn.HeaderText = "max_peso";
-            this.maxpesoDataGridViewTextBoxColumn.Name = "maxpesoDataGridViewTextBoxColumn";
-            // 
-            // dimensoesDataGridViewTextBoxColumn
-            // 
-            this.dimensoesDataGridViewTextBoxColumn.DataPropertyName = "dimensoes";
-            this.dimensoesDataGridViewTextBoxColumn.HeaderText = "dimensoes";
-            this.dimensoesDataGridViewTextBoxColumn.Name = "dimensoesDataGridViewTextBoxColumn";
             // 
             // contextMenuStrip1
             // 
@@ -604,6 +523,54 @@
             this.ordOrder.TabIndex = 75;
             this.ordOrder.Text = "* Campos obrigatórios";
             // 
+            // col_id
+            // 
+            this.col_id.DataPropertyName = "id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle2.NullValue = "-";
+            this.col_id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.col_id.HeaderText = "ID";
+            this.col_id.Name = "col_id";
+            this.col_id.ReadOnly = true;
+            this.col_id.Width = 50;
+            // 
+            // col_desc
+            // 
+            this.col_desc.DataPropertyName = "descricao";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.col_desc.DefaultCellStyle = dataGridViewCellStyle3;
+            this.col_desc.HeaderText = "Descrição";
+            this.col_desc.Name = "col_desc";
+            this.col_desc.ReadOnly = true;
+            this.col_desc.Width = 150;
+            // 
+            // col_peso
+            // 
+            this.col_peso.DataPropertyName = "max_peso";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.col_peso.DefaultCellStyle = dataGridViewCellStyle4;
+            this.col_peso.HeaderText = "Peso Máximo";
+            this.col_peso.Name = "col_peso";
+            this.col_peso.ReadOnly = true;
+            this.col_peso.Width = 60;
+            // 
+            // col_dim
+            // 
+            this.col_dim.DataPropertyName = "dimensoes";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.col_dim.DefaultCellStyle = dataGridViewCellStyle5;
+            this.col_dim.HeaderText = "Dimensões";
+            this.col_dim.Name = "col_dim";
+            this.col_dim.ReadOnly = true;
+            // 
             // ScreenTipo_Transporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -680,16 +647,8 @@
         private System.Windows.Forms.TextBox txtBusca;
         private System.Windows.Forms.ComboBox cbFiltro;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_peso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_dim;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolExluir;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxpesoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dimensoesDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label ordID;
@@ -697,5 +656,9 @@
         private System.Windows.Forms.Label ordPeso;
         private System.Windows.Forms.Label ordDimensoes;
         private System.Windows.Forms.Label ordOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_peso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_dim;
     }
 }

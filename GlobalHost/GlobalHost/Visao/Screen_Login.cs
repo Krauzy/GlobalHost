@@ -96,9 +96,15 @@ namespace GlobalHost.Visao
         private void btEye_Click(object sender, EventArgs e)
         {
             if (eye)
-                eye = txtSenha.UseSystemPasswordChar = false;
+            {
+                txtSenha.UseSystemPasswordChar = true;
+                eye = false;
+            }
             else
-                eye = txtSenha.UseSystemPasswordChar = true;
+            {
+                txtSenha.UseSystemPasswordChar = false;
+                eye = true;
+            }
         }
 
         private void linkFrgtPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
