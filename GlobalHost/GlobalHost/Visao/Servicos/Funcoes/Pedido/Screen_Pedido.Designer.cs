@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
@@ -41,22 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbOrigem = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btMenos = new System.Windows.Forms.Button();
-            this.btMais = new System.Windows.Forms.Button();
-            this.txtBuscaCarga = new System.Windows.Forms.TextBox();
-            this.cbFiltroCarga = new System.Windows.Forms.ComboBox();
-            this.dgvCarga = new System.Windows.Forms.DataGridView();
-            this.Carga_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Dimensoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_ValorUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
             this.Pedido_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pedido_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,16 +59,33 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.cbDestino = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtCliente = new System.Windows.Forms.TextBox();
-            this.btCliente = new System.Windows.Forms.Button();
             this.rdExpresso = new System.Windows.Forms.RadioButton();
             this.rdExclusivo = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Carga_Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_ValorUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_Dimensoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_Volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvCarga = new System.Windows.Forms.DataGridView();
+            this.cbFiltroCarga = new System.Windows.Forms.ComboBox();
+            this.txtBuscaCarga = new System.Windows.Forms.TextBox();
+            this.btMais = new System.Windows.Forms.Button();
+            this.btMenos = new System.Windows.Forms.Button();
+            this.btnPagExc = new System.Windows.Forms.Button();
+            this.cbCliente = new System.Windows.Forms.ComboBox();
+            this.txtDestino = new System.Windows.Forms.TextBox();
+            this.btDestino = new System.Windows.Forms.Button();
+            this.btOrigem = new System.Windows.Forms.Button();
+            this.txtOrigem = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExcluir
@@ -102,6 +104,7 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -119,6 +122,7 @@
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnInserir
             // 
@@ -136,6 +140,7 @@
             this.btnInserir.Text = "Inserir";
             this.btnInserir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // label1
             // 
@@ -168,7 +173,7 @@
             this.txtID.Location = new System.Drawing.Point(55, 115);
             this.txtID.Name = "txtID";
             this.txtID.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtID.Size = new System.Drawing.Size(107, 23);
+            this.txtID.Size = new System.Drawing.Size(90, 23);
             this.txtID.TabIndex = 29;
             // 
             // label3
@@ -182,277 +187,6 @@
             this.label3.TabIndex = 28;
             this.label3.Text = "ID";
             // 
-            // cbOrigem
-            // 
-            this.cbOrigem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbOrigem.Enabled = false;
-            this.cbOrigem.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.cbOrigem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.cbOrigem.FormattingEnabled = true;
-            this.cbOrigem.Items.AddRange(new object[] {
-            "Afeganistão",
-            "África do Sul",
-            "Akrotiri",
-            "Albânia",
-            "Alemanha",
-            "Andorra",
-            "Angola",
-            "Anguila",
-            "Antárctida",
-            "Antígua e Barbuda",
-            "Arábia Saudita",
-            "Arctic Ocean",
-            "Argélia",
-            "Argentina",
-            "Arménia",
-            "Aruba",
-            "Ashmore and Cartier Islands",
-            "Atlantic Ocean",
-            "Austrália",
-            "Áustria",
-            "Azerbaijão",
-            "Baamas",
-            "Bangladeche",
-            "Barbados",
-            "Barém",
-            "Bélgica",
-            "Belize",
-            "Benim",
-            "Bermudas",
-            "Bielorrússia",
-            "Birmânia",
-            "Bolívia",
-            "Bósnia e Herzegovina",
-            "Botsuana",
-            "Brasil",
-            "Brunei",
-            "Bulgária",
-            "Burquina Faso",
-            "Burúndi",
-            "Butão",
-            "Cabo Verde",
-            "Camarões",
-            "Camboja",
-            "Canadá",
-            "Catar",
-            "Cazaquistão",
-            "Chade",
-            "Chile",
-            "China",
-            "Chipre",
-            "Clipperton Island",
-            "Colômbia",
-            "Comores",
-            "Congo-Brazzaville",
-            "Congo-Kinshasa",
-            "Coral Sea Islands",
-            "Coreia do Norte",
-            "Coreia do Sul",
-            "Costa do Marfim",
-            "Costa Rica",
-            "Croácia",
-            "Cuba",
-            "Curacao",
-            "Dhekelia",
-            "Dinamarca",
-            "Domínica",
-            "Egipto",
-            "Emiratos Árabes Unidos",
-            "Equador",
-            "Eritreia",
-            "Eslováquia",
-            "Eslovénia",
-            "Espanha",
-            "Estados Unidos",
-            "Estónia",
-            "Etiópia",
-            "Faroé",
-            "Fiji",
-            "Filipinas",
-            "Finlândia",
-            "França",
-            "Gabão",
-            "Gâmbia",
-            "Gana",
-            "Gaza Strip",
-            "Geórgia",
-            "Geórgia do Sul e Sandwich do Sul",
-            "Gibraltar",
-            "Granada",
-            "Grécia",
-            "Gronelândia",
-            "Guame",
-            "Guatemala",
-            "Guernsey",
-            "Guiana",
-            "Guiné",
-            "Guiné Equatorial",
-            "Guiné-Bissau",
-            "Haiti",
-            "Honduras",
-            "Hong Kong",
-            "Hungria",
-            "Iémen",
-            "Ilha Bouvet",
-            "Ilha do Natal",
-            "Ilha Norfolk",
-            "Ilhas Caimão",
-            "Ilhas Cook",
-            "Ilhas dos Cocos",
-            "Ilhas Falkland",
-            "Ilhas Heard e McDonald",
-            "Ilhas Marshall",
-            "Ilhas Salomão",
-            "Ilhas Turcas e Caicos",
-            "Ilhas Virgens Americanas",
-            "Ilhas Virgens Britânicas",
-            "Índia",
-            "Indian Ocean",
-            "Indonésia",
-            "Irão",
-            "Iraque",
-            "Irlanda",
-            "Islândia",
-            "Israel",
-            "Itália",
-            "Jamaica",
-            "Jan Mayen",
-            "Japão",
-            "Jersey",
-            "Jibuti",
-            "Jordânia",
-            "Kosovo",
-            "Kuwait",
-            "Laos",
-            "Lesoto",
-            "Letónia",
-            "Líbano",
-            "Libéria",
-            "Líbia",
-            "Listenstaine",
-            "Lituânia",
-            "Luxemburgo",
-            "Macau",
-            "Macedónia",
-            "Madagáscar",
-            "Malásia",
-            "Malávi",
-            "Maldivas",
-            "Mali",
-            "Malta",
-            "Man, Isle of",
-            "Marianas do Norte",
-            "Marrocos",
-            "Maurícia",
-            "Mauritânia",
-            "México",
-            "Micronésia",
-            "Moçambique",
-            "Moldávia",
-            "Mónaco",
-            "Mongólia",
-            "Monserrate",
-            "Montenegro",
-            "Mundo",
-            "Namíbia",
-            "Nauru",
-            "Navassa Island",
-            "Nepal",
-            "Nicarágua",
-            "Níger",
-            "Nigéria",
-            "Niue",
-            "Noruega",
-            "Nova Caledónia",
-            "Nova Zelândia",
-            "Omã",
-            "Pacific Ocean",
-            "Países Baixos",
-            "Palau",
-            "Panamá",
-            "Papua-Nova Guiné",
-            "Paquistão",
-            "Paracel Islands",
-            "Paraguai",
-            "Peru",
-            "Pitcairn",
-            "Polinésia Francesa",
-            "Polónia",
-            "Porto Rico",
-            "Portugal",
-            "Quénia",
-            "Quirguizistão",
-            "Quiribáti",
-            "Reino Unido",
-            "República Centro-Africana",
-            "República Dominicana",
-            "Roménia",
-            "Ruanda",
-            "Rússia",
-            "Salvador",
-            "Samoa",
-            "Samoa Americana",
-            "Santa Helena",
-            "Santa Lúcia",
-            "São Bartolomeu",
-            "São Cristóvão e Neves",
-            "São Marinho",
-            "São Martinho",
-            "São Pedro e Miquelon",
-            "São Tomé e Príncipe",
-            "São Vicente e Granadinas",
-            "Sara Ocidental",
-            "Seicheles",
-            "Senegal",
-            "Serra Leoa",
-            "Sérvia",
-            "Singapura",
-            "Sint Maarten",
-            "Síria",
-            "Somália",
-            "Southern Ocean",
-            "Spratly Islands",
-            "Sri Lanca",
-            "Suazilândia",
-            "Sudão",
-            "Sudão do Sul",
-            "Suécia",
-            "Suíça",
-            "Suriname",
-            "Svalbard e Jan Mayen",
-            "Tailândia",
-            "Taiwan",
-            "Tajiquistão",
-            "Tanzânia",
-            "Território Britânico do Oceano Índico",
-            "Territórios Austrais Franceses",
-            "Timor Leste",
-            "Togo",
-            "Tokelau",
-            "Tonga",
-            "Trindade e Tobago",
-            "Tunísia",
-            "Turquemenistão",
-            "Turquia",
-            "Tuvalu",
-            "Ucrânia",
-            "Uganda",
-            "Uruguai",
-            "Usbequistão",
-            "Vanuatu",
-            "Vaticano",
-            "Venezuela",
-            "Vietname",
-            "Wake Island",
-            "Wallis e Futuna",
-            "West Bank",
-            "Zâmbia",
-            "Zimbabué"});
-            this.cbOrigem.Location = new System.Drawing.Point(55, 171);
-            this.cbOrigem.Name = "cbOrigem";
-            this.cbOrigem.Size = new System.Drawing.Size(215, 25);
-            this.cbOrigem.TabIndex = 32;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -464,176 +198,6 @@
             this.label5.TabIndex = 30;
             this.label5.Text = "Origem";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btMenos);
-            this.groupBox2.Controls.Add(this.btMais);
-            this.groupBox2.Controls.Add(this.txtBuscaCarga);
-            this.groupBox2.Controls.Add(this.cbFiltroCarga);
-            this.groupBox2.Controls.Add(this.dgvCarga);
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.groupBox2.Location = new System.Drawing.Point(55, 260);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(542, 159);
-            this.groupBox2.TabIndex = 34;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Gerenciamento de Carga";
-            // 
-            // btMenos
-            // 
-            this.btMenos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btMenos.FlatAppearance.BorderSize = 0;
-            this.btMenos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btMenos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMenos.ForeColor = System.Drawing.Color.White;
-            this.btMenos.Location = new System.Drawing.Point(501, 115);
-            this.btMenos.Name = "btMenos";
-            this.btMenos.Size = new System.Drawing.Size(35, 32);
-            this.btMenos.TabIndex = 44;
-            this.btMenos.Text = "‒";
-            this.btMenos.UseVisualStyleBackColor = false;
-            // 
-            // btMais
-            // 
-            this.btMais.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.btMais.FlatAppearance.BorderSize = 0;
-            this.btMais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btMais.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMais.ForeColor = System.Drawing.Color.White;
-            this.btMais.Location = new System.Drawing.Point(501, 77);
-            this.btMais.Name = "btMais";
-            this.btMais.Size = new System.Drawing.Size(35, 32);
-            this.btMais.TabIndex = 43;
-            this.btMais.Text = "+";
-            this.btMais.UseVisualStyleBackColor = false;
-            // 
-            // txtBuscaCarga
-            // 
-            this.txtBuscaCarga.BackColor = System.Drawing.Color.White;
-            this.txtBuscaCarga.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscaCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtBuscaCarga.Location = new System.Drawing.Point(6, 30);
-            this.txtBuscaCarga.Name = "txtBuscaCarga";
-            this.txtBuscaCarga.Size = new System.Drawing.Size(310, 23);
-            this.txtBuscaCarga.TabIndex = 41;
-            // 
-            // cbFiltroCarga
-            // 
-            this.cbFiltroCarga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFiltroCarga.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.cbFiltroCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.cbFiltroCarga.FormattingEnabled = true;
-            this.cbFiltroCarga.Items.AddRange(new object[] {
-            "Descrição",
-            "Volume",
-            "Peso",
-            "Dimensões",
-            "Valor Unitário",
-            "Valor",
-            "Tipo"});
-            this.cbFiltroCarga.Location = new System.Drawing.Point(322, 29);
-            this.cbFiltroCarga.Name = "cbFiltroCarga";
-            this.cbFiltroCarga.Size = new System.Drawing.Size(173, 25);
-            this.cbFiltroCarga.TabIndex = 42;
-            // 
-            // dgvCarga
-            // 
-            this.dgvCarga.AllowUserToAddRows = false;
-            this.dgvCarga.AllowUserToResizeRows = false;
-            this.dgvCarga.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCarga.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            this.dgvCarga.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCarga.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvCarga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarga.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Carga_ID,
-            this.Carga_Descricao,
-            this.Carga_Volume,
-            this.Carga_Peso,
-            this.Carga_Dimensoes,
-            this.Carga_ValorUnit,
-            this.Carga_Valor,
-            this.Carga_Tipo});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCarga.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvCarga.EnableHeadersVisualStyles = false;
-            this.dgvCarga.Location = new System.Drawing.Point(6, 60);
-            this.dgvCarga.Name = "dgvCarga";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCarga.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvCarga.RowHeadersVisible = false;
-            this.dgvCarga.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCarga.Size = new System.Drawing.Size(489, 87);
-            this.dgvCarga.TabIndex = 40;
-            // 
-            // Carga_ID
-            // 
-            this.Carga_ID.HeaderText = "ID";
-            this.Carga_ID.Name = "Carga_ID";
-            this.Carga_ID.Width = 50;
-            // 
-            // Carga_Descricao
-            // 
-            this.Carga_Descricao.HeaderText = "Descrição";
-            this.Carga_Descricao.Name = "Carga_Descricao";
-            this.Carga_Descricao.Width = 200;
-            // 
-            // Carga_Volume
-            // 
-            this.Carga_Volume.HeaderText = "Volume";
-            this.Carga_Volume.Name = "Carga_Volume";
-            this.Carga_Volume.Width = 50;
-            // 
-            // Carga_Peso
-            // 
-            this.Carga_Peso.HeaderText = "Peso";
-            this.Carga_Peso.Name = "Carga_Peso";
-            this.Carga_Peso.Width = 60;
-            // 
-            // Carga_Dimensoes
-            // 
-            this.Carga_Dimensoes.HeaderText = "Dimensões";
-            this.Carga_Dimensoes.Name = "Carga_Dimensoes";
-            // 
-            // Carga_ValorUnit
-            // 
-            this.Carga_ValorUnit.HeaderText = "Valor Unitário";
-            this.Carga_ValorUnit.Name = "Carga_ValorUnit";
-            this.Carga_ValorUnit.Width = 50;
-            // 
-            // Carga_Valor
-            // 
-            this.Carga_Valor.HeaderText = "Valor";
-            this.Carga_Valor.Name = "Carga_Valor";
-            this.Carga_Valor.Width = 50;
-            // 
-            // Carga_Tipo
-            // 
-            this.Carga_Tipo.HeaderText = "Tipo";
-            this.Carga_Tipo.Name = "Carga_Tipo";
-            this.Carga_Tipo.Width = 80;
-            // 
             // dgvPedido
             // 
             this.dgvPedido.AllowUserToAddRows = false;
@@ -641,14 +205,14 @@
             this.dgvPedido.BackgroundColor = System.Drawing.Color.White;
             this.dgvPedido.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvPedido.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle61.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle61;
             this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedido.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Pedido_ID,
@@ -661,25 +225,25 @@
             this.Pedido_Cliente,
             this.Pedido_Funcionario,
             this.Pedido_Remessa});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPedido.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle62.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPedido.DefaultCellStyle = dataGridViewCellStyle62;
             this.dgvPedido.EnableHeadersVisualStyles = false;
             this.dgvPedido.Location = new System.Drawing.Point(647, 155);
             this.dgvPedido.Name = "dgvPedido";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle63.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle63.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle63.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle63;
             this.dgvPedido.RowHeadersVisible = false;
             this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedido.Size = new System.Drawing.Size(339, 376);
@@ -819,282 +383,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label7.Location = new System.Drawing.Point(312, 149);
+            this.label7.Location = new System.Drawing.Point(351, 149);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 19);
             this.label7.TabIndex = 30;
             this.label7.Text = "Destino";
-            // 
-            // cbDestino
-            // 
-            this.cbDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDestino.Enabled = false;
-            this.cbDestino.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.cbDestino.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.cbDestino.FormattingEnabled = true;
-            this.cbDestino.Items.AddRange(new object[] {
-            "Afeganistão",
-            "África do Sul",
-            "Akrotiri",
-            "Albânia",
-            "Alemanha",
-            "Andorra",
-            "Angola",
-            "Anguila",
-            "Antárctida",
-            "Antígua e Barbuda",
-            "Arábia Saudita",
-            "Arctic Ocean",
-            "Argélia",
-            "Argentina",
-            "Arménia",
-            "Aruba",
-            "Ashmore and Cartier Islands",
-            "Atlantic Ocean",
-            "Austrália",
-            "Áustria",
-            "Azerbaijão",
-            "Baamas",
-            "Bangladeche",
-            "Barbados",
-            "Barém",
-            "Bélgica",
-            "Belize",
-            "Benim",
-            "Bermudas",
-            "Bielorrússia",
-            "Birmânia",
-            "Bolívia",
-            "Bósnia e Herzegovina",
-            "Botsuana",
-            "Brasil",
-            "Brunei",
-            "Bulgária",
-            "Burquina Faso",
-            "Burúndi",
-            "Butão",
-            "Cabo Verde",
-            "Camarões",
-            "Camboja",
-            "Canadá",
-            "Catar",
-            "Cazaquistão",
-            "Chade",
-            "Chile",
-            "China",
-            "Chipre",
-            "Clipperton Island",
-            "Colômbia",
-            "Comores",
-            "Congo-Brazzaville",
-            "Congo-Kinshasa",
-            "Coral Sea Islands",
-            "Coreia do Norte",
-            "Coreia do Sul",
-            "Costa do Marfim",
-            "Costa Rica",
-            "Croácia",
-            "Cuba",
-            "Curacao",
-            "Dhekelia",
-            "Dinamarca",
-            "Domínica",
-            "Egipto",
-            "Emiratos Árabes Unidos",
-            "Equador",
-            "Eritreia",
-            "Eslováquia",
-            "Eslovénia",
-            "Espanha",
-            "Estados Unidos",
-            "Estónia",
-            "Etiópia",
-            "Faroé",
-            "Fiji",
-            "Filipinas",
-            "Finlândia",
-            "França",
-            "Gabão",
-            "Gâmbia",
-            "Gana",
-            "Gaza Strip",
-            "Geórgia",
-            "Geórgia do Sul e Sandwich do Sul",
-            "Gibraltar",
-            "Granada",
-            "Grécia",
-            "Gronelândia",
-            "Guame",
-            "Guatemala",
-            "Guernsey",
-            "Guiana",
-            "Guiné",
-            "Guiné Equatorial",
-            "Guiné-Bissau",
-            "Haiti",
-            "Honduras",
-            "Hong Kong",
-            "Hungria",
-            "Iémen",
-            "Ilha Bouvet",
-            "Ilha do Natal",
-            "Ilha Norfolk",
-            "Ilhas Caimão",
-            "Ilhas Cook",
-            "Ilhas dos Cocos",
-            "Ilhas Falkland",
-            "Ilhas Heard e McDonald",
-            "Ilhas Marshall",
-            "Ilhas Salomão",
-            "Ilhas Turcas e Caicos",
-            "Ilhas Virgens Americanas",
-            "Ilhas Virgens Britânicas",
-            "Índia",
-            "Indian Ocean",
-            "Indonésia",
-            "Irão",
-            "Iraque",
-            "Irlanda",
-            "Islândia",
-            "Israel",
-            "Itália",
-            "Jamaica",
-            "Jan Mayen",
-            "Japão",
-            "Jersey",
-            "Jibuti",
-            "Jordânia",
-            "Kosovo",
-            "Kuwait",
-            "Laos",
-            "Lesoto",
-            "Letónia",
-            "Líbano",
-            "Libéria",
-            "Líbia",
-            "Listenstaine",
-            "Lituânia",
-            "Luxemburgo",
-            "Macau",
-            "Macedónia",
-            "Madagáscar",
-            "Malásia",
-            "Malávi",
-            "Maldivas",
-            "Mali",
-            "Malta",
-            "Man, Isle of",
-            "Marianas do Norte",
-            "Marrocos",
-            "Maurícia",
-            "Mauritânia",
-            "México",
-            "Micronésia",
-            "Moçambique",
-            "Moldávia",
-            "Mónaco",
-            "Mongólia",
-            "Monserrate",
-            "Montenegro",
-            "Mundo",
-            "Namíbia",
-            "Nauru",
-            "Navassa Island",
-            "Nepal",
-            "Nicarágua",
-            "Níger",
-            "Nigéria",
-            "Niue",
-            "Noruega",
-            "Nova Caledónia",
-            "Nova Zelândia",
-            "Omã",
-            "Pacific Ocean",
-            "Países Baixos",
-            "Palau",
-            "Panamá",
-            "Papua-Nova Guiné",
-            "Paquistão",
-            "Paracel Islands",
-            "Paraguai",
-            "Peru",
-            "Pitcairn",
-            "Polinésia Francesa",
-            "Polónia",
-            "Porto Rico",
-            "Portugal",
-            "Quénia",
-            "Quirguizistão",
-            "Quiribáti",
-            "Reino Unido",
-            "República Centro-Africana",
-            "República Dominicana",
-            "Roménia",
-            "Ruanda",
-            "Rússia",
-            "Salvador",
-            "Samoa",
-            "Samoa Americana",
-            "Santa Helena",
-            "Santa Lúcia",
-            "São Bartolomeu",
-            "São Cristóvão e Neves",
-            "São Marinho",
-            "São Martinho",
-            "São Pedro e Miquelon",
-            "São Tomé e Príncipe",
-            "São Vicente e Granadinas",
-            "Sara Ocidental",
-            "Seicheles",
-            "Senegal",
-            "Serra Leoa",
-            "Sérvia",
-            "Singapura",
-            "Sint Maarten",
-            "Síria",
-            "Somália",
-            "Southern Ocean",
-            "Spratly Islands",
-            "Sri Lanca",
-            "Suazilândia",
-            "Sudão",
-            "Sudão do Sul",
-            "Suécia",
-            "Suíça",
-            "Suriname",
-            "Svalbard e Jan Mayen",
-            "Tailândia",
-            "Taiwan",
-            "Tajiquistão",
-            "Tanzânia",
-            "Território Britânico do Oceano Índico",
-            "Territórios Austrais Franceses",
-            "Timor Leste",
-            "Togo",
-            "Tokelau",
-            "Tonga",
-            "Trindade e Tobago",
-            "Tunísia",
-            "Turquemenistão",
-            "Turquia",
-            "Tuvalu",
-            "Ucrânia",
-            "Uganda",
-            "Uruguai",
-            "Usbequistão",
-            "Vanuatu",
-            "Vaticano",
-            "Venezuela",
-            "Vietname",
-            "Wake Island",
-            "Wallis e Futuna",
-            "West Bank",
-            "Zâmbia",
-            "Zimbabué"});
-            this.cbDestino.Location = new System.Drawing.Point(316, 171);
-            this.cbDestino.Name = "cbDestino";
-            this.cbDestino.Size = new System.Drawing.Size(215, 25);
-            this.cbDestino.TabIndex = 32;
             // 
             // label8
             // 
@@ -1107,36 +400,11 @@
             this.label8.TabIndex = 30;
             this.label8.Text = "Cliente";
             // 
-            // txtCliente
-            // 
-            this.txtCliente.BackColor = System.Drawing.Color.White;
-            this.txtCliente.Enabled = false;
-            this.txtCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtCliente.Location = new System.Drawing.Point(187, 116);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtCliente.Size = new System.Drawing.Size(379, 23);
-            this.txtCliente.TabIndex = 31;
-            // 
-            // btCliente
-            // 
-            this.btCliente.Enabled = false;
-            this.btCliente.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btCliente.Location = new System.Drawing.Point(565, 116);
-            this.btCliente.Name = "btCliente";
-            this.btCliente.Size = new System.Drawing.Size(32, 23);
-            this.btCliente.TabIndex = 49;
-            this.btCliente.Text = "+";
-            this.btCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btCliente.UseVisualStyleBackColor = true;
-            // 
             // rdExpresso
             // 
             this.rdExpresso.AutoSize = true;
+            this.rdExpresso.Checked = true;
+            this.rdExpresso.Enabled = false;
             this.rdExpresso.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.rdExpresso.Location = new System.Drawing.Point(55, 233);
             this.rdExpresso.Name = "rdExpresso";
@@ -1149,14 +417,15 @@
             // rdExclusivo
             // 
             this.rdExclusivo.AutoSize = true;
+            this.rdExclusivo.Enabled = false;
             this.rdExclusivo.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.rdExclusivo.Location = new System.Drawing.Point(140, 233);
             this.rdExclusivo.Name = "rdExclusivo";
             this.rdExclusivo.Size = new System.Drawing.Size(83, 21);
             this.rdExclusivo.TabIndex = 51;
-            this.rdExclusivo.TabStop = true;
             this.rdExclusivo.Text = "Exclusivo";
             this.rdExclusivo.UseVisualStyleBackColor = true;
+            this.rdExclusivo.CheckedChanged += new System.EventHandler(this.rdExclusivo_CheckedChanged);
             // 
             // label6
             // 
@@ -1169,15 +438,279 @@
             this.label6.TabIndex = 52;
             this.label6.Text = "Modalidade";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btMenos);
+            this.groupBox2.Controls.Add(this.btMais);
+            this.groupBox2.Controls.Add(this.txtBuscaCarga);
+            this.groupBox2.Controls.Add(this.cbFiltroCarga);
+            this.groupBox2.Controls.Add(this.dgvCarga);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.groupBox2.Location = new System.Drawing.Point(55, 260);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(542, 173);
+            this.groupBox2.TabIndex = 34;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Gerenciamento de Carga";
+            // 
+            // Carga_Tipo
+            // 
+            this.Carga_Tipo.HeaderText = "Tipo";
+            this.Carga_Tipo.Name = "Carga_Tipo";
+            this.Carga_Tipo.Width = 80;
+            // 
+            // Carga_Valor
+            // 
+            this.Carga_Valor.HeaderText = "Valor";
+            this.Carga_Valor.Name = "Carga_Valor";
+            this.Carga_Valor.Width = 50;
+            // 
+            // Carga_ValorUnit
+            // 
+            this.Carga_ValorUnit.HeaderText = "Valor Unitário";
+            this.Carga_ValorUnit.Name = "Carga_ValorUnit";
+            this.Carga_ValorUnit.Width = 50;
+            // 
+            // Carga_Dimensoes
+            // 
+            this.Carga_Dimensoes.HeaderText = "Dimensões";
+            this.Carga_Dimensoes.Name = "Carga_Dimensoes";
+            // 
+            // Carga_Peso
+            // 
+            this.Carga_Peso.HeaderText = "Peso";
+            this.Carga_Peso.Name = "Carga_Peso";
+            this.Carga_Peso.Width = 60;
+            // 
+            // Carga_Volume
+            // 
+            this.Carga_Volume.HeaderText = "Volume";
+            this.Carga_Volume.Name = "Carga_Volume";
+            this.Carga_Volume.Width = 50;
+            // 
+            // Carga_Descricao
+            // 
+            this.Carga_Descricao.HeaderText = "Descrição";
+            this.Carga_Descricao.Name = "Carga_Descricao";
+            this.Carga_Descricao.Width = 200;
+            // 
+            // Carga_ID
+            // 
+            this.Carga_ID.HeaderText = "ID";
+            this.Carga_ID.Name = "Carga_ID";
+            this.Carga_ID.Width = 50;
+            // 
+            // dgvCarga
+            // 
+            this.dgvCarga.AllowUserToAddRows = false;
+            this.dgvCarga.AllowUserToResizeRows = false;
+            this.dgvCarga.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCarga.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvCarga.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle64.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle64.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCarga.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle64;
+            this.dgvCarga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarga.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Carga_ID,
+            this.Carga_Descricao,
+            this.Carga_Volume,
+            this.Carga_Peso,
+            this.Carga_Dimensoes,
+            this.Carga_ValorUnit,
+            this.Carga_Valor,
+            this.Carga_Tipo});
+            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle65.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCarga.DefaultCellStyle = dataGridViewCellStyle65;
+            this.dgvCarga.EnableHeadersVisualStyles = false;
+            this.dgvCarga.Location = new System.Drawing.Point(26, 55);
+            this.dgvCarga.Name = "dgvCarga";
+            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle66.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle66.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle66.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle66.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle66.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle66.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCarga.RowHeadersDefaultCellStyle = dataGridViewCellStyle66;
+            this.dgvCarga.RowHeadersVisible = false;
+            this.dgvCarga.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCarga.Size = new System.Drawing.Size(463, 107);
+            this.dgvCarga.TabIndex = 40;
+            // 
+            // cbFiltroCarga
+            // 
+            this.cbFiltroCarga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFiltroCarga.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cbFiltroCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cbFiltroCarga.FormattingEnabled = true;
+            this.cbFiltroCarga.Items.AddRange(new object[] {
+            "Descrição",
+            "Volume",
+            "Peso",
+            "Dimensões",
+            "Valor Unitário",
+            "Valor",
+            "Tipo"});
+            this.cbFiltroCarga.Location = new System.Drawing.Point(342, 24);
+            this.cbFiltroCarga.Name = "cbFiltroCarga";
+            this.cbFiltroCarga.Size = new System.Drawing.Size(147, 25);
+            this.cbFiltroCarga.TabIndex = 42;
+            // 
+            // txtBuscaCarga
+            // 
+            this.txtBuscaCarga.BackColor = System.Drawing.Color.White;
+            this.txtBuscaCarga.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscaCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtBuscaCarga.Location = new System.Drawing.Point(26, 25);
+            this.txtBuscaCarga.Name = "txtBuscaCarga";
+            this.txtBuscaCarga.Size = new System.Drawing.Size(310, 23);
+            this.txtBuscaCarga.TabIndex = 41;
+            // 
+            // btMais
+            // 
+            this.btMais.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btMais.Enabled = false;
+            this.btMais.FlatAppearance.BorderSize = 0;
+            this.btMais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btMais.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btMais.ForeColor = System.Drawing.Color.White;
+            this.btMais.Location = new System.Drawing.Point(494, 92);
+            this.btMais.Margin = new System.Windows.Forms.Padding(0);
+            this.btMais.Name = "btMais";
+            this.btMais.Size = new System.Drawing.Size(35, 32);
+            this.btMais.TabIndex = 43;
+            this.btMais.Text = "+";
+            this.btMais.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btMais.UseVisualStyleBackColor = false;
+            // 
+            // btMenos
+            // 
+            this.btMenos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btMenos.Enabled = false;
+            this.btMenos.FlatAppearance.BorderSize = 0;
+            this.btMenos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btMenos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btMenos.ForeColor = System.Drawing.Color.White;
+            this.btMenos.Location = new System.Drawing.Point(494, 130);
+            this.btMenos.Margin = new System.Windows.Forms.Padding(0);
+            this.btMenos.Name = "btMenos";
+            this.btMenos.Size = new System.Drawing.Size(35, 32);
+            this.btMenos.TabIndex = 44;
+            this.btMenos.Text = "‒";
+            this.btMenos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btMenos.UseVisualStyleBackColor = false;
+            // 
+            // btnPagExc
+            // 
+            this.btnPagExc.FlatAppearance.BorderSize = 2;
+            this.btnPagExc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagExc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagExc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnPagExc.Location = new System.Drawing.Point(244, 224);
+            this.btnPagExc.Name = "btnPagExc";
+            this.btnPagExc.Size = new System.Drawing.Size(147, 30);
+            this.btnPagExc.TabIndex = 53;
+            this.btnPagExc.Text = "Pagamento Inicial";
+            this.btnPagExc.UseVisualStyleBackColor = true;
+            this.btnPagExc.Visible = false;
+            this.btnPagExc.MouseEnter += new System.EventHandler(this.btnPagExc_MouseEnter);
+            this.btnPagExc.MouseLeave += new System.EventHandler(this.btnPagExc_MouseLeave);
+            // 
+            // cbCliente
+            // 
+            this.cbCliente.Enabled = false;
+            this.cbCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cbCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cbCliente.FormattingEnabled = true;
+            this.cbCliente.Location = new System.Drawing.Point(187, 115);
+            this.cbCliente.Name = "cbCliente";
+            this.cbCliente.Size = new System.Drawing.Size(404, 25);
+            this.cbCliente.TabIndex = 54;
+            // 
+            // txtDestino
+            // 
+            this.txtDestino.BackColor = System.Drawing.Color.White;
+            this.txtDestino.Enabled = false;
+            this.txtDestino.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDestino.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtDestino.Location = new System.Drawing.Point(355, 171);
+            this.txtDestino.Name = "txtDestino";
+            this.txtDestino.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtDestino.Size = new System.Drawing.Size(211, 23);
+            this.txtDestino.TabIndex = 101;
+            // 
+            // btDestino
+            // 
+            this.btDestino.Enabled = false;
+            this.btDestino.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btDestino.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btDestino.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDestino.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btDestino.Location = new System.Drawing.Point(565, 171);
+            this.btDestino.Name = "btDestino";
+            this.btDestino.Size = new System.Drawing.Size(32, 23);
+            this.btDestino.TabIndex = 102;
+            this.btDestino.Text = "+";
+            this.btDestino.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btDestino.UseVisualStyleBackColor = true;
+            this.btDestino.Click += new System.EventHandler(this.btDestino_Click);
+            // 
+            // btOrigem
+            // 
+            this.btOrigem.Enabled = false;
+            this.btOrigem.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btOrigem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btOrigem.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btOrigem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btOrigem.Location = new System.Drawing.Point(265, 171);
+            this.btOrigem.Name = "btOrigem";
+            this.btOrigem.Size = new System.Drawing.Size(32, 23);
+            this.btOrigem.TabIndex = 104;
+            this.btOrigem.Text = "+";
+            this.btOrigem.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btOrigem.UseVisualStyleBackColor = true;
+            this.btOrigem.Click += new System.EventHandler(this.btOrigem_Click);
+            // 
+            // txtOrigem
+            // 
+            this.txtOrigem.BackColor = System.Drawing.Color.White;
+            this.txtOrigem.Enabled = false;
+            this.txtOrigem.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOrigem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtOrigem.Location = new System.Drawing.Point(55, 171);
+            this.txtOrigem.Name = "txtOrigem";
+            this.txtOrigem.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtOrigem.Size = new System.Drawing.Size(211, 23);
+            this.txtOrigem.TabIndex = 103;
+            // 
             // Screen_Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btOrigem);
+            this.Controls.Add(this.txtOrigem);
+            this.Controls.Add(this.btDestino);
+            this.Controls.Add(this.txtDestino);
+            this.Controls.Add(this.cbCliente);
+            this.Controls.Add(this.btnPagExc);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.rdExclusivo);
             this.Controls.Add(this.rdExpresso);
-            this.Controls.Add(this.btCliente);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.dgvPedido);
@@ -1185,10 +718,7 @@
             this.Controls.Add(this.txtBuscarPedido);
             this.Controls.Add(this.cbFiltroPedido);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.cbDestino);
-            this.Controls.Add(this.cbOrigem);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtID);
@@ -1200,10 +730,10 @@
             this.Controls.Add(this.btnInserir);
             this.Name = "Screen_Pedido";
             this.Size = new System.Drawing.Size(1031, 562);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1218,36 +748,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbOrigem;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgvCarga;
-        private System.Windows.Forms.TextBox txtBuscaCarga;
-        private System.Windows.Forms.ComboBox cbFiltroCarga;
         private System.Windows.Forms.DataGridView dgvPedido;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtBuscarPedido;
         private System.Windows.Forms.ComboBox cbFiltroPedido;
-        private System.Windows.Forms.Button btMais;
-        private System.Windows.Forms.Button btMenos;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbDestino;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtCliente;
-        private System.Windows.Forms.Button btCliente;
         private System.Windows.Forms.RadioButton rdExpresso;
         private System.Windows.Forms.RadioButton rdExclusivo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Volume;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Peso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Dimensoes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_ValorUnit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Modalidade;
@@ -1258,5 +770,25 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Funcionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Remessa;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btMenos;
+        private System.Windows.Forms.Button btMais;
+        private System.Windows.Forms.TextBox txtBuscaCarga;
+        private System.Windows.Forms.ComboBox cbFiltroCarga;
+        private System.Windows.Forms.DataGridView dgvCarga;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Volume;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Peso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Dimensoes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_ValorUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Tipo;
+        private System.Windows.Forms.Button btnPagExc;
+        private System.Windows.Forms.ComboBox cbCliente;
+        private System.Windows.Forms.TextBox txtDestino;
+        private System.Windows.Forms.Button btDestino;
+        private System.Windows.Forms.Button btOrigem;
+        private System.Windows.Forms.TextBox txtOrigem;
     }
 }

@@ -18,8 +18,8 @@ namespace GlobalHost
             Global_User = "";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Visao.Screen_Login());
-
+            //Application.Run(new Visao.Screen_Login());
+            Application.Run(new Visao.Menu());
         }
     }
 }

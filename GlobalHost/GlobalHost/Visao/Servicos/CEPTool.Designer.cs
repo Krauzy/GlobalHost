@@ -48,7 +48,9 @@
             this.btOK = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.cbPais = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -276,15 +278,296 @@
             this.label11.TabIndex = 63;
             this.label11.Text = "* Campos obrigatórios";
             // 
-            // label12
+            // cbPais
             // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(44, 15);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(11, 13);
-            this.label12.TabIndex = 63;
-            this.label12.Text = "*";
+            this.cbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPais.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPais.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cbPais.FormattingEnabled = true;
+            this.cbPais.Items.AddRange(new object[] {
+            "Afeganistão",
+            "África do Sul",
+            "Akrotiri",
+            "Albânia",
+            "Alemanha",
+            "Andorra",
+            "Angola",
+            "Anguila",
+            "Antárctida",
+            "Antígua e Barbuda",
+            "Arábia Saudita",
+            "Arctic Ocean",
+            "Argélia",
+            "Argentina",
+            "Arménia",
+            "Aruba",
+            "Ashmore and Cartier Islands",
+            "Atlantic Ocean",
+            "Austrália",
+            "Áustria",
+            "Azerbaijão",
+            "Baamas",
+            "Bangladeche",
+            "Barbados",
+            "Barém",
+            "Bélgica",
+            "Belize",
+            "Benim",
+            "Bermudas",
+            "Bielorrússia",
+            "Birmânia",
+            "Bolívia",
+            "Bósnia e Herzegovina",
+            "Botsuana",
+            "Brasil",
+            "Brunei",
+            "Bulgária",
+            "Burquina Faso",
+            "Burúndi",
+            "Butão",
+            "Cabo Verde",
+            "Camarões",
+            "Camboja",
+            "Canadá",
+            "Catar",
+            "Cazaquistão",
+            "Chade",
+            "Chile",
+            "China",
+            "Chipre",
+            "Clipperton Island",
+            "Colômbia",
+            "Comores",
+            "Congo-Brazzaville",
+            "Congo-Kinshasa",
+            "Coral Sea Islands",
+            "Coreia do Norte",
+            "Coreia do Sul",
+            "Costa do Marfim",
+            "Costa Rica",
+            "Croácia",
+            "Cuba",
+            "Curacao",
+            "Dhekelia",
+            "Dinamarca",
+            "Domínica",
+            "Egipto",
+            "Emiratos Árabes Unidos",
+            "Equador",
+            "Eritreia",
+            "Eslováquia",
+            "Eslovénia",
+            "Espanha",
+            "Estados Unidos",
+            "Estónia",
+            "Etiópia",
+            "Faroé",
+            "Fiji",
+            "Filipinas",
+            "Finlândia",
+            "França",
+            "Gabão",
+            "Gâmbia",
+            "Gana",
+            "Gaza Strip",
+            "Geórgia",
+            "Geórgia do Sul e Sandwich do Sul",
+            "Gibraltar",
+            "Granada",
+            "Grécia",
+            "Gronelândia",
+            "Guame",
+            "Guatemala",
+            "Guernsey",
+            "Guiana",
+            "Guiné",
+            "Guiné Equatorial",
+            "Guiné-Bissau",
+            "Haiti",
+            "Honduras",
+            "Hong Kong",
+            "Hungria",
+            "Iémen",
+            "Ilha Bouvet",
+            "Ilha do Natal",
+            "Ilha Norfolk",
+            "Ilhas Caimão",
+            "Ilhas Cook",
+            "Ilhas dos Cocos",
+            "Ilhas Falkland",
+            "Ilhas Heard e McDonald",
+            "Ilhas Marshall",
+            "Ilhas Salomão",
+            "Ilhas Turcas e Caicos",
+            "Ilhas Virgens Americanas",
+            "Ilhas Virgens Britânicas",
+            "Índia",
+            "Indian Ocean",
+            "Indonésia",
+            "Irão",
+            "Iraque",
+            "Irlanda",
+            "Islândia",
+            "Israel",
+            "Itália",
+            "Jamaica",
+            "Jan Mayen",
+            "Japão",
+            "Jersey",
+            "Jibuti",
+            "Jordânia",
+            "Kosovo",
+            "Kuwait",
+            "Laos",
+            "Lesoto",
+            "Letónia",
+            "Líbano",
+            "Libéria",
+            "Líbia",
+            "Listenstaine",
+            "Lituânia",
+            "Luxemburgo",
+            "Macau",
+            "Macedónia",
+            "Madagáscar",
+            "Malásia",
+            "Malávi",
+            "Maldivas",
+            "Mali",
+            "Malta",
+            "Man, Isle of",
+            "Marianas do Norte",
+            "Marrocos",
+            "Maurícia",
+            "Mauritânia",
+            "México",
+            "Micronésia",
+            "Moçambique",
+            "Moldávia",
+            "Mónaco",
+            "Mongólia",
+            "Monserrate",
+            "Montenegro",
+            "Mundo",
+            "Namíbia",
+            "Nauru",
+            "Navassa Island",
+            "Nepal",
+            "Nicarágua",
+            "Níger",
+            "Nigéria",
+            "Niue",
+            "Noruega",
+            "Nova Caledónia",
+            "Nova Zelândia",
+            "Omã",
+            "Pacific Ocean",
+            "Países Baixos",
+            "Palau",
+            "Panamá",
+            "Papua-Nova Guiné",
+            "Paquistão",
+            "Paracel Islands",
+            "Paraguai",
+            "Peru",
+            "Pitcairn",
+            "Polinésia Francesa",
+            "Polónia",
+            "Porto Rico",
+            "Portugal",
+            "Quénia",
+            "Quirguizistão",
+            "Quiribáti",
+            "Reino Unido",
+            "República Centro-Africana",
+            "República Dominicana",
+            "Roménia",
+            "Ruanda",
+            "Rússia",
+            "Salvador",
+            "Samoa",
+            "Samoa Americana",
+            "Santa Helena",
+            "Santa Lúcia",
+            "São Bartolomeu",
+            "São Cristóvão e Neves",
+            "São Marinho",
+            "São Martinho",
+            "São Pedro e Miquelon",
+            "São Tomé e Príncipe",
+            "São Vicente e Granadinas",
+            "Sara Ocidental",
+            "Seicheles",
+            "Senegal",
+            "Serra Leoa",
+            "Sérvia",
+            "Singapura",
+            "Sint Maarten",
+            "Síria",
+            "Somália",
+            "Southern Ocean",
+            "Spratly Islands",
+            "Sri Lanca",
+            "Suazilândia",
+            "Sudão",
+            "Sudão do Sul",
+            "Suécia",
+            "Suíça",
+            "Suriname",
+            "Svalbard e Jan Mayen",
+            "Tailândia",
+            "Taiwan",
+            "Tajiquistão",
+            "Tanzânia",
+            "Território Britânico do Oceano Índico",
+            "Territórios Austrais Franceses",
+            "Timor Leste",
+            "Togo",
+            "Tokelau",
+            "Tonga",
+            "Trindade e Tobago",
+            "Tunísia",
+            "Turquemenistão",
+            "Turquia",
+            "Tuvalu",
+            "Ucrânia",
+            "Uganda",
+            "Uruguai",
+            "Usbequistão",
+            "Vanuatu",
+            "Vaticano",
+            "Venezuela",
+            "Vietname",
+            "Wake Island",
+            "Wallis e Futuna",
+            "West Bank",
+            "Zâmbia",
+            "Zimbabué"});
+            this.cbPais.Location = new System.Drawing.Point(397, 15);
+            this.cbPais.Name = "cbPais";
+            this.cbPais.Size = new System.Drawing.Size(122, 25);
+            this.cbPais.TabIndex = 64;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.label13.Location = new System.Drawing.Point(355, 18);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(37, 17);
+            this.label13.TabIndex = 65;
+            this.label13.Text = "País:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(386, 18);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(11, 13);
+            this.label14.TabIndex = 66;
+            this.label14.Text = "*";
             // 
             // CEPTool
             // 
@@ -292,7 +575,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(533, 282);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.cbPais);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btOK);
@@ -332,6 +617,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbPais;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }

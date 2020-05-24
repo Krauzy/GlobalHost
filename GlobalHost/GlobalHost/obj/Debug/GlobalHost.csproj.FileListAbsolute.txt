@@ -94,3 +94,4 @@ C:\Users\PICHAU\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\G
 C:\Users\PICHAU\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csproj.CopyComplete
 C:\Users\PICHAU\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.exe
 C:\Users\PICHAU\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.pdb
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_RealizarPagamento.resources

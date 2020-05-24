@@ -19,6 +19,7 @@ namespace GlobalHost.Visao.Servicos
         {
             InitializeComponent();
             str = "";
+            cbPais.SelectedItem = "Brasil";
         }
 
         private void txtCEP_TextChanged(object sender, EventArgs e)
@@ -52,19 +53,29 @@ namespace GlobalHost.Visao.Servicos
 
         private void btOK_Click(object sender, EventArgs e)
         {
-            if(txtBairro.Text != string.Empty && txtCidade.Text != string.Empty && txtLog.Text != string.Empty && txtUF.Text != string.Empty)
+            if(txtBairro.Text != string.Empty && txtCidade.Text != string.Empty && txtLog.Text != string.Empty && txtUF.Text != string.Empty && cbPais.Text != string.Empty)
             {
-                if (txtNum.Text == string.Empty)
-                    str = txtLog.Text + " - " + txtBairro.Text + " - " + txtCidade.Text + " - " + txtUF.Text + " - " + this.cep + " - BRASIL";
+                if(cep != string.Empty)
+                {
+                    if (txtNum.Text == string.Empty)
+                        str = txtLog.Text + " - " + txtBairro.Text + " - " + txtCidade.Text + " - " + txtUF.Text + " - " + this.cep + " - " + cbPais.Text;
+                    else
+                        str = txtLog.Text + " - " + txtNum.Text + " - " + txtBairro.Text + " - " + txtCidade.Text + " - " + txtUF.Text + " - " + this.cep + " - " + cbPais.Text;
+                }
                 else
-                    str = txtLog.Text + " - " + txtNum.Text + " - " + txtBairro.Text + " - " + txtCidade.Text + " - " + txtUF.Text + " - " + this.cep + " - BRASIL";
+                {
+                    if (txtNum.Text == string.Empty)
+                        str = txtLog.Text + " - " + txtBairro.Text + " - " + txtCidade.Text + " - " + txtUF.Text + " - " + cbPais.Text;
+                    else
+                        str = txtLog.Text + " - " + txtNum.Text + " - " + txtBairro.Text + " - " + txtCidade.Text + " - " + txtUF.Text + " - " + cbPais.Text;
+                }
 
                 this.Close();
                 isCancel = false;
             }
             else
             {
-                MessageBox.Show("Digite o CEP!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Campos abrigatórios (*) devem estar preenchidos e serem válidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

@@ -74,6 +74,10 @@ namespace GlobalHost.Visao.Servicos
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
+            btnInserir.ForeColor = Color.White;
+            btnInserir.BackColor = Color.FromArgb(0, 122, 204);
+            btnInserir.Image = GlobalHost.Properties.Resources.insert;
+
             txtID.Enabled = false;
             txtSalario.Enabled = true;
             mtbCPF.Enabled = true;
@@ -97,6 +101,10 @@ namespace GlobalHost.Visao.Servicos
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            btnAlterar.ForeColor = Color.White;
+            btnAlterar.BackColor = Color.FromArgb(0, 122, 204);
+            btnAlterar.Image = GlobalHost.Properties.Resources.alterar;
+
             txtID.Enabled = true;
             txtSalario.Enabled = true;
             mtbCPF.Enabled = true;
@@ -120,6 +128,10 @@ namespace GlobalHost.Visao.Servicos
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            btnExcluir.ForeColor = Color.White;
+            btnExcluir.BackColor = Color.FromArgb(0, 122, 204);
+            btnExcluir.Image = GlobalHost.Properties.Resources.lixo;
+
             txtID.Enabled = true;
             txtSalario.Enabled = false;
             mtbCPF.Enabled = false;

@@ -22,7 +22,7 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Cliente))
             {
                 Cliente c = (Cliente)obj;
-                string SQL = @"INSERT INTO Cliente (nome, endereco,dtnascimento,cpf_cnpj,cep,email,telefone) VALUES (@nome, @endereco,@dtnascimento,@cpf_cnpj,@cep,email,@telefone)";
+                string SQL = @"INSERT INTO Cliente (nome, endereco, dtnascimento, cpf_cnpj, cep, email, telefone) VALUES (@nome, @endereco,@dtnascimento,@cpf_cnpj,@cep,email,@telefone)";
                 banco.Connect();
                 result = banco.ExecuteNonQuery(SQL, "@nome",c.Nome, "@endereco", c.Endereco, "@dtnascimento", c.Dtnascimento, "@cpf_cnpj", c.Cpf_cnpj, "@cep", c.Cep, "@email", c.Email, "@telefone", c.Telefone);
                 banco.Disconnect();
@@ -78,7 +78,7 @@ namespace GlobalHost.Persistencia
         {
             List<object> list = new List<object>();
             DataTable dt = new DataTable();
-            string SQL = @"SELECT * FROM Cliente WHERE nome like  %" + nome + "% ORDER BY id";
+            string SQL = @"SELECT * FROM Cliente WHERE nome like '%" + nome + "%' ORDER BY id";
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt);
             if (dt.Rows.Count > 0)
@@ -86,14 +86,14 @@ namespace GlobalHost.Persistencia
                 Cliente c;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    c = new Cliente((int)dt.Rows[0]["id"],
-                                    dt.Rows[0]["nome"].ToString(),
-                                    dt.Rows[0]["endereco"].ToString(),
-                                    DateTime.Parse(dt.Rows[0]["dtnascimento"].ToString()),
-                                    dt.Rows[0]["cpf_cnpj"].ToString(),
-                                    dt.Rows[0]["cep"].ToString(),
-                                    dt.Rows[0]["email"].ToString(),
-                                    dt.Rows[0]["telefone"].ToString()
+                    c = new Cliente((int)dt.Rows[i]["id"],
+                                    dt.Rows[i]["nome"].ToString(),
+                                    dt.Rows[i]["endereco"].ToString(),
+                                    DateTime.Parse(dt.Rows[i]["dtnascimento"].ToString()),
+                                    dt.Rows[i]["cpf_cnpj"].ToString(),
+                                    dt.Rows[i]["cep"].ToString(),
+                                    dt.Rows[i]["email"].ToString(),
+                                    dt.Rows[i]["telefone"].ToString()
                                     );
                     list.Add(c);
                 }
@@ -114,14 +114,14 @@ namespace GlobalHost.Persistencia
                 Cliente c;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    c = new Cliente((int)dt.Rows[0]["id"],
-                                    dt.Rows[0]["nome"].ToString(),
-                                    dt.Rows[0]["endereco"].ToString(),
-                                    DateTime.Parse(dt.Rows[0]["dtnascimento"].ToString()),
-                                    dt.Rows[0]["cpf_cnpj"].ToString(),
-                                    dt.Rows[0]["cep"].ToString(),
-                                    dt.Rows[0]["email"].ToString(),
-                                    dt.Rows[0]["telefone"].ToString());
+                    c = new Cliente((int)dt.Rows[i]["id"],
+                                    dt.Rows[i]["nome"].ToString(),
+                                    dt.Rows[i]["endereco"].ToString(),
+                                    DateTime.Parse(dt.Rows[i]["dtnascimento"].ToString()),
+                                    dt.Rows[i]["cpf_cnpj"].ToString(),
+                                    dt.Rows[i]["cep"].ToString(),
+                                    dt.Rows[i]["email"].ToString(),
+                                    dt.Rows[i]["telefone"].ToString());
                     list.Add(c);
                 }
             }
