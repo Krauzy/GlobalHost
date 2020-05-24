@@ -95,5 +95,25 @@ namespace GlobalHost.Visao.Servicos
                 }
             }
         }
+
+        private void cbPais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbPais.SelectedItem.ToString() != "Brasil")
+            {
+                txtCEP.Mask = "";
+            }
+            else
+            {
+                txtCEP.Mask = "99999-999";
+            }
+        }
+
+        private void txtCEP_Enter(object sender, EventArgs e)
+        {
+            if(txtCEP.Mask == "99999-999")
+            {
+                txtCEP.Select(0, 0);
+            }
+        }
     }
 }

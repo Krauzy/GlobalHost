@@ -65,7 +65,9 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(77, 23);
             this.txtCEP.TabIndex = 48;
+            this.txtCEP.Click += new System.EventHandler(this.txtCEP_Enter);
             this.txtCEP.TextChanged += new System.EventHandler(this.txtCEP_TextChanged);
+            this.txtCEP.Enter += new System.EventHandler(this.txtCEP_Enter);
             // 
             // label4
             // 
@@ -547,6 +549,7 @@
             this.cbPais.Name = "cbPais";
             this.cbPais.Size = new System.Drawing.Size(122, 25);
             this.cbPais.TabIndex = 64;
+            this.cbPais.SelectedIndexChanged += new System.EventHandler(this.cbPais_SelectedIndexChanged);
             // 
             // label13
             // 

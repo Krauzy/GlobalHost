@@ -48,14 +48,6 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             bt.FlatAppearance.BorderColor = Color.FromArgb(0, 122, 204);
         }
 
-        private void rdExclusivo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdExclusivo.Checked)            
-                btnPagExc.Visible = true;            
-            else
-                btnPagExc.Visible = false;
-        }
-
         private void changebool()
         {
             if (!ins)
