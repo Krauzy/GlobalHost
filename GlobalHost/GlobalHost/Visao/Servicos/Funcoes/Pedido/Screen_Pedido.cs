@@ -28,24 +28,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             cbCliente.SelectedItem = null;
             cbCliente.Text = string.Empty;
             cbFiltroCarga.SelectedIndex = 0;
-        }
-
-        private void btnPagExc_MouseEnter(object sender, EventArgs e)
-        {
-            Button bt = (Button)sender;
-            bt.BackColor = Color.FromArgb(0, 122, 204);
-            bt.ForeColor = Color.White;
-            bt.FlatAppearance.BorderSize = 2;
-            bt.FlatAppearance.BorderColor = Color.FromArgb(0, 122, 204);
-        }
-
-        private void btnPagExc_MouseLeave(object sender, EventArgs e)
-        {
-            Button bt = (Button)sender;
-            bt.BackColor = Color.White;
-            bt.ForeColor = Color.FromArgb(0, 122, 204);
-            bt.FlatAppearance.BorderSize = 2;
-            bt.FlatAppearance.BorderColor = Color.FromArgb(0, 122, 204);
+            cbFiltroPedido.SelectedIndex = 0;
         }
 
         private void changebool()
@@ -86,6 +69,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             btnCancelar.Enabled = true;
             btMais.Enabled = true;
             btMenos.Enabled = true;
+            btUpdate.Enabled = true;
             rdExclusivo.Enabled = true;
             rdExpresso.Enabled = true;
 
@@ -112,6 +96,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             btnCancelar.Enabled = true;
             btMais.Enabled = true;
             btMenos.Enabled = true;
+            btUpdate.Enabled = true;
             rdExclusivo.Enabled = true;
             rdExpresso.Enabled = true;
 
@@ -138,6 +123,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             btnCancelar.Enabled = true;
             btMais.Enabled = false;
             btMenos.Enabled = false;
+            btUpdate.Enabled = false;
             rdExclusivo.Enabled = false;
             rdExpresso.Enabled = false;
 
@@ -155,6 +141,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             if(!ex.IsCancel)
                 txtOrigem.Text = ex.Str;
             ex.Dispose();
+            this.ActiveControl = null;
         }
 
         private void btDestino_Click(object sender, EventArgs e)
@@ -164,6 +151,30 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             if (!ex.IsCancel)
                 txtDestino.Text = ex.Str;
             ex.Dispose();
+            this.ActiveControl = null;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtID.Enabled = false;
+            cbCliente.Enabled = false;
+            txtOrigem.Enabled = false;
+            btOrigem.Enabled = false;
+            txtDestino.Enabled = false;
+            btDestino.Enabled = false;
+            btnOk.Enabled = false;
+            btnCancelar.Enabled = false;
+            btMais.Enabled = false;
+            btMenos.Enabled = false;
+            btUpdate.Enabled = false;
+            rdExclusivo.Enabled = false;
+            rdExpresso.Enabled = false;
+
+            ins = false;
+            alt = false;
+            exc = false;
+            changebool();
+            this.ActiveControl = null;
         }
     }
 }

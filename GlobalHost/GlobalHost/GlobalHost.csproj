@@ -173,6 +173,12 @@
     <Compile Include="Visao\Servicos\CEPTool.Designer.cs">
       <DependentUpon>CEPTool.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Pedido\Screen_Carga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Pedido\Screen_Carga.Designer.cs">
+      <DependentUpon>Screen_Carga.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\CEPTool.resx">
       <DependentUpon>CEPTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Funcoes\Pedido\Screen_Carga.resx">
+      <DependentUpon>Screen_Carga.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.resx">
       <DependentUpon>Screen_Pedido.cs</DependentUpon>
