@@ -65,12 +65,12 @@
             this.button18 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.scrFuncionario = new GlobalHost.Visao.Servicos.Screen_Funcionarios();
-            this.scrPedido = new GlobalHost.Visao.Servicos.Funcoes.Screen_Pedido();
             this.scrTrans = new GlobalHost.Visao.Servicos.Screen_Transportadora();
             this.scrTipo_Transporte = new GlobalHost.Visao.Servicos.ScreenTipo_Transporte();
             this.pnHome = new GlobalHost.Visao.PaneHome();
             this.ScreenSobre = new GlobalHost.Visao.Sobre();
             this.ScreenCotacao = new GlobalHost.Visao.Cotacao();
+            this.scrPedido = new GlobalHost.Visao.Servicos.Funcoes.Screen_Pedido();
             this.paneMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.paneServ.SuspendLayout();
@@ -586,14 +586,6 @@
             this.scrFuncionario.Size = new System.Drawing.Size(1031, 562);
             this.scrFuncionario.TabIndex = 14;
             // 
-            // scrPedido
-            // 
-            this.scrPedido.BackColor = System.Drawing.Color.White;
-            this.scrPedido.Location = new System.Drawing.Point(225, 27);
-            this.scrPedido.Name = "scrPedido";
-            this.scrPedido.Size = new System.Drawing.Size(1031, 562);
-            this.scrPedido.TabIndex = 16;
-            // 
             // scrTrans
             // 
             this.scrTrans.BackColor = System.Drawing.Color.White;
@@ -634,6 +626,14 @@
             this.ScreenCotacao.Size = new System.Drawing.Size(1031, 562);
             this.ScreenCotacao.TabIndex = 5;
             // 
+            // scrPedido
+            // 
+            this.scrPedido.BackColor = System.Drawing.Color.White;
+            this.scrPedido.Location = new System.Drawing.Point(225, 27);
+            this.scrPedido.Name = "scrPedido";
+            this.scrPedido.Size = new System.Drawing.Size(1031, 562);
+            this.scrPedido.TabIndex = 16;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -643,8 +643,6 @@
             this.Controls.Add(this.brMinimize);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pnRelatorios);
-            this.Controls.Add(this.scrFuncionario);
             this.Controls.Add(this.scrPedido);
             this.Controls.Add(this.scrTrans);
             this.Controls.Add(this.scrTipo_Transporte);
@@ -655,6 +653,8 @@
             this.Controls.Add(this.pnFuncoes);
             this.Controls.Add(this.paneServ);
             this.Controls.Add(this.paneMenu);
+            this.Controls.Add(this.pnRelatorios);
+            this.Controls.Add(this.scrFuncionario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";

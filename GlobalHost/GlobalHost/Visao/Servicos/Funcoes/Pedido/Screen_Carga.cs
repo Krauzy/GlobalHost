@@ -22,6 +22,8 @@ namespace GlobalHost.Visao.Servicos.Funcoes.Pedido
         private double valor;
         private double total;
 
+        private bool cancel;
+
         private int op;
 
         public static int INSERT = 1;
@@ -36,10 +38,12 @@ namespace GlobalHost.Visao.Servicos.Funcoes.Pedido
         public int Volume { get => volume; set => volume = value; }
         public double Valor { get => valor; set => valor = value; }
         public double Total { get => total; set => total = value; }
+        public bool Cancel { get => cancel; set => cancel = value; }
 
         public Screen_Carga(int op)
         {
             this.op = op;
+            this.cancel = false;
             InitializeComponent();
             cbTipo.DataSource = Controle_TipoCarga.get("");
             cbTipo.DisplayMember = "descricao";
@@ -93,12 +97,14 @@ namespace GlobalHost.Visao.Servicos.Funcoes.Pedido
                 numVolume.Value = volume;
                 txtValor.Text = valor.ToString();
                 txtTotal.Text = total.ToString();
+                cbTipo.SelectedItem = tipo;
             }
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.cancel = true;
         }
 
         private void btOK_Click(object sender, EventArgs e)
@@ -134,15 +140,33 @@ namespace GlobalHost.Visao.Servicos.Funcoes.Pedido
                 {
                     descricao = txtDesc.Text;
                     peso = Convert.ToDouble(txtPeso.Text);
-                    dimensoes = txtLargura.Text + ";" + txtLargura.Text + ";" + txtComprimento.Text;
+                    dimensoes = txtLargura.Text + ";" + txtAltura.Text + ";" + txtComprimento.Text;
                     volume = Convert.ToInt32(numVolume.Value);
                     valor = Convert.ToDouble(txtValor.Text);
                     total = Convert.ToDouble(txtTotal.Text);
+                    tipo = cbTipo.Text;
                 }
                 this.Close();
             }
             else
                 MessageBox.Show("Todos os campos obrigatórios(*) devem estar preenchidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+            txtValor.Text = API.Validate.MONEY(txtValor.Text);
+            if (txtValor.Text != string.Empty)
+            {
+                txtTotal.Text = (Convert.ToDouble(txtValor.Text) * Convert.ToInt32(numVolume.Value)).ToString();
+            }
+        }
+
+        private void numVolume_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtValor.Text != string.Empty)
+            {
+                txtTotal.Text = (Convert.ToDouble(txtValor.Text) * Convert.ToInt32(numVolume.Value)).ToString();
+            }
         }
     }
 }

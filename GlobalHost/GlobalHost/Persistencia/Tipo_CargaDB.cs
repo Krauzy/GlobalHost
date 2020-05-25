@@ -1,4 +1,5 @@
 ﻿using GlobalHost.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -120,10 +121,10 @@ namespace GlobalHost.Persistencia
                 Tipo_Carga tc;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    tc = new Tipo_Carga((int)dt.Rows[0]["id"],
-                                    dt.Rows[0]["descricao"].ToString(),
-                                    (double)dt.Rows[0]["peso"],
-                                    dt.Rows[0]["dimensoes"].ToString());
+                    tc = new Tipo_Carga((int)dt.Rows[i]["id"],
+                                    dt.Rows[i]["descricao"].ToString(),
+                                    Convert.ToDouble(dt.Rows[i]["peso"]),
+                                    dt.Rows[i]["dimensoes"].ToString());
                     list.Add(tc);
                 }
             }

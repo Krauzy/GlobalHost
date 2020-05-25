@@ -53,10 +53,10 @@ namespace GlobalHost.Controlador
             foreach (var item in list)
             {
                 DataRow linha = table.NewRow();
-                Tipo_Transporte aux = (Tipo_Transporte)item;
+                Tipo_Carga aux = (Tipo_Carga)item;
                 linha["id"] = aux.Id;
                 linha["descricao"] = aux.Descricao;
-                linha["peso"] = aux.Max_peso;
+                linha["peso"] = aux.Peso;
                 linha["dimensoes"] = aux.Dimensoes;
                 table.Rows.Add(linha);
             }

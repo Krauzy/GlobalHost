@@ -32,9 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -59,10 +59,9 @@
             this.rdExpresso = new System.Windows.Forms.RadioButton();
             this.rdExclusivo = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btUpdate = new System.Windows.Forms.Button();
             this.btMenos = new System.Windows.Forms.Button();
             this.btMais = new System.Windows.Forms.Button();
-            this.txtBuscaCarga = new System.Windows.Forms.TextBox();
             this.cbFiltroCarga = new System.Windows.Forms.ComboBox();
             this.dgvCarga = new System.Windows.Forms.DataGridView();
             this.Carga_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,13 +80,18 @@
             this.Strip = new System.Windows.Forms.ToolTip(this.components);
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.btUpdate = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
+            this.MenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ToolStripExcluir = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripAlterar = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtCarga = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).BeginInit();
+            this.MenuStrip.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -354,23 +358,24 @@
             this.label6.TabIndex = 52;
             this.label6.Text = "Modalidade";
             // 
-            // groupBox2
+            // btUpdate
             // 
-            this.groupBox2.Controls.Add(this.btUpdate);
-            this.groupBox2.Controls.Add(this.btMenos);
-            this.groupBox2.Controls.Add(this.btMais);
-            this.groupBox2.Controls.Add(this.txtBuscaCarga);
-            this.groupBox2.Controls.Add(this.cbFiltroCarga);
-            this.groupBox2.Controls.Add(this.dgvCarga);
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.groupBox2.Location = new System.Drawing.Point(55, 260);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(542, 173);
-            this.groupBox2.TabIndex = 34;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Gerenciamento de Carga";
+            this.btUpdate.BackColor = System.Drawing.Color.Goldenrod;
+            this.btUpdate.Enabled = false;
+            this.btUpdate.FlatAppearance.BorderSize = 0;
+            this.btUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btUpdate.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btUpdate.ForeColor = System.Drawing.Color.White;
+            this.btUpdate.Image = global::GlobalHost.Properties.Resources.icons8_atualizações_disponíveis_18;
+            this.btUpdate.Location = new System.Drawing.Point(496, 130);
+            this.btUpdate.Margin = new System.Windows.Forms.Padding(0);
+            this.btUpdate.Name = "btUpdate";
+            this.btUpdate.Size = new System.Drawing.Size(35, 32);
+            this.btUpdate.TabIndex = 45;
+            this.btUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Strip.SetToolTip(this.btUpdate, "Altera as informações de uma carga já existente");
+            this.btUpdate.UseVisualStyleBackColor = false;
+            this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
             // 
             // btMenos
             // 
@@ -410,16 +415,6 @@
             this.btMais.UseVisualStyleBackColor = false;
             this.btMais.Click += new System.EventHandler(this.btMais_Click);
             // 
-            // txtBuscaCarga
-            // 
-            this.txtBuscaCarga.BackColor = System.Drawing.Color.White;
-            this.txtBuscaCarga.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscaCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtBuscaCarga.Location = new System.Drawing.Point(26, 25);
-            this.txtBuscaCarga.Name = "txtBuscaCarga";
-            this.txtBuscaCarga.Size = new System.Drawing.Size(310, 23);
-            this.txtBuscaCarga.TabIndex = 41;
-            // 
             // cbFiltroCarga
             // 
             this.cbFiltroCarga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -446,14 +441,14 @@
             this.dgvCarga.BackgroundColor = System.Drawing.Color.White;
             this.dgvCarga.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvCarga.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCarga.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCarga.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvCarga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarga.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Carga_ID,
@@ -464,25 +459,26 @@
             this.Carga_ValorUnit,
             this.Carga_Valor,
             this.Carga_Tipo});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCarga.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dgvCarga.ContextMenuStrip = this.MenuStrip;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCarga.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgvCarga.EnableHeadersVisualStyles = false;
             this.dgvCarga.Location = new System.Drawing.Point(26, 55);
             this.dgvCarga.Name = "dgvCarga";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCarga.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCarga.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvCarga.RowHeadersVisible = false;
             this.dgvCarga.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarga.Size = new System.Drawing.Size(463, 107);
@@ -639,25 +635,6 @@
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOk.UseVisualStyleBackColor = true;
             // 
-            // btUpdate
-            // 
-            this.btUpdate.BackColor = System.Drawing.Color.Goldenrod;
-            this.btUpdate.Enabled = false;
-            this.btUpdate.FlatAppearance.BorderSize = 0;
-            this.btUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btUpdate.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUpdate.ForeColor = System.Drawing.Color.White;
-            this.btUpdate.Image = global::GlobalHost.Properties.Resources.icons8_atualizações_disponíveis_18;
-            this.btUpdate.Location = new System.Drawing.Point(496, 130);
-            this.btUpdate.Margin = new System.Windows.Forms.Padding(0);
-            this.btUpdate.Name = "btUpdate";
-            this.btUpdate.Size = new System.Drawing.Size(35, 32);
-            this.btUpdate.TabIndex = 45;
-            this.btUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Strip.SetToolTip(this.btUpdate, "Altera as informações de uma carga já existente");
-            this.btUpdate.UseVisualStyleBackColor = false;
-            this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
-            // 
             // btnExcluir
             // 
             this.btnExcluir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
@@ -712,6 +689,55 @@
             this.btnInserir.UseVisualStyleBackColor = true;
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
+            // MenuStrip
+            // 
+            this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripExcluir,
+            this.ToolStripAlterar});
+            this.MenuStrip.Name = "MenuStrip";
+            this.MenuStrip.Size = new System.Drawing.Size(110, 48);
+            this.MenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip_ItemClicked);
+            // 
+            // ToolStripExcluir
+            // 
+            this.ToolStripExcluir.Name = "ToolStripExcluir";
+            this.ToolStripExcluir.Size = new System.Drawing.Size(109, 22);
+            this.ToolStripExcluir.Text = "Exluir";
+            // 
+            // ToolStripAlterar
+            // 
+            this.ToolStripAlterar.Name = "ToolStripAlterar";
+            this.ToolStripAlterar.Size = new System.Drawing.Size(109, 22);
+            this.ToolStripAlterar.Text = "Alterar";
+            // 
+            // txtCarga
+            // 
+            this.txtCarga.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtCarga.Location = new System.Drawing.Point(26, 24);
+            this.txtCarga.Name = "txtCarga";
+            this.txtCarga.Size = new System.Drawing.Size(310, 23);
+            this.txtCarga.TabIndex = 46;
+            this.txtCarga.TextChanged += new System.EventHandler(this.txtCarga_TextChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtCarga);
+            this.groupBox2.Controls.Add(this.btUpdate);
+            this.groupBox2.Controls.Add(this.btMenos);
+            this.groupBox2.Controls.Add(this.btMais);
+            this.groupBox2.Controls.Add(this.cbFiltroCarga);
+            this.groupBox2.Controls.Add(this.dgvCarga);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.groupBox2.Location = new System.Drawing.Point(55, 260);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(542, 173);
+            this.groupBox2.TabIndex = 34;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Gerenciamento de Carga";
+            // 
             // Screen_Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -745,9 +771,10 @@
             this.Name = "Screen_Pedido";
             this.Size = new System.Drawing.Size(1031, 562);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).EndInit();
+            this.MenuStrip.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -784,10 +811,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Funcionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Remessa;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btMenos;
         private System.Windows.Forms.Button btMais;
-        private System.Windows.Forms.TextBox txtBuscaCarga;
         private System.Windows.Forms.ComboBox cbFiltroCarga;
         private System.Windows.Forms.DataGridView dgvCarga;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carga_ID;
@@ -805,5 +830,10 @@
         private System.Windows.Forms.TextBox txtOrigem;
         private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.ToolTip Strip;
+        private System.Windows.Forms.ContextMenuStrip MenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripExcluir;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripAlterar;
+        private System.Windows.Forms.TextBox txtCarga;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
