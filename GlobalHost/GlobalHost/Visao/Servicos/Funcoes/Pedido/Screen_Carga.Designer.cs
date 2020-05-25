@@ -29,44 +29,44 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNum = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDesc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPeso = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtLargura = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtAltura = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtComprimento = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numVolume = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btOK = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.dotID = new System.Windows.Forms.Label();
+            this.dotDesc = new System.Windows.Forms.Label();
+            this.dotTipo = new System.Windows.Forms.Label();
+            this.dotPeso = new System.Windows.Forms.Label();
+            this.dotLargura = new System.Windows.Forms.Label();
+            this.dotAltura = new System.Windows.Forms.Label();
+            this.dotComprimento = new System.Windows.Forms.Label();
+            this.dotVolume = new System.Windows.Forms.Label();
+            this.dotValor = new System.Windows.Forms.Label();
+            this.dotTotal = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVolume)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -80,32 +80,32 @@
             this.label1.TabIndex = 53;
             this.label1.Text = "ID";
             // 
-            // txtNum
+            // txtID
             // 
-            this.txtNum.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtNum.Location = new System.Drawing.Point(12, 29);
-            this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(79, 23);
-            this.txtNum.TabIndex = 54;
+            this.txtID.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtID.Location = new System.Drawing.Point(12, 29);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(79, 23);
+            this.txtID.TabIndex = 54;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.dotTotal);
+            this.groupBox1.Controls.Add(this.dotValor);
+            this.groupBox1.Controls.Add(this.dotVolume);
+            this.groupBox1.Controls.Add(this.dotPeso);
+            this.groupBox1.Controls.Add(this.dotDesc);
+            this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.txtValor);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.numVolume);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtPeso);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtDesc);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -116,14 +116,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações da Carga";
             // 
-            // textBox1
+            // txtDesc
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.textBox1.Location = new System.Drawing.Point(19, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(418, 23);
-            this.textBox1.TabIndex = 57;
+            this.txtDesc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtDesc.Location = new System.Drawing.Point(19, 41);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(418, 23);
+            this.txtDesc.TabIndex = 57;
             // 
             // label2
             // 
@@ -136,14 +136,14 @@
             this.label2.TabIndex = 56;
             this.label2.Text = "Descrição";
             // 
-            // textBox2
+            // txtPeso
             // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.textBox2.Location = new System.Drawing.Point(19, 114);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(127, 23);
-            this.textBox2.TabIndex = 57;
+            this.txtPeso.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtPeso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtPeso.Location = new System.Drawing.Point(19, 114);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(127, 23);
+            this.txtPeso.TabIndex = 57;
             // 
             // label3
             // 
@@ -158,16 +158,16 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.dotComprimento);
+            this.groupBox2.Controls.Add(this.dotAltura);
+            this.groupBox2.Controls.Add(this.dotLargura);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.txtComprimento);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txtAltura);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txtLargura);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.groupBox2.Location = new System.Drawing.Point(181, 75);
@@ -177,14 +177,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dimensões (mts.)";
             // 
-            // textBox3
+            // txtLargura
             // 
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.textBox3.Location = new System.Drawing.Point(6, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(57, 21);
-            this.textBox3.TabIndex = 60;
+            this.txtLargura.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLargura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtLargura.Location = new System.Drawing.Point(6, 41);
+            this.txtLargura.Name = "txtLargura";
+            this.txtLargura.Size = new System.Drawing.Size(57, 21);
+            this.txtLargura.TabIndex = 60;
             // 
             // label4
             // 
@@ -197,14 +197,14 @@
             this.label4.TabIndex = 59;
             this.label4.Text = "Largura";
             // 
-            // textBox4
+            // txtAltura
             // 
-            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.textBox4.Location = new System.Drawing.Point(90, 41);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(57, 21);
-            this.textBox4.TabIndex = 62;
+            this.txtAltura.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAltura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtAltura.Location = new System.Drawing.Point(90, 41);
+            this.txtAltura.Name = "txtAltura";
+            this.txtAltura.Size = new System.Drawing.Size(57, 21);
+            this.txtAltura.TabIndex = 62;
             // 
             // label5
             // 
@@ -217,14 +217,14 @@
             this.label5.TabIndex = 61;
             this.label5.Text = "Altura";
             // 
-            // textBox5
+            // txtComprimento
             // 
-            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.textBox5.Location = new System.Drawing.Point(174, 41);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(57, 21);
-            this.textBox5.TabIndex = 64;
+            this.txtComprimento.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComprimento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtComprimento.Location = new System.Drawing.Point(174, 41);
+            this.txtComprimento.Name = "txtComprimento";
+            this.txtComprimento.Size = new System.Drawing.Size(57, 21);
+            this.txtComprimento.TabIndex = 64;
             // 
             // label6
             // 
@@ -259,24 +259,24 @@
             this.label8.TabIndex = 66;
             this.label8.Text = "X";
             // 
-            // numericUpDown1
+            // numVolume
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.numericUpDown1.Location = new System.Drawing.Point(19, 186);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numVolume.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.numVolume.Location = new System.Drawing.Point(19, 186);
+            this.numVolume.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numVolume.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(62, 23);
-            this.numericUpDown1.TabIndex = 59;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numVolume.Name = "numVolume";
+            this.numVolume.Size = new System.Drawing.Size(62, 23);
+            this.numVolume.TabIndex = 59;
+            this.numVolume.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -293,14 +293,14 @@
             this.label9.TabIndex = 60;
             this.label9.Text = "Volume";
             // 
-            // textBox6
+            // txtValor
             // 
-            this.textBox6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.textBox6.Location = new System.Drawing.Point(132, 186);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(133, 23);
-            this.textBox6.TabIndex = 57;
+            this.txtValor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtValor.Location = new System.Drawing.Point(132, 186);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(133, 23);
+            this.txtValor.TabIndex = 57;
             // 
             // label10
             // 
@@ -313,14 +313,15 @@
             this.label10.TabIndex = 56;
             this.label10.Text = "Valor (unit.)";
             // 
-            // textBox7
+            // txtTotal
             // 
-            this.textBox7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.textBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.textBox7.Location = new System.Drawing.Point(304, 186);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(133, 23);
-            this.textBox7.TabIndex = 62;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtTotal.Location = new System.Drawing.Point(304, 186);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(133, 23);
+            this.txtTotal.TabIndex = 62;
             // 
             // label11
             // 
@@ -343,6 +344,7 @@
             this.btCancelar.TabIndex = 57;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // btOK
             // 
@@ -354,15 +356,16 @@
             this.btOK.TabIndex = 56;
             this.btOK.Text = "OK";
             this.btOK.UseVisualStyleBackColor = true;
+            this.btOK.Click += new System.EventHandler(this.btOK_Click);
             // 
-            // comboBox1
+            // cbTipo
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(301, 28);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(165, 21);
-            this.comboBox1.TabIndex = 66;
+            this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Location = new System.Drawing.Point(301, 28);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(165, 21);
+            this.cbTipo.TabIndex = 66;
             // 
             // label12
             // 
@@ -375,108 +378,108 @@
             this.label12.TabIndex = 65;
             this.label12.Text = "Tipo de Carga";
             // 
-            // label13
+            // dotID
             // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(28, 7);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(11, 13);
-            this.label13.TabIndex = 67;
-            this.label13.Text = "*";
+            this.dotID.AutoSize = true;
+            this.dotID.ForeColor = System.Drawing.Color.Red;
+            this.dotID.Location = new System.Drawing.Point(28, 7);
+            this.dotID.Name = "dotID";
+            this.dotID.Size = new System.Drawing.Size(11, 13);
+            this.dotID.TabIndex = 67;
+            this.dotID.Text = "*";
             // 
-            // label14
+            // dotDesc
             // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(83, 18);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(14, 16);
-            this.label14.TabIndex = 68;
-            this.label14.Text = "*";
+            this.dotDesc.AutoSize = true;
+            this.dotDesc.ForeColor = System.Drawing.Color.Red;
+            this.dotDesc.Location = new System.Drawing.Point(83, 18);
+            this.dotDesc.Name = "dotDesc";
+            this.dotDesc.Size = new System.Drawing.Size(14, 16);
+            this.dotDesc.TabIndex = 68;
+            this.dotDesc.Text = "*";
             // 
-            // label15
+            // dotTipo
             // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(393, 7);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(11, 13);
-            this.label15.TabIndex = 68;
-            this.label15.Text = "*";
+            this.dotTipo.AutoSize = true;
+            this.dotTipo.ForeColor = System.Drawing.Color.Red;
+            this.dotTipo.Location = new System.Drawing.Point(393, 7);
+            this.dotTipo.Name = "dotTipo";
+            this.dotTipo.Size = new System.Drawing.Size(11, 13);
+            this.dotTipo.TabIndex = 68;
+            this.dotTipo.Text = "*";
             // 
-            // label16
+            // dotPeso
             // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(49, 94);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(14, 16);
-            this.label16.TabIndex = 69;
-            this.label16.Text = "*";
+            this.dotPeso.AutoSize = true;
+            this.dotPeso.ForeColor = System.Drawing.Color.Red;
+            this.dotPeso.Location = new System.Drawing.Point(49, 94);
+            this.dotPeso.Name = "dotPeso";
+            this.dotPeso.Size = new System.Drawing.Size(14, 16);
+            this.dotPeso.TabIndex = 69;
+            this.dotPeso.Text = "*";
             // 
-            // label17
+            // dotLargura
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(52, 20);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(11, 13);
-            this.label17.TabIndex = 70;
-            this.label17.Text = "*";
+            this.dotLargura.AutoSize = true;
+            this.dotLargura.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dotLargura.ForeColor = System.Drawing.Color.Red;
+            this.dotLargura.Location = new System.Drawing.Point(52, 20);
+            this.dotLargura.Name = "dotLargura";
+            this.dotLargura.Size = new System.Drawing.Size(11, 13);
+            this.dotLargura.TabIndex = 70;
+            this.dotLargura.Text = "*";
             // 
-            // label18
+            // dotAltura
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(131, 20);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(11, 13);
-            this.label18.TabIndex = 71;
-            this.label18.Text = "*";
+            this.dotAltura.AutoSize = true;
+            this.dotAltura.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dotAltura.ForeColor = System.Drawing.Color.Red;
+            this.dotAltura.Location = new System.Drawing.Point(131, 20);
+            this.dotAltura.Name = "dotAltura";
+            this.dotAltura.Size = new System.Drawing.Size(11, 13);
+            this.dotAltura.TabIndex = 71;
+            this.dotAltura.Text = "*";
             // 
-            // label19
+            // dotComprimento
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(241, 19);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(11, 13);
-            this.label19.TabIndex = 72;
-            this.label19.Text = "*";
+            this.dotComprimento.AutoSize = true;
+            this.dotComprimento.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dotComprimento.ForeColor = System.Drawing.Color.Red;
+            this.dotComprimento.Location = new System.Drawing.Point(241, 19);
+            this.dotComprimento.Name = "dotComprimento";
+            this.dotComprimento.Size = new System.Drawing.Size(11, 13);
+            this.dotComprimento.TabIndex = 72;
+            this.dotComprimento.Text = "*";
             // 
-            // label20
+            // dotVolume
             // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(69, 164);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(14, 16);
-            this.label20.TabIndex = 70;
-            this.label20.Text = "*";
+            this.dotVolume.AutoSize = true;
+            this.dotVolume.ForeColor = System.Drawing.Color.Red;
+            this.dotVolume.Location = new System.Drawing.Point(69, 164);
+            this.dotVolume.Name = "dotVolume";
+            this.dotVolume.Size = new System.Drawing.Size(14, 16);
+            this.dotVolume.TabIndex = 70;
+            this.dotVolume.Text = "*";
             // 
-            // label21
+            // dotValor
             // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(206, 164);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(14, 16);
-            this.label21.TabIndex = 71;
-            this.label21.Text = "*";
+            this.dotValor.AutoSize = true;
+            this.dotValor.ForeColor = System.Drawing.Color.Red;
+            this.dotValor.Location = new System.Drawing.Point(206, 164);
+            this.dotValor.Name = "dotValor";
+            this.dotValor.Size = new System.Drawing.Size(14, 16);
+            this.dotValor.TabIndex = 71;
+            this.dotValor.Text = "*";
             // 
-            // label22
+            // dotTotal
             // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(373, 164);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(14, 16);
-            this.label22.TabIndex = 72;
-            this.label22.Text = "*";
+            this.dotTotal.AutoSize = true;
+            this.dotTotal.ForeColor = System.Drawing.Color.Red;
+            this.dotTotal.Location = new System.Drawing.Point(373, 164);
+            this.dotTotal.Name = "dotTotal";
+            this.dotTotal.Size = new System.Drawing.Size(14, 16);
+            this.dotTotal.TabIndex = 72;
+            this.dotTotal.Text = "*";
             // 
             // Screen_Carga
             // 
@@ -484,14 +487,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(486, 343);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.dotTipo);
+            this.Controls.Add(this.dotID);
+            this.Controls.Add(this.cbTipo);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btOK);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtNum);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -501,7 +504,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVolume)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,40 +513,40 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNum;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtLargura;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtComprimento;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtAltura;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numVolume;
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.Button btOK;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label dotID;
+        private System.Windows.Forms.Label dotTotal;
+        private System.Windows.Forms.Label dotValor;
+        private System.Windows.Forms.Label dotVolume;
+        private System.Windows.Forms.Label dotPeso;
+        private System.Windows.Forms.Label dotDesc;
+        private System.Windows.Forms.Label dotComprimento;
+        private System.Windows.Forms.Label dotAltura;
+        private System.Windows.Forms.Label dotLargura;
+        private System.Windows.Forms.Label dotTipo;
     }
 }

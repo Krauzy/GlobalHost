@@ -128,10 +128,12 @@
     <Compile Include="Modelo\Transportadora.cs" />
     <Compile Include="Modelo\Transporte.cs" />
     <Compile Include="Persistencia\Banco.cs" />
+    <Compile Include="Persistencia\CargaDB.cs" />
     <Compile Include="Persistencia\FuncionarioDB.cs" />
     <Compile Include="Persistencia\ClienteDB.cs" />
     <Compile Include="Persistencia\LoginDB.cs" />
     <Compile Include="Persistencia\ParametrosDB.cs" />
+    <Compile Include="Persistencia\PedidoDB.cs" />
     <Compile Include="Persistencia\Tipo_CargaDB.cs" />
     <Compile Include="Persistencia\Tipo_TransporteDB.cs" />
     <Compile Include="Persistencia\TransportadoraDB.cs" />

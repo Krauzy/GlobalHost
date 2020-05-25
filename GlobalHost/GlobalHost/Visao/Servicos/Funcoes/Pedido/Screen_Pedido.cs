@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GlobalHost.Controlador;
+using GlobalHost.Visao.Servicos.Funcoes.Pedido;
 
 namespace GlobalHost.Visao.Servicos.Funcoes
 {
@@ -17,9 +18,12 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         private bool alt;
         private bool exc;
 
+        private int cont;
+
         public Screen_Pedido()
         {
             InitializeComponent();
+            cont = 0;
             cbCliente.DataSource = Controle_Cliente.get("");
             cbCliente.DisplayMember = "nome";
             cbCliente.ValueMember = "id";
@@ -175,6 +179,24 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             exc = false;
             changebool();
             this.ActiveControl = null;
+        }
+
+        private void btMais_Click(object sender, EventArgs e)
+        {
+            Screen_Carga ex = new Screen_Carga(Screen_Carga.INSERT);
+            ex.ShowDialog();
+            dgvCarga.Rows.Add(cont++, ex.Descricao, ex.Volume, ex.Peso, ex.Dimensoes, ex.Valor, ex.Total, ex.Tipo);
+            ex.Dispose();
+        }
+
+        private void btMenos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btUpdate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

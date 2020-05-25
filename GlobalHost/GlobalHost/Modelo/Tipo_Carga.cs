@@ -32,5 +32,10 @@ namespace GlobalHost.Modelo
         public string Descricao { get => descricao; set => descricao = value; }
         public double Peso { get => peso; set => peso = value; }
         public string Dimensoes { get => dimensoes; set => dimensoes = value; }
+
+        public override string ToString()
+        {
+            return this.descricao;
+        }
     }
 }
