@@ -93,6 +93,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controlador\Controle_ContasPagar.cs" />
     <Compile Include="Controlador\Controle_Despesa.cs" />
     <Compile Include="Controlador\Controle_Funcionario.cs" />
     <Compile Include="Controlador\Controle_Login.cs" />
@@ -113,6 +114,7 @@
     </Compile>
     <Compile Include="Modelo\Carga.cs" />
     <Compile Include="Modelo\Cliente.cs" />
+    <Compile Include="Modelo\ContaAPagar.cs" />
     <Compile Include="Modelo\Despesa.cs" />
     <Compile Include="Modelo\Frete.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
@@ -129,6 +131,8 @@
     <Compile Include="Modelo\Transporte.cs" />
     <Compile Include="Persistencia\Banco.cs" />
     <Compile Include="Persistencia\CargaDB.cs" />
+    <Compile Include="Persistencia\ContaAPagarDB.cs" />
+    <Compile Include="Persistencia\DespesaDB.cs" />
     <Compile Include="Persistencia\FuncionarioDB.cs" />
     <Compile Include="Persistencia\ClienteDB.cs" />
     <Compile Include="Persistencia\LoginDB.cs" />
