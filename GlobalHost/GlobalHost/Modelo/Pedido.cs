@@ -77,5 +77,10 @@ namespace GlobalHost.Modelo
         internal Cliente Cliente { get => cliente; set => cliente = value; }
         internal Funcionario Funcionario { get => funcionario; set => funcionario = value; }
         internal Remessa Remessa { get => remessa; set => remessa = value; }
+
+        public override string ToString()
+        {
+            return this.id.ToString();
+        }
     }
 }

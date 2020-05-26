@@ -93,11 +93,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controlador\Controle_Carga.cs" />
     <Compile Include="Controlador\Controle_Despesa.cs" />
     <Compile Include="Controlador\Controle_Funcionario.cs" />
     <Compile Include="Controlador\Controle_Login.cs" />
     <Compile Include="Controlador\Controle_Parametro.cs" />
     <Compile Include="Controlador\Controle_Cliente.cs" />
+    <Compile Include="Controlador\Controle_Pedido.cs" />
     <Compile Include="Controlador\Controle_TipoCarga.cs" />
     <Compile Include="Controlador\Controle_TipoTransporte.cs" />
     <Compile Include="Controlador\Controle_Transportadora.cs" />

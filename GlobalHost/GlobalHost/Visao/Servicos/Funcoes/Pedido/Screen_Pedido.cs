@@ -70,6 +70,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             btnInserir.Image = GlobalHost.Properties.Resources.insert;
 
             txtID.Enabled = false;
+            txtID.Text = string.Empty;
             cbCliente.Enabled = true;
             txtOrigem.Enabled = true;
             btOrigem.Enabled = true;
@@ -125,9 +126,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
             txtID.Enabled = true;
             cbCliente.Enabled = false;
+            cbCliente.SelectedItem = null;
+            cbCliente.Text = string.Empty;
             txtOrigem.Enabled = false;
+            txtOrigem.Text = string.Empty;
             btOrigem.Enabled = false;
             txtDestino.Enabled = false;
+            txtDestino.Text = string.Empty;
             btDestino.Enabled = false;
             btnOk.Enabled = true;
             btnCancelar.Enabled = true;
@@ -136,6 +141,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             btUpdate.Enabled = false;
             rdExclusivo.Enabled = false;
             rdExpresso.Enabled = false;
+            dgvCarga.Rows.Clear();
 
             ins = false;
             alt = false;
@@ -455,11 +461,43 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                         break;
                 }
             }
-            catch
-            {
+            catch {}            
+        }
 
+        private void dgvCarga_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCarga.SelectedRows.Count == 1)
+            {
+                LoadGrid();
+                Screen_Carga ex = new Screen_Carga(Screen_Carga.UPDATE);
+                ex.Id = Convert.ToInt32(dgvCarga.SelectedRows[0].Cells["Carga_ID"].Value);
+                ex.Descricao = dgvCarga.SelectedRows[0].Cells["Carga_Descricao"].Value.ToString();
+                ex.Volume = Convert.ToInt32(dgvCarga.SelectedRows[0].Cells["Carga_Volume"].Value);
+                ex.Peso = Convert.ToDouble(dgvCarga.SelectedRows[0].Cells["Carga_Peso"].Value);
+                ex.Dimensoes = dgvCarga.SelectedRows[0].Cells["Carga_Dimensoes"].Value.ToString();
+                ex.Valor = Convert.ToDouble(dgvCarga.SelectedRows[0].Cells["Carga_ValorUnit"].Value);
+                ex.Total = Convert.ToDouble(dgvCarga.SelectedRows[0].Cells["Carga_Valor"].Value);
+                ex.Tipo = dgvCarga.SelectedRows[0].Cells["Carga_Tipo"].Value.ToString();
+                ex.load();
+                ex.ShowDialog();
+                if (!ex.Cancel)
+                {
+                    dgvCarga.SelectedRows[0].Cells["Carga_ID"].Value = ex.Id;
+                    dgvCarga.SelectedRows[0].Cells["Carga_Descricao"].Value = ex.Descricao;
+                    dgvCarga.SelectedRows[0].Cells["Carga_Volume"].Value = ex.Volume;
+                    dgvCarga.SelectedRows[0].Cells["Carga_Peso"].Value = ex.Peso;
+                    dgvCarga.SelectedRows[0].Cells["Carga_Dimensoes"].Value = ex.Dimensoes;
+                    dgvCarga.SelectedRows[0].Cells["Carga_ValorUnit"].Value = ex.Valor;
+                    dgvCarga.SelectedRows[0].Cells["Carga_Valor"].Value = ex.Total;
+                    dgvCarga.SelectedRows[0].Cells["Carga_Tipo"].Value = ex.Tipo;
+                }
+                LoadTable();
             }
-            
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

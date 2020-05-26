@@ -64,5 +64,10 @@ namespace GlobalHost.Modelo
         public string Telefone { get => telefone; set => telefone = value; }
         public string Email { get => email; set => email = value; }
         public Login Login { get => login; set => login = value; }
+
+        public override string ToString()
+        {
+            return this.nome;
+        }
     }
 }

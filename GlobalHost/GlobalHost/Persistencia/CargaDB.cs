@@ -78,7 +78,7 @@ namespace GlobalHost.Persistencia
             return c;
         }
 
-        public List<object> get(string op)
+        public List<object> getList(string op)
         {
             DataTable dt = new DataTable();
             Tipo_CargaDB tipos = new Tipo_CargaDB();

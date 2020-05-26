@@ -73,5 +73,10 @@ namespace GlobalHost.Modelo
         public DateTime Previsao { get => previsao; set => previsao = value; }
         public DateTime Requerimento { get => requerimento; set => requerimento = value; }
         public Transportadora Transportadora { get => transportadora; set => transportadora = value; }
+
+        public override string ToString()
+        {
+            return this.descricao;
+        }
     }
 }
