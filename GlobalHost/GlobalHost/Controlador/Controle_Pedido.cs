@@ -64,6 +64,12 @@ namespace GlobalHost.Controlador
             return pedidos.Update(p);
         }
 
+        public static int getMaxID()
+        {
+            DataTable dt = get("");
+            return Convert.ToInt32(dt.Rows[dt.Rows.Count - 1]["id"]);
+        }
+
         public static DataTable get(object obj)
         {
             PedidoDB db = new PedidoDB();

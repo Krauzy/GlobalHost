@@ -13,11 +13,14 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         private bool alt;
         private bool exc;
 
+        private int id;
+
         private int cont;
         private DataTable DataCarga;
 
         public Screen_Pedido()
         {
+            id = 0;
             InitializeComponent();
             cont = 0;
             cbCliente.DataSource = Controle_Cliente.get("");
@@ -29,6 +32,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             cbCliente.Text = string.Empty;
             cbFiltroCarga.SelectedIndex = 0;
             cbFiltroPedido.SelectedIndex = 0;
+            dgvPedido.DataSource = Controle_Pedido.get("");
 
             DataCarga = new DataTable();
             DataCarga.Columns.Add("id", typeof(int));
@@ -323,145 +327,150 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void txtCarga_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (txtBuscarPedido.Text != string.Empty)
             {
-                switch (cbFiltroCarga.Text)
+                try
                 {
-                    case "Descrição":
-                        dgvCarga.Rows.Clear();
-                        for (int i = 0; i < DataCarga.Rows.Count; i++)
-                        {
-                            if (DataCarga.Rows[i]["descricao"].ToString().ToLower().Contains(txtCarga.Text.ToLower()))
+                    switch (cbFiltroCarga.Text)
+                    {
+                        case "Descrição":
+                            dgvCarga.Rows.Clear();
+                            for (int i = 0; i < DataCarga.Rows.Count; i++)
                             {
-                                dgvCarga.Rows.Add();
-                                dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
-                                dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
-                                dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
-                                dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
-                                dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
-                                dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
-                                dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
-                                dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                if (DataCarga.Rows[i]["descricao"].ToString().ToLower().Contains(txtCarga.Text.ToLower()))
+                                {
+                                    dgvCarga.Rows.Add();
+                                    dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
+                                    dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
+                                    dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
+                                    dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
+                                    dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
+                                    dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
+                                    dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
+                                    dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    case "Volume":
-                        dgvCarga.Rows.Clear();
-                        for (int i = 0; i < DataCarga.Rows.Count; i++)
-                        {
-                            if (Convert.ToInt32(DataCarga.Rows[i]["volume"]) <= Convert.ToInt32(txtCarga.Text))
+                        case "Volume":
+                            dgvCarga.Rows.Clear();
+                            for (int i = 0; i < DataCarga.Rows.Count; i++)
                             {
-                                dgvCarga.Rows.Add();
-                                dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
-                                dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
-                                dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
-                                dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
-                                dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
-                                dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
-                                dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
-                                dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                if (Convert.ToInt32(DataCarga.Rows[i]["volume"]) >= Convert.ToInt32(txtCarga.Text))
+                                {
+                                    dgvCarga.Rows.Add();
+                                    dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
+                                    dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
+                                    dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
+                                    dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
+                                    dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
+                                    dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
+                                    dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
+                                    dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    case "Peso":
-                        dgvCarga.Rows.Clear();
-                        for (int i = 0; i < DataCarga.Rows.Count; i++)
-                        {
-                            if (Convert.ToDouble(DataCarga.Rows[i]["peso"]) <= Convert.ToDouble(txtCarga.Text))
+                        case "Peso":
+                            dgvCarga.Rows.Clear();
+                            for (int i = 0; i < DataCarga.Rows.Count; i++)
                             {
-                                dgvCarga.Rows.Add();
-                                dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
-                                dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
-                                dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
-                                dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
-                                dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
-                                dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
-                                dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
-                                dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                if (Convert.ToDouble(DataCarga.Rows[i]["peso"]) >= Convert.ToDouble(txtCarga.Text))
+                                {
+                                    dgvCarga.Rows.Add();
+                                    dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
+                                    dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
+                                    dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
+                                    dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
+                                    dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
+                                    dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
+                                    dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
+                                    dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    case "Dimensões":
-                        dgvCarga.Rows.Clear();
-                        for (int i = 0; i < DataCarga.Rows.Count; i++)
-                        {
-                            if (DataCarga.Rows[i]["dimensoes"].ToString().ToLower().Contains(txtCarga.Text.ToLower()))
+                        case "Dimensões":
+                            dgvCarga.Rows.Clear();
+                            for (int i = 0; i < DataCarga.Rows.Count; i++)
                             {
-                                dgvCarga.Rows.Add();
-                                dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
-                                dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
-                                dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
-                                dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
-                                dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
-                                dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
-                                dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
-                                dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                if (DataCarga.Rows[i]["dimensoes"].ToString().ToLower().Contains(txtCarga.Text.ToLower()))
+                                {
+                                    dgvCarga.Rows.Add();
+                                    dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
+                                    dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
+                                    dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
+                                    dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
+                                    dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
+                                    dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
+                                    dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
+                                    dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    case "Valor Unitário":
-                        dgvCarga.Rows.Clear();
-                        for (int i = 0; i < DataCarga.Rows.Count; i++)
-                        {
-                            if (Convert.ToDouble(DataCarga.Rows[i]["valor_unitario"]) <= Convert.ToDouble(txtCarga.Text))
+                        case "Valor Unitário":
+                            dgvCarga.Rows.Clear();
+                            for (int i = 0; i < DataCarga.Rows.Count; i++)
                             {
-                                dgvCarga.Rows.Add();
-                                dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
-                                dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
-                                dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
-                                dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
-                                dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
-                                dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
-                                dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
-                                dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                if (Convert.ToDouble(DataCarga.Rows[i]["valor_unitario"]) >= Convert.ToDouble(txtCarga.Text))
+                                {
+                                    dgvCarga.Rows.Add();
+                                    dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
+                                    dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
+                                    dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
+                                    dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
+                                    dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
+                                    dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
+                                    dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
+                                    dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    case "Valor":
-                        dgvCarga.Rows.Clear();
-                        for (int i = 0; i < DataCarga.Rows.Count; i++)
-                        {
-                            if (Convert.ToDouble(DataCarga.Rows[i]["valor"]) <= Convert.ToDouble(txtCarga.Text))
+                        case "Valor":
+                            dgvCarga.Rows.Clear();
+                            for (int i = 0; i < DataCarga.Rows.Count; i++)
                             {
-                                dgvCarga.Rows.Add();
-                                dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
-                                dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
-                                dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
-                                dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
-                                dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
-                                dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
-                                dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
-                                dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                if (Convert.ToDouble(DataCarga.Rows[i]["valor"]) >= Convert.ToDouble(txtCarga.Text))
+                                {
+                                    dgvCarga.Rows.Add();
+                                    dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
+                                    dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
+                                    dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
+                                    dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
+                                    dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
+                                    dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
+                                    dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
+                                    dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    case "Tipo":
-                        dgvCarga.Rows.Clear();
-                        for (int i = 0; i < DataCarga.Rows.Count; i++)
-                        {
-                            if (DataCarga.Rows[i]["tipo"].ToString().ToLower().Contains(txtCarga.Text.ToLower()))
+                        case "Tipo":
+                            dgvCarga.Rows.Clear();
+                            for (int i = 0; i < DataCarga.Rows.Count; i++)
                             {
-                                dgvCarga.Rows.Add();
-                                dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
-                                dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
-                                dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
-                                dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
-                                dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
-                                dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
-                                dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
-                                dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                if (DataCarga.Rows[i]["tipo"].ToString().ToLower().Contains(txtCarga.Text.ToLower()))
+                                {
+                                    dgvCarga.Rows.Add();
+                                    dgvCarga.Rows[i].Cells["Carga_ID"].Value = DataCarga.Rows[i]["id"];
+                                    dgvCarga.Rows[i].Cells["Carga_Descricao"].Value = DataCarga.Rows[i]["descricao"];
+                                    dgvCarga.Rows[i].Cells["Carga_Volume"].Value = DataCarga.Rows[i]["volume"];
+                                    dgvCarga.Rows[i].Cells["Carga_Peso"].Value = DataCarga.Rows[i]["peso"];
+                                    dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value = DataCarga.Rows[i]["dimensoes"];
+                                    dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value = DataCarga.Rows[i]["valor_unitario"];
+                                    dgvCarga.Rows[i].Cells["Carga_Valor"].Value = DataCarga.Rows[i]["valor"];
+                                    dgvCarga.Rows[i].Cells["Carga_Tipo"].Value = DataCarga.Rows[i]["tipo"];
+                                }
                             }
-                        }
-                        break;
+                            break;
+                    }
                 }
+                catch { }
             }
-            catch {}            
+            else
+                LoadGrid();            
         }
 
         private void dgvCarga_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -497,7 +506,115 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            if (ins == true)
+            {
+                if (cbCliente.SelectedItem != null && txtOrigem.Text != string.Empty && txtDestino.Text != string.Empty)
+                {
+                    if (dgvCarga.Rows.Count > 0)
+                    {
+                        string n;
+                        if (rdExpresso.Checked)
+                            n = "Expresso";
+                        else
+                            n = "Exclusivo";
+                        if (!Controle_Pedido.Insert(DateTime.Now.Date, n, txtOrigem.Text, txtDestino.Text, Controle_Parametro.get().Razao_social, "Em espera", (int)cbCliente.SelectedValue, 8))
+                            MessageBox.Show("Pedido não efetuado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            for(int i = 0; i < dgvCarga.Rows.Count; i++)
+                            {
+                                //Controle_Carga.Insert(dgvCarga.Rows[i].Cells["Carga_Descricao"].Value.ToString(),
+                                //                      Convert.ToInt32(dgvCarga.Rows[i].Cells["Carga_Volume"]),
+                                //                      Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Volume"]),
+                                //                      Convert.ToDouble(dgv))
+                            } 
+                        }
+                    }
+                    else
+                        MessageBox.Show("Deve ter ao menos uma carga no pedido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                    MessageBox.Show("Todos os campos obrigatórios(*) devem estar preenchidos e válidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if(alt == true)
+            {
+                if (txtID.Text != string.Empty && cbCliente.SelectedItem != null && txtOrigem.Text != string.Empty && txtDestino.Text != string.Empty)
+                {
+                    if (dgvCarga.Rows.Count > 0)
+                    {
+                        string n;
+                        if (rdExpresso.Checked)
+                            n = "Expresso";
+                        else
+                            n = "Exclusivo";
+                        if (!Controle_Pedido.Insert(DateTime.Now.Date, n, txtOrigem.Text, txtDestino.Text, Controle_Parametro.get().Razao_social, "Em espera", (int)cbCliente.SelectedValue, 8))
+                            MessageBox.Show("Pedido não atualizado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                        MessageBox.Show("Deve ter ao menos uma carga no pedido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                    MessageBox.Show("Todos os campos obrigatórios(*) devem estar preenchidos e válidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if(exc == true)
+            {
+                if(txtID.Text != string.Empty)
+                {
+                    if (!Controle_Pedido.Delete(Convert.ToInt32(txtID.Text)))
+                        MessageBox.Show("Pedido não excluído!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+            if (txtID.Text != "")
+            {
+                try
+                {
+                    id = Convert.ToInt32(txtID.Text);
+                    txtID.Select(txtID.Text.Length, 0);
+                }
+                catch (Exception)
+                {
+                    txtID.Text = id.ToString();
+                    txtID.Select(txtID.Text.Length, 0);
+                }
+            }
+        }
+
+        private void txtBuscarPedido_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscarPedido.Text != string.Empty)
+            {
+                switch(cbFiltroPedido.Text)
+                {
+                    case "Data":
+                        dgvPedido.DataSource = Controle_Pedido.get("data = " + txtBuscarPedido.Text);
+                        break;
+                    case "Modalidade":
+                        dgvPedido.DataSource = Controle_Pedido.get("modalidade LIKE '%" + txtBuscarPedido.Text + "%'");
+                        break;
+
+                    case "Origem":
+                        dgvPedido.DataSource = Controle_Pedido.get("origem LIKE '%" + txtBuscarPedido.Text + "%'");
+                        break;
+
+                    case "Destino":
+                        dgvPedido.DataSource = Controle_Pedido.get("destino LIKE '%" + txtBuscarPedido.Text + "%'");
+                        break;
+
+                    case "Despachante":
+                        dgvPedido.DataSource = Controle_Pedido.get("despachante LIKE '%" + txtBuscarPedido.Text + "%'");
+                        break;
+
+                    case "Situação":
+                        dgvPedido.DataSource = Controle_Pedido.get("situacao LIKE '%" + txtBuscarPedido.Text + "%'");
+                        break;
+                }
+            }
+            else
+                dgvPedido.DataSource = Controle_Pedido.get("");
         }
     }
 }

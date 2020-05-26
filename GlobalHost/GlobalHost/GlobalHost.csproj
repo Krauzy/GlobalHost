@@ -103,6 +103,16 @@
     <Compile Include="Controlador\Controle_TipoCarga.cs" />
     <Compile Include="Controlador\Controle_TipoTransporte.cs" />
     <Compile Include="Controlador\Controle_Transportadora.cs" />
+    <Compile Include="DataSetCarga.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCarga.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetPedido.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPedido.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GlobalDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -310,6 +320,28 @@
     </None>
     <None Include="Connected Services\WebServiceDolar\GlobalHost.WebServiceDolar.WSSerieVO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="DataSetCarga.xsc">
+      <DependentUpon>DataSetCarga.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCarga.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCarga.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetCarga.xss">
+      <DependentUpon>DataSetCarga.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPedido.xsc">
+      <DependentUpon>DataSetPedido.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPedido.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPedido.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetPedido.xss">
+      <DependentUpon>DataSetPedido.xsd</DependentUpon>
     </None>
     <None Include="GlobalDBDataSet.xsc">
       <DependentUpon>GlobalDBDataSet.xsd</DependentUpon>

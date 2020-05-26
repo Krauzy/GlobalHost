@@ -24,6 +24,10 @@ namespace GlobalHost.Visao.Servicos.Funcoes.Pedido
 
         private bool cancel;
 
+        private double L;
+        private double A;
+        private double C;
+
         private int op;
 
         public static int INSERT = 1;
@@ -166,6 +170,100 @@ namespace GlobalHost.Visao.Servicos.Funcoes.Pedido
             if (txtValor.Text != string.Empty)
             {
                 txtTotal.Text = (Convert.ToDouble(txtValor.Text) * Convert.ToInt32(numVolume.Value)).ToString();
+            }
+        }
+
+        private void txtTotal_TextChanged(object sender, EventArgs e)
+        {
+            txtTotal.Text = API.Validate.MONEY(txtTotal.Text);
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+            if (txtID.Text != "")
+            {
+                try
+                {
+                    id = Convert.ToInt32(txtID.Text);
+                    txtID.Select(txtID.Text.Length, 0);
+                }
+                catch (Exception)
+                {
+                    txtID.Text = id.ToString();
+                    txtID.Select(txtID.Text.Length, 0);
+                }
+            }
+        }
+
+        private void txtPeso_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPeso.Text != "" && txtPeso.Text[txtPeso.Text.Length - 1] != ',')
+            {
+                try
+                {
+                    peso = Convert.ToDouble(txtPeso.Text);
+                    txtPeso.Text = "" + peso;
+                    txtPeso.Select(txtPeso.Text.Length, 0);
+                }
+                catch (Exception)
+                {
+                    txtPeso.Text = "" + peso;
+                    txtPeso.Select(txtPeso.Text.Length, 0);
+                }
+            }
+        }
+
+        private void txtLargura_TextChanged(object sender, EventArgs e)
+        {
+            if (txtLargura.Text != "" && txtLargura.Text[txtLargura.Text.Length - 1] != ',')
+            {
+                try
+                {
+                    L = Convert.ToDouble(txtLargura.Text);
+                    txtLargura.Text = "" + L;
+                    txtLargura.Select(txtLargura.Text.Length, 0);
+                }
+                catch (Exception)
+                {
+                    txtLargura.Text = "" + L;
+                    txtLargura.Select(txtLargura.Text.Length, 0);
+                }
+            }
+        }
+
+        private void txtAltura_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAltura.Text != "" && txtAltura.Text[txtAltura.Text.Length - 1] != ',')
+            {
+                try
+                {
+                    A = Convert.ToDouble(txtAltura.Text);
+                    txtAltura.Text = "" + A;
+                    txtAltura.Select(txtAltura.Text.Length, 0);
+                }
+                catch (Exception)
+                {
+                    txtAltura.Text = "" + A;
+                    txtAltura.Select(txtAltura.Text.Length, 0);
+                }
+            }
+        }
+
+        private void txtComprimento_TextChanged(object sender, EventArgs e)
+        {
+            if (txtComprimento.Text != "" && txtComprimento.Text[txtComprimento.Text.Length - 1] != ',')
+            {
+                try
+                {
+                    C = Convert.ToDouble(txtComprimento.Text);
+                    txtComprimento.Text = "" + C;
+                    txtComprimento.Select(txtComprimento.Text.Length, 0);
+                }
+                catch (Exception)
+                {
+                    txtComprimento.Text = "" + C;
+                    txtComprimento.Select(txtComprimento.Text.Length, 0);
+                }
             }
         }
     }

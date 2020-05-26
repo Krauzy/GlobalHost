@@ -88,6 +88,7 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(79, 23);
             this.txtID.TabIndex = 54;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // groupBox1
             // 
@@ -175,6 +176,7 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(133, 23);
             this.txtTotal.TabIndex = 62;
+            this.txtTotal.TextChanged += new System.EventHandler(this.txtTotal_TextChanged);
             // 
             // label11
             // 
@@ -327,6 +329,7 @@
             this.txtComprimento.Name = "txtComprimento";
             this.txtComprimento.Size = new System.Drawing.Size(57, 21);
             this.txtComprimento.TabIndex = 64;
+            this.txtComprimento.TextChanged += new System.EventHandler(this.txtComprimento_TextChanged);
             // 
             // label6
             // 
@@ -347,6 +350,7 @@
             this.txtAltura.Name = "txtAltura";
             this.txtAltura.Size = new System.Drawing.Size(57, 21);
             this.txtAltura.TabIndex = 62;
+            this.txtAltura.TextChanged += new System.EventHandler(this.txtAltura_TextChanged);
             // 
             // label5
             // 
@@ -367,6 +371,7 @@
             this.txtLargura.Name = "txtLargura";
             this.txtLargura.Size = new System.Drawing.Size(57, 21);
             this.txtLargura.TabIndex = 60;
+            this.txtLargura.TextChanged += new System.EventHandler(this.txtLargura_TextChanged);
             // 
             // label4
             // 
@@ -387,6 +392,7 @@
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(127, 23);
             this.txtPeso.TabIndex = 57;
+            this.txtPeso.TextChanged += new System.EventHandler(this.txtPeso_TextChanged);
             // 
             // label3
             // 
