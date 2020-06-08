@@ -118,6 +118,7 @@ namespace GlobalHost.Visao
             {
                 int lid = Controle_Login.get(txtUsuario.Text);
                 Program.Global_User = Controle_Funcionario.get("login = " + lid).Rows[0]["nome"].ToString();
+                Program.FUNC = Convert.ToInt32(Controle_Funcionario.get("login = " + lid).Rows[0]["id"]);
                 PopUp.ShowBalloonTip(1, "Notificação de Login", "Bem Vindo " + Program.Global_User, ToolTipIcon.Info);
                 Visao.Menu ex = new Menu();
                 Visible = false;

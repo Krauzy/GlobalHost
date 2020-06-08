@@ -77,10 +77,6 @@ namespace GlobalHost.Persistencia
                 cmd.Transaction = trans;
                 for (int i = 0; i < parametros.Length; i += 2)
                     cmd.Parameters.AddWithValue(parametros[i].ToString(), parametros[i + 1]);
-                //string n = sql;
-                //for (int i = 0; i < parametros.Length; i += 2)
-                //    n = n.Replace(parametros[i].ToString(), parametros[i + 1].ToString());
-                //TextFile.Write(path, "[" + DateTime.Now + "] " + n.ToUpper());
                 SqlDataReader dr = cmd.ExecuteReader();
                 dt.Load(dr);
                 dr.Close();
@@ -104,7 +100,7 @@ namespace GlobalHost.Persistencia
                 //string n = sql;
                 //for (int i = 0; i < parametros.Length; i += 2)
                 //    n = n.Replace(parametros[i].ToString(), parametros[i + 1].ToString());
-                //TextFile.Write(path, "[" + DateTime.Now + "] " + n.ToUpper());
+                //TextFile.Write(path, "[" + Program.Global_User + "]:[" + DateTime.Now + "] " + n.ToUpper());
                 cmd.ExecuteNonQuery();
                 return true;
             }

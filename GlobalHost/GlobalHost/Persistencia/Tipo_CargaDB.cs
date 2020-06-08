@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 
 namespace GlobalHost.Persistencia
 {
@@ -49,25 +50,7 @@ namespace GlobalHost.Persistencia
             }
             return result;
         }
-        /*
-        public Tipo_Carga get(string desc)
-        {
-            DataTable dt = new DataTable();
-            Tipo_Carga tp = null;
-            string SQL = @"SELECT * FROM Tipo_Carga WHERE descricao LIKE @desc";
-            banco.Connect();
-            banco.ExecuteQuery(SQL, out dt, "@desc", "%" + desc + "%");
-            if(dt.Rows.Count > 0)
-            {
-                tp = new Tipo_Carga((int)dt.Rows[0]["id"],
-                                    dt.Rows[0]["descricao"].ToString(),
-                                    (double)dt.Rows[0]["peso"],
-                                    dt.Rows[0]["dimensoes"].ToString());
-            }
-            banco.Disconnect();
-            return tp;
-        }
-        */
+
         public Tipo_Carga get(int id)
         {
             DataTable dt = new DataTable();
@@ -79,7 +62,25 @@ namespace GlobalHost.Persistencia
             {
                 tc = new Tipo_Carga((int)dt.Rows[0]["id"],
                                     dt.Rows[0]["descricao"].ToString(),
-                                    (double)dt.Rows[0]["peso"],
+                                    Convert.ToDouble(dt.Rows[0]["peso"]),
+                                    dt.Rows[0]["dimensoes"].ToString());
+            }
+            banco.Disconnect();
+            return tc;
+        }
+
+        public Tipo_Carga get(string str)
+        {
+            DataTable dt = new DataTable();
+            Tipo_Carga tc = null;
+            string SQL = @"SELECT * FROM Tipo_Carga WHERE descricao LIKE '%" + str + "%'";
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out dt);
+            if (dt.Rows.Count > 0)
+            {
+                tc = new Tipo_Carga((int)dt.Rows[0]["id"],
+                                    dt.Rows[0]["descricao"].ToString(),
+                                    Convert.ToDouble(dt.Rows[0]["peso"]),
                                     dt.Rows[0]["dimensoes"].ToString());
             }
             banco.Disconnect();
@@ -90,18 +91,17 @@ namespace GlobalHost.Persistencia
         {
             List<object> list = new List<object>();
             DataTable dt = new DataTable();
-            string SQL = @"SELECT * FROM Tipo_Carga WHERE " + op + " ORDER BY id";
+            string SQL = @"SELECT * FROM Tipo_Carga WHERE " + op;
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt);
             if(dt.Rows.Count > 0)
             {
-                Tipo_Carga tc;
                 for(int i = 0; i < dt.Rows.Count; i++)
                 {
-                    tc = new Tipo_Carga((int)dt.Rows[0]["id"],
-                                    dt.Rows[0]["descricao"].ToString(),
-                                    (double)dt.Rows[0]["peso"],
-                                    dt.Rows[0]["dimensoes"].ToString());
+                    Tipo_Carga tc = new Tipo_Carga((int)dt.Rows[i]["id"],
+                                    dt.Rows[i]["descricao"].ToString(),
+                                    Convert.ToDouble(dt.Rows[i]["peso"]),
+                                    dt.Rows[i]["dimensoes"].ToString());
                     list.Add(tc);
                 }
             }

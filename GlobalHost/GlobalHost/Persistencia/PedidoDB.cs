@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 
 namespace GlobalHost.Persistencia
 {
@@ -21,6 +22,7 @@ namespace GlobalHost.Persistencia
             {
                 Pedido p = (Pedido)obj;
                 string SQL;
+                MessageBox.Show("Data: " + p.Data + "\nModalidade: " + p.Modalidade + "\nOrigem: " + p.Origem + "\nDestino: " + p.Destino + "\nDespachante: " + p.Despachante + "\nSituação: " + p.Situacao + "\nCliente: " + p.Cliente + "\nFuncionário: " + p.Funcionario);
                 banco.Connect();
                 if (p.Remessa != null)
                 {
@@ -69,6 +71,19 @@ namespace GlobalHost.Persistencia
             return result;
         }
 
+        public int MAX()
+        {
+            int aux = 0;
+            DataTable data = new DataTable();
+            string SQL = @"SELECT MAX(id) AS aux FROM Pedido";
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out data);
+            if (data.Rows.Count > 0)
+                aux = (int)data.Rows[0]["aux"];
+            banco.Disconnect();
+            return aux;
+        }
+        
         public Pedido get(int id)
         {
             DataTable dt = new DataTable();

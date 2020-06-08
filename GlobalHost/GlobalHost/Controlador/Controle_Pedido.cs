@@ -53,21 +53,21 @@ namespace GlobalHost.Controlador
 
         }
 
-        public static bool Update(DateTime data, string mod, string orig, string dest, string desp, string sit, int cli, int fun)
+        public static bool Update(int id, DateTime data, string mod, string orig, string dest, string desp, string sit, int cli, int fun)
         {
             FuncionarioDB funcionarios = new FuncionarioDB();
             ClienteDB clientes = new ClienteDB();
             PedidoDB pedidos = new PedidoDB();
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
-            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f);
+            Pedido p = new Pedido(id, data, mod, orig, dest, desp, sit, c, f);
             return pedidos.Update(p);
         }
 
-        public static int getMaxID()
+        public static int MAX()
         {
-            DataTable dt = get("");
-            return Convert.ToInt32(dt.Rows[dt.Rows.Count - 1]["id"]);
+            PedidoDB db = new PedidoDB();
+            return db.MAX();
         }
 
         public static DataTable get(object obj)
@@ -115,6 +115,12 @@ namespace GlobalHost.Controlador
                 table.Rows.Add(linha);
             }
             return table;
+        }
+
+        public static void Reverse()
+        {
+            Banco banco = new Banco();
+            banco.RollbackTransaction();
         }
     }
 }

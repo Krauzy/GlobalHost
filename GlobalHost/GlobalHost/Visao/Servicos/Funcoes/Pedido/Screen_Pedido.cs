@@ -177,10 +177,16 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             txtID.Enabled = false;
+            txtID.Text = string.Empty;
             cbCliente.Enabled = false;
+            cbCliente.SelectedItem = null;
+            cbCliente.SelectedText = string.Empty;
+            cbCliente.Text = string.Empty;
             txtOrigem.Enabled = false;
+            txtOrigem.Text = string.Empty;
             btOrigem.Enabled = false;
             txtDestino.Enabled = false;
+            txtDestino.Text = string.Empty;
             btDestino.Enabled = false;
             btnOk.Enabled = false;
             btnCancelar.Enabled = false;
@@ -189,6 +195,8 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             btUpdate.Enabled = false;
             rdExclusivo.Enabled = false;
             rdExpresso.Enabled = false;
+
+            dgvCarga.Rows.Clear();
 
             ins = false;
             alt = false;
@@ -210,14 +218,15 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 linha["dimensoes"] = dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value;
                 linha["valor_unitario"] = dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value;
                 linha["valor"] = dgvCarga.Rows[i].Cells["Carga_Valor"].Value;
-                linha["tipo"] = dgvCarga.Rows[i].Cells["Carga_Tipo"].Value;
+                linha["tipo"] = Controle_TipoCarga.get("descricao LIKE '%" + dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString() + "%'").Rows[0];
                 DataCarga.Rows.Add(linha);
             }
         }
 
         private void LoadGrid()
         {
-            dgvCarga.Rows.Clear();
+            if(dgvCarga.Rows.Count > 0)
+                dgvCarga.Rows.Clear();
             for (int i = 0; i < DataCarga.Rows.Count; i++)
             {
                 dgvCarga.Rows.Add();
@@ -327,7 +336,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void txtCarga_TextChanged(object sender, EventArgs e)
         {
-            if (txtBuscarPedido.Text != string.Empty)
+            if (txtCarga.Text != string.Empty)
             {
                 try
                 {
@@ -467,10 +476,10 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                             break;
                     }
                 }
-                catch { }
+                catch { /*MessageBox.Show("error");*/ }
             }
             else
-                LoadGrid();            
+                LoadGrid();        
         }
 
         private void dgvCarga_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -504,11 +513,40 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             }
         }
 
+        private void Clear()
+        {
+            txtID.Enabled = false;
+            txtID.Text = string.Empty;
+            cbCliente.Enabled = false;
+            cbCliente.SelectedItem = null;
+            cbCliente.SelectedText = string.Empty;
+            cbCliente.Text = string.Empty;
+            txtOrigem.Enabled = false;
+            txtOrigem.Text = string.Empty;
+            btOrigem.Enabled = false;
+            txtDestino.Enabled = false;
+            txtDestino.Text = string.Empty;
+            btDestino.Enabled = false;
+            btnOk.Enabled = true;
+            btnCancelar.Enabled = true;
+            btMais.Enabled = false;
+            btMenos.Enabled = false;
+            btUpdate.Enabled = false;
+            rdExclusivo.Enabled = false;
+            rdExpresso.Enabled = false;
+            dgvCarga.Rows.Clear();
+
+            ins = false;
+            alt = false;
+            exc = false;
+            changebool();
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             if (ins == true)
             {
-                if (cbCliente.SelectedItem != null && txtOrigem.Text != string.Empty && txtDestino.Text != string.Empty)
+                if (cbCliente.Text != string.Empty && txtOrigem.Text != string.Empty && txtDestino.Text != string.Empty)
                 {
                     if (dgvCarga.Rows.Count > 0)
                     {
@@ -517,28 +555,35 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                             n = "Expresso";
                         else
                             n = "Exclusivo";
-                        if (!Controle_Pedido.Insert(DateTime.Now.Date, n, txtOrigem.Text, txtDestino.Text, Controle_Parametro.get().Razao_social, "Em espera", (int)cbCliente.SelectedValue, 8))
+                        
+                        if (!Controle_Pedido.Insert(DateTime.Now.Date, n, txtOrigem.Text, txtDestino.Text, Controle_Parametro.get().Razao_social, "Em espera", (int)Controle_Cliente.get(cbCliente.Text).Rows[0]["id"], Program.FUNC))
                             MessageBox.Show("Pedido não efetuado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
                         {
-                            for(int i = 0; i < dgvCarga.Rows.Count; i++)
+                            int i = 0;
+                            for (i = 0; i < dgvCarga.Rows.Count; i++)
                             {
-                                //Controle_Carga.Insert(dgvCarga.Rows[i].Cells["Carga_Descricao"].Value.ToString(),
-                                //                      Convert.ToInt32(dgvCarga.Rows[i].Cells["Carga_Volume"]),
-                                //                      Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Volume"]),
-                                //                      Convert.ToDouble(dgv))
-                            } 
+                                Controle_Carga.Insert(dgvCarga.Rows[i].Cells["Carga_Descricao"].Value.ToString(),
+                                                        Convert.ToInt32(dgvCarga.Rows[i].Cells["Carga_Volume"].Value),
+                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Peso"].Value),
+                                                        dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value.ToString(),
+                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value.ToString()),
+                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Valor"].Value.ToString()),
+                                                        dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString(),
+                                                        Controle_Pedido.MAX());
+                            }
+                            Clear();
                         }
                     }
                     else
-                        MessageBox.Show("Deve ter ao menos uma carga no pedido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Deve ter ao menos uma carga cadastrada no pedido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                     MessageBox.Show("Todos os campos obrigatórios(*) devem estar preenchidos e válidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if(alt == true)
             {
-                if (txtID.Text != string.Empty && cbCliente.SelectedItem != null && txtOrigem.Text != string.Empty && txtDestino.Text != string.Empty)
+                if (txtID.Text != string.Empty && cbCliente.Text != string.Empty && txtOrigem.Text != string.Empty && txtDestino.Text != string.Empty)
                 {
                     if (dgvCarga.Rows.Count > 0)
                     {
@@ -547,8 +592,25 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                             n = "Expresso";
                         else
                             n = "Exclusivo";
-                        if (!Controle_Pedido.Insert(DateTime.Now.Date, n, txtOrigem.Text, txtDestino.Text, Controle_Parametro.get().Razao_social, "Em espera", (int)cbCliente.SelectedValue, 8))
+
+                        if (!Controle_Pedido.Update(id, DateTime.Now.Date, n, txtOrigem.Text, txtDestino.Text, Controle_Parametro.get().Razao_social, "Em espera", (int)Controle_Cliente.get(cbCliente.Text).Rows[0]["id"], Program.FUNC))
                             MessageBox.Show("Pedido não atualizado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            Controle_Carga.DeleteByPedido(id);
+                            int i = 0;
+                            for (i = 0; i < dgvCarga.Rows.Count; i++)
+                            {
+                                Controle_Carga.Insert(dgvCarga.Rows[i].Cells["Carga_Descricao"].Value.ToString(),
+                                                        Convert.ToInt32(dgvCarga.Rows[i].Cells["Carga_Volume"].Value),
+                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Peso"].Value),
+                                                        dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value.ToString(),
+                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value.ToString()),
+                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Valor"].Value.ToString()),
+                                                        dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString(), id);
+                            }
+                            Clear();
+                        }
                     }
                     else
                         MessageBox.Show("Deve ter ao menos uma carga no pedido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -560,10 +622,18 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             {
                 if(txtID.Text != string.Empty)
                 {
-                    if (!Controle_Pedido.Delete(Convert.ToInt32(txtID.Text)))
-                        MessageBox.Show("Pedido não excluído!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if(Controle_Pedido.get("id = " + txtID.Text).Rows.Count > 0)
+                    {
+                        if (MessageBox.Show("Deseja realmente excluir o pedido (" + txtID.Text + ")?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            if (!Controle_Pedido.Delete(Convert.ToInt32(txtID.Text)))
+                                MessageBox.Show("Pedido não excluído!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            else
+                                Clear();
+                        
+                    }
                 }
             }
+            dgvPedido.DataSource = Controle_Pedido.get("");
         }
 
         private void txtID_TextChanged(object sender, EventArgs e)
@@ -615,6 +685,30 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             }
             else
                 dgvPedido.DataSource = Controle_Pedido.get("");
+        }
+
+        private void dgvPedido_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvPedido.SelectedRows.Count == 1)
+            {
+                txtID.Text = dgvPedido.SelectedRows[0].Cells["Pedido_ID"].Value.ToString();
+                cbCliente.Text = dgvPedido.SelectedRows[0].Cells["Pedido_Cliente"].Value.ToString();           
+                txtOrigem.Text = dgvPedido.SelectedRows[0].Cells["Pedido_Origem"].Value.ToString();
+                txtDestino.Text = dgvPedido.SelectedRows[0].Cells["Pedido_Destino"].Value.ToString();
+                if (dgvPedido.SelectedRows[0].Cells["Pedido_Modalidade"].Value.ToString() == "Expresso")
+                {
+                    rdExpresso.Checked = true;
+                    rdExclusivo.Checked = false;
+                }
+                else
+                {
+                    rdExpresso.Checked = false;
+                    rdExclusivo.Checked = true;
+                }
+
+                DataCarga = Controle_Carga.get("pedido = " + Convert.ToInt32(txtID.Text));
+                LoadGrid();
+            }
         }
     }
 }

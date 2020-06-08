@@ -68,12 +68,12 @@ namespace GlobalHost.Persistencia
             {
                 fun = new Funcionario((int)dt.Rows[0]["id"],
                                     dt.Rows[0]["nome"].ToString(),
-                                    (DateTime)dt.Rows[0]["dtnascimento"],
+                                    Convert.ToDateTime(dt.Rows[0]["dtnascimento"]),
                                     dt.Rows[0]["cpf"].ToString(),
-                                    (double)dt.Rows[0]["salario"],
+                                    Convert.ToDouble(dt.Rows[0]["salario"]),
                                     dt.Rows[0]["endereco"].ToString(),
-                                    (DateTime)dt.Rows[0]["dtadmissao"],
-                                    (DateTime)dt.Rows[0]["dtdemissao"],
+                                    Convert.ToDateTime(dt.Rows[0]["dtadmissao"]),
+                                    Convert.ToDateTime(dt.Rows[0]["dtdemissao"]),
                                     dt.Rows[0]["telefone"].ToString(),
                                     dt.Rows[0]["email"].ToString(),
                                     DB.get((int)dt.Rows[0]["login"]));

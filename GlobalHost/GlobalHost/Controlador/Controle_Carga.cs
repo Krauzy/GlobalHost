@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GlobalHost.Controlador
 {
@@ -16,7 +17,7 @@ namespace GlobalHost.Controlador
             CargaDB db = new CargaDB();
             Tipo_CargaDB tipos = new Tipo_CargaDB();
             PedidoDB pedDB = new PedidoDB();
-            Tipo_Carga tc = (Tipo_Carga)tipos.getList("tipo LIKE '%" + tipo + "%'")[0];
+            Tipo_Carga tc = tipos.get(tipo);
             return db.Insert(new Carga(descricao, volume, peso, dim, vu, vt, tc, pedDB.get(pedido)));
         }
 
@@ -26,7 +27,13 @@ namespace GlobalHost.Controlador
             return cargas.Delete(id);
         }
 
-        public static bool Update (string descricao, int volume, double peso, string dim, double vu, double vt, string tipo, int pedido)
+        public static bool DeleteByPedido(int id)
+        {
+            CargaDB db = new CargaDB();
+            return db.DeleteByPedido(id);
+        }
+
+        public static bool Update(string descricao, int volume, double peso, string dim, double vu, double vt, string tipo, int pedido)
         {
             CargaDB db = new CargaDB();
             Tipo_CargaDB tipos = new Tipo_CargaDB();
@@ -59,7 +66,7 @@ namespace GlobalHost.Controlador
             table.Columns.Add("dimensoes", typeof(string));
             table.Columns.Add("valor_unitario", typeof(double));
             table.Columns.Add("valor", typeof(double));
-            table.Columns.Add("tipo", typeof(Tipo_Carga));
+            table.Columns.Add("tipo", typeof(string));
             table.Columns.Add("pedido", typeof(Pedido));
             list.Remove(null);
             foreach (var item in list)
@@ -73,7 +80,7 @@ namespace GlobalHost.Controlador
                 linha["dimensoes"] = c.Dimensoes;
                 linha["valor_unitario"] = c.Valor_Unitario;
                 linha["valor"] = c.Valor;
-                linha["tipo"] = c.Tipo;
+                linha["tipo"] = c.Tipo.Descricao;
                 linha["pedido"] = c.Pedido;
                 table.Rows.Add(linha);
             }

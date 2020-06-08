@@ -41,6 +41,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
+            this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetPedido = new GlobalHost.DataSetPedido();
             this.label11 = new System.Windows.Forms.Label();
             this.txtBuscarPedido = new System.Windows.Forms.TextBox();
             this.cbFiltroPedido = new System.Windows.Forms.ComboBox();
@@ -54,6 +56,14 @@
             this.btMais = new System.Windows.Forms.Button();
             this.cbFiltroCarga = new System.Windows.Forms.ComboBox();
             this.dgvCarga = new System.Windows.Forms.DataGridView();
+            this.Carga_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_Volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_Dimensoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_ValorUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carga_Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripAlterar = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,19 +80,6 @@
             this.btnInserir = new System.Windows.Forms.Button();
             this.txtCarga = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataSetCarga = new GlobalHost.DataSetCarga();
-            this.cargaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cargaTableAdapter = new GlobalHost.DataSetCargaTableAdapters.CargaTableAdapter();
-            this.Carga_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Dimensoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_ValorUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carga_Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataSetPedido = new GlobalHost.DataSetPedido();
-            this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pedidoTableAdapter = new GlobalHost.DataSetPedidoTableAdapters.PedidoTableAdapter();
             this.Pedido_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pedido_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,13 +92,11 @@
             this.Pedido_Funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pedido_Remessa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).BeginInit();
             this.MenuStrip.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCarga)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetPedido)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -213,6 +208,17 @@
             this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedido.Size = new System.Drawing.Size(339, 376);
             this.dgvPedido.TabIndex = 43;
+            this.dgvPedido.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellDoubleClick);
+            // 
+            // pedidoBindingSource
+            // 
+            this.pedidoBindingSource.DataMember = "Pedido";
+            this.pedidoBindingSource.DataSource = this.dataSetPedido;
+            // 
+            // dataSetPedido
+            // 
+            this.dataSetPedido.DataSetName = "DataSetPedido";
+            this.dataSetPedido.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label11
             // 
@@ -401,7 +407,6 @@
             // 
             this.dgvCarga.AllowUserToAddRows = false;
             this.dgvCarga.AllowUserToResizeRows = false;
-            this.dgvCarga.AutoGenerateColumns = false;
             this.dgvCarga.BackgroundColor = System.Drawing.Color.White;
             this.dgvCarga.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvCarga.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -424,7 +429,6 @@
             this.Carga_Valor,
             this.Carga_Tipo});
             this.dgvCarga.ContextMenuStrip = this.MenuStrip;
-            this.dgvCarga.DataSource = this.cargaBindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -449,6 +453,61 @@
             this.dgvCarga.Size = new System.Drawing.Size(463, 107);
             this.dgvCarga.TabIndex = 40;
             this.dgvCarga.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarga_CellDoubleClick);
+            // 
+            // Carga_ID
+            // 
+            this.Carga_ID.DataPropertyName = "id";
+            this.Carga_ID.HeaderText = "ID";
+            this.Carga_ID.Name = "Carga_ID";
+            this.Carga_ID.Width = 50;
+            // 
+            // Carga_Descricao
+            // 
+            this.Carga_Descricao.DataPropertyName = "descricao";
+            this.Carga_Descricao.HeaderText = "Descrição";
+            this.Carga_Descricao.Name = "Carga_Descricao";
+            this.Carga_Descricao.Width = 200;
+            // 
+            // Carga_Volume
+            // 
+            this.Carga_Volume.DataPropertyName = "volume";
+            this.Carga_Volume.HeaderText = "Volume";
+            this.Carga_Volume.Name = "Carga_Volume";
+            this.Carga_Volume.Width = 50;
+            // 
+            // Carga_Peso
+            // 
+            this.Carga_Peso.DataPropertyName = "peso";
+            this.Carga_Peso.HeaderText = "Peso";
+            this.Carga_Peso.Name = "Carga_Peso";
+            this.Carga_Peso.Width = 60;
+            // 
+            // Carga_Dimensoes
+            // 
+            this.Carga_Dimensoes.DataPropertyName = "dimensoes";
+            this.Carga_Dimensoes.HeaderText = "Dimensões";
+            this.Carga_Dimensoes.Name = "Carga_Dimensoes";
+            // 
+            // Carga_ValorUnit
+            // 
+            this.Carga_ValorUnit.DataPropertyName = "valor_unitario";
+            this.Carga_ValorUnit.HeaderText = "Valor Unitário";
+            this.Carga_ValorUnit.Name = "Carga_ValorUnit";
+            this.Carga_ValorUnit.Width = 50;
+            // 
+            // Carga_Valor
+            // 
+            this.Carga_Valor.DataPropertyName = "valor";
+            this.Carga_Valor.HeaderText = "Valor";
+            this.Carga_Valor.Name = "Carga_Valor";
+            this.Carga_Valor.Width = 50;
+            // 
+            // Carga_Tipo
+            // 
+            this.Carga_Tipo.DataPropertyName = "tipo";
+            this.Carga_Tipo.HeaderText = "Tipo";
+            this.Carga_Tipo.Name = "Carga_Tipo";
+            this.Carga_Tipo.Width = 80;
             // 
             // MenuStrip
             // 
@@ -658,86 +717,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gerenciamento de Carga";
             // 
-            // dataSetCarga
-            // 
-            this.dataSetCarga.DataSetName = "DataSetCarga";
-            this.dataSetCarga.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cargaBindingSource
-            // 
-            this.cargaBindingSource.DataMember = "Carga";
-            this.cargaBindingSource.DataSource = this.dataSetCarga;
-            // 
-            // cargaTableAdapter
-            // 
-            this.cargaTableAdapter.ClearBeforeFill = true;
-            // 
-            // Carga_ID
-            // 
-            this.Carga_ID.DataPropertyName = "id";
-            this.Carga_ID.HeaderText = "ID";
-            this.Carga_ID.Name = "Carga_ID";
-            this.Carga_ID.ReadOnly = true;
-            this.Carga_ID.Width = 50;
-            // 
-            // Carga_Descricao
-            // 
-            this.Carga_Descricao.DataPropertyName = "descricao";
-            this.Carga_Descricao.HeaderText = "Descrição";
-            this.Carga_Descricao.Name = "Carga_Descricao";
-            this.Carga_Descricao.Width = 200;
-            // 
-            // Carga_Volume
-            // 
-            this.Carga_Volume.DataPropertyName = "volume";
-            this.Carga_Volume.HeaderText = "Volume";
-            this.Carga_Volume.Name = "Carga_Volume";
-            this.Carga_Volume.Width = 50;
-            // 
-            // Carga_Peso
-            // 
-            this.Carga_Peso.DataPropertyName = "peso";
-            this.Carga_Peso.HeaderText = "Peso";
-            this.Carga_Peso.Name = "Carga_Peso";
-            this.Carga_Peso.Width = 60;
-            // 
-            // Carga_Dimensoes
-            // 
-            this.Carga_Dimensoes.DataPropertyName = "dimensoes";
-            this.Carga_Dimensoes.HeaderText = "Dimensões";
-            this.Carga_Dimensoes.Name = "Carga_Dimensoes";
-            // 
-            // Carga_ValorUnit
-            // 
-            this.Carga_ValorUnit.DataPropertyName = "valor_unitario";
-            this.Carga_ValorUnit.HeaderText = "Valor Unitário";
-            this.Carga_ValorUnit.Name = "Carga_ValorUnit";
-            this.Carga_ValorUnit.Width = 50;
-            // 
-            // Carga_Valor
-            // 
-            this.Carga_Valor.DataPropertyName = "valor";
-            this.Carga_Valor.HeaderText = "Valor";
-            this.Carga_Valor.Name = "Carga_Valor";
-            this.Carga_Valor.Width = 50;
-            // 
-            // Carga_Tipo
-            // 
-            this.Carga_Tipo.DataPropertyName = "tipo";
-            this.Carga_Tipo.HeaderText = "Tipo";
-            this.Carga_Tipo.Name = "Carga_Tipo";
-            this.Carga_Tipo.Width = 80;
-            // 
-            // dataSetPedido
-            // 
-            this.dataSetPedido.DataSetName = "DataSetPedido";
-            this.dataSetPedido.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pedidoBindingSource
-            // 
-            this.pedidoBindingSource.DataMember = "Pedido";
-            this.pedidoBindingSource.DataSource = this.dataSetPedido;
-            // 
             // pedidoTableAdapter
             // 
             this.pedidoTableAdapter.ClearBeforeFill = true;
@@ -754,30 +733,35 @@
             this.Pedido_Data.DataPropertyName = "data";
             this.Pedido_Data.HeaderText = "Data do Pedido";
             this.Pedido_Data.Name = "Pedido_Data";
+            this.Pedido_Data.ReadOnly = true;
             // 
             // Pedido_Modalidade
             // 
             this.Pedido_Modalidade.DataPropertyName = "modalidade";
             this.Pedido_Modalidade.HeaderText = "Modalidade";
             this.Pedido_Modalidade.Name = "Pedido_Modalidade";
+            this.Pedido_Modalidade.ReadOnly = true;
             // 
             // Pedido_Origem
             // 
             this.Pedido_Origem.DataPropertyName = "origem";
             this.Pedido_Origem.HeaderText = "Origem";
             this.Pedido_Origem.Name = "Pedido_Origem";
+            this.Pedido_Origem.ReadOnly = true;
             // 
             // Pedido_Destino
             // 
             this.Pedido_Destino.DataPropertyName = "destino";
             this.Pedido_Destino.HeaderText = "Destino";
             this.Pedido_Destino.Name = "Pedido_Destino";
+            this.Pedido_Destino.ReadOnly = true;
             // 
             // Pedido_Despachante
             // 
             this.Pedido_Despachante.DataPropertyName = "despachante";
             this.Pedido_Despachante.HeaderText = "Despachante";
             this.Pedido_Despachante.Name = "Pedido_Despachante";
+            this.Pedido_Despachante.ReadOnly = true;
             this.Pedido_Despachante.Width = 200;
             // 
             // Pedido_Situacao
@@ -785,24 +769,28 @@
             this.Pedido_Situacao.DataPropertyName = "situacao";
             this.Pedido_Situacao.HeaderText = "Situação";
             this.Pedido_Situacao.Name = "Pedido_Situacao";
+            this.Pedido_Situacao.ReadOnly = true;
             // 
             // Pedido_Cliente
             // 
             this.Pedido_Cliente.DataPropertyName = "cliente";
             this.Pedido_Cliente.HeaderText = "Cliente";
             this.Pedido_Cliente.Name = "Pedido_Cliente";
+            this.Pedido_Cliente.ReadOnly = true;
             // 
             // Pedido_Funcionario
             // 
             this.Pedido_Funcionario.DataPropertyName = "funcionario";
             this.Pedido_Funcionario.HeaderText = "Funcionário";
             this.Pedido_Funcionario.Name = "Pedido_Funcionario";
+            this.Pedido_Funcionario.ReadOnly = true;
             // 
             // Pedido_Remessa
             // 
             this.Pedido_Remessa.DataPropertyName = "remessa";
             this.Pedido_Remessa.HeaderText = "Remessa";
             this.Pedido_Remessa.Name = "Pedido_Remessa";
+            this.Pedido_Remessa.ReadOnly = true;
             // 
             // Screen_Pedido
             // 
@@ -837,14 +825,12 @@
             this.Name = "Screen_Pedido";
             this.Size = new System.Drawing.Size(1031, 562);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetPedido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).EndInit();
             this.MenuStrip.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetCarga)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cargaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetPedido)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -887,6 +873,9 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripAlterar;
         private System.Windows.Forms.TextBox txtCarga;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.BindingSource pedidoBindingSource;
+        private DataSetPedido dataSetPedido;
+        private DataSetPedidoTableAdapters.PedidoTableAdapter pedidoTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carga_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Volume;
@@ -895,12 +884,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Carga_ValorUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Tipo;
-        private System.Windows.Forms.BindingSource cargaBindingSource;
-        private DataSetCarga dataSetCarga;
-        private DataSetCargaTableAdapters.CargaTableAdapter cargaTableAdapter;
-        private System.Windows.Forms.BindingSource pedidoBindingSource;
-        private DataSetPedido dataSetPedido;
-        private DataSetPedidoTableAdapters.PedidoTableAdapter pedidoTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Modalidade;

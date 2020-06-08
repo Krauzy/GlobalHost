@@ -8,7 +8,6 @@ namespace GlobalHost.Controlador
 {
     class Controle_TipoCarga
     {
-        //Tipo_Carga
         public static bool insert(string descricao, double peso, string dimsensoes)
         {
             Tipo_Carga tc = new Tipo_Carga(descricao, peso, dimsensoes);

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GlobalHost.Persistencia
 {
@@ -22,9 +23,10 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Carga))
             {
                 Carga c = (Carga)obj;
+                MessageBox.Show("1");
                 string SQL = @"INSERT INTO Carga (descricao, volume, peso, dimensoes, valor_unitario, valor, tipo, pedido) VALUES (@desc, @vol, @peso, @dim, @unit, @tot, @tipo, @ped)";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, "@desc", c.Descricao, "@vol", c.Volume, "@peso", c.Peso, "@dim", c.Dimensoes, "@unit", c.Valor_Unitario, "@tot", c.Valor, "@tipo", c.Tipo, "@ped", c.Pedido);
+                result = banco.ExecuteNonQuery(SQL, "@desc", c.Descricao, "@vol", c.Volume, "@peso", c.Peso, "@dim", c.Dimensoes, "@unit", c.Valor_Unitario, "@tot", c.Valor, "@tipo", c.Tipo.Id, "@ped", c.Pedido.Id);
                 banco.Disconnect();
             }
             return result;
@@ -33,6 +35,15 @@ namespace GlobalHost.Persistencia
         public bool Delete(int id)
         {
             string SQL = @"DELETE FROM Carga WHERE id = " + id;
+            banco.Connect();
+            bool result = banco.ExecuteNonQuery(SQL);
+            banco.Disconnect();
+            return result;
+        }
+
+        public bool DeleteByPedido(int id)
+        {
+            string SQL = @"DELETE FROM Carga WHERE pedido = " + id;
             banco.Connect();
             bool result = banco.ExecuteNonQuery(SQL);
             banco.Disconnect();
