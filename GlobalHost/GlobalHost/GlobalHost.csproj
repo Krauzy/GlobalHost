@@ -478,6 +478,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GlobalDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\bba.png" />
     <None Include="Resources\icons8-atualizações-disponíveis-18.png" />
     <None Include="Resources\icons8-visível-18.png" />
     <None Include="Resources\user100.png" />

@@ -36,7 +36,6 @@
             this.btHome = new System.Windows.Forms.Button();
             this.btClose = new System.Windows.Forms.Button();
             this.brMinimize = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.paneServ = new System.Windows.Forms.Panel();
             this.btVoltar = new System.Windows.Forms.Button();
             this.btRel = new System.Windows.Forms.Button();
@@ -64,19 +63,20 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
-            this.scrFuncionario = new GlobalHost.Visao.Servicos.Screen_Funcionarios();
+            this.scrPedido = new GlobalHost.Visao.Servicos.Funcoes.Screen_Pedido();
             this.scrTrans = new GlobalHost.Visao.Servicos.Screen_Transportadora();
             this.scrTipo_Transporte = new GlobalHost.Visao.Servicos.ScreenTipo_Transporte();
             this.pnHome = new GlobalHost.Visao.PaneHome();
             this.ScreenSobre = new GlobalHost.Visao.Sobre();
             this.ScreenCotacao = new GlobalHost.Visao.Cotacao();
-            this.scrPedido = new GlobalHost.Visao.Servicos.Funcoes.Screen_Pedido();
+            this.scrFuncionario = new GlobalHost.Visao.Servicos.Screen_Funcionarios();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.paneMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.paneServ.SuspendLayout();
             this.pnGerenciamento.SuspendLayout();
             this.pnFuncoes.SuspendLayout();
             this.pnRelatorios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // paneMenu
@@ -183,17 +183,6 @@
             this.brMinimize.Click += new System.EventHandler(this.brMinimize_Click);
             this.brMinimize.MouseEnter += new System.EventHandler(this.brMinimize_MouseEnter);
             this.brMinimize.MouseLeave += new System.EventHandler(this.brMinimize_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = global::GlobalHost.Properties.Resources.logo_cgf_200x47;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 47);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // paneServ
             // 
@@ -578,13 +567,13 @@
             this.button15.Text = "REMESSA";
             this.button15.UseVisualStyleBackColor = false;
             // 
-            // scrFuncionario
+            // scrPedido
             // 
-            this.scrFuncionario.BackColor = System.Drawing.Color.White;
-            this.scrFuncionario.Location = new System.Drawing.Point(225, 27);
-            this.scrFuncionario.Name = "scrFuncionario";
-            this.scrFuncionario.Size = new System.Drawing.Size(1031, 562);
-            this.scrFuncionario.TabIndex = 14;
+            this.scrPedido.BackColor = System.Drawing.Color.White;
+            this.scrPedido.Location = new System.Drawing.Point(225, 27);
+            this.scrPedido.Name = "scrPedido";
+            this.scrPedido.Size = new System.Drawing.Size(1031, 562);
+            this.scrPedido.TabIndex = 16;
             // 
             // scrTrans
             // 
@@ -626,13 +615,24 @@
             this.ScreenCotacao.Size = new System.Drawing.Size(1031, 562);
             this.ScreenCotacao.TabIndex = 5;
             // 
-            // scrPedido
+            // scrFuncionario
             // 
-            this.scrPedido.BackColor = System.Drawing.Color.White;
-            this.scrPedido.Location = new System.Drawing.Point(225, 27);
-            this.scrPedido.Name = "scrPedido";
-            this.scrPedido.Size = new System.Drawing.Size(1031, 562);
-            this.scrPedido.TabIndex = 16;
+            this.scrFuncionario.BackColor = System.Drawing.Color.White;
+            this.scrFuncionario.Location = new System.Drawing.Point(225, 27);
+            this.scrFuncionario.Name = "scrFuncionario";
+            this.scrFuncionario.Size = new System.Drawing.Size(1031, 562);
+            this.scrFuncionario.TabIndex = 14;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Image = global::GlobalHost.Properties.Resources.logo_cgf_200x47;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 47);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Menu
             // 
@@ -661,11 +661,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.paneMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.paneServ.ResumeLayout(false);
             this.pnGerenciamento.ResumeLayout(false);
             this.pnFuncoes.ResumeLayout(false);
             this.pnRelatorios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

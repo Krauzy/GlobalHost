@@ -83,6 +83,16 @@ namespace GlobalHost.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bba {
+            get {
+                object obj = ResourceManager.GetObject("bba", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancel {
             get {
                 object obj = ResourceManager.GetObject("cancel", resourceCulture);
@@ -206,6 +216,16 @@ namespace GlobalHost.Properties {
         internal static System.Drawing.Bitmap insert2 {
             get {
                 object obj = ResourceManager.GetObject("insert2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap itau_bba_logo_4 {
+            get {
+                object obj = ResourceManager.GetObject("itau-bba-logo-4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

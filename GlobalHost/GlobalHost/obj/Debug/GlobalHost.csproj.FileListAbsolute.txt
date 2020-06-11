@@ -96,6 +96,4 @@ C:\Users\PICHAU\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\G
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_RealizarPagamento.resources
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Pedido.Screen_Carga.resources
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csprojAssemblyReference.cache
-C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\BoletoFacilSDK.dll
-C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\bin\Debug\BoletoFacilSDK.xml
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_Orcamento.resources
