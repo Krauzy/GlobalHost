@@ -15,11 +15,11 @@ namespace GlobalHost
         {
             Program.Global_User = "Admin";
             Program.FUNC = 12;
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Visao.Screen_Login());
-            Application.Run(new Visao.Menu());
-            //Application.Run(new Screen_Carga(Screen_Carga.INSERT));
+            //Application.Run(new Visao.Menu());
+            API.Boleto.make();
         }
     }
 }

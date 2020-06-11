@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Animation.cs" />
+    <Compile Include="API\Boleto.cs" />
     <Compile Include="API\CEP.cs" />
     <Compile Include="API\Filters.cs" />
     <Compile Include="API\Loading.cs" />
@@ -199,6 +200,12 @@
     <Compile Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.Designer.cs">
       <DependentUpon>Screen_Pedido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Screen_Orcamento.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Screen_Orcamento.Designer.cs">
+      <DependentUpon>Screen_Orcamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Servicos\Funcoes\Screen_RealizarPagamento.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -274,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.resx">
       <DependentUpon>Screen_Pedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_Orcamento.resx">
+      <DependentUpon>Screen_Orcamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_RealizarPagamento.resx">
       <DependentUpon>Screen_RealizarPagamento.cs</DependentUpon>
