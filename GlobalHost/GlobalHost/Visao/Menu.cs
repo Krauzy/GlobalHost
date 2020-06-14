@@ -20,7 +20,6 @@ namespace GlobalHost.Visao
         {
             InitializeComponent();
             paneMenu.BringToFront();
-            //
             btHome.ForeColor = Color.White;
             btHome.BackColor = Color.FromArgb(0, 122, 204);
             cot = false;
@@ -28,8 +27,7 @@ namespace GlobalHost.Visao
             ser = false;
             sobre = false;
             changeBool();
-            pnHome.BringToFront();
-            //
+            paneHome.BringToFront();
         }
 
         public void LoadLogo()
@@ -143,7 +141,7 @@ namespace GlobalHost.Visao
             ser = false;
             sobre = false;
             changeBool();
-            pnHome.BringToFront();
+            paneHome.BringToFront();
         }
 
         private void btServ_Click(object sender, EventArgs e)
@@ -155,7 +153,6 @@ namespace GlobalHost.Visao
             ser = true;
             sobre = false;
             changeBool();
-            pnHome.BringToFront();
             paneServ.BringToFront();
             btGer.ForeColor = Color.White;
             btGer.BackColor = Color.FromArgb(0, 122, 204);
@@ -220,7 +217,7 @@ namespace GlobalHost.Visao
             ser = false;
             sobre = false;
             changeBool();
-            pnHome.BringToFront();
+            paneHome.BringToFront();
             paneMenu.BringToFront();
         }
 
@@ -239,8 +236,8 @@ namespace GlobalHost.Visao
             fun = false;
             rel = false;
             changeBoolServ();
-            scrTrans.load();
-            scrTrans.BringToFront();
+            screen_Transportadora.load();
+            screen_Transportadora.BringToFront();
         }
 
         private void btFuncionario_Click(object sender, EventArgs e)

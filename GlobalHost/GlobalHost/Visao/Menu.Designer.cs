@@ -42,6 +42,7 @@
             this.btFun = new System.Windows.Forms.Button();
             this.btGer = new System.Windows.Forms.Button();
             this.pnGerenciamento = new System.Windows.Forms.Panel();
+            this.paneHome = new GlobalHost.Visao.PaneHome();
             this.btTransportadora = new System.Windows.Forms.Button();
             this.btCliente = new System.Windows.Forms.Button();
             this.btTipoTransporte = new System.Windows.Forms.Button();
@@ -70,6 +71,7 @@
             this.scrFuncionario = new GlobalHost.Visao.Servicos.Screen_Funcionarios();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.scrRemessa = new GlobalHost.Visao.Servicos.Gerencia.Screen_Remessa();
+            this.screen_Transportadora = new GlobalHost.Visao.Servicos.Screen_Transportadora();
             this.paneMenu.SuspendLayout();
             this.paneServ.SuspendLayout();
             this.pnGerenciamento.SuspendLayout();
@@ -266,6 +268,14 @@
             this.pnGerenciamento.Name = "pnGerenciamento";
             this.pnGerenciamento.Size = new System.Drawing.Size(1031, 562);
             this.pnGerenciamento.TabIndex = 8;
+            // 
+            // paneHome
+            // 
+            this.paneHome.BackColor = System.Drawing.Color.White;
+            this.paneHome.Location = new System.Drawing.Point(225, 27);
+            this.paneHome.Name = "paneHome";
+            this.paneHome.Size = new System.Drawing.Size(1031, 562);
+            this.paneHome.TabIndex = 18;
             // 
             // btTransportadora
             // 
@@ -625,12 +635,21 @@
             this.scrRemessa.Size = new System.Drawing.Size(1031, 562);
             this.scrRemessa.TabIndex = 17;
             // 
+            // screen_Transportadora
+            // 
+            this.screen_Transportadora.BackColor = System.Drawing.Color.White;
+            this.screen_Transportadora.Location = new System.Drawing.Point(225, 27);
+            this.screen_Transportadora.Name = "screen_Transportadora";
+            this.screen_Transportadora.Size = new System.Drawing.Size(1031, 562);
+            this.screen_Transportadora.TabIndex = 19;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1255, 590);
+            this.Controls.Add(this.screen_Transportadora);
             this.Controls.Add(this.brMinimize);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.pictureBox1);
@@ -645,6 +664,7 @@
             this.Controls.Add(this.scrTipo_Transporte);
             this.Controls.Add(this.ScreenSobre);
             this.Controls.Add(this.ScreenCotacao);
+            this.Controls.Add(this.paneHome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
@@ -673,7 +693,6 @@
         private System.Windows.Forms.Button btHome;
         private Cotacao ScreenCotacao;
         private Sobre ScreenSobre;
-        private PaneHome pnHome;
         private System.Windows.Forms.Panel paneServ;
         private System.Windows.Forms.Button btVoltar;
         private System.Windows.Forms.Button btRel;
@@ -702,10 +721,10 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button18;
         private Servicos.ScreenTipo_Transporte scrTipo_Transporte;
-        //private Servicos.Screen_Transportadora scrTransportadora;
         private Servicos.Screen_Funcionarios scrFuncionario;
-        private Servicos.Screen_Transportadora scrTrans;
         private Servicos.Funcoes.Screen_Pedido scrPedido;
         private Servicos.Gerencia.Screen_Remessa scrRemessa;
+        private PaneHome paneHome;
+        private Servicos.Screen_Transportadora screen_Transportadora;
     }
 }

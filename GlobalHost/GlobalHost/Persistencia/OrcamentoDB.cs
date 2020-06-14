@@ -25,7 +25,7 @@ namespace GlobalHost.Persistencia
         //        Orcamento o = (Orcamento)obj;
         //        string SQL = @"INSERT INTO Carga (valor, data, validade, pedido, transportadora) VALUES (@valor, @data, @validade, @pedido, @transportadora)";
         //        banco.Connect();
-        //        banco.ExecuteNonQuery(SQL, "@valor", )
+        //        banco.ExecuteNonQuery(SQL, "@valor", o.Valor, "@data", o.Data, "@validade", o.Vencimento)
         //    }
         //}
     }
