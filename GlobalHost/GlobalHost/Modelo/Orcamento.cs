@@ -27,7 +27,6 @@ namespace GlobalHost.Modelo
 
         public Orcamento(double valor, DateTime data, DateTime vencimento, Pedido pedido, Transportadora transportadora)
         {
-            //this.id = id;
             this.valor = valor;
             this.data = data;
             this.vencimento = vencimento;

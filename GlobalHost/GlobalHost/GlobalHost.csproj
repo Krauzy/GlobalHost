@@ -146,6 +146,7 @@
     <Compile Include="Persistencia\FuncionarioDB.cs" />
     <Compile Include="Persistencia\ClienteDB.cs" />
     <Compile Include="Persistencia\LoginDB.cs" />
+    <Compile Include="Persistencia\OrcamentoDB.cs" />
     <Compile Include="Persistencia\ParametrosDB.cs" />
     <Compile Include="Persistencia\PedidoDB.cs" />
     <Compile Include="Persistencia\RemessaDB.cs" />
