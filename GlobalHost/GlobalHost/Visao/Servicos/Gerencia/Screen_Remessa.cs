@@ -15,6 +15,18 @@ namespace GlobalHost.Visao.Servicos.Gerencia
         public Screen_Remessa()
         {
             InitializeComponent();
+            txtID.Enabled = false;
+
+            txtDescricao.Enabled = false;
+            txtDestino.Enabled = false;
+            txtOrigem.Enabled = false;
+            dtpPrevisao.Enabled = false;
+            dtpRequerimento.Enabled = false;
+            dtpSaida.Enabled = false;
+            dgvPedido.Enabled = false;
+            
+
+
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
