@@ -101,6 +101,7 @@
     <Compile Include="Controlador\Controle_Parametro.cs" />
     <Compile Include="Controlador\Controle_Cliente.cs" />
     <Compile Include="Controlador\Controle_Pedido.cs" />
+    <Compile Include="Controlador\Controle_Remessa.cs" />
     <Compile Include="Controlador\Controle_TipoCarga.cs" />
     <Compile Include="Controlador\Controle_TipoTransporte.cs" />
     <Compile Include="Controlador\Controle_Transportadora.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="Persistencia\LoginDB.cs" />
     <Compile Include="Persistencia\ParametrosDB.cs" />
     <Compile Include="Persistencia\PedidoDB.cs" />
+    <Compile Include="Persistencia\RemessaDB.cs" />
     <Compile Include="Persistencia\Tipo_CargaDB.cs" />
     <Compile Include="Persistencia\Tipo_TransporteDB.cs" />
     <Compile Include="Persistencia\TransportadoraDB.cs" />
@@ -217,6 +219,12 @@
     </Compile>
     <Compile Include="Visao\Servicos\Gerencia\Screen_Cliente.Designer.cs">
       <DependentUpon>Screen_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Servicos\Gerencia\Screen_Remessa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Gerencia\Screen_Remessa.Designer.cs">
+      <DependentUpon>Screen_Remessa.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Servicos\Gerencia\Screen_TipoCarga.cs">
       <SubType>Form</SubType>
@@ -296,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Gerencia\Screen_Funcionarios.resx">
       <DependentUpon>Screen_Funcionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Gerencia\Screen_Remessa.resx">
+      <DependentUpon>Screen_Remessa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Gerencia\Screen_TipoCarga.resx">
       <DependentUpon>Screen_TipoCarga.cs</DependentUpon>
