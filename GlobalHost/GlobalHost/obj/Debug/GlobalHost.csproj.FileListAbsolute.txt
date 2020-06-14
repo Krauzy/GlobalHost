@@ -97,8 +97,3 @@ C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\Gl
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Pedido.Screen_Carga.resources
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csprojAssemblyReference.cache
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_Orcamento.resources
-C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.CEPTool.resources
-C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Pedido.Screen_Carga.resources
-C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_Pedido.resources
-C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_Orcamento.resources
-C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_RealizarPagamento.resources
