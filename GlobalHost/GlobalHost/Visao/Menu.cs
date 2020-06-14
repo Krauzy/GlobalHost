@@ -272,5 +272,14 @@ namespace GlobalHost.Visao
             changeBoolServ();
             scrPedido.BringToFront();
         }
+
+        private void btRemessa_Click(object sender, EventArgs e)
+        {
+            ger = false;
+            fun = false;
+            rel = false;
+            changeBoolServ();
+            scrRemessa.BringToFront();
+        }
     }
 }
