@@ -17,16 +17,16 @@ namespace GlobalHost.Persistencia
             this.banco = new Banco();
         }
 
-        public bool Insert (object obj)
-        {
-            bool result = false;
-            if(obj.GetType() == typeof(Orcamento))
-            {
-                Orcamento o = (Orcamento)obj;
-                string SQL = @"INSERT INTO Carga (valor, data, validade, pedido, transportadora) VALUES (@valor, @data, @validade, @pedido, @transportadora)";
-                banco.Connect();
-                banco.ExecuteNonQuery(SQL, "@valor", )
-            }
-        }
+        //public bool Insert (object obj)
+        //{
+        //    bool result = false;
+        //    if(obj.GetType() == typeof(Orcamento))
+        //    {
+        //        Orcamento o = (Orcamento)obj;
+        //        string SQL = @"INSERT INTO Carga (valor, data, validade, pedido, transportadora) VALUES (@valor, @data, @validade, @pedido, @transportadora)";
+        //        banco.Connect();
+        //        banco.ExecuteNonQuery(SQL, "@valor", )
+        //    }
+        //}
     }
 }
