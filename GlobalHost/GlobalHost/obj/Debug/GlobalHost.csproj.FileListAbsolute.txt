@@ -102,3 +102,4 @@ C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\ob
 C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_Pedido.resources
 C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_Orcamento.resources
 C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_RealizarPagamento.resources
+C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Gerencia.Screen_Remessa.resources

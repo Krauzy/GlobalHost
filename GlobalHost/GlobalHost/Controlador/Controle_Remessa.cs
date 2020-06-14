@@ -11,16 +11,20 @@ namespace GlobalHost.Controlador
 {
     class Controle_Remessa
     {
-        public static bool insert(string descricao, string origem, string destino, DataTable saida, DataTable previsao, DataTable requerida, Transportadora transportadora)
+        public static bool insert(string descricao, string origem, string destino, DateTime saida, DateTime previsao, DateTime requerida, int transportadora)
         {
-
-            return false;
+            RemessaDB DB = new RemessaDB();
+            TransportadoraDB dbT = new TransportadoraDB();
+            Remessa r = new Remessa(descricao, origem, destino, saida, previsao, requerida, dbT.get(transportadora));
+            return DB.Insert(r);
         }
 
-        public static bool update(string descricao, string origem, string destino, DataTable saida, DataTable previsao, DataTable requerida, Transportadora transportadora)
+        public static bool update(int id, string descricao, string origem, string destino, DateTime saida, DateTime previsao, DateTime requerida, int transportadora)
         {
-
-            return false;
+            RemessaDB DB = new RemessaDB();
+            TransportadoraDB dbT = new TransportadoraDB();
+            Remessa r = new Remessa(id, descricao, origem, destino, saida, previsao, requerida, dbT.get(transportadora));
+            return DB.Update(r);
         }
 
         public static bool delete(int id)
