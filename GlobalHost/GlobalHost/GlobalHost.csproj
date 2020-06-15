@@ -98,6 +98,7 @@
     <Compile Include="Controlador\Controle_Despesa.cs" />
     <Compile Include="Controlador\Controle_Funcionario.cs" />
     <Compile Include="Controlador\Controle_Login.cs" />
+    <Compile Include="Controlador\Controle_Orcamento.cs" />
     <Compile Include="Controlador\Controle_Parametro.cs" />
     <Compile Include="Controlador\Controle_Cliente.cs" />
     <Compile Include="Controlador\Controle_Pedido.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Recebimento.cs" />
     <Compile Include="Modelo\Remessa.cs" />
+    <Compile Include="Modelo\Taxa.cs" />
     <Compile Include="Modelo\Tipo_Carga.cs" />
     <Compile Include="Modelo\Tipo_Transporte.cs" />
     <Compile Include="Modelo\Transportadora.cs" />
@@ -150,6 +152,7 @@
     <Compile Include="Persistencia\ParametrosDB.cs" />
     <Compile Include="Persistencia\PedidoDB.cs" />
     <Compile Include="Persistencia\RemessaDB.cs" />
+    <Compile Include="Persistencia\TaxaDB.cs" />
     <Compile Include="Persistencia\Tipo_CargaDB.cs" />
     <Compile Include="Persistencia\Tipo_TransporteDB.cs" />
     <Compile Include="Persistencia\TransportadoraDB.cs" />
