@@ -36,26 +36,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbPedido = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dgvPedido = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btAdicionar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtDesc = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btAtualizar = new System.Windows.Forms.Button();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btAbrir = new System.Windows.Forms.Button();
-            this.btCancelar = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.dgvTaxa = new System.Windows.Forms.DataGridView();
             this.Taxa_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Taxa_Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Taxa_Origem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btAtualizar = new System.Windows.Forms.Button();
+            this.btAdicionar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtDesc = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.listaCargas = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btAbrir = new System.Windows.Forms.Button();
+            this.btCancelar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbTotal = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaxa)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,14 +83,15 @@
             // 
             // cbPedido
             // 
-            this.cbPedido.Enabled = false;
             this.cbPedido.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cbPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.cbPedido.FormattingEnabled = true;
+            this.cbPedido.IntegralHeight = false;
             this.cbPedido.Location = new System.Drawing.Point(36, 119);
             this.cbPedido.Name = "cbPedido";
             this.cbPedido.Size = new System.Drawing.Size(252, 25);
             this.cbPedido.TabIndex = 56;
+            this.cbPedido.SelectedIndexChanged += new System.EventHandler(this.cbPedido_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -103,13 +104,13 @@
             this.label8.TabIndex = 55;
             this.label8.Text = "Pedido";
             // 
-            // dgvPedido
+            // dgvTaxa
             // 
-            this.dgvPedido.AllowUserToAddRows = false;
-            this.dgvPedido.AllowUserToResizeRows = false;
-            this.dgvPedido.BackgroundColor = System.Drawing.Color.White;
-            this.dgvPedido.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            this.dgvPedido.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvTaxa.AllowUserToAddRows = false;
+            this.dgvTaxa.AllowUserToResizeRows = false;
+            this.dgvTaxa.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTaxa.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvTaxa.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,9 +118,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedido.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTaxa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTaxa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTaxa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Taxa_ID,
             this.Taxa_Descricao,
             this.Taxa_Origem});
@@ -130,10 +131,10 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPedido.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvPedido.EnableHeadersVisualStyles = false;
-            this.dgvPedido.Location = new System.Drawing.Point(36, 150);
-            this.dgvPedido.Name = "dgvPedido";
+            this.dgvTaxa.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvTaxa.EnableHeadersVisualStyles = false;
+            this.dgvTaxa.Location = new System.Drawing.Point(36, 150);
+            this.dgvTaxa.Name = "dgvTaxa";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -141,11 +142,37 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvPedido.RowHeadersVisible = false;
-            this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedido.Size = new System.Drawing.Size(658, 201);
-            this.dgvPedido.TabIndex = 57;
+            this.dgvTaxa.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvTaxa.RowHeadersVisible = false;
+            this.dgvTaxa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTaxa.Size = new System.Drawing.Size(658, 201);
+            this.dgvTaxa.TabIndex = 57;
+            // 
+            // Taxa_ID
+            // 
+            this.Taxa_ID.DataPropertyName = "id";
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            this.Taxa_ID.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Taxa_ID.HeaderText = "ID";
+            this.Taxa_ID.Name = "Taxa_ID";
+            this.Taxa_ID.ReadOnly = true;
+            this.Taxa_ID.Width = 85;
+            // 
+            // Taxa_Descricao
+            // 
+            this.Taxa_Descricao.DataPropertyName = "descricao";
+            this.Taxa_Descricao.HeaderText = "Descrição";
+            this.Taxa_Descricao.Name = "Taxa_Descricao";
+            this.Taxa_Descricao.ReadOnly = true;
+            this.Taxa_Descricao.Width = 420;
+            // 
+            // Taxa_Origem
+            // 
+            this.Taxa_Origem.DataPropertyName = "valor";
+            this.Taxa_Origem.HeaderText = "Valor";
+            this.Taxa_Origem.Name = "Taxa_Origem";
+            this.Taxa_Origem.ReadOnly = true;
+            this.Taxa_Origem.Width = 150;
             // 
             // groupBox1
             // 
@@ -164,6 +191,16 @@
             this.groupBox1.Size = new System.Drawing.Size(658, 86);
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
+            // 
+            // btAtualizar
+            // 
+            this.btAtualizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAtualizar.Location = new System.Drawing.Point(541, 38);
+            this.btAtualizar.Name = "btAtualizar";
+            this.btAtualizar.Size = new System.Drawing.Size(85, 31);
+            this.btAtualizar.TabIndex = 63;
+            this.btAtualizar.Text = "Atualizar";
+            this.btAtualizar.UseVisualStyleBackColor = true;
             // 
             // btAdicionar
             // 
@@ -198,6 +235,17 @@
             this.txtValor.Size = new System.Drawing.Size(114, 21);
             this.txtValor.TabIndex = 61;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label6.Location = new System.Drawing.Point(14, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 16);
+            this.label6.TabIndex = 59;
+            this.label6.Text = "ID";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -221,37 +269,6 @@
             this.txtDesc.Size = new System.Drawing.Size(114, 21);
             this.txtDesc.TabIndex = 59;
             // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 17;
-            this.listBox1.Location = new System.Drawing.Point(714, 150);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(235, 293);
-            this.listBox1.TabIndex = 59;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label5.Location = new System.Drawing.Point(710, 125);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 19);
-            this.label5.TabIndex = 60;
-            this.label5.Text = "Carga";
-            // 
-            // btAtualizar
-            // 
-            this.btAtualizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAtualizar.Location = new System.Drawing.Point(541, 38);
-            this.btAtualizar.Name = "btAtualizar";
-            this.btAtualizar.Size = new System.Drawing.Size(85, 31);
-            this.btAtualizar.TabIndex = 63;
-            this.btAtualizar.Text = "Atualizar";
-            this.btAtualizar.UseVisualStyleBackColor = true;
-            // 
             // txtID
             // 
             this.txtID.BackColor = System.Drawing.Color.White;
@@ -264,16 +281,26 @@
             this.txtID.Size = new System.Drawing.Size(62, 21);
             this.txtID.TabIndex = 59;
             // 
-            // label6
+            // listaCargas
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label6.Location = new System.Drawing.Point(14, 21);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 16);
-            this.label6.TabIndex = 59;
-            this.label6.Text = "ID";
+            this.listaCargas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listaCargas.FormattingEnabled = true;
+            this.listaCargas.ItemHeight = 17;
+            this.listaCargas.Location = new System.Drawing.Point(714, 150);
+            this.listaCargas.Name = "listaCargas";
+            this.listaCargas.Size = new System.Drawing.Size(235, 293);
+            this.listaCargas.TabIndex = 59;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label5.Location = new System.Drawing.Point(710, 125);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 19);
+            this.label5.TabIndex = 60;
+            this.label5.Text = "Carga";
             // 
             // btAbrir
             // 
@@ -314,63 +341,37 @@
             this.label7.TabIndex = 66;
             this.label7.Text = "Total: ";
             // 
-            // label9
+            // lbTotal
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label9.Location = new System.Drawing.Point(519, 462);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 21);
-            this.label9.TabIndex = 67;
-            this.label9.Text = "-";
-            // 
-            // Taxa_ID
-            // 
-            this.Taxa_ID.DataPropertyName = "id";
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            this.Taxa_ID.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Taxa_ID.HeaderText = "ID";
-            this.Taxa_ID.Name = "Taxa_ID";
-            this.Taxa_ID.ReadOnly = true;
-            this.Taxa_ID.Width = 85;
-            // 
-            // Taxa_Descricao
-            // 
-            this.Taxa_Descricao.DataPropertyName = "descricao";
-            this.Taxa_Descricao.HeaderText = "Descrição";
-            this.Taxa_Descricao.Name = "Taxa_Descricao";
-            this.Taxa_Descricao.ReadOnly = true;
-            this.Taxa_Descricao.Width = 420;
-            // 
-            // Taxa_Origem
-            // 
-            this.Taxa_Origem.DataPropertyName = "valor";
-            this.Taxa_Origem.HeaderText = "Valor";
-            this.Taxa_Origem.Name = "Taxa_Origem";
-            this.Taxa_Origem.ReadOnly = true;
-            this.Taxa_Origem.Width = 150;
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lbTotal.Location = new System.Drawing.Point(519, 462);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(15, 21);
+            this.lbTotal.TabIndex = 67;
+            this.lbTotal.Text = "-";
             // 
             // Screen_Orcamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lbTotal);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btAbrir);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listaCargas);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dgvPedido);
+            this.Controls.Add(this.dgvTaxa);
             this.Controls.Add(this.cbPedido);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "Screen_Orcamento";
             this.Size = new System.Drawing.Size(1031, 562);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaxa)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -384,21 +385,21 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbPedido;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dgvPedido;
+        private System.Windows.Forms.DataGridView dgvTaxa;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Button btAdicionar;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listaCargas;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btAtualizar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button btAbrir;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Taxa_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Taxa_Descricao;

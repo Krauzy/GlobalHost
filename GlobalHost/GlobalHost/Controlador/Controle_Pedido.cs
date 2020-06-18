@@ -15,11 +15,12 @@ namespace GlobalHost.Controlador
         {
             FuncionarioDB funcionarios = new FuncionarioDB();
             ClienteDB clientes = new ClienteDB();
+            RemessaDB remessas = new RemessaDB();
             PedidoDB pedidos = new PedidoDB();
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
-            Remessa r = null;                       /// Necessita da RemessaDB  <author>@campos</author>
-            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, r);
+            Remessa r = remessas.get(rem);
+            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, r, "Em espera");
             return pedidos.Insert(p);
         }
 
@@ -30,7 +31,7 @@ namespace GlobalHost.Controlador
             PedidoDB pedidos = new PedidoDB();
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
-            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f);
+            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, "Em espera");
             return pedidos.Insert(p);
         }
 
@@ -48,7 +49,7 @@ namespace GlobalHost.Controlador
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
             Remessa r = null;                       /// Necessita da RemessaDB  <author>@campos</author>
-            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, r);
+            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, "Em espera");
             return pedidos.Update(p);
 
         }
@@ -60,7 +61,7 @@ namespace GlobalHost.Controlador
             PedidoDB pedidos = new PedidoDB();
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
-            Pedido p = new Pedido(id, data, mod, orig, dest, desp, sit, c, f);
+            Pedido p = new Pedido(id, data, mod, orig, dest, desp, sit, c, f, "Em espera");
             return pedidos.Update(p);
         }
 
@@ -97,6 +98,7 @@ namespace GlobalHost.Controlador
             table.Columns.Add("cliente", typeof(Cliente));
             table.Columns.Add("funcionario", typeof(Funcionario));
             table.Columns.Add("remessa", typeof(Remessa));
+            table.Columns.Add("autorizacao", typeof(string));
             list.Remove(null);
             foreach (var item in list)
             {
@@ -112,6 +114,7 @@ namespace GlobalHost.Controlador
                 linha["cliente"] = p.Cliente;
                 linha["funcionario"] = p.Funcionario;
                 linha["remessa"] = p.Remessa;
+                linha["autorizacao"] = p.Autorizacao;
                 table.Rows.Add(linha);
             }
             return table;
