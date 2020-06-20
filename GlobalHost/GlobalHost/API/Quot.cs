@@ -100,7 +100,7 @@ namespace GlobalHost.API
         public static double ConvertToReal(double dolar)
         {
             string x = "" + (dolar * getDolar());
-            return Convert.ToDouble(x.Substring(0, x.IndexOf(',') + 3));
+            return Convert.ToDouble(x.Substring(0, x.IndexOf(',') + 2));
         }
 
         public static double ConvertToReal(string dolar)
