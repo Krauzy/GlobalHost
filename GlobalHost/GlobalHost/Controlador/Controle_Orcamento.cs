@@ -32,6 +32,12 @@ namespace GlobalHost.Controlador
             return DB.Delete(id);
         }
 
+        public static int MAX()
+        {
+            OrcamentoDB db = new OrcamentoDB();
+            return db.MAX();
+        }
+
         public static DataTable get (object obj)
         {
             OrcamentoDB DB = new OrcamentoDB(); DataTable table = new DataTable();

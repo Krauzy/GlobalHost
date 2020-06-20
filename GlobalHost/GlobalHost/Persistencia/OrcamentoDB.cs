@@ -77,6 +77,19 @@ namespace GlobalHost.Persistencia
             return orc;
         }
 
+        public int MAX()
+        {
+            int aux = 0;
+            DataTable data = new DataTable();
+            string SQL = @"SELECT MAX(id) AS aux FROM Orcamento";
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out data);
+            if (data.Rows.Count > 0)
+                aux = (int)data.Rows[0]["aux"];
+            banco.Disconnect();
+            return aux;
+        }
+
         public List<object> getList(string op)
         {
             List<object> list = new List<object>();

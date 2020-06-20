@@ -9,9 +9,15 @@ namespace GlobalHost.Visao.Servicos.Funcoes
     public partial class Screen_Orcamento : UserControl
     {
         private DataTable taxas;
+        private int con;
+        private double TOTAL;
+        private int id_trans;
+        private int id;
 
         public Screen_Orcamento()
         {
+            con = 0;
+            TOTAL = 0;
             taxas = new DataTable();
             taxas.Columns.Add("id", typeof(int));
             taxas.Columns.Add("descricao", typeof(string));
@@ -29,7 +35,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         {
             if(cbPedido.SelectedItem != null)
             {
-                int id = Convert.ToInt32(((DataRowView)cbPedido.SelectedValue)["id"]);
+                id = Convert.ToInt32(((DataRowView)cbPedido.SelectedValue)["id"]);
                 DataTable cargas = Controle_Carga.get("pedido = " + id);
                 for (int i = 0; i < cargas.Rows.Count; i++)
                 {
@@ -59,7 +65,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                         serv += (Convert.ToDouble(cargas.Rows[i]["valor"]) * 0.1);
                     }
                     int id_rem = Convert.ToInt32(((Remessa)Controle_Pedido.get("id = " + id).Rows[0]["remessa"]).Id);
-                    int id_trans = Convert.ToInt32(((Transportadora)Controle_Remessa.get("id = " + id_rem).Rows[0]["transportadora"]).Id);
+                    this.id_trans = Convert.ToInt32(((Transportadora)Controle_Remessa.get("id = " + id_rem).Rows[0]["transportadora"]).Id);
                     double valor_transp = Convert.ToDouble(Controle_Transportadora.get("id = " + id_trans).Rows[0]["valor"]);
                     string nome_trans = Controle_Transportadora.get("id = " + id_trans).Rows[0]["nome"].ToString();
                     string mod = Controle_Pedido.get("id = " + id).Rows[0]["modalidade"].ToString();
@@ -73,7 +79,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     double imposto = 0;
                     if (tot >= dolar)
                         imposto = tot * 0.6;
-                    int con = 0;
+                    
                     double TOTAL = 0;
                     DataRow linha_serv = taxas.NewRow();
                     linha_serv["id"] = con++;
@@ -132,6 +138,80 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 cargas.Dispose();
                 orc.Dispose();
             }            
+        }
+
+        private void btAdicionar_Click(object sender, EventArgs e)
+        {
+            if (txtDesc.Text != string.Empty)
+            {
+                if (txtValor.Text != string.Empty)
+                {
+                    DataRow linha = taxas.NewRow();
+                    linha["id"] = con++;
+                    linha["descricao"] = txtDesc.Text;
+                    linha["valor"] = Convert.ToDouble(txtValor.Text);
+                    TOTAL += Convert.ToDouble(txtValor.Text);
+                    taxas.Rows.Add(linha);
+                    lbTotal.Text = "R$ " + TOTAL.ToString();
+                    dgvTaxa.DataSource = taxas;
+                }
+                else
+                    MessageBox.Show("Valor deve ser válido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Descrição deve ser válida!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btAtualizar_Click(object sender, EventArgs e)
+        {
+            if (txtID.Text != string.Empty)
+            {
+                if (txtDesc.Text != string.Empty)
+                {
+                    if (txtValor.Text != string.Empty)
+                    {
+                        for (int i = 0; i < taxas.Rows.Count; i++)
+                        {
+                            if (Convert.ToInt32(taxas.Rows[i]["id"]) == Convert.ToInt32(txtID.Text))
+                            {
+                                taxas.Rows[i]["descricao"] = txtDesc.Text;
+                                taxas.Rows[i]["valor"] = Convert.ToDouble(txtID.Text);
+                            }
+                        }
+                    }
+                    else
+                        MessageBox.Show("Valor deve ser válido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                    MessageBox.Show("Descrição deve ser válida!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("ID deve ser válida!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            cbPedido.SelectedItem = null;
+            dgvTaxa.Rows.Clear();
+            taxas.Rows.Clear();
+            listaCargas.Items.Clear();
+            lbTotal.Text = "-";
+            this.con = 0;
+        }
+
+        private void btAbrir_Click(object sender, EventArgs e)
+        {
+            if (dgvTaxa.Rows.Count > 0 && taxas.Rows.Count > 0 && listaCargas.Items.Count > 0)
+            {
+                if (!Controle_Orcamento.Insert(Convert.ToDouble(lbTotal.Text), DateTime.Now, DateTime.Now.AddDays(7), id, id_trans))
+                    MessageBox.Show("Erro ao Orçar pedido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    int max = Controle_Orcamento.MAX();
+                    for (int i = 0; i < taxas.Rows.Count; i++)
+                        Controle_Taxa.Insert(taxas.Rows[i]["descricao"].ToString(), Convert.ToDouble(taxas.Rows[i]["valor"]), max);                    
+                }                
+            }
         }
     }
 }
