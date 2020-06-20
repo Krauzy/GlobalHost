@@ -98,10 +98,12 @@
     <Compile Include="Controlador\Controle_Despesa.cs" />
     <Compile Include="Controlador\Controle_Funcionario.cs" />
     <Compile Include="Controlador\Controle_Login.cs" />
+    <Compile Include="Controlador\Controle_Orcamento.cs" />
     <Compile Include="Controlador\Controle_Parametro.cs" />
     <Compile Include="Controlador\Controle_Cliente.cs" />
     <Compile Include="Controlador\Controle_Pedido.cs" />
     <Compile Include="Controlador\Controle_Remessa.cs" />
+    <Compile Include="Controlador\Controle_Taxa.cs" />
     <Compile Include="Controlador\Controle_TipoCarga.cs" />
     <Compile Include="Controlador\Controle_TipoTransporte.cs" />
     <Compile Include="Controlador\Controle_Transportadora.cs" />
@@ -125,6 +127,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GlobalDBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GlobalDBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlobalDBDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Carga.cs" />
     <Compile Include="Modelo\Cliente.cs" />
     <Compile Include="Modelo\Despesa.cs" />
@@ -137,6 +144,7 @@
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Recebimento.cs" />
     <Compile Include="Modelo\Remessa.cs" />
+    <Compile Include="Modelo\Taxa.cs" />
     <Compile Include="Modelo\Tipo_Carga.cs" />
     <Compile Include="Modelo\Tipo_Transporte.cs" />
     <Compile Include="Modelo\Transportadora.cs" />
@@ -150,6 +158,7 @@
     <Compile Include="Persistencia\ParametrosDB.cs" />
     <Compile Include="Persistencia\PedidoDB.cs" />
     <Compile Include="Persistencia\RemessaDB.cs" />
+    <Compile Include="Persistencia\TaxaDB.cs" />
     <Compile Include="Persistencia\Tipo_CargaDB.cs" />
     <Compile Include="Persistencia\Tipo_TransporteDB.cs" />
     <Compile Include="Persistencia\TransportadoraDB.cs" />
@@ -386,6 +395,17 @@
     </None>
     <None Include="GlobalDBDataSet1.xss">
       <DependentUpon>GlobalDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GlobalDBDataSet2.xsc">
+      <DependentUpon>GlobalDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GlobalDBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GlobalDBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GlobalDBDataSet2.xss">
+      <DependentUpon>GlobalDBDataSet2.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

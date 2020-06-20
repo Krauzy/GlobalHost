@@ -23,7 +23,6 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Carga))
             {
                 Carga c = (Carga)obj;
-                //MessageBox.Show("1");
                 string SQL = @"INSERT INTO Carga (descricao, volume, peso, dimensoes, valor_unitario, valor, tipo, pedido) VALUES (@desc, @vol, @peso, @dim, @unit, @tot, @tipo, @ped)";
                 banco.Connect();
                 result = banco.ExecuteNonQuery(SQL, "@desc", c.Descricao, "@vol", c.Volume, "@peso", c.Peso, "@dim", c.Dimensoes, "@unit", c.Valor_Unitario, "@tot", c.Valor, "@tipo", c.Tipo.Id, "@ped", c.Pedido.Id);

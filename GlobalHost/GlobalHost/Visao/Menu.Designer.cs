@@ -42,7 +42,6 @@
             this.btFun = new System.Windows.Forms.Button();
             this.btGer = new System.Windows.Forms.Button();
             this.pnGerenciamento = new System.Windows.Forms.Panel();
-            this.paneHome = new GlobalHost.Visao.PaneHome();
             this.btTransportadora = new System.Windows.Forms.Button();
             this.btCliente = new System.Windows.Forms.Button();
             this.btTipoTransporte = new System.Windows.Forms.Button();
@@ -64,14 +63,17 @@
             this.button19 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.screen_Transportadora = new GlobalHost.Visao.Servicos.Screen_Transportadora();
+            this.scrFuncionario = new GlobalHost.Visao.Servicos.Screen_Funcionarios();
+            this.scrRemessa = new GlobalHost.Visao.Servicos.Gerencia.Screen_Remessa();
             this.scrPedido = new GlobalHost.Visao.Servicos.Funcoes.Screen_Pedido();
             this.scrTipo_Transporte = new GlobalHost.Visao.Servicos.ScreenTipo_Transporte();
             this.ScreenSobre = new GlobalHost.Visao.Sobre();
             this.ScreenCotacao = new GlobalHost.Visao.Cotacao();
-            this.scrFuncionario = new GlobalHost.Visao.Servicos.Screen_Funcionarios();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.scrRemessa = new GlobalHost.Visao.Servicos.Gerencia.Screen_Remessa();
-            this.screen_Transportadora = new GlobalHost.Visao.Servicos.Screen_Transportadora();
+            this.paneHome = new GlobalHost.Visao.PaneHome();
+            this.scrOrcamento = new GlobalHost.Visao.Servicos.Funcoes.Screen_Orcamento();
+            this.btOrcamento = new System.Windows.Forms.Button();
             this.paneMenu.SuspendLayout();
             this.paneServ.SuspendLayout();
             this.pnGerenciamento.SuspendLayout();
@@ -269,14 +271,6 @@
             this.pnGerenciamento.Size = new System.Drawing.Size(1031, 562);
             this.pnGerenciamento.TabIndex = 8;
             // 
-            // paneHome
-            // 
-            this.paneHome.BackColor = System.Drawing.Color.White;
-            this.paneHome.Location = new System.Drawing.Point(225, 27);
-            this.paneHome.Name = "paneHome";
-            this.paneHome.Size = new System.Drawing.Size(1031, 562);
-            this.paneHome.TabIndex = 18;
-            // 
             // btTransportadora
             // 
             this.btTransportadora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
@@ -369,6 +363,7 @@
             // 
             // pnFuncoes
             // 
+            this.pnFuncoes.Controls.Add(this.btOrcamento);
             this.pnFuncoes.Controls.Add(this.button14);
             this.pnFuncoes.Controls.Add(this.button13);
             this.pnFuncoes.Controls.Add(this.button12);
@@ -389,9 +384,9 @@
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.ForeColor = System.Drawing.Color.White;
-            this.button14.Location = new System.Drawing.Point(320, 326);
+            this.button14.Location = new System.Drawing.Point(439, 326);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(393, 98);
+            this.button14.Size = new System.Drawing.Size(274, 98);
             this.button14.TabIndex = 7;
             this.button14.Text = "Controle de Transporte";
             this.button14.UseVisualStyleBackColor = false;
@@ -577,6 +572,40 @@
             this.button15.Text = "REMESSA";
             this.button15.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Image = global::GlobalHost.Properties.Resources.logo_cgf_200x47;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 47);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // screen_Transportadora
+            // 
+            this.screen_Transportadora.BackColor = System.Drawing.Color.White;
+            this.screen_Transportadora.Location = new System.Drawing.Point(225, 27);
+            this.screen_Transportadora.Name = "screen_Transportadora";
+            this.screen_Transportadora.Size = new System.Drawing.Size(1031, 562);
+            this.screen_Transportadora.TabIndex = 19;
+            // 
+            // scrFuncionario
+            // 
+            this.scrFuncionario.BackColor = System.Drawing.Color.White;
+            this.scrFuncionario.Location = new System.Drawing.Point(225, 27);
+            this.scrFuncionario.Name = "scrFuncionario";
+            this.scrFuncionario.Size = new System.Drawing.Size(1031, 562);
+            this.scrFuncionario.TabIndex = 14;
+            // 
+            // scrRemessa
+            // 
+            this.scrRemessa.Location = new System.Drawing.Point(225, 27);
+            this.scrRemessa.Name = "scrRemessa";
+            this.scrRemessa.Size = new System.Drawing.Size(1031, 562);
+            this.scrRemessa.TabIndex = 17;
+            // 
             // scrPedido
             // 
             this.scrPedido.BackColor = System.Drawing.Color.White;
@@ -609,39 +638,36 @@
             this.ScreenCotacao.Size = new System.Drawing.Size(1031, 562);
             this.ScreenCotacao.TabIndex = 5;
             // 
-            // scrFuncionario
+            // paneHome
             // 
-            this.scrFuncionario.BackColor = System.Drawing.Color.White;
-            this.scrFuncionario.Location = new System.Drawing.Point(225, 27);
-            this.scrFuncionario.Name = "scrFuncionario";
-            this.scrFuncionario.Size = new System.Drawing.Size(1031, 562);
-            this.scrFuncionario.TabIndex = 14;
+            this.paneHome.BackColor = System.Drawing.Color.White;
+            this.paneHome.Location = new System.Drawing.Point(225, 27);
+            this.paneHome.Name = "paneHome";
+            this.paneHome.Size = new System.Drawing.Size(1031, 562);
+            this.paneHome.TabIndex = 18;
             // 
-            // pictureBox1
+            // scrOrcamento
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = global::GlobalHost.Properties.Resources.logo_cgf_200x47;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 47);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.scrOrcamento.BackColor = System.Drawing.Color.White;
+            this.scrOrcamento.Location = new System.Drawing.Point(225, 27);
+            this.scrOrcamento.Name = "scrOrcamento";
+            this.scrOrcamento.Size = new System.Drawing.Size(1031, 562);
+            this.scrOrcamento.TabIndex = 20;
             // 
-            // scrRemessa
+            // btOrcamento
             // 
-            this.scrRemessa.Location = new System.Drawing.Point(225, 27);
-            this.scrRemessa.Name = "scrRemessa";
-            this.scrRemessa.Size = new System.Drawing.Size(1031, 562);
-            this.scrRemessa.TabIndex = 17;
-            // 
-            // screen_Transportadora
-            // 
-            this.screen_Transportadora.BackColor = System.Drawing.Color.White;
-            this.screen_Transportadora.Location = new System.Drawing.Point(225, 27);
-            this.screen_Transportadora.Name = "screen_Transportadora";
-            this.screen_Transportadora.Size = new System.Drawing.Size(1031, 562);
-            this.screen_Transportadora.TabIndex = 19;
+            this.btOrcamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btOrcamento.FlatAppearance.BorderSize = 0;
+            this.btOrcamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btOrcamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btOrcamento.ForeColor = System.Drawing.Color.White;
+            this.btOrcamento.Location = new System.Drawing.Point(320, 326);
+            this.btOrcamento.Name = "btOrcamento";
+            this.btOrcamento.Size = new System.Drawing.Size(113, 98);
+            this.btOrcamento.TabIndex = 8;
+            this.btOrcamento.Text = "Orçamento";
+            this.btOrcamento.UseVisualStyleBackColor = false;
+            this.btOrcamento.Click += new System.EventHandler(this.btOrcamento_Click);
             // 
             // Menu
             // 
@@ -649,11 +675,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1255, 590);
-            this.Controls.Add(this.screen_Transportadora);
             this.Controls.Add(this.brMinimize);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pnGerenciamento);
             this.Controls.Add(this.pnFuncoes);
             this.Controls.Add(this.paneServ);
             this.Controls.Add(this.paneMenu);
@@ -665,6 +689,9 @@
             this.Controls.Add(this.ScreenSobre);
             this.Controls.Add(this.ScreenCotacao);
             this.Controls.Add(this.paneHome);
+            this.Controls.Add(this.scrOrcamento);
+            this.Controls.Add(this.screen_Transportadora);
+            this.Controls.Add(this.pnGerenciamento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
@@ -726,5 +753,7 @@
         private Servicos.Gerencia.Screen_Remessa scrRemessa;
         private PaneHome paneHome;
         private Servicos.Screen_Transportadora screen_Transportadora;
+        private Servicos.Funcoes.Screen_Orcamento scrOrcamento;
+        private System.Windows.Forms.Button btOrcamento;
     }
 }
