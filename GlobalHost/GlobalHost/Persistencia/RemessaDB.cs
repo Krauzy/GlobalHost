@@ -20,7 +20,7 @@ namespace GlobalHost.Persistencia
         public bool Insert(object obj)
         {
             bool result = false;
-            if(obj.GetType() == typeof(Remessa))
+            if (obj.GetType() == typeof(Remessa))
             {
                 Remessa r = (Remessa)obj;
                 string SQL = @"INSERT INTO Remessa (descricao, origem, destino, data_saida, previsao_requerida, data_requerida, transportadora)"
@@ -58,7 +58,7 @@ namespace GlobalHost.Persistencia
             return result;
         }
 
-        public Remessa get (int id)
+        public Remessa get(int id)
         {
             DataTable dt = new DataTable();
             Remessa r = null;
@@ -66,7 +66,7 @@ namespace GlobalHost.Persistencia
             string SQL = @"SELECT * FROM Remessa WHERE id = " + id;
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt);
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 try
                 {
@@ -77,7 +77,7 @@ namespace GlobalHost.Persistencia
                   Convert.ToDateTime(dt.Rows[0]["data_saida"]),
                   Convert.ToDateTime(dt.Rows[0]["previsao_requerida"]),
                   Convert.ToDateTime(dt.Rows[0]["data_requerida"]),
-                         DB.get((int)dt.Rows[0]["transportadora"]));                    
+                         DB.get((int)dt.Rows[0]["transportadora"]));
                 }
                 catch
                 {
@@ -88,7 +88,7 @@ namespace GlobalHost.Persistencia
                   Convert.ToDateTime(dt.Rows[0]["data_saida"]),
                   Convert.ToDateTime(dt.Rows[0]["previsao_requerida"]),
                          DB.get((int)dt.Rows[0]["transportadora"]));
-                }                
+                }
             }
             banco.Disconnect();
             return r;
@@ -102,10 +102,10 @@ namespace GlobalHost.Persistencia
             string SQL = @"SELECT * FROM Remessa WHERE " + op;
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt);
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 Remessa r;
-                for(int i = 0; i < dt.Rows.Count; i++)
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     try
                     {
@@ -129,7 +129,7 @@ namespace GlobalHost.Persistencia
                              DB.get((int)dt.Rows[i]["transportadora"]));
                     }
                     list.Add(r);
-                }  
+                }
             }
             banco.Disconnect();
             return list;
@@ -177,6 +177,17 @@ namespace GlobalHost.Persistencia
             banco.Disconnect();
             return list;
         }
-
+        public int MAX()
+        {
+            int aux = 0;
+            DataTable data = new DataTable();
+            string SQL = @"SELECT MAX(id) AS aux FROM Remessa";
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out data);
+            if (data.Rows.Count > 0)
+                aux = (int)data.Rows[0]["aux"];
+            banco.Disconnect();
+            return aux;
+        }
     }
 }

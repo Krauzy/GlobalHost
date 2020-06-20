@@ -11,6 +11,7 @@ namespace GlobalHost.Controlador
 {
     class Controle_Pedido
     {
+
         public static bool Insert(DateTime data, string mod, string orig, string dest, string desp, string sit, int cli, int fun, int rem)
         {
             FuncionarioDB funcionarios = new FuncionarioDB();
@@ -76,7 +77,7 @@ namespace GlobalHost.Controlador
             PedidoDB db = new PedidoDB();
             DataTable table = new DataTable();
             List<object> list = new List<object>();
-            if(obj.GetType() == typeof(int))
+            if (obj.GetType() == typeof(int))
             {
                 Pedido p = db.get((int)obj);
                 list.Add(p);
@@ -120,6 +121,15 @@ namespace GlobalHost.Controlador
             return table;
         }
 
+        public static bool UpdateByRemessa(int ID, int Remessa)
+        {
+            PedidoDB db = new PedidoDB();
+            Pedido P = db.get(ID);
+            RemessaDB dbR = new RemessaDB();
+            Remessa R = dbR.get(Remessa);
+            P.Remessa = R;
+            return db.Update(P);
+        }
         public static void Reverse()
         {
             Banco banco = new Banco();
