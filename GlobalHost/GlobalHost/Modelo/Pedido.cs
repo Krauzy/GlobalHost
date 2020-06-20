@@ -14,9 +14,8 @@ namespace GlobalHost.Modelo
         private Cliente cliente;
         private Funcionario funcionario;
         private Remessa remessa;
-        private string autorizacao;
 
-        public Pedido(int id, DateTime data, string modalidade, string origem, string destino, string despachante, string situacao, Cliente cliente, Funcionario funcionario, Remessa remessa, string autorizacao)
+        public Pedido(int id, DateTime data, string modalidade, string origem, string destino, string despachante, string situacao, Cliente cliente, Funcionario funcionario, Remessa remessa)
         {
             this.id = id;
             this.data = data;
@@ -28,10 +27,9 @@ namespace GlobalHost.Modelo
             this.cliente = cliente;
             this.funcionario = funcionario;
             this.remessa = remessa;
-            this.autorizacao = autorizacao;
         }
 
-        public Pedido(DateTime data, string modalidade, string origem, string destino, string despachante, string situacao, Cliente cliente, Funcionario funcionario, Remessa remessa, string autorizacao)
+        public Pedido(DateTime data, string modalidade, string origem, string destino, string despachante, string situacao, Cliente cliente, Funcionario funcionario, Remessa remessa)
         {
             this.data = data;
             this.modalidade = modalidade;
@@ -44,7 +42,7 @@ namespace GlobalHost.Modelo
             this.remessa = remessa;
         }
 
-        public Pedido(int id, DateTime data, string modalidade, string origem, string destino, string despachante, string situacao, Cliente cliente, Funcionario funcionario, string autorizacao)
+        public Pedido(int id, DateTime data, string modalidade, string origem, string destino, string despachante, string situacao, Cliente cliente, Funcionario funcionario)
         {
             this.id = id;
             this.data = data;
@@ -57,7 +55,7 @@ namespace GlobalHost.Modelo
             this.funcionario = funcionario;
         }
 
-        public Pedido(DateTime data, string modalidade, string origem, string destino, string despachante, string situacao, Cliente cliente, Funcionario funcionario, string autorizacao)
+        public Pedido(DateTime data, string modalidade, string origem, string destino, string despachante, string situacao, Cliente cliente, Funcionario funcionario)
         {
             this.data = data;
             this.modalidade = modalidade;
@@ -76,10 +74,9 @@ namespace GlobalHost.Modelo
         public string Destino { get => destino; set => destino = value; }
         public string Despachante { get => despachante; set => despachante = value; }
         public string Situacao { get => situacao; set => situacao = value; }
-        public Cliente Cliente { get => cliente; set => cliente = value; }
-        public Funcionario Funcionario { get => funcionario; set => funcionario = value; }
-        public Remessa Remessa { get => remessa; set => remessa = value; }
-        public string Autorizacao { get => autorizacao; set => autorizacao = value; }
+        internal Cliente Cliente { get => cliente; set => cliente = value; }
+        internal Funcionario Funcionario { get => funcionario; set => funcionario = value; }
+        internal Remessa Remessa { get => remessa; set => remessa = value; }
 
         public override string ToString()
         {

@@ -68,27 +68,14 @@ namespace GlobalHost.Persistencia
             banco.ExecuteQuery(SQL, out dt);
             if(dt.Rows.Count > 0)
             {
-                try
-                {
-                    r = new Remessa((int)dt.Rows[0]["id"],
+                r = new Remessa((int)dt.Rows[0]["id"],
                                      dt.Rows[0]["descricao"].ToString(),
                                      dt.Rows[0]["origem"].ToString(),
                                      dt.Rows[0]["destino"].ToString(),
                   Convert.ToDateTime(dt.Rows[0]["data_saida"]),
                   Convert.ToDateTime(dt.Rows[0]["previsao_requerida"]),
                   Convert.ToDateTime(dt.Rows[0]["data_requerida"]),
-                         DB.get((int)dt.Rows[0]["transportadora"]));                    
-                }
-                catch
-                {
-                    r = new Remessa((int)dt.Rows[0]["id"],
-                                     dt.Rows[0]["descricao"].ToString(),
-                                     dt.Rows[0]["origem"].ToString(),
-                                     dt.Rows[0]["destino"].ToString(),
-                  Convert.ToDateTime(dt.Rows[0]["data_saida"]),
-                  Convert.ToDateTime(dt.Rows[0]["previsao_requerida"]),
                          DB.get((int)dt.Rows[0]["transportadora"]));
-                }                
             }
             banco.Disconnect();
             return r;
@@ -107,28 +94,16 @@ namespace GlobalHost.Persistencia
                 Remessa r;
                 for(int i = 0; i < dt.Rows.Count; i++)
                 {
-                    try
-                    {
-                        r = new Remessa((int)dt.Rows[i]["id"],
-                                         dt.Rows[i]["descricao"].ToString(),
-                                         dt.Rows[i]["origem"].ToString(),
-                                         dt.Rows[i]["destino"].ToString(),
-                      Convert.ToDateTime(dt.Rows[i]["data_saida"]),
-                      Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
-                      Convert.ToDateTime(dt.Rows[i]["data_requerida"]),
-                             DB.get((int)dt.Rows[i]["transportadora"]));
-                    }
-                    catch
-                    {
-                        r = new Remessa((int)dt.Rows[i]["id"],
-                                         dt.Rows[i]["descricao"].ToString(),
-                                         dt.Rows[i]["origem"].ToString(),
-                                         dt.Rows[i]["destino"].ToString(),
-                      Convert.ToDateTime(dt.Rows[i]["data_saida"]),
-                      Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
-                             DB.get((int)dt.Rows[i]["transportadora"]));
-                    }
-                    list.Add(r);
+                    r = new Remessa((int)dt.Rows[i]["id"],
+                                      dt.Rows[i]["descricao"].ToString(),
+                                      dt.Rows[i]["origem"].ToString(),
+                                      dt.Rows[i]["destino"].ToString(),
+                   Convert.ToDateTime(dt.Rows[i]["data_saida"]),
+                   Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
+                   Convert.ToDateTime(dt.Rows[i]["data_requerida"]),
+                          DB.get((int)dt.Rows[i]["transportadora"]));
+                   
+                   list.Add(r);
                 }  
             }
             banco.Disconnect();
@@ -148,28 +123,14 @@ namespace GlobalHost.Persistencia
                 Remessa r;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    try
-                    {
-                        r = new Remessa((int)dt.Rows[i]["id"],
-                                         dt.Rows[i]["descricao"].ToString(),
-                                         dt.Rows[i]["origem"].ToString(),
-                                         dt.Rows[i]["destino"].ToString(),
-                      Convert.ToDateTime(dt.Rows[i]["data_saida"]),
-                      Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
-                      Convert.ToDateTime(dt.Rows[i]["data_requerida"]),
-                             DB.get((int)dt.Rows[i]["transportadora"]));
-                    }
-                    catch
-                    {
-                        r = new Remessa((int)dt.Rows[i]["id"],
-                                         dt.Rows[i]["descricao"].ToString(),
-                                         dt.Rows[i]["origem"].ToString(),
-                                         dt.Rows[i]["destino"].ToString(),
-                      Convert.ToDateTime(dt.Rows[i]["data_saida"]),
-                      Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
-                             DB.get((int)dt.Rows[i]["transportadora"]));
-                    }
-                    list.Add(r);
+                    r = new Remessa((int)dt.Rows[i]["id"],
+                                      dt.Rows[i]["descricao"].ToString(),
+                                      dt.Rows[i]["origem"].ToString(),
+                                      dt.Rows[i]["destino"].ToString(),
+                   Convert.ToDateTime(dt.Rows[i]["data_saida"]),
+                   Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
+                   Convert.ToDateTime(dt.Rows[i]["data_requerida"]),
+                          DB.get((int)dt.Rows[i]["transportadora"]));
 
                     list.Add(r);
                 }

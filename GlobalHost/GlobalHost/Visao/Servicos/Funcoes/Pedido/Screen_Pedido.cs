@@ -681,10 +681,6 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     case "Situação":
                         dgvPedido.DataSource = Controle_Pedido.get("situacao LIKE '%" + txtBuscarPedido.Text + "%'");
                         break;
-
-                    case "Autorização":
-                        dgvPedido.DataSource = Controle_Pedido.get("autorizacao LIKE '%" + txtBuscarPedido.Text + "%'");
-                        break;
                 }
             }
             else

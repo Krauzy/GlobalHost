@@ -278,14 +278,5 @@ namespace GlobalHost.Visao
             changeBoolServ();
             scrRemessa.BringToFront();
         }
-
-        private void btOrcamento_Click(object sender, EventArgs e)
-        {
-            ger = false;
-            fun = false;
-            rel = false;
-            changeBoolServ();
-            scrOrcamento.BringToFront();
-        }
     }
 }
