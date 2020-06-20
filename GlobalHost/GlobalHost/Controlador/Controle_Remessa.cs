@@ -77,5 +77,11 @@ namespace GlobalHost.Controlador
 
             return table;
         }
+
+        public static int MAX()
+        {
+            RemessaDB db = new RemessaDB();
+            return db.MAX();
+        }
     }
 }
