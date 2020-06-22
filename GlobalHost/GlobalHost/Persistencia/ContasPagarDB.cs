@@ -54,7 +54,7 @@ namespace GlobalHost.Persistencia
         public Contas_Pagar get(int id)
         {
             DataTable dt = new DataTable();
-            Contas_Pagar c;
+            Contas_Pagar c=null;
             string SQL = @"SELECT * FROM Contas_Pagar WHERE id = @id";
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt, "@id", id);
