@@ -147,6 +147,17 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
             btnInserir.Enabled = true;
+            txtBusca.Text = string.Empty;
+            txtDescricao.Text = string.Empty;
+            txtDestino.Text = string.Empty;
+            txtID.Text = string.Empty;
+            txtOrigem.Text = string.Empty;
+            cbFiltro.SelectedIndex = -1;
+            cbFiltroPedido.SelectedIndex = -1;
+            cbTransportadora.SelectedIndex = -1;
+            dtpPrevisao.Value = DateTime.Now;
+            dtpRequerimento.Value = DateTime.Now;
+            dtpSaida.Value = DateTime.Now;
         }
 
 
@@ -223,13 +234,20 @@ namespace GlobalHost.Visao.Servicos.Gerencia
                     dgvRemessa.DataSource = Controle_Remessa.get("");
                 }
             }
+            else if (exc == true)
+            {
+                Controle_Remessa.delete(Convert.ToInt32(txtID.Text));
+                for (int i = 0; i < dgvPedido.Rows.Count; i++)
+                    Controle_Pedido.UpdateByRemessa((int)dgvPedido.Rows[i].Cells["Pedido_ID"].Value, -1);
+                dgvRemessa.DataSource = Controle_Remessa.get("");
+            }
 
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             changeBool();
-            _default();
+            _default();           
         }
 
         private void btMais_Click(object sender, EventArgs e)
