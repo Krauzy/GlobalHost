@@ -13,8 +13,9 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         private double TOTAL;
         private int id_trans;
         private int id;
+        private int new_id;
 
-        public Screen_Orcamento()
+        public Screen_Orcamento ()
         {
             con = 0;
             TOTAL = 0;
@@ -134,7 +135,6 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     lbTotal.Text = "R$ " + TOTAL.ToString();
                     dgvTaxa.DataSource = taxas;
                 }
-
                 cargas.Dispose();
                 orc.Dispose();
             }            
@@ -175,7 +175,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                             if (Convert.ToInt32(taxas.Rows[i]["id"]) == Convert.ToInt32(txtID.Text))
                             {
                                 taxas.Rows[i]["descricao"] = txtDesc.Text;
-                                taxas.Rows[i]["valor"] = Convert.ToDouble(txtID.Text);
+                                taxas.Rows[i]["valor"] = Convert.ToDouble(txtValor.Text);
                             }
                         }
                     }
@@ -192,8 +192,9 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         private void btCancelar_Click(object sender, EventArgs e)
         {
             cbPedido.SelectedItem = null;
-            dgvTaxa.Rows.Clear();
+            //dgvTaxa.Rows.Clear();
             taxas.Rows.Clear();
+            dgvTaxa.DataSource = taxas;
             listaCargas.Items.Clear();
             lbTotal.Text = "-";
             this.con = 0;
@@ -211,6 +212,52 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     for (int i = 0; i < taxas.Rows.Count; i++)
                         Controle_Taxa.Insert(taxas.Rows[i]["descricao"].ToString(), Convert.ToDouble(taxas.Rows[i]["valor"]), max);                    
                 }                
+            }
+        }
+
+        private void ToolMS_dgvPedido_Exluir_Click(object sender, EventArgs e)
+        {
+            if(dgvTaxa.SelectedRows.Count == 1)
+            {
+                int aux_id = dgvTaxa.SelectedRows[0].Index;
+                taxas.Rows.RemoveAt(aux_id);
+                dgvTaxa.DataSource = taxas;
+            }
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+            if (txtValor.Text != string.Empty)
+            {
+                txtValor.Text = API.Validate.MONEY(txtValor.Text);
+            }
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+            if (txtID.Text != "")
+            {
+                try
+                {
+                    new_id = Convert.ToInt32(txtID.Text);
+                    txtID.Select(txtID.Text.Length, 0);
+                }
+                catch (Exception)
+                {
+                    txtID.Text = new_id.ToString();
+                    txtID.Select(txtID.Text.Length, 0);
+                }
+            }
+        }
+
+        private void dgvTaxa_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvTaxa.SelectedRows.Count == 1)
+            {
+                int aux = dgvTaxa.SelectedRows[0].Index;
+                txtID.Text = taxas.Rows[aux]["id"].ToString();
+                txtDesc.Text = taxas.Rows[aux]["descricao"].ToString();
+                txtValor.Text = taxas.Rows[aux]["valor"].ToString();
             }
         }
     }
