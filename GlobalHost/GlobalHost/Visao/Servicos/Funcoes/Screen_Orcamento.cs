@@ -150,7 +150,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     linha["id"] = con++;
                     linha["descricao"] = txtDesc.Text;
                     linha["valor"] = Convert.ToDouble(txtValor.Text);
-                    TOTAL += Convert.ToDouble(txtValor.Text);
+                    TOTAL = Convert.ToDouble(lbTotal.Text);
                     taxas.Rows.Add(linha);
                     lbTotal.Text = "R$ " + TOTAL.ToString();
                     dgvTaxa.DataSource = taxas;
@@ -192,7 +192,6 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         private void btCancelar_Click(object sender, EventArgs e)
         {
             cbPedido.SelectedItem = null;
-            //dgvTaxa.Rows.Clear();
             taxas.Rows.Clear();
             dgvTaxa.DataSource = taxas;
             listaCargas.Items.Clear();
@@ -210,7 +209,16 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 {
                     int max = Controle_Orcamento.MAX();
                     for (int i = 0; i < taxas.Rows.Count; i++)
-                        Controle_Taxa.Insert(taxas.Rows[i]["descricao"].ToString(), Convert.ToDouble(taxas.Rows[i]["valor"]), max);                    
+                        Controle_Taxa.Insert(taxas.Rows[i]["descricao"].ToString(), Convert.ToDouble(taxas.Rows[i]["valor"]), max);
+                    id = Convert.ToInt32(((DataRowView)cbPedido.SelectedValue)["id"]);
+                    string sit = Controle_Pedido.get("id = " + id).Rows[0]["modalidade"].ToString();
+                    ///////////////////////
+                    cbPedido.SelectedItem = null;
+                    taxas.Rows.Clear();
+                    dgvTaxa.DataSource = taxas;
+                    listaCargas.Items.Clear();
+                    lbTotal.Text = "-";
+                    this.con = 0;
                 }                
             }
         }

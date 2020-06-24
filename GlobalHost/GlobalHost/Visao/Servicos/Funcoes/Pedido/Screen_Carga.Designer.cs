@@ -64,6 +64,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dotID = new System.Windows.Forms.Label();
             this.dotTipo = new System.Windows.Forms.Label();
+            this.ordOrder = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numVolume)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -489,12 +490,24 @@
             this.dotTipo.TabIndex = 68;
             this.dotTipo.Text = "*";
             // 
+            // ordOrder
+            // 
+            this.ordOrder.AutoSize = true;
+            this.ordOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ordOrder.ForeColor = System.Drawing.Color.Red;
+            this.ordOrder.Location = new System.Drawing.Point(13, 308);
+            this.ordOrder.Name = "ordOrder";
+            this.ordOrder.Size = new System.Drawing.Size(96, 12);
+            this.ordOrder.TabIndex = 75;
+            this.ordOrder.Text = "* Campos obrigatórios";
+            // 
             // Screen_Carga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(486, 343);
+            this.Controls.Add(this.ordOrder);
             this.Controls.Add(this.dotTipo);
             this.Controls.Add(this.dotID);
             this.Controls.Add(this.cbTipo);
@@ -556,5 +569,6 @@
         private System.Windows.Forms.Label dotAltura;
         private System.Windows.Forms.Label dotLargura;
         private System.Windows.Forms.Label dotTipo;
+        private System.Windows.Forms.Label ordOrder;
     }
 }

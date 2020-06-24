@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbPedido = new System.Windows.Forms.ComboBox();
@@ -41,6 +41,8 @@
             this.Taxa_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Taxa_Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Taxa_Origem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MenuStrip_dgvPedido = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ToolMS_dgvPedido_Exluir = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btAtualizar = new System.Windows.Forms.Button();
             this.btAdicionar = new System.Windows.Forms.Button();
@@ -56,11 +58,9 @@
             this.btCancelar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.lbTotal = new System.Windows.Forms.Label();
-            this.MenuStrip_dgvPedido = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ToolMS_dgvPedido_Exluir = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxa)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.MenuStrip_dgvPedido.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -129,25 +129,25 @@
             this.Taxa_Descricao,
             this.Taxa_Origem});
             this.dgvTaxa.ContextMenuStrip = this.MenuStrip_dgvPedido;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTaxa.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTaxa.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTaxa.EnableHeadersVisualStyles = false;
             this.dgvTaxa.Location = new System.Drawing.Point(36, 150);
             this.dgvTaxa.Name = "dgvTaxa";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaxa.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaxa.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvTaxa.RowHeadersVisible = false;
             this.dgvTaxa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTaxa.Size = new System.Drawing.Size(658, 201);
@@ -157,8 +157,8 @@
             // Taxa_ID
             // 
             this.Taxa_ID.DataPropertyName = "id";
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            this.Taxa_ID.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            this.Taxa_ID.DefaultCellStyle = dataGridViewCellStyle3;
             this.Taxa_ID.HeaderText = "ID";
             this.Taxa_ID.Name = "Taxa_ID";
             this.Taxa_ID.ReadOnly = true;
@@ -179,6 +179,21 @@
             this.Taxa_Origem.Name = "Taxa_Origem";
             this.Taxa_Origem.ReadOnly = true;
             this.Taxa_Origem.Width = 150;
+            // 
+            // MenuStrip_dgvPedido
+            // 
+            this.MenuStrip_dgvPedido.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolMS_dgvPedido_Exluir});
+            this.MenuStrip_dgvPedido.Name = "MenuStrip_dgvPedido";
+            this.MenuStrip_dgvPedido.Size = new System.Drawing.Size(110, 26);
+            // 
+            // ToolMS_dgvPedido_Exluir
+            // 
+            this.ToolMS_dgvPedido_Exluir.Image = global::GlobalHost.Properties.Resources.lixo2;
+            this.ToolMS_dgvPedido_Exluir.Name = "ToolMS_dgvPedido_Exluir";
+            this.ToolMS_dgvPedido_Exluir.Size = new System.Drawing.Size(109, 22);
+            this.ToolMS_dgvPedido_Exluir.Text = "Excluir";
+            this.ToolMS_dgvPedido_Exluir.Click += new System.EventHandler(this.ToolMS_dgvPedido_Exluir_Click);
             // 
             // groupBox1
             // 
@@ -320,7 +335,7 @@
             this.btAbrir.Name = "btAbrir";
             this.btAbrir.Size = new System.Drawing.Size(85, 31);
             this.btAbrir.TabIndex = 64;
-            this.btAbrir.Text = "Abrir Frete";
+            this.btAbrir.Text = "Confirmar";
             this.btAbrir.UseVisualStyleBackColor = false;
             this.btAbrir.Click += new System.EventHandler(this.btAbrir_Click);
             // 
@@ -361,21 +376,6 @@
             this.lbTotal.TabIndex = 67;
             this.lbTotal.Text = "-";
             // 
-            // MenuStrip_dgvPedido
-            // 
-            this.MenuStrip_dgvPedido.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolMS_dgvPedido_Exluir});
-            this.MenuStrip_dgvPedido.Name = "MenuStrip_dgvPedido";
-            this.MenuStrip_dgvPedido.Size = new System.Drawing.Size(110, 26);
-            // 
-            // ToolMS_dgvPedido_Exluir
-            // 
-            this.ToolMS_dgvPedido_Exluir.Image = global::GlobalHost.Properties.Resources.lixo2;
-            this.ToolMS_dgvPedido_Exluir.Name = "ToolMS_dgvPedido_Exluir";
-            this.ToolMS_dgvPedido_Exluir.Size = new System.Drawing.Size(109, 22);
-            this.ToolMS_dgvPedido_Exluir.Text = "Excluir";
-            this.ToolMS_dgvPedido_Exluir.Click += new System.EventHandler(this.ToolMS_dgvPedido_Exluir_Click);
-            // 
             // Screen_Orcamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,9 +396,9 @@
             this.Name = "Screen_Orcamento";
             this.Size = new System.Drawing.Size(1031, 562);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxa)).EndInit();
+            this.MenuStrip_dgvPedido.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.MenuStrip_dgvPedido.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

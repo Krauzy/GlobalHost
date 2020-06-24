@@ -108,7 +108,7 @@ namespace GlobalHost.Persistencia
             }
             catch (Exception e)
             {
-                MessageBox.Show(null, "Error de Execução: " + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(null, "Erro de Execução: " + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

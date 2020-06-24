@@ -22,7 +22,7 @@ namespace GlobalHost.Persistencia
             {
                 Pedido p = (Pedido)obj;
                 string SQL;
-                MessageBox.Show("Data: " + p.Data + "\nModalidade: " + p.Modalidade + "\nOrigem: " + p.Origem + "\nDestino: " + p.Destino + "\nDespachante: " + p.Despachante + "\nSituação: " + p.Situacao + "\nCliente: " + p.Cliente + "\nFuncionário: " + p.Funcionario);
+                //MessageBox.Show("Data: " + p.Data + "\nModalidade: " + p.Modalidade + "\nOrigem: " + p.Origem + "\nDestino: " + p.Destino + "\nDespachante: " + p.Despachante + "\nSituação: " + p.Situacao + "\nCliente: " + p.Cliente + "\nFuncionário: " + p.Funcionario + "\nAutorização:", p.Autorizacao);
                 banco.Connect();
                 if (p.Remessa != null)
                 {

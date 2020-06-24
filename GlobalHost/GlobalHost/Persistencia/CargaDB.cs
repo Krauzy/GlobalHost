@@ -102,15 +102,15 @@ namespace GlobalHost.Persistencia
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Carga c = new Carga((int)dt.Rows[0]["id"],
-                                dt.Rows[0]["descricao"].ToString(),
-                                (int)dt.Rows[0]["volume"],
-                                Convert.ToDouble(dt.Rows[0]["peso"]),
-                                dt.Rows[0]["dimensoes"].ToString(),
-                                Convert.ToDouble(dt.Rows[0]["valor_unitario"]),
-                                Convert.ToDouble(dt.Rows[0]["valor"]),
-                                tipos.get((int)dt.Rows[0]["tipo"]),
-                                pedidos.get((int)dt.Rows[0]["pedido"]));
+                    Carga c = new Carga((int)dt.Rows[i]["id"],
+                                dt.Rows[i]["descricao"].ToString(),
+                                (int)dt.Rows[i]["volume"],
+                                Convert.ToDouble(dt.Rows[i]["peso"]),
+                                dt.Rows[i]["dimensoes"].ToString(),
+                                Convert.ToDouble(dt.Rows[i]["valor_unitario"]),
+                                Convert.ToDouble(dt.Rows[i]["valor"]),
+                                tipos.get((int)dt.Rows[i]["tipo"]),
+                                pedidos.get((int)dt.Rows[i]["pedido"]));
                     lista.Add(c);
                 }
                 
@@ -133,15 +133,15 @@ namespace GlobalHost.Persistencia
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Carga c = new Carga((int)dt.Rows[0]["id"],
-                                dt.Rows[0]["descricao"].ToString(),
-                                (int)dt.Rows[0]["volume"],
-                                Convert.ToDouble(dt.Rows[0]["peso"]),
-                                dt.Rows[0]["dimensoes"].ToString(),
-                                Convert.ToDouble(dt.Rows[0]["valor_unitario"]),
-                                Convert.ToDouble(dt.Rows[0]["valor"]),
-                                tipos.get((int)dt.Rows[0]["tipo"]),
-                                pedidos.get((int)dt.Rows[0]["pedido"]));
+                    Carga c = new Carga((int)dt.Rows[i]["id"],
+                                dt.Rows[i]["descricao"].ToString(),
+                                (int)dt.Rows[i]["volume"],
+                                Convert.ToDouble(dt.Rows[i]["peso"]),
+                                dt.Rows[i]["dimensoes"].ToString(),
+                                Convert.ToDouble(dt.Rows[i]["valor_unitario"]),
+                                Convert.ToDouble(dt.Rows[i]["valor"]),
+                                tipos.get((int)dt.Rows[i]["tipo"]),
+                                pedidos.get((int)dt.Rows[i]["pedido"]));
                     lista.Add(c);
                 }
 

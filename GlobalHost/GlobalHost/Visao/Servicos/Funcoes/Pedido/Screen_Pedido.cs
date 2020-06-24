@@ -26,9 +26,6 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             cbCliente.DataSource = Controle_Cliente.get("");
             cbCliente.DisplayMember = "nome";
             cbCliente.ValueMember = "id";
-            cbCliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbCliente.SelectedItem = null;
             cbCliente.Text = string.Empty;
             cbFiltroCarga.SelectedIndex = 0;
             cbFiltroPedido.SelectedIndex = 0;
@@ -43,6 +40,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             DataCarga.Columns.Add("valor_unitario", typeof(double));
             DataCarga.Columns.Add("valor", typeof(double));
             DataCarga.Columns.Add("tipo", typeof(string));
+
+            dotOrder.Visible = false;
+            dotID.Visible = false;
+            dotCliente.Visible = false;
+            dotDestino.Visible = false;
+            dotModalidade.Visible = false;
+            dotOrigem.Visible = false;
         }
 
         private void changebool()
@@ -88,6 +92,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             rdExclusivo.Enabled = true;
             rdExpresso.Enabled = true;
 
+            dotOrder.Visible = true;
+            dotID.Visible = false;
+            dotCliente.Visible = true;
+            dotDestino.Visible = true;
+            dotModalidade.Visible = true;
+            dotOrigem.Visible = true;
+
             ins = true;
             alt = false;
             exc = false;
@@ -114,6 +125,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             btUpdate.Enabled = true;
             rdExclusivo.Enabled = true;
             rdExpresso.Enabled = true;
+
+            dotOrder.Visible = true;
+            dotID.Visible = true;
+            dotCliente.Visible = true;
+            dotDestino.Visible = true;
+            dotModalidade.Visible = true;
+            dotOrigem.Visible = true;
 
             ins = false;
             alt = true;
@@ -146,6 +164,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             rdExclusivo.Enabled = false;
             rdExpresso.Enabled = false;
             dgvCarga.Rows.Clear();
+
+            dotOrder.Visible = true;
+            dotID.Visible = true;
+            dotCliente.Visible = false;
+            dotDestino.Visible = false;
+            dotModalidade.Visible = false;
+            dotOrigem.Visible = false;
 
             ins = false;
             alt = false;
@@ -196,6 +221,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             rdExclusivo.Enabled = false;
             rdExpresso.Enabled = false;
 
+            dotOrder.Visible = false;
+            dotID.Visible = false;
+            dotCliente.Visible = false;
+            dotDestino.Visible = false;
+            dotModalidade.Visible = false;
+            dotOrigem.Visible = false;
+
             dgvCarga.Rows.Clear();
 
             ins = false;
@@ -218,7 +250,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 linha["dimensoes"] = dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value;
                 linha["valor_unitario"] = dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value;
                 linha["valor"] = dgvCarga.Rows[i].Cells["Carga_Valor"].Value;
-                linha["tipo"] = Controle_TipoCarga.get("descricao LIKE '%" + dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString() + "%'").Rows[0];
+                linha["tipo"] = dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString();//Controle_TipoCarga.get("descricao LIKE '%" + dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString() + "%'").Rows[0];
                 DataCarga.Rows.Add(linha);
             }
         }
@@ -504,7 +536,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     dgvCarga.SelectedRows[0].Cells["Carga_Descricao"].Value = ex.Descricao;
                     dgvCarga.SelectedRows[0].Cells["Carga_Volume"].Value = ex.Volume;
                     dgvCarga.SelectedRows[0].Cells["Carga_Peso"].Value = ex.Peso;
-                    dgvCarga.SelectedRows[0].Cells["Carga_Dimensoes"].Value = ex.Dimensoes;
+                    dgvCarga.SelectedRows[0].Cells["Carga_Dimensoes"].Value = ex.Dimensoes; 
                     dgvCarga.SelectedRows[0].Cells["Carga_ValorUnit"].Value = ex.Valor;
                     dgvCarga.SelectedRows[0].Cells["Carga_Valor"].Value = ex.Total;
                     dgvCarga.SelectedRows[0].Cells["Carga_Tipo"].Value = ex.Tipo;
@@ -535,6 +567,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             rdExclusivo.Enabled = false;
             rdExpresso.Enabled = false;
             dgvCarga.Rows.Clear();
+
+            dotOrder.Visible = false;
+            dotID.Visible = false;
+            dotCliente.Visible = false;
+            dotDestino.Visible = false;
+            dotModalidade.Visible = false;
+            dotOrigem.Visible = false;
 
             ins = false;
             alt = false;

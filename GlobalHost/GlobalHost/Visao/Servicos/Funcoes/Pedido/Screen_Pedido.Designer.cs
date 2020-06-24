@@ -41,6 +41,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
+            this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.globalDBDataSet2 = new GlobalHost.GlobalDBDataSet2();
             this.label11 = new System.Windows.Forms.Label();
             this.txtBuscarPedido = new System.Windows.Forms.TextBox();
             this.cbFiltroPedido = new System.Windows.Forms.ComboBox();
@@ -78,10 +80,14 @@
             this.btnInserir = new System.Windows.Forms.Button();
             this.txtCarga = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.globalDBDataSet2 = new GlobalHost.GlobalDBDataSet2();
-            this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pedidoTableAdapter = new GlobalHost.GlobalDBDataSet2TableAdapters.PedidoTableAdapter();
             this.globalDBDataSet2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dotID = new System.Windows.Forms.Label();
+            this.dotCliente = new System.Windows.Forms.Label();
+            this.dotOrigem = new System.Windows.Forms.Label();
+            this.dotDestino = new System.Windows.Forms.Label();
+            this.dotModalidade = new System.Windows.Forms.Label();
+            this.dotOrder = new System.Windows.Forms.Label();
             this.Pedido_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pedido_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pedido_Modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,11 +100,11 @@
             this.Pedido_Remessa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.globalDBDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).BeginInit();
             this.MenuStrip.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.globalDBDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.globalDBDataSet2BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -213,6 +219,16 @@
             this.dgvPedido.Size = new System.Drawing.Size(339, 376);
             this.dgvPedido.TabIndex = 43;
             this.dgvPedido.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellDoubleClick);
+            // 
+            // pedidoBindingSource
+            // 
+            this.pedidoBindingSource.DataMember = "Pedido";
+            this.pedidoBindingSource.DataSource = this.globalDBDataSet2;
+            // 
+            // globalDBDataSet2
+            // 
+            this.globalDBDataSet2.DataSetName = "GlobalDBDataSet2";
+            this.globalDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label11
             // 
@@ -527,6 +543,7 @@
             // 
             // cbCliente
             // 
+            this.cbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCliente.Enabled = false;
             this.cbCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cbCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -712,16 +729,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gerenciamento de Carga";
             // 
-            // globalDBDataSet2
-            // 
-            this.globalDBDataSet2.DataSetName = "GlobalDBDataSet2";
-            this.globalDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pedidoBindingSource
-            // 
-            this.pedidoBindingSource.DataMember = "Pedido";
-            this.pedidoBindingSource.DataSource = this.globalDBDataSet2;
-            // 
             // pedidoTableAdapter
             // 
             this.pedidoTableAdapter.ClearBeforeFill = true;
@@ -730,6 +737,67 @@
             // 
             this.globalDBDataSet2BindingSource.DataSource = this.globalDBDataSet2;
             this.globalDBDataSet2BindingSource.Position = 0;
+            // 
+            // dotID
+            // 
+            this.dotID.AutoSize = true;
+            this.dotID.ForeColor = System.Drawing.Color.Red;
+            this.dotID.Location = new System.Drawing.Point(69, 91);
+            this.dotID.Name = "dotID";
+            this.dotID.Size = new System.Drawing.Size(11, 13);
+            this.dotID.TabIndex = 105;
+            this.dotID.Text = "*";
+            // 
+            // dotCliente
+            // 
+            this.dotCliente.AutoSize = true;
+            this.dotCliente.ForeColor = System.Drawing.Color.Red;
+            this.dotCliente.Location = new System.Drawing.Point(240, 95);
+            this.dotCliente.Name = "dotCliente";
+            this.dotCliente.Size = new System.Drawing.Size(11, 13);
+            this.dotCliente.TabIndex = 106;
+            this.dotCliente.Text = "*";
+            // 
+            // dotOrigem
+            // 
+            this.dotOrigem.AutoSize = true;
+            this.dotOrigem.ForeColor = System.Drawing.Color.Red;
+            this.dotOrigem.Location = new System.Drawing.Point(113, 152);
+            this.dotOrigem.Name = "dotOrigem";
+            this.dotOrigem.Size = new System.Drawing.Size(11, 13);
+            this.dotOrigem.TabIndex = 107;
+            this.dotOrigem.Text = "*";
+            // 
+            // dotDestino
+            // 
+            this.dotDestino.AutoSize = true;
+            this.dotDestino.ForeColor = System.Drawing.Color.Red;
+            this.dotDestino.Location = new System.Drawing.Point(409, 152);
+            this.dotDestino.Name = "dotDestino";
+            this.dotDestino.Size = new System.Drawing.Size(11, 13);
+            this.dotDestino.TabIndex = 108;
+            this.dotDestino.Text = "*";
+            // 
+            // dotModalidade
+            // 
+            this.dotModalidade.AutoSize = true;
+            this.dotModalidade.ForeColor = System.Drawing.Color.Red;
+            this.dotModalidade.Location = new System.Drawing.Point(151, 209);
+            this.dotModalidade.Name = "dotModalidade";
+            this.dotModalidade.Size = new System.Drawing.Size(11, 13);
+            this.dotModalidade.TabIndex = 109;
+            this.dotModalidade.Text = "*";
+            // 
+            // dotOrder
+            // 
+            this.dotOrder.AutoSize = true;
+            this.dotOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dotOrder.ForeColor = System.Drawing.Color.Red;
+            this.dotOrder.Location = new System.Drawing.Point(501, 245);
+            this.dotOrder.Name = "dotOrder";
+            this.dotOrder.Size = new System.Drawing.Size(96, 12);
+            this.dotOrder.TabIndex = 110;
+            this.dotOrder.Text = "* Campos obrigatórios";
             // 
             // Pedido_ID
             // 
@@ -813,6 +881,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.dotOrder);
+            this.Controls.Add(this.dotModalidade);
+            this.Controls.Add(this.dotDestino);
+            this.Controls.Add(this.dotOrigem);
+            this.Controls.Add(this.dotCliente);
+            this.Controls.Add(this.dotID);
             this.Controls.Add(this.btOrigem);
             this.Controls.Add(this.txtOrigem);
             this.Controls.Add(this.btDestino);
@@ -841,12 +915,12 @@
             this.Name = "Screen_Pedido";
             this.Size = new System.Drawing.Size(1031, 562);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.globalDBDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarga)).EndInit();
             this.MenuStrip.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.globalDBDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.globalDBDataSet2BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -898,6 +972,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Carga_ValorUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carga_Tipo;
+        private System.Windows.Forms.BindingSource pedidoBindingSource;
+        private GlobalDBDataSet2 globalDBDataSet2;
+        private GlobalDBDataSet2TableAdapters.PedidoTableAdapter pedidoTableAdapter;
+        private System.Windows.Forms.BindingSource globalDBDataSet2BindingSource;
+        private System.Windows.Forms.Label dotID;
+        private System.Windows.Forms.Label dotCliente;
+        private System.Windows.Forms.Label dotOrigem;
+        private System.Windows.Forms.Label dotDestino;
+        private System.Windows.Forms.Label dotModalidade;
+        private System.Windows.Forms.Label dotOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Modalidade;
@@ -909,9 +993,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Funcionario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Remessa;
         private System.Windows.Forms.DataGridViewTextBoxColumn autorizacao;
-        private System.Windows.Forms.BindingSource pedidoBindingSource;
-        private GlobalDBDataSet2 globalDBDataSet2;
-        private GlobalDBDataSet2TableAdapters.PedidoTableAdapter pedidoTableAdapter;
-        private System.Windows.Forms.BindingSource globalDBDataSet2BindingSource;
     }
 }
