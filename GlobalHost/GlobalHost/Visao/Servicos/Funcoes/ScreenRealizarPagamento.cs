@@ -29,7 +29,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            bool res = ccp.updateAll(lbAPagar.Items);
+            bool res = false;//ccp.updateAll(lbAPagar.Items);
             if(res)
             {
                 MessageBox.Show("O pagamento foi realizado com sucesso!");
