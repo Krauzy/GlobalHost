@@ -84,6 +84,9 @@ namespace GlobalHost.Visao
             this.scrRemessa = new GlobalHost.Visao.Servicos.Gerencia.Screen_Remessa();
             this.screen_Transportadora = new GlobalHost.Visao.Servicos.Screen_Transportadora();
             this.scrRealizarPagamento = new GlobalHost.Visao.Servicos.Funcoes.ScreenRealizarPagamento();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             this.paneMenu.SuspendLayout();
             this.paneServ.SuspendLayout();
@@ -703,6 +706,9 @@ namespace GlobalHost.Visao
             this.scrRealizarPagamento.Name = "scrRealizarPagamento";
             this.scrRealizarPagamento.Size = new System.Drawing.Size(1031, 562);
             this.scrRealizarPagamento.TabIndex = 18;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             // 
             // Menu
@@ -726,8 +732,13 @@ namespace GlobalHost.Visao
             this.Controls.Add(this.ScreenCotacao);
             this.Controls.Add(this.paneHome);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.Controls.Add(this.scrOrcamento);
             this.Controls.Add(this.screen_Transportadora);
+=======
+            this.Controls.Add(this.screen_Transportadora);
+            this.Controls.Add(this.scrRealizarPagamento);
+>>>>>>> Stashed changes
 =======
             this.Controls.Add(this.screen_Transportadora);
             this.Controls.Add(this.scrRealizarPagamento);
