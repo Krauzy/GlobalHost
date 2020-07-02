@@ -16,7 +16,6 @@ namespace GlobalHost.Visao.Servicos.Funcoes
     {
         Controle_Despesa cd;
         Controle_ContasPagar ccp;
-        DataTable tabela;
         public ScreenRealizarPagamento()
         {
             InitializeComponent();
@@ -25,14 +24,12 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             cbDespesa.ValueMember = "id";
             cbDespesa.DisplayMember = "descricao";
             cbDespesa.DataSource = cd.get("");
-            //tabela = ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString()))
             Filters.numericField(txtValor);
-            Filters.numericField(txtID);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            bool res = ccp.updateAll(lbAPagar.Items,txtValor.Text);
+            bool res = ccp.updateAll(lbAPagar.Items);
             if(res)
             {
                 MessageBox.Show("O pagamento foi realizado com sucesso!");
@@ -50,18 +47,12 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void cbDespesa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<object> l = ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString()));
-            dgvContas.Rows.Add(l);
+            cbDespesa.Items.Add(ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString())));
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
             lbAPagar.Items.Remove(lbAPagar.SelectedItem);
-        }
-
-        private void dgvContas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
