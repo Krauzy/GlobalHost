@@ -1,5 +1,6 @@
 ﻿using GlobalHost.Controlador;
 using GlobalHost.Visao.Servicos;
+using GlobalHost.Visao.Servicos.Funcoes;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -28,6 +29,7 @@ namespace GlobalHost.Visao
             sobre = false;
             changeBool();
             paneHome.BringToFront();
+            
         }
 
         public void LoadLogo()
@@ -279,13 +281,21 @@ namespace GlobalHost.Visao
             scrRemessa.BringToFront();
         }
 
+<<<<<<< Updated upstream
         private void btOrcamento_Click(object sender, EventArgs e)
+=======
+        private void btnPagamentos_Click(object sender, EventArgs e)
+>>>>>>> Stashed changes
         {
             ger = false;
             fun = false;
             rel = false;
             changeBoolServ();
+<<<<<<< Updated upstream
             scrOrcamento.BringToFront();
+=======
+            scrRealizarPagamento.BringToFront();
+>>>>>>> Stashed changes
         }
     }
 }
