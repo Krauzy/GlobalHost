@@ -13,10 +13,10 @@ namespace GlobalHost.Controlador
 {
     class Controle_ContasPagar
     {
-        public bool insert(double valor, string tipo, string situacao, int frete, int estado)
+        public bool insert(double valor, string tipo, string situacao, int frete, int despesa)
         {
             ContasPagarDB db = new ContasPagarDB();
-            Contas_Pagar c = new Contas_Pagar(valor, tipo, situacao,frete,estado);
+            Contas_Pagar c = new Contas_Pagar(valor, tipo, situacao,frete,despesa);
             return db.Insert(c);
         }
 

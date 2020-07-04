@@ -21,19 +21,54 @@ namespace GlobalHost.Visao.Servicos
         private DataTable data;
         private int ID;
 
-
+        public bool checkFields()
+        {
+            return (txtNome.Text != string.Empty && 
+                     mtbCPF_CNPJ.Text != string.Empty && 
+                     mtbCEP.Text != string.Empty && 
+                     txtEndereco.Text != string.Empty && 
+                     txtEmail.Text != string.Empty && 
+                     txtEmail.Text.Contains("@") && 
+                     txtTelefone.Text != string.Empty && 
+                     dtpNascimento.Value != null);
+        }
+        public void liberaCampos(string funcao)
+        {
+            switch(funcao)
+            {
+                case "insert":
+                    mtbCPF_CNPJ.Enabled = true;
+                    mtbCEP.Enabled = true;
+                    txtEmail.Enabled = true;
+                    txtEndereco.Enabled = true;
+                    txtNome.Enabled = true;
+                    txtTelefone.Enabled = true;
+                    dtpNascimento.Enabled = true;
+                    break;
+                case "delete":
+                    liberaCampos("idle");
+                    break;
+                case "update":
+                    liberaCampos("insert");
+                    break;
+                case "idle":
+                    mtbCEP.Enabled = false;
+                    mtbCPF_CNPJ.Enabled = false;
+                    txtEmail.Enabled = false;
+                    txtEndereco.Enabled = false;
+                    txtNome.Enabled = false;
+                    txtTelefone.Enabled = false;
+                    dtpNascimento.Enabled = false;
+                    break;
+            }
+        }
         public Screen_Cliente()
         {
             InitializeComponent();
             cbFiltro.SelectedIndex = 0;
-            txtBusca.Enabled = true;
-            mtbCPF_CNPJ.Enabled = false;
-            txtEmail.Enabled = false;
-            txtEndereco.Enabled = false;
-            txtID.Enabled = false;
-            txtNome.Enabled = false;
-            txtTelefone.Enabled = false;
-            dtpNascimento.Enabled = false;
+            liberaCampos("idle");
+            data = Controle_Cliente.get("");
+            dgvCliente.DataSource = data;
         }
 
         private void changeBool()
@@ -57,35 +92,42 @@ namespace GlobalHost.Visao.Servicos
                 btnExcluir.Image = GlobalHost.Properties.Resources.lixo2;
             }
         }
-
+        
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (insere == true)
+            if (insere)
             {
-                if (txtNome.Text != string.Empty && mtbCPF_CNPJ.Text != string.Empty && mtbCEP.Text != string.Empty
-                    && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtEmail.Text.Contains("@") && txtTelefone.Text != string.Empty && dtpNascimento.Text != string.Empty)
+                if (checkFields())
                 {
-                    if (!Controle_Cliente.insert(txtNome.Text, txtEndereco.Text,(DateTime)dtpNascimento.Value,mtbCPF_CNPJ.Text, mtbCEP.Text,txtEmail.Text,txtTelefone.Text))
+                    if (!Controle_Cliente.insert(txtNome.Text, txtEndereco.Text, (DateTime)dtpNascimento.Value, mtbCPF_CNPJ.Text, mtbCEP.Text, txtEmail.Text, txtTelefone.Text))
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    else
+                        MessageBox.Show("Inserido com sucesso!", "Operação sem falhas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("Existe algum campo inválido!", "Campo com erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else if (altera == true)
+            else if (altera)
             {
-                if (txtNome.Text != string.Empty && mtbCPF_CNPJ.Text != string.Empty && mtbCEP.Text != string.Empty
-                    && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtEmail.Text.Contains("@") && txtTelefone.Text != string.Empty && dtpNascimento.Text != string.Empty)
+                if (checkFields())
                 {
                     if (!Controle_Cliente.update(Convert.ToInt32(txtID.Text), txtNome.Text, txtEndereco.Text, (DateTime)dtpNascimento.Value, mtbCPF_CNPJ.Text, mtbCEP.Text, txtEmail.Text, txtTelefone.Text))
                         MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show("Alterado com sucesso!", "Operação sem falhas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else if (exclui == true)
+            else if (exclui)
             {
                 if (txtID.Text != string.Empty)
                 {
                     string n = Controle_Cliente.get(ID).Rows[0]["nome"].ToString();
                     if (!Controle_Cliente.delete(ID))
                         MessageBox.Show("Falha ao exluir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show("Excluído com sucesso!", "Operação sem falhas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
 
@@ -93,14 +135,7 @@ namespace GlobalHost.Visao.Servicos
             altera = false;
             exclui = false;
             changeBool();
-
-            txtID.Enabled = false;
-            mtbCPF_CNPJ.Enabled = false;
-            txtEmail.Enabled = false;
-            txtEndereco.Enabled = false;
-            txtNome.Enabled = false;
-            txtTelefone.Enabled = false;
-            dtpNascimento.Enabled = false;
+            liberaCampos("idle");
 
             txtID.Text = string.Empty;
             txtNome.Text = string.Empty;
@@ -116,7 +151,7 @@ namespace GlobalHost.Visao.Servicos
             btnCancelar.Enabled = false;
 
             data = Controle_Cliente.get("");
-            dgvFuncionario.DataSource = data;
+            dgvCliente.DataSource = data;
 
             this.ActiveControl = null;
         }
@@ -133,13 +168,7 @@ namespace GlobalHost.Visao.Servicos
             exclui = false;
             changeBool();
 
-            mtbCPF_CNPJ.Enabled = false;
-            txtEmail.Enabled = false;
-            txtEndereco.Enabled = false;
-            txtID.Enabled = false;
-            txtNome.Enabled = false;
-            txtTelefone.Enabled = false;
-            dtpNascimento.Enabled = false;
+            liberaCampos("idle");
 
             txtID.Text = string.Empty;
             txtNome.Text = string.Empty;
@@ -158,13 +187,7 @@ namespace GlobalHost.Visao.Servicos
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            txtID.Enabled = false;
-            mtbCPF_CNPJ.Enabled = true;
-            txtEmail.Enabled = true;
-            txtEndereco.Enabled = true;
-            txtNome.Enabled = true;
-            txtTelefone.Enabled = true;
-            dtpNascimento.Enabled = true;
+            liberaCampos("insert");
 
             insere = true;
             altera = false;
@@ -177,13 +200,7 @@ namespace GlobalHost.Visao.Servicos
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            txtID.Enabled = true;
-            mtbCPF_CNPJ.Enabled = true;
-            txtEmail.Enabled = true;
-            txtEndereco.Enabled = true;
-            txtNome.Enabled = true;
-            txtTelefone.Enabled = true;
-            dtpNascimento.Enabled = true;
+            liberaCampos("update");
 
             insere = false;
             altera = true;
@@ -196,13 +213,7 @@ namespace GlobalHost.Visao.Servicos
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            txtID.Enabled = true;
-            mtbCPF_CNPJ.Enabled = false;
-            txtEmail.Enabled = false;
-            txtEndereco.Enabled = false;
-            txtNome.Enabled = false;
-            txtTelefone.Enabled = false;
-            dtpNascimento.Enabled = false;
+            liberaCampos("delete");
 
             insere = false;
             altera = false;
@@ -263,7 +274,22 @@ namespace GlobalHost.Visao.Servicos
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
+            data = Controle_Cliente.get(txtBusca.Text);
+            dgvCliente.Update();
+        }
 
+        private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataRow dr = data.Rows[dgvCliente.CurrentRow.Index];
+            txtID.Text = dr["id"].ToString() ;
+            txtNome.Text = dr["nome"].ToString();
+            dtpNascimento.Value = Convert.ToDateTime(dr["dtnascimento"].ToString());
+            mtbCPF_CNPJ.Text = dr["cpf_cnpj"].ToString();
+            txtEndereco.Text = dr["endereco"].ToString();
+            txtTelefone.Text = dr["telefone"].ToString();
+            txtEmail.Text = dr["email"].ToString();
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
         }
     }
 }

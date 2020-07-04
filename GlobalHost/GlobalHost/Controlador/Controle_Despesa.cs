@@ -61,5 +61,10 @@ namespace GlobalHost.Controlador
             return table;
         }
 
+        public int getIdentity()
+        {
+            DespesaDB DB = new DespesaDB();
+            return DB.getIdentity();
+        }
     }
 }

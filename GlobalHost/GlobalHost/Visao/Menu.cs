@@ -280,30 +280,19 @@ namespace GlobalHost.Visao
             changeBoolServ();
             scrRemessa.BringToFront();
         }
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
         private void btOrcamento_Click(object sender, EventArgs e)
-=======
+        {
+
+        }
         private void btnPagamentos_Click(object sender, EventArgs e)
->>>>>>> Stashed changes
-=======
-        private void btnPagamentos_Click(object sender, EventArgs e)
->>>>>>> Stashed changes
         {
             ger = false;
             fun = false;
             rel = false;
             changeBoolServ();
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
             scrOrcamento.BringToFront();
-=======
             scrRealizarPagamento.BringToFront();
->>>>>>> Stashed changes
-=======
             scrRealizarPagamento.BringToFront();
->>>>>>> Stashed changes
         }
     }
 }

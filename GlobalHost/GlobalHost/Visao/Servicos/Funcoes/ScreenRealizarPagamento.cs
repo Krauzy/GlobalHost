@@ -54,5 +54,10 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         {
             lbAPagar.Items.Remove(lbAPagar.SelectedItem);
         }
+
+        private void dgvContas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -74,20 +74,14 @@ namespace GlobalHost.Visao
             this.scrTipo_Transporte = new GlobalHost.Visao.Servicos.ScreenTipo_Transporte();
             this.ScreenSobre = new GlobalHost.Visao.Sobre();
             this.ScreenCotacao = new GlobalHost.Visao.Cotacao();
-<<<<<<< Updated upstream
             this.paneHome = new GlobalHost.Visao.PaneHome();
             this.scrOrcamento = new GlobalHost.Visao.Servicos.Funcoes.Screen_Orcamento();
             this.btOrcamento = new System.Windows.Forms.Button();
-=======
             this.scrFuncionario = new GlobalHost.Visao.Servicos.Screen_Funcionarios();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.scrRemessa = new GlobalHost.Visao.Servicos.Gerencia.Screen_Remessa();
             this.screen_Transportadora = new GlobalHost.Visao.Servicos.Screen_Transportadora();
             this.scrRealizarPagamento = new GlobalHost.Visao.Servicos.Funcoes.ScreenRealizarPagamento();
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
             this.paneMenu.SuspendLayout();
             this.paneServ.SuspendLayout();
             this.pnGerenciamento.SuspendLayout();
@@ -669,7 +663,6 @@ namespace GlobalHost.Visao
             this.paneHome.Size = new System.Drawing.Size(1031, 562);
             this.paneHome.TabIndex = 18;
             // 
-<<<<<<< Updated upstream
             // scrOrcamento
             // 
             this.scrOrcamento.BackColor = System.Drawing.Color.White;
@@ -692,7 +685,6 @@ namespace GlobalHost.Visao
             this.btOrcamento.Text = "Orçamento";
             this.btOrcamento.UseVisualStyleBackColor = false;
             this.btOrcamento.Click += new System.EventHandler(this.btOrcamento_Click);
-=======
             this.screen_Transportadora.BackColor = System.Drawing.Color.White;
             this.screen_Transportadora.Location = new System.Drawing.Point(225, 27);
             this.screen_Transportadora.Name = "screen_Transportadora";
@@ -706,10 +698,6 @@ namespace GlobalHost.Visao
             this.scrRealizarPagamento.Name = "scrRealizarPagamento";
             this.scrRealizarPagamento.Size = new System.Drawing.Size(1031, 562);
             this.scrRealizarPagamento.TabIndex = 18;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
             // 
             // Menu
             // 
@@ -731,18 +719,12 @@ namespace GlobalHost.Visao
             this.Controls.Add(this.ScreenSobre);
             this.Controls.Add(this.ScreenCotacao);
             this.Controls.Add(this.paneHome);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
             this.Controls.Add(this.scrOrcamento);
             this.Controls.Add(this.screen_Transportadora);
-=======
             this.Controls.Add(this.screen_Transportadora);
             this.Controls.Add(this.scrRealizarPagamento);
->>>>>>> Stashed changes
-=======
             this.Controls.Add(this.screen_Transportadora);
             this.Controls.Add(this.scrRealizarPagamento);
->>>>>>> Stashed changes
             this.Controls.Add(this.pnGerenciamento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

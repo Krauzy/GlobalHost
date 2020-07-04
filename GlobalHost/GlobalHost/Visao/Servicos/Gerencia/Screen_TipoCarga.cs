@@ -239,15 +239,21 @@ namespace GlobalHost.Visao.Servicos
             if (ins == true)
             {
                 if (txtPeso.Text != "" && txtLargura.Text != "" && txtComprimento.Text != "" && txtAltura.Text != "")
+                {
                     if (!Controle_TipoCarga.insert(txtNome.Text, peso, L + ";" + A + ";" + C))
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    else MessageBox.Show("Operação feita com sucesso!" + txtNome.Text + "!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                   
             }
             else if (alt == true)
             {
                 if (txtID.Text != "" && txtPeso.Text != "" && txtLargura.Text != "" && txtComprimento.Text != "" && txtAltura.Text != "")
+                {
                     if (!Controle_TipoCarga.update(Convert.ToInt32(txtID.Text), txtNome.Text, peso, L + ";" + A + ";" + C))
                         MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else MessageBox.Show("Operação feita com sucesso!" + txtNome.Text + "!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else if (exc == true)
             {
@@ -256,6 +262,7 @@ namespace GlobalHost.Visao.Servicos
                     string n = Controle_TipoCarga.get(Convert.ToInt32(id)).Rows[0]["descricao"].ToString();
                     if (!Controle_TipoCarga.delete(Convert.ToInt32(id)))
                         MessageBox.Show("Falha ao remover " + n + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else MessageBox.Show("Operação feita com sucesso!" + txtNome.Text + "!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             ins = false;
@@ -354,6 +361,11 @@ namespace GlobalHost.Visao.Servicos
         private void txtComprimento_TextChanged_1(object sender, EventArgs e)
         {
             Filters.numericField(txtComprimento);
+        }
+
+        private void dgvTipo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
         /*
 private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

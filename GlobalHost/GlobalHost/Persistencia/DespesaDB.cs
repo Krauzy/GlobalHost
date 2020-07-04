@@ -94,5 +94,15 @@ namespace GlobalHost.Persistencia
             banco.Disconnect();
             return list;
         }
+
+        public int getIdentity()
+        {
+            string SQL = @"SELECT IDENT_CURRENT('Despesa')";
+            DataTable dt = new DataTable();
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out dt);
+            banco.Disconnect();
+            return Convert.ToInt32(dt.Rows[0][0]);
+        }
     }
 }

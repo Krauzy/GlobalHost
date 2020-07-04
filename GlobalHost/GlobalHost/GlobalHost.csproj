@@ -135,6 +135,7 @@
     </Compile>
     <Compile Include="Modelo\Carga.cs" />
     <Compile Include="Modelo\Cliente.cs" />
+    <Compile Include="Modelo\Contas_Pagar.cs" />
     <Compile Include="Modelo\Despesa.cs" />
     <Compile Include="Modelo\Frete.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
