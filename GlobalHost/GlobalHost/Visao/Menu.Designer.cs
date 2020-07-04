@@ -440,7 +440,7 @@ namespace GlobalHost.Visao
             this.btnPagamentos.TabIndex = 5;
             this.btnPagamentos.Text = "Pagamentos";
             this.btnPagamentos.UseVisualStyleBackColor = false;
-            this.btnPagamentos.Click += new System.EventHandler(this.btnPagamentos_Click);
+            //this.btnPagamentos.Click += new System.EventHandler(this.btnPagamentos_Click);
             // 
             // button10
             // 

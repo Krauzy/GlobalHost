@@ -95,6 +95,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controlador\Controle_Carga.cs" />
+    <Compile Include="Controlador\Controle_ContasPagar.cs" />
     <Compile Include="Controlador\Controle_Despesa.cs" />
     <Compile Include="Controlador\Controle_Funcionario.cs" />
     <Compile Include="Controlador\Controle_Login.cs" />
@@ -151,6 +152,8 @@
     <Compile Include="Modelo\Transporte.cs" />
     <Compile Include="Persistencia\Banco.cs" />
     <Compile Include="Persistencia\CargaDB.cs" />
+    <Compile Include="Persistencia\ContasPagarDB.cs" />
+    <Compile Include="Persistencia\DespesaDB.cs" />
     <Compile Include="Persistencia\FuncionarioDB.cs" />
     <Compile Include="Persistencia\ClienteDB.cs" />
     <Compile Include="Persistencia\LoginDB.cs" />
@@ -212,17 +215,23 @@
     <Compile Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.Designer.cs">
       <DependentUpon>Screen_Pedido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\ScreenRealizarPagamento.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\ScreenRealizarPagamento.Designer.cs">
+      <DependentUpon>ScreenRealizarPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Screen_LancarDespesa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Screen_LancarDespesa.Designer.cs">
+      <DependentUpon>Screen_LancarDespesa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visao\Servicos\Funcoes\Screen_Orcamento.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Visao\Servicos\Funcoes\Screen_Orcamento.Designer.cs">
       <DependentUpon>Screen_Orcamento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Visao\Servicos\Funcoes\Screen_RealizarPagamento.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Visao\Servicos\Funcoes\Screen_RealizarPagamento.Designer.cs">
-      <DependentUpon>Screen_RealizarPagamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Servicos\Gerencia\Screen_Cliente.cs">
       <SubType>Form</SubType>
@@ -300,11 +309,14 @@
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.resx">
       <DependentUpon>Screen_Pedido.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Funcoes\ScreenRealizarPagamento.resx">
+      <DependentUpon>ScreenRealizarPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_LancarDespesa.resx">
+      <DependentUpon>Screen_LancarDespesa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_Orcamento.resx">
       <DependentUpon>Screen_Orcamento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_RealizarPagamento.resx">
-      <DependentUpon>Screen_RealizarPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Gerencia\ScreenTipo_Transporte.resx">
       <DependentUpon>ScreenTipo_Transporte.cs</DependentUpon>
