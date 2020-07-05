@@ -36,7 +36,19 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         {
             if(cbPedido.SelectedItem != null)
             {
-                id = Convert.ToInt32(((DataRowView)cbPedido.SelectedValue)["id"]);
+                con = 1;
+                TOTAL = 0;
+                listaCargas.Items.Clear();
+                taxas.Rows.Clear();
+                dgvTaxa.DataSource = taxas;
+                try
+                {
+                    id = Convert.ToInt32(((DataRowView)cbPedido.SelectedValue)["id"]);
+                }
+                catch
+                {
+                    id = Convert.ToInt32(cbPedido.SelectedValue);
+                }
                 DataTable cargas = Controle_Carga.get("pedido = " + id);
                 for (int i = 0; i < cargas.Rows.Count; i++)
                 {
@@ -48,16 +60,33 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 if (orc.Rows.Count > 0)
                 {
                     int id_orc = Convert.ToInt32(orc.Rows[0]["id"]);
-                    taxas = Controle_Taxa.get("orcamento = " + id);
+                    taxas = Controle_Taxa.get("orcamento = " + id_orc);
                     taxas.Columns.Remove("orcamento");
                     dgvTaxa.DataSource = taxas;
-                    double tot = 0;
-                    for(int i = 0; i < dgvTaxa.Rows.Count; i++)
-                        tot += Convert.ToDouble(dgvTaxa.Rows[i].Cells[2].Value);
-                    lbTotal.Text = "R$ " + tot.ToString();
+                    for (int i = 0; i < taxas.Rows.Count; i++)
+                    {
+                        TOTAL += Convert.ToDouble(taxas.Rows[i]["valor"]);
+                    }
+                    lbTotal.Text = TOTAL.ToString();
+                    btAbrir.Enabled = false;
+                    btCancelar.Enabled = false;
+                    lbValCabec.Visible = false;
+                    dtpVencimento.Visible = false;
+                    gbTab.Enabled = false;
+                    lbValHead.Visible = true;
+                    lbVal.Visible = true;
+                    lbVal.Text = Convert.ToDateTime(Controle_Orcamento.get(id_orc).Rows[0]["validade"]).ToShortDateString();
                 }
                 else
                 {
+                    lbValHead.Visible = false;
+                    lbVal.Visible = false;
+                    lbVal.Text = string.Empty;
+                    btAbrir.Enabled = true;
+                    btCancelar.Enabled = true;
+                    lbValCabec.Visible = true;
+                    dtpVencimento.Visible = true;
+                    gbTab.Enabled = true;
                     double serv = 0;
                     double tot = 0;
                     for (int i = 0; i < cargas.Rows.Count; i++)
@@ -80,8 +109,6 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     double imposto = 0;
                     if (tot >= dolar)
                         imposto = tot * 0.6;
-                    
-                    double TOTAL = 0;
                     DataRow linha_serv = taxas.NewRow();
                     linha_serv["id"] = con++;
                     linha_serv["descricao"] = "Taxa de Serviço - R$";
@@ -150,10 +177,14 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     linha["id"] = con++;
                     linha["descricao"] = txtDesc.Text;
                     linha["valor"] = Convert.ToDouble(txtValor.Text);
-                    TOTAL = Convert.ToDouble(lbTotal.Text);
+                    TOTAL += Convert.ToDouble(linha["valor"]);
                     taxas.Rows.Add(linha);
                     lbTotal.Text = "R$ " + TOTAL.ToString();
                     dgvTaxa.DataSource = taxas;
+                    ////////////////
+                    txtID.Text = string.Empty;
+                    txtValor.Text = string.Empty;
+                    txtDesc.Text = string.Empty;
                 }
                 else
                     MessageBox.Show("Valor deve ser válido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -175,7 +206,14 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                             if (Convert.ToInt32(taxas.Rows[i]["id"]) == Convert.ToInt32(txtID.Text))
                             {
                                 taxas.Rows[i]["descricao"] = txtDesc.Text;
+                                TOTAL -= Convert.ToDouble(taxas.Rows[i]["valor"]);
                                 taxas.Rows[i]["valor"] = Convert.ToDouble(txtValor.Text);
+                                TOTAL += Convert.ToDouble(taxas.Rows[i]["valor"]);
+                                lbTotal.Text = "R$ " + TOTAL;
+                                ////////////////
+                                txtID.Text = string.Empty;
+                                txtValor.Text = string.Empty;
+                                txtDesc.Text = string.Empty;
                             }
                         }
                     }
@@ -196,29 +234,42 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             dgvTaxa.DataSource = taxas;
             listaCargas.Items.Clear();
             lbTotal.Text = "-";
-            this.con = 0;
+            this.con = 0;            
         }
 
         private void btAbrir_Click(object sender, EventArgs e)
         {
             if (dgvTaxa.Rows.Count > 0 && taxas.Rows.Count > 0 && listaCargas.Items.Count > 0)
             {
-                if (!Controle_Orcamento.Insert(Convert.ToDouble(lbTotal.Text), DateTime.Now, DateTime.Now.AddDays(7), id, id_trans))
+                if (!Controle_Orcamento.Insert(TOTAL, DateTime.Now, dtpVencimento.Value, id, id_trans))
                     MessageBox.Show("Erro ao Orçar pedido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
-                    int max = Controle_Orcamento.MAX();
-                    for (int i = 0; i < taxas.Rows.Count; i++)
-                        Controle_Taxa.Insert(taxas.Rows[i]["descricao"].ToString(), Convert.ToDouble(taxas.Rows[i]["valor"]), max);
-                    id = Convert.ToInt32(((DataRowView)cbPedido.SelectedValue)["id"]);
-                    string sit = Controle_Pedido.get("id = " + id).Rows[0]["modalidade"].ToString();
-                    ///////////////////////
-                    cbPedido.SelectedItem = null;
-                    taxas.Rows.Clear();
-                    dgvTaxa.DataSource = taxas;
-                    listaCargas.Items.Clear();
-                    lbTotal.Text = "-";
-                    this.con = 0;
+                    MessageBox.Show("");
+                    int max = Controle_Orcamento.MAX();                    
+                    try
+                    {
+                        for (int i = 0; i < taxas.Rows.Count; i++)
+                            Controle_Taxa.Insert(taxas.Rows[i]["descricao"].ToString(), Convert.ToDouble(taxas.Rows[i]["valor"]), max);
+                        id = Convert.ToInt32(((DataRowView)cbPedido.SelectedValue)["id"]);
+                        ///////////////////////
+                        this.con = 0;
+                        //////////////////////
+                        btAbrir.Enabled = false;
+                        btCancelar.Enabled = false;
+                        lbValCabec.Visible = false;
+                        dtpVencimento.Visible = false;
+                        gbTab.Enabled = false;
+                        lbValHead.Visible = true;
+                        lbVal.Visible = true;
+                        lbVal.Text = Convert.ToDateTime(Controle_Orcamento.get(Controle_Orcamento.MAX()).Rows[0]["validade"]).ToShortDateString();
+                        MessageBox.Show("Orçamento feito com Sucesso!\nFrete do Pedido já disponível para abertura (Consulte 'Abrir Frete')\nA aprovação do Orçamento expira " + lbVal.Text);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        Controle_Orcamento.Delete(max);
+                    }
                 }                
             }
         }
@@ -266,6 +317,15 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 txtID.Text = taxas.Rows[aux]["id"].ToString();
                 txtDesc.Text = taxas.Rows[aux]["descricao"].ToString();
                 txtValor.Text = taxas.Rows[aux]["valor"].ToString();
+            }
+        }
+
+        private void dtpVencimento_ValueChanged(object sender, EventArgs e)
+        {
+            if(dtpVencimento.Value < DateTime.Now)
+            {
+                MessageBox.Show("Data de Vencimento do Orçamento não pode ser anterior ao dia de hoje!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpVencimento.Value = DateTime.Now;
             }
         }
     }

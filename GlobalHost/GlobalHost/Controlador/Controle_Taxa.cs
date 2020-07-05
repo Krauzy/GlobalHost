@@ -56,7 +56,6 @@ namespace GlobalHost.Controlador
             table.Columns.Add("descricao", typeof(string));
             table.Columns.Add("valor", typeof(double));
             table.Columns.Add("orcamento", typeof(Orcamento));
-            table.Rows.Remove(null);
             foreach(var item in list)
             {
                 DataRow linha = table.NewRow();

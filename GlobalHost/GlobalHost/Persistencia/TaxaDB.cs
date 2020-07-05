@@ -22,7 +22,7 @@ namespace GlobalHost.Persistencia
                 Taxa tx = (Taxa)obj;
                 string SQL = @"INSERT INTO Taxa (descricao, valor, orcamento) values (@desc, @valor, @orc)";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, "@desc", tx.Descricao, "@valor", tx.Valor, "@orc", tx.Orcamento);
+                result = banco.ExecuteNonQuery(SQL, "@desc", tx.Descricao, "@valor", tx.Valor, "@orc", tx.Orcamento.Id);
                 banco.Disconnect();
             }
             return result;
@@ -45,7 +45,7 @@ namespace GlobalHost.Persistencia
                 Taxa tx = (Taxa)obj;
                 string SQL = @"UPDATE Taxa SET descricao = @desc, valor = @valor, orcamento = @orc WHERE id = " + tx.Id;
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, "@desc", tx.Descricao, "@valor", tx.Valor, "@orc", tx.Orcamento);
+                result = banco.ExecuteNonQuery(SQL, "@desc", tx.Descricao, "@valor", tx.Valor, "@orc", tx.Orcamento.Id);
                 banco.Disconnect();
             }
             return result;

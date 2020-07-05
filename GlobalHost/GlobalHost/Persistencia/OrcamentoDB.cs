@@ -24,7 +24,7 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Orcamento))
             {
                 Orcamento o = (Orcamento)obj;
-                string SQL = @"INSERT INTO Carga (valor, data, validade, pedido, transportadora) VALUES (@valor, @data, @validade, @pedido, @transportadora)";
+                string SQL = @"INSERT INTO Orcamento (valor, data, validade, pedido, transportadora) VALUES (@valor, @data, @validade, @pedido, @transportadora)";
                 banco.Connect();
                 result = banco.ExecuteNonQuery(SQL, "@valor", o.Valor, "@data", o.Data, "@validade", o.Vencimento, "@pedido", o.Pedido.Id, "@transportadora", o.Transportadora.Id);
                 banco.Disconnect();
@@ -67,11 +67,11 @@ namespace GlobalHost.Persistencia
             if (dt.Rows.Count > 0 )
             {
                 orc = new Orcamento((int)dt.Rows[0]["id"],
-                        Convert.ToDouble(dt.Rows[0]["id"]),
-                      Convert.ToDateTime(dt.Rows[0]["id"]),
-                      Convert.ToDateTime(dt.Rows[0]["id"]),
-                        pedidos.get((int)dt.Rows[0]["id"]),
-                transportadoras.get((int)dt.Rows[0]["id"]));
+                        Convert.ToDouble(dt.Rows[0]["valor"]),
+                      Convert.ToDateTime(dt.Rows[0]["data"]),
+                      Convert.ToDateTime(dt.Rows[0]["validade"]),
+                        pedidos.get((int)dt.Rows[0]["pedido"]),
+                transportadoras.get((int)dt.Rows[0]["transportadora"]));
             }
             banco.Disconnect();
             return orc;
@@ -104,11 +104,11 @@ namespace GlobalHost.Persistencia
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     Orcamento orc = new Orcamento((int)dt.Rows[i]["id"],
-                                      Convert.ToDouble(dt.Rows[i]["id"]),
-                                    Convert.ToDateTime(dt.Rows[i]["id"]),
-                                    Convert.ToDateTime(dt.Rows[i]["id"]),
-                                      pedidos.get((int)dt.Rows[i]["id"]),
-                              transportadoras.get((int)dt.Rows[i]["id"]));
+                                      Convert.ToDouble(dt.Rows[i]["valor"]),
+                                    Convert.ToDateTime(dt.Rows[i]["data"]),
+                                    Convert.ToDateTime(dt.Rows[i]["validade"]),
+                                      pedidos.get((int)dt.Rows[i]["pedido"]),
+                              transportadoras.get((int)dt.Rows[i]["transportadora"]));
                     list.Add(orc);
                 }
             }
@@ -130,11 +130,11 @@ namespace GlobalHost.Persistencia
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     Orcamento orc = new Orcamento((int)dt.Rows[i]["id"],
-                                      Convert.ToDouble(dt.Rows[i]["id"]),
-                                    Convert.ToDateTime(dt.Rows[i]["id"]),
-                                    Convert.ToDateTime(dt.Rows[i]["id"]),
-                                      pedidos.get((int)dt.Rows[i]["id"]),
-                              transportadoras.get((int)dt.Rows[i]["id"]));
+                                      Convert.ToDouble(dt.Rows[i]["valor"]),
+                                    Convert.ToDateTime(dt.Rows[i]["data"]),
+                                    Convert.ToDateTime(dt.Rows[i]["validade"]),
+                                      pedidos.get((int)dt.Rows[i]["pedido"]),
+                              transportadoras.get((int)dt.Rows[i]["transportadora"]));
                     list.Add(orc);
                 }
             }

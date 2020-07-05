@@ -279,9 +279,12 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             Screen_Carga ex = new Screen_Carga(Screen_Carga.INSERT);
             ex.ShowDialog();
             if(!ex.Cancel)
+            {
                 dgvCarga.Rows.Add(cont++, ex.Descricao, ex.Volume, ex.Peso, ex.Dimensoes, ex.Valor, ex.Total, ex.Tipo);
+                LoadTable();
+            }                
             ex.Dispose();
-            LoadTable();
+            
         }
 
         private void btMenos_Click(object sender, EventArgs e)

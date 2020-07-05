@@ -29,21 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbPedido = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvTaxa = new System.Windows.Forms.DataGridView();
-            this.Taxa_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Taxa_Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Taxa_Origem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MenuStrip_dgvPedido = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolMS_dgvPedido_Exluir = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbTab = new System.Windows.Forms.GroupBox();
             this.btAtualizar = new System.Windows.Forms.Button();
             this.btAdicionar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,9 +55,16 @@
             this.btCancelar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.lbTotal = new System.Windows.Forms.Label();
+            this.Taxa_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Taxa_Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Taxa_Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbValHead = new System.Windows.Forms.Label();
+            this.lbVal = new System.Windows.Forms.Label();
+            this.dtpVencimento = new System.Windows.Forms.DateTimePicker();
+            this.lbValCabec = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxa)).BeginInit();
             this.MenuStrip_dgvPedido.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -115,70 +119,44 @@
             this.dgvTaxa.BackgroundColor = System.Drawing.Color.White;
             this.dgvTaxa.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvTaxa.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaxa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaxa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvTaxa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaxa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Taxa_ID,
             this.Taxa_Descricao,
-            this.Taxa_Origem});
+            this.Taxa_Valor});
             this.dgvTaxa.ContextMenuStrip = this.MenuStrip_dgvPedido;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTaxa.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTaxa.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvTaxa.EnableHeadersVisualStyles = false;
             this.dgvTaxa.Location = new System.Drawing.Point(36, 150);
             this.dgvTaxa.Name = "dgvTaxa";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaxa.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaxa.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvTaxa.RowHeadersVisible = false;
             this.dgvTaxa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTaxa.Size = new System.Drawing.Size(658, 201);
             this.dgvTaxa.TabIndex = 57;
             this.dgvTaxa.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaxa_CellDoubleClick);
-            // 
-            // Taxa_ID
-            // 
-            this.Taxa_ID.DataPropertyName = "id";
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            this.Taxa_ID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Taxa_ID.HeaderText = "ID";
-            this.Taxa_ID.Name = "Taxa_ID";
-            this.Taxa_ID.ReadOnly = true;
-            this.Taxa_ID.Width = 85;
-            // 
-            // Taxa_Descricao
-            // 
-            this.Taxa_Descricao.DataPropertyName = "descricao";
-            this.Taxa_Descricao.HeaderText = "Descrição";
-            this.Taxa_Descricao.Name = "Taxa_Descricao";
-            this.Taxa_Descricao.ReadOnly = true;
-            this.Taxa_Descricao.Width = 420;
-            // 
-            // Taxa_Origem
-            // 
-            this.Taxa_Origem.DataPropertyName = "valor";
-            this.Taxa_Origem.HeaderText = "Valor";
-            this.Taxa_Origem.Name = "Taxa_Origem";
-            this.Taxa_Origem.ReadOnly = true;
-            this.Taxa_Origem.Width = 150;
             // 
             // MenuStrip_dgvPedido
             // 
@@ -195,23 +173,23 @@
             this.ToolMS_dgvPedido_Exluir.Text = "Excluir";
             this.ToolMS_dgvPedido_Exluir.Click += new System.EventHandler(this.ToolMS_dgvPedido_Exluir_Click);
             // 
-            // groupBox1
+            // gbTab
             // 
-            this.groupBox1.Controls.Add(this.btAtualizar);
-            this.groupBox1.Controls.Add(this.btAdicionar);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtValor);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtDesc);
-            this.groupBox1.Controls.Add(this.txtID);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.groupBox1.Location = new System.Drawing.Point(36, 357);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(658, 86);
-            this.groupBox1.TabIndex = 58;
-            this.groupBox1.TabStop = false;
+            this.gbTab.Controls.Add(this.btAtualizar);
+            this.gbTab.Controls.Add(this.btAdicionar);
+            this.gbTab.Controls.Add(this.label4);
+            this.gbTab.Controls.Add(this.txtValor);
+            this.gbTab.Controls.Add(this.label6);
+            this.gbTab.Controls.Add(this.label3);
+            this.gbTab.Controls.Add(this.txtDesc);
+            this.gbTab.Controls.Add(this.txtID);
+            this.gbTab.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.gbTab.Location = new System.Drawing.Point(36, 357);
+            this.gbTab.Name = "gbTab";
+            this.gbTab.Size = new System.Drawing.Size(658, 86);
+            this.gbTab.TabIndex = 58;
+            this.gbTab.TabStop = false;
             // 
             // btAtualizar
             // 
@@ -359,7 +337,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label7.Location = new System.Drawing.Point(471, 462);
+            this.label7.Location = new System.Drawing.Point(458, 462);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 19);
             this.label7.TabIndex = 66;
@@ -370,24 +348,97 @@
             this.lbTotal.AutoSize = true;
             this.lbTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.lbTotal.Location = new System.Drawing.Point(519, 462);
+            this.lbTotal.Location = new System.Drawing.Point(506, 462);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(15, 21);
             this.lbTotal.TabIndex = 67;
             this.lbTotal.Text = "-";
+            // 
+            // Taxa_ID
+            // 
+            this.Taxa_ID.DataPropertyName = "id";
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
+            this.Taxa_ID.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Taxa_ID.HeaderText = "ID";
+            this.Taxa_ID.Name = "Taxa_ID";
+            this.Taxa_ID.ReadOnly = true;
+            this.Taxa_ID.Width = 85;
+            // 
+            // Taxa_Descricao
+            // 
+            this.Taxa_Descricao.DataPropertyName = "descricao";
+            this.Taxa_Descricao.HeaderText = "Descrição";
+            this.Taxa_Descricao.Name = "Taxa_Descricao";
+            this.Taxa_Descricao.ReadOnly = true;
+            this.Taxa_Descricao.Width = 420;
+            // 
+            // Taxa_Valor
+            // 
+            this.Taxa_Valor.DataPropertyName = "valor";
+            this.Taxa_Valor.HeaderText = "Valor";
+            this.Taxa_Valor.Name = "Taxa_Valor";
+            this.Taxa_Valor.ReadOnly = true;
+            this.Taxa_Valor.Width = 150;
+            // 
+            // lbValHead
+            // 
+            this.lbValHead.AutoSize = true;
+            this.lbValHead.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValHead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbValHead.Location = new System.Drawing.Point(33, 465);
+            this.lbValHead.Name = "lbValHead";
+            this.lbValHead.Size = new System.Drawing.Size(61, 16);
+            this.lbValHead.TabIndex = 68;
+            this.lbValHead.Text = "Validade:";
+            // 
+            // lbVal
+            // 
+            this.lbVal.AutoSize = true;
+            this.lbVal.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbVal.Location = new System.Drawing.Point(92, 466);
+            this.lbVal.Name = "lbVal";
+            this.lbVal.Size = new System.Drawing.Size(12, 15);
+            this.lbVal.TabIndex = 69;
+            this.lbVal.Text = "-";
+            // 
+            // dtpVencimento
+            // 
+            this.dtpVencimento.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.dtpVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVencimento.Location = new System.Drawing.Point(379, 119);
+            this.dtpVencimento.Name = "dtpVencimento";
+            this.dtpVencimento.Size = new System.Drawing.Size(127, 23);
+            this.dtpVencimento.TabIndex = 71;
+            this.dtpVencimento.ValueChanged += new System.EventHandler(this.dtpVencimento_ValueChanged);
+            // 
+            // lbValCabec
+            // 
+            this.lbValCabec.AutoSize = true;
+            this.lbValCabec.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValCabec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.lbValCabec.Location = new System.Drawing.Point(375, 97);
+            this.lbValCabec.Name = "lbValCabec";
+            this.lbValCabec.Size = new System.Drawing.Size(82, 19);
+            this.lbValCabec.TabIndex = 72;
+            this.lbValCabec.Text = "Validade";
             // 
             // Screen_Orcamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lbValCabec);
+            this.Controls.Add(this.dtpVencimento);
+            this.Controls.Add(this.lbVal);
+            this.Controls.Add(this.lbValHead);
             this.Controls.Add(this.lbTotal);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btAbrir);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.listaCargas);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbTab);
             this.Controls.Add(this.dgvTaxa);
             this.Controls.Add(this.cbPedido);
             this.Controls.Add(this.label8);
@@ -397,8 +448,8 @@
             this.Size = new System.Drawing.Size(1031, 562);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxa)).EndInit();
             this.MenuStrip_dgvPedido.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbTab.ResumeLayout(false);
+            this.gbTab.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,7 +462,7 @@
         private System.Windows.Forms.ComboBox cbPedido;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgvTaxa;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbTab;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label3;
@@ -426,10 +477,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Button btCancelar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Taxa_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Taxa_Descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Taxa_Origem;
         private System.Windows.Forms.ContextMenuStrip MenuStrip_dgvPedido;
         private System.Windows.Forms.ToolStripMenuItem ToolMS_dgvPedido_Exluir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Taxa_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Taxa_Descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Taxa_Valor;
+        private System.Windows.Forms.Label lbValHead;
+        private System.Windows.Forms.Label lbVal;
+        private System.Windows.Forms.DateTimePicker dtpVencimento;
+        private System.Windows.Forms.Label lbValCabec;
     }
 }
