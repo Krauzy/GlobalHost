@@ -94,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controlador\Controle_AbrirFrete.cs" />
     <Compile Include="Controlador\Controle_Carga.cs" />
     <Compile Include="Controlador\Controle_ContasPagar.cs" />
     <Compile Include="Controlador\Controle_Despesa.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="Modelo\Tipo_Transporte.cs" />
     <Compile Include="Modelo\Transportadora.cs" />
     <Compile Include="Modelo\Transporte.cs" />
+    <Compile Include="Persistencia\AbrirFreteDB.cs" />
     <Compile Include="Persistencia\Banco.cs" />
     <Compile Include="Persistencia\CargaDB.cs" />
     <Compile Include="Persistencia\ContasPagarDB.cs" />
@@ -221,6 +223,12 @@
     </Compile>
     <Compile Include="Visao\Servicos\Funcoes\ScreenRealizarPagamento.Designer.cs">
       <DependentUpon>ScreenRealizarPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Screen_AbrirFrete.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Screen_AbrirFrete.Designer.cs">
+      <DependentUpon>Screen_AbrirFrete.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Servicos\Funcoes\Screen_LancarDespesa.cs">
       <SubType>UserControl</SubType>
@@ -312,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Funcoes\ScreenRealizarPagamento.resx">
       <DependentUpon>ScreenRealizarPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_AbrirFrete.resx">
+      <DependentUpon>Screen_AbrirFrete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_LancarDespesa.resx">
       <DependentUpon>Screen_LancarDespesa.cs</DependentUpon>

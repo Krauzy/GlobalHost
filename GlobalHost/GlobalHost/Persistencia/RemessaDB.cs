@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GlobalHost.Persistencia
 {
@@ -22,12 +23,14 @@ namespace GlobalHost.Persistencia
             bool result = false;
             if (obj.GetType() == typeof(Remessa))
             {
+
                 Remessa r = (Remessa)obj;
+                //MessageBox.Show("\nID:" + r.Id + "\nDescricao:" + r.Descricao + "\nOrigem:" + r.Origem + "\nDestino:" + r.Destino + "\nSaida:" + r.Saida + "\nPrevisao:" + r.Previsao + "\nRequerimento:" + r.Requerimento + "\nTransportadora:" + r.Transportadora.Id);
                 string SQL = @"INSERT INTO Remessa (descricao, origem, destino, data_saida, previsao_requerida, data_requerida, transportadora)"
                         + @"VALUES (@descricao, @origem, @destino, @data_saida, @previsao_requerida, @data_requerida, @transportadora)";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, SQL, "@descricao", r.Descricao, "@origem", r.Origem, "@destino", r.Destino, "@data_saida", r.Saida,
-                    "@previsao_requerida", r.Previsao, "@data_requerida", r.Requerimento, "@transportadora", r.Transportadora);
+                result = banco.ExecuteNonQuery(SQL, "@descricao", r.Descricao, "@origem", r.Origem, "@destino", r.Destino, "@data_saida", r.Saida,
+                    "@previsao_requerida", r.Previsao, "@data_requerida", r.Requerimento, "@transportadora", r.Transportadora.Id);
                 banco.Disconnect();
             }
             return result;
@@ -51,7 +54,7 @@ namespace GlobalHost.Persistencia
                 string SQL = @"UPDATE Remessa SET descricao = @descricao, origem = @origem, destino = @destino,"
                         + @" data_saida = @data_saida, previsao_requerida = @previsao_requerida, data_requerida = @data_requerida, transportadora = @transportadora WHERE id =  " + r.Id;
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, SQL, "@descricao", r.Descricao, "@origem", r.Origem, "@destino", r.Destino, "@data_saida", r.Saida,
+                result = banco.ExecuteNonQuery(SQL, "@descricao", r.Descricao, "@origem", r.Origem, "@destino", r.Destino, "@data_saida", r.Saida,
                     "@previsao_requerida", r.Previsao, "@data_requerida", r.Requerimento, "@transportadora", r.Transportadora.Id);
                 banco.Disconnect();
             }
@@ -79,7 +82,7 @@ namespace GlobalHost.Persistencia
                   Convert.ToDateTime(dt.Rows[0]["data_requerida"]),
                          DB.get((int)dt.Rows[0]["transportadora"]));
                 }
-                catch
+                catch (Exception ex)
                 {
                     r = new Remessa((int)dt.Rows[0]["id"],
                                      dt.Rows[0]["descricao"].ToString(),
@@ -118,7 +121,7 @@ namespace GlobalHost.Persistencia
                       Convert.ToDateTime(dt.Rows[i]["data_requerida"]),
                              DB.get((int)dt.Rows[i]["transportadora"]));
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         r = new Remessa((int)dt.Rows[i]["id"],
                                          dt.Rows[i]["descricao"].ToString(),
@@ -159,7 +162,7 @@ namespace GlobalHost.Persistencia
                       Convert.ToDateTime(dt.Rows[i]["data_requerida"]),
                              DB.get((int)dt.Rows[i]["transportadora"]));
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         r = new Remessa((int)dt.Rows[i]["id"],
                                          dt.Rows[i]["descricao"].ToString(),
@@ -169,8 +172,6 @@ namespace GlobalHost.Persistencia
                       Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
                              DB.get((int)dt.Rows[i]["transportadora"]));
                     }
-                    list.Add(r);
-
                     list.Add(r);
                 }
             }
