@@ -280,10 +280,16 @@ namespace GlobalHost.Visao
             changeBoolServ();
             scrRemessa.BringToFront();
         }
+
         private void btOrcamento_Click(object sender, EventArgs e)
         {
-
+            ger = false;
+            fun = false;
+            rel = false;
+            changeBoolServ();
+            screOrcamento.BringToFront();
         }
+
         private void btnPagamentos_Click(object sender, EventArgs e)
         {
             ger = false;
@@ -292,7 +298,20 @@ namespace GlobalHost.Visao
             changeBoolServ();
             scrOrcamento.BringToFront();
             scrRealizarPagamento.BringToFront();
-            scrRealizarPagamento.BringToFront();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPagamentos_Click_1(object sender, EventArgs e)
+        {
+            ger = false;
+            fun = false;
+            rel = false;
+            changeBoolServ();
+            scrPagamento.BringToFront();
         }
     }
 }

@@ -1,22 +1,31 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Windows.Forms;
 
 namespace GlobalHost.Persistencia
 {
     class Banco
     {
-        private readonly string strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Campos\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\GlobalDB.mdf;Integrated Security = True; Connect Timeout = 30";
+        private string strcon;
         private SqlConnection con;
         private SqlTransaction trans;
-        //private string path = @"C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\log.txt";
-
-        //String CAMPOS -> @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Campos\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\GlobalDB.mdf;Integrated Security = True; Connect Timeout = 30";
-        //String CAIO -> @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\GlobalDB.mdf;Integrated Security=True;Connect Timeout=30";
-
+        
         public Banco ()
         {
+            if (Directory.Exists(@"C:\Users\Campos\"))
+                this.strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Campos\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\GlobalDB.mdf;Integrated Security = True; Connect Timeout = 30";
+            else
+            {
+                if (Directory.Exists(@"C:\Users\Trbry\"))
+                    this.strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\GlobalDB.mdf;Integrated Security=True;Connect Timeout=30";
+                else
+                {
+                    if (Directory.Exists(@"C:\Users\PICHAU\"))
+                        this.strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\PICHAU\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\GlobalDB.mdf;Integrated Security=True;Connect Timeout=30";
+                }
+            }
             con = null;
             trans = null;
         }
