@@ -114,17 +114,17 @@ namespace GlobalHost.Visao.Servicos.Gerencia
                 MessageBox.Show("Campo ORIGEM vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (dtpSaida.Value < DateTime.Now)
+            else if (dtpSaida.Value >= DateTime.Now)
             {
                 MessageBox.Show("Data de SAÍDA inferior ao dia corrente!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (dtpPrevisao.Value <= DateTime.Now)
+            else if (dtpPrevisao.Value >= dtpSaida.Value)
             {
                 MessageBox.Show("Data de PREVISÃO inferior ao dia corrente!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (dtpRequerimento.Value <= DateTime.Now)
+            else if (dtpRequerimento.Value < dtpSaida.Value)
             {
                 MessageBox.Show("Data de REQUERIMENTO inferior ao dia corrente!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -254,6 +254,7 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             changeBool();
             _default();
         }
+
         //private void LoadGrid()
         //{
         //    if (dgvPedido.Rows.Count > 0)
@@ -294,6 +295,7 @@ namespace GlobalHost.Visao.Servicos.Gerencia
         //        //DataPedido.Rows.Add(linha);
         //    }
         //}
+
         private void btMais_Click(object sender, EventArgs e)
         {
             if (cbFiltroPedido.SelectedIndex > -1)
