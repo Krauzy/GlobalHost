@@ -22,7 +22,7 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Cliente))
             {
                 Cliente c = (Cliente)obj;
-                string SQL = @"INSERT INTO Cliente (nome, endereco, dtnascimento, cpf_cnpj, cep, email, telefone) VALUES (@nome, @endereco,@dtnascimento,@cpf_cnpj,@cep,email,@telefone)";
+                string SQL = @"INSERT INTO Cliente (nome, endereco, dtnascimento, cpf_cnpj, cep, email, telefone) VALUES (@nome, @endereco,@dtnascimento,@cpf_cnpj,@cep,@email,@telefone)";
                 banco.Connect();
                 result = banco.ExecuteNonQuery(SQL, "@nome",c.Nome, "@endereco", c.Endereco, "@dtnascimento", c.Dtnascimento, "@cpf_cnpj", c.Cpf_cnpj, "@cep", c.Cep, "@email", c.Email, "@telefone", c.Telefone);
                 banco.Disconnect();

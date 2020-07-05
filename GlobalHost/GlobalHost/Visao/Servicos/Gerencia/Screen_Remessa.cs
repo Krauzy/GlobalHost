@@ -18,6 +18,7 @@ namespace GlobalHost.Visao.Servicos.Gerencia
         private bool alt = false;
         private bool exc = false;
         private DataTable data;
+        private DataTable DataPedido;
         private int ID;
         private double V;
         public Screen_Remessa()
@@ -32,7 +33,8 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             cbFiltroPedido.DisplayMember = "nome";
             cbFiltroPedido.ValueMember = "id";
             dgvRemessa.DataSource = Controle_Remessa.get("");
-
+            cbFiltroPedido.SelectedIndex = -1;
+            cbTransportadora.SelectedIndex = -1;
             //cbTransportadora.SelectedValue
 
 
@@ -87,6 +89,8 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             //btCEPOrigem.Enabled = true;
             btnOk.Enabled = true;
             btnCancelar.Enabled = true;
+            btMais.Enabled = true;
+            btMenos.Enabled = true;
             btnAlterar.Enabled = false;
             btnExcluir.Enabled = false;
             btnInserir.Enabled = false;
@@ -158,6 +162,7 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             dtpPrevisao.Value = DateTime.Now;
             dtpRequerimento.Value = DateTime.Now;
             dtpSaida.Value = DateTime.Now;
+            //dgvPedido.Rows.Clear();
         }
 
 
@@ -179,9 +184,9 @@ namespace GlobalHost.Visao.Servicos.Gerencia
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            btnInserir.ForeColor = Color.White;
-            btnInserir.BackColor = Color.FromArgb(0, 122, 204);
-            btnInserir.Image = GlobalHost.Properties.Resources.insert;
+            btnAlterar.ForeColor = Color.White;
+            btnAlterar.BackColor = Color.FromArgb(0, 122, 204);
+            btnAlterar.Image = GlobalHost.Properties.Resources.insert;
 
             ins = false;
             alt = true;
@@ -195,9 +200,9 @@ namespace GlobalHost.Visao.Servicos.Gerencia
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            btnInserir.ForeColor = Color.White;
-            btnInserir.BackColor = Color.FromArgb(0, 122, 204);
-            btnInserir.Image = GlobalHost.Properties.Resources.insert;
+            btnExcluir.ForeColor = Color.White;
+            btnExcluir.BackColor = Color.FromArgb(0, 122, 204);
+            btnExcluir.Image = GlobalHost.Properties.Resources.insert;
 
             ins = false;
             alt = false;
@@ -241,23 +246,79 @@ namespace GlobalHost.Visao.Servicos.Gerencia
                     Controle_Pedido.UpdateByRemessa((int)dgvPedido.Rows[i].Cells["Pedido_ID"].Value, -1);
                 dgvRemessa.DataSource = Controle_Remessa.get("");
             }
-
+            _default();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             changeBool();
-            _default();           
+            _default();
         }
+        //private void LoadGrid()
+        //{
+        //    if (dgvPedido.Rows.Count > 0)
+        //        dgvPedido.Rows.Clear();
+        //    for (int i = 0; i < DataPedido.Rows.Count; i++)
+        //    {
+        //        dgvPedido.Rows.Add();
+        //        dgvPedido.Rows[i].Cells["Pedido_ID"].Value = DataPedido.Rows[i]["id"];
+        //        dgvPedido.Rows[i].Cells["Pedido_Data"].Value = DataPedido.Rows[i]["data"];
+        //        dgvPedido.Rows[i].Cells["Pedido_Modalidade"].Value = DataPedido.Rows[i]["modalidade"];
+        //        dgvPedido.Rows[i].Cells["Pedido_Origem"].Value = DataPedido.Rows[i]["origem"];
+        //        dgvPedido.Rows[i].Cells["Pedido_Destino"].Value = DataPedido.Rows[i]["destino"];
+        //        dgvPedido.Rows[i].Cells["Pedido_Despachante"].Value = DataPedido.Rows[i]["despachante"];
+        //        dgvPedido.Rows[i].Cells["Pedido_Situacao"].Value = DataPedido.Rows[i]["situacao"];
+        //        dgvPedido.Rows[i].Cells["Pedido_Cliente"].Value = DataPedido.Rows[i]["cliente"];
+        //        dgvPedido.Rows[i].Cells["Pedido_Funcionario"].Value = DataPedido.Rows[i]["funcionario"];
+        //        dgvPedido.Rows[i].Cells["Pedido_Remessa"].Value = DataPedido.Rows[i]["remessa"];
+        //    }
+        //}
 
+        //private void LoadTable()
+        //{
+        //    DataPedido.Rows.Clear();
+        //    for (int i = 0; i < dgvPedido.Rows.Count; i++)
+        //    {
+        //        DataRow linha = DataPedido.NewRow();
+        //        linha["id"] = dgvPedido.Rows[i].Cells["Pedido_ID"].Value;
+        //        linha["data"] = dgvPedido.Rows[i].Cells["Pedido_Data"].Value;
+        //        linha["modalidade"] = dgvPedido.Rows[i].Cells["Pedido_Modalidade"].Value;
+        //        linha["origem"] = dgvPedido.Rows[i].Cells["Pedido_Origem"].Value;
+        //        linha["destino"] = dgvPedido.Rows[i].Cells["Pedido_Destino"].Value;
+        //        linha["despachante"] = dgvPedido.Rows[i].Cells["Pedido_Despachante"].Value;
+        //        linha["situacao"] = dgvPedido.Rows[i].Cells["Pedido_Situacao"].Value;
+        //        linha["cliente"] = dgvPedido.Rows[i].Cells["Pedido_Destino"].Value;
+        //        linha["funcionario"] = dgvPedido.Rows[i].Cells["Pedido_Despachante"].Value;
+        //        linha["remessa"] = dgvPedido.Rows[i].Cells["Pedido_Remessa"].Value;
+        //        //linha["tipo"] = Controle_Remessa.get("descricao LIKE '%" + dgvPedido.Rows[i].Cells["P"].Value.ToString() + "%'").Rows[0];
+        //        //DataPedido.Rows.Add(linha);
+        //    }
+        //}
         private void btMais_Click(object sender, EventArgs e)
         {
-
+            if (cbFiltroPedido.SelectedIndex > -1)
+            {
+                dgvPedido.DataSource = Controle_Pedido.get("id = " + Convert.ToInt32(cbFiltroPedido.Text));
+            }
+            else
+                MessageBox.Show("Selecione um pedido!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //LoadGrid();
         }
 
         private void btMenos_Click(object sender, EventArgs e)
         {
-
+            if (cbFiltroPedido.SelectedIndex > -1)
+            {
+                for (int i = 0; i < dgvPedido.Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(dgvPedido.Rows[i].Cells["Pedido_ID"].Value) == Convert.ToInt32(cbFiltroPedido.Text))
+                    {
+                        dgvPedido.Rows.RemoveAt(i);
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Selecione um pedido!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btCEPOrigem_Click(object sender, EventArgs e)
@@ -328,6 +389,21 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             else
                 data = Controle_Remessa.get("");
             dgvRemessa.DataSource = data;
+        }
+
+        private void dgvRemessa_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvRemessa.SelectedRows.Count == 1)
+            {
+                txtID.Text = dgvRemessa.SelectedRows[0].Cells["ID_Remessa"].Value.ToString();
+                txtDescricao.Text = dgvRemessa.SelectedRows[0].Cells["Descricao_Remessa"].Value.ToString();
+                txtOrigem.Text = dgvRemessa.SelectedRows[0].Cells["Origem_Remessa"].Value.ToString();
+                txtDestino.Text = dgvRemessa.SelectedRows[0].Cells["Destino_Remessa"].Value.ToString();
+                cbTransportadora.Text = dgvRemessa.SelectedRows[0].Cells["Transportadora_Remessa"].Value.ToString();
+                dtpPrevisao.Value = Convert.ToDateTime(dgvRemessa.SelectedRows[0].Cells["PrevisaoRequerida_Remessa"].Value.ToString());
+                dtpSaida.Value = Convert.ToDateTime(dgvRemessa.SelectedRows[0].Cells["DataSaida_Remessa"].Value.ToString());
+                //dgvPedido.DataSource = Controle_Pedido.get("");
+            }
         }
     }
 }

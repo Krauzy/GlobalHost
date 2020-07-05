@@ -1,5 +1,6 @@
 ﻿using GlobalHost.Controlador;
 using GlobalHost.Visao.Servicos;
+using GlobalHost.Visao.Servicos.Funcoes;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -28,6 +29,7 @@ namespace GlobalHost.Visao
             sobre = false;
             changeBool();
             paneHome.BringToFront();
+            
         }
 
         public void LoadLogo()
@@ -278,14 +280,19 @@ namespace GlobalHost.Visao
             changeBoolServ();
             scrRemessa.BringToFront();
         }
-
         private void btOrcamento_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnPagamentos_Click(object sender, EventArgs e)
         {
             ger = false;
             fun = false;
             rel = false;
             changeBoolServ();
             scrOrcamento.BringToFront();
+            scrRealizarPagamento.BringToFront();
+            scrRealizarPagamento.BringToFront();
         }
     }
 }
