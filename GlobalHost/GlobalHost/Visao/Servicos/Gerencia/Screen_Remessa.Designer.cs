@@ -128,7 +128,7 @@
             this.txtBusca.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtBusca.Location = new System.Drawing.Point(880, 165);
-            this.txtBusca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBusca.Margin = new System.Windows.Forms.Padding(4);
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(243, 27);
             this.txtBusca.TabIndex = 125;
@@ -148,7 +148,7 @@
             "Telefone",
             "E-mail"});
             this.cbFiltro.Location = new System.Drawing.Point(1132, 164);
-            this.cbFiltro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFiltro.Margin = new System.Windows.Forms.Padding(4);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(197, 29);
             this.cbFiltro.TabIndex = 126;
@@ -187,7 +187,7 @@
             this.dgvRemessa.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRemessa.EnableHeadersVisualStyles = false;
             this.dgvRemessa.Location = new System.Drawing.Point(880, 222);
-            this.dgvRemessa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvRemessa.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRemessa.Name = "dgvRemessa";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -271,7 +271,7 @@
             this.btnCancelar.Image = global::GlobalHost.Properties.Resources.cancel;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancelar.Location = new System.Drawing.Point(688, 565);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(125, 96);
             this.btnCancelar.TabIndex = 106;
@@ -291,7 +291,7 @@
             this.btnOk.Image = global::GlobalHost.Properties.Resources.ok;
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnOk.Location = new System.Drawing.Point(555, 565);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(125, 96);
             this.btnOk.TabIndex = 105;
@@ -310,7 +310,7 @@
             this.btnExcluir.Image = global::GlobalHost.Properties.Resources.lixo2;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnExcluir.Location = new System.Drawing.Point(331, 565);
-            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(125, 96);
             this.btnExcluir.TabIndex = 104;
@@ -329,7 +329,7 @@
             this.btnAlterar.Image = global::GlobalHost.Properties.Resources.alterar2;
             this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAlterar.Location = new System.Drawing.Point(197, 565);
-            this.btnAlterar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAlterar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(125, 96);
             this.btnAlterar.TabIndex = 103;
@@ -348,7 +348,7 @@
             this.btnInserir.Image = global::GlobalHost.Properties.Resources.insert2;
             this.btnInserir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnInserir.Location = new System.Drawing.Point(64, 565);
-            this.btnInserir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInserir.Margin = new System.Windows.Forms.Padding(4);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(125, 96);
             this.btnInserir.TabIndex = 102;
@@ -391,9 +391,9 @@
             this.gbPedido.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.gbPedido.Location = new System.Drawing.Point(64, 332);
-            this.gbPedido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbPedido.Margin = new System.Windows.Forms.Padding(4);
             this.gbPedido.Name = "gbPedido";
-            this.gbPedido.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbPedido.Padding = new System.Windows.Forms.Padding(4);
             this.gbPedido.Size = new System.Drawing.Size(723, 225);
             this.gbPedido.TabIndex = 157;
             this.gbPedido.TabStop = false;
@@ -436,7 +436,7 @@
             this.dgvPedido.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPedido.EnableHeadersVisualStyles = false;
             this.dgvPedido.Location = new System.Drawing.Point(35, 68);
-            this.dgvPedido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvPedido.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPedido.Name = "dgvPedido";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
@@ -593,7 +593,7 @@
             "Valor",
             "Tipo"});
             this.cbFiltroPedido.Location = new System.Drawing.Point(35, 30);
-            this.cbFiltroPedido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFiltroPedido.Margin = new System.Windows.Forms.Padding(4);
             this.cbFiltroPedido.Name = "cbFiltroPedido";
             this.cbFiltroPedido.Size = new System.Drawing.Size(195, 29);
             this.cbFiltroPedido.TabIndex = 42;
@@ -627,9 +627,9 @@
             this.gbRemessa.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbRemessa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.gbRemessa.Location = new System.Drawing.Point(64, 106);
-            this.gbRemessa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbRemessa.Margin = new System.Windows.Forms.Padding(4);
             this.gbRemessa.Name = "gbRemessa";
-            this.gbRemessa.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbRemessa.Padding = new System.Windows.Forms.Padding(4);
             this.gbRemessa.Size = new System.Drawing.Size(803, 229);
             this.gbRemessa.TabIndex = 159;
             this.gbRemessa.TabStop = false;
@@ -653,7 +653,7 @@
             this.txtDescricao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtDescricao.Location = new System.Drawing.Point(228, 48);
-            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtDescricao.Size = new System.Drawing.Size(547, 27);
@@ -690,7 +690,7 @@
             this.txtID.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtID.Location = new System.Drawing.Point(48, 48);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4);
             this.txtID.Name = "txtID";
             this.txtID.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtID.Size = new System.Drawing.Size(141, 27);
@@ -701,7 +701,7 @@
             this.dtpRequerimento.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpRequerimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpRequerimento.Location = new System.Drawing.Point(536, 194);
-            this.dtpRequerimento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpRequerimento.Margin = new System.Windows.Forms.Padding(4);
             this.dtpRequerimento.Name = "dtpRequerimento";
             this.dtpRequerimento.Size = new System.Drawing.Size(148, 27);
             this.dtpRequerimento.TabIndex = 155;
@@ -725,7 +725,7 @@
             this.btCEPDestino.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCEPDestino.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btCEPDestino.Location = new System.Drawing.Point(465, 118);
-            this.btCEPDestino.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btCEPDestino.Margin = new System.Windows.Forms.Padding(4);
             this.btCEPDestino.Name = "btCEPDestino";
             this.btCEPDestino.Size = new System.Drawing.Size(43, 28);
             this.btCEPDestino.TabIndex = 151;
@@ -752,7 +752,7 @@
             this.txtDestino.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDestino.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtDestino.Location = new System.Drawing.Point(289, 118);
-            this.txtDestino.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDestino.Margin = new System.Windows.Forms.Padding(4);
             this.txtDestino.Name = "txtDestino";
             this.txtDestino.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtDestino.Size = new System.Drawing.Size(177, 27);
@@ -765,7 +765,7 @@
             this.btCEPOrigem.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCEPOrigem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btCEPOrigem.Location = new System.Drawing.Point(215, 121);
-            this.btCEPOrigem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btCEPOrigem.Margin = new System.Windows.Forms.Padding(4);
             this.btCEPOrigem.Name = "btCEPOrigem";
             this.btCEPOrigem.Size = new System.Drawing.Size(43, 28);
             this.btCEPOrigem.TabIndex = 148;
@@ -805,7 +805,7 @@
             this.cbTransportadora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.cbTransportadora.FormattingEnabled = true;
             this.cbTransportadora.Location = new System.Drawing.Point(576, 116);
-            this.cbTransportadora.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTransportadora.Margin = new System.Windows.Forms.Padding(4);
             this.cbTransportadora.Name = "cbTransportadora";
             this.cbTransportadora.Size = new System.Drawing.Size(180, 29);
             this.cbTransportadora.TabIndex = 134;
@@ -864,7 +864,7 @@
             this.txtOrigem.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOrigem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtOrigem.Location = new System.Drawing.Point(45, 121);
-            this.txtOrigem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtOrigem.Margin = new System.Windows.Forms.Padding(4);
             this.txtOrigem.Name = "txtOrigem";
             this.txtOrigem.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtOrigem.Size = new System.Drawing.Size(177, 27);
@@ -887,7 +887,7 @@
             this.dtpPrevisao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpPrevisao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpPrevisao.Location = new System.Drawing.Point(289, 194);
-            this.dtpPrevisao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpPrevisao.Margin = new System.Windows.Forms.Padding(4);
             this.dtpPrevisao.Name = "dtpPrevisao";
             this.dtpPrevisao.Size = new System.Drawing.Size(148, 27);
             this.dtpPrevisao.TabIndex = 119;
@@ -909,7 +909,7 @@
             this.dtpSaida.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpSaida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpSaida.Location = new System.Drawing.Point(48, 194);
-            this.dtpSaida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpSaida.Margin = new System.Windows.Forms.Padding(4);
             this.dtpSaida.Name = "dtpSaida";
             this.dtpSaida.Size = new System.Drawing.Size(141, 27);
             this.dtpSaida.TabIndex = 120;
@@ -918,6 +918,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.gbRemessa);
             this.Controls.Add(this.gbPedido);
             this.Controls.Add(this.ordOrder);
@@ -932,7 +933,7 @@
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Screen_Remessa";
             this.Size = new System.Drawing.Size(1375, 692);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRemessa)).EndInit();
