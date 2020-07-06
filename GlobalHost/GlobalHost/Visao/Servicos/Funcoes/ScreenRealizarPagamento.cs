@@ -17,7 +17,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
     {
         Controle_Despesa cd;
         Controle_ContasPagar ccp;
-        DataTable dt;
+        DataTable dt, notPagas;
         public ScreenRealizarPagamento()
         {
             InitializeComponent();
@@ -25,16 +25,24 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             ccp = new Controle_ContasPagar();
             carregaCB();
             dgvContas.DataSource = dt;
-            txtID.Text = cbDespesa.SelectedValue.ToString();
-            txtValor.Text = sumCol(1).ToString();
+            notPagas = cd.getNotPagas();
+            if(notPagas.Rows.Count == 0)
+            {
+                cbDespesa.Enabled = false;
+                MessageBox.Show("Não existem despesas pendentes para pagamento", "ERRO",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            //txtID.Text = cbDespesa.SelectedValue.ToString();
+            //txtValor.Text = sumCol(1).ToString();
             Filters.numericField(txtValor);
+            btnOk.Enabled = false;
         }
         public void carregaCB()
         {
             cbDespesa.ValueMember = "id";
             cbDespesa.DisplayMember = "descricao";
-            cbDespesa.DataSource = cd.get("");
-            cbDespesa.SelectedIndex = 0;
+            cbDespesa.DataSource = notPagas;
+            //cbDespesa.SelectedIndex = 0;
+            
             dt = ccp.getListContasByDespesa(Convert.ToInt32(cbDespesa.SelectedValue));
         }
         private void btnOk_Click(object sender, EventArgs e)
@@ -59,20 +67,19 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            DataRow dr = dt.Rows[dgvContas.CurrentRow.Index];
+            DataRow dr = cd.get(cbDespesa.SelectedValue).Rows[0];
             string s = txtID.Text + "," + txtValor.Text + "," + dr[2] + "," + dr[3] + "," + txtAPagar.Text;
             lbAPagar.Items.Add(s);
+            btnOk.Enabled = true;
+            btnRemove.Enabled = true;
         }
 
         private void cbDespesa_SelectedIndexChanged(object sender, EventArgs e)
         {
             //cbDespesa.Items.Add(ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString())));
-            if(dt != null)
-            {
-                dt = ccp.getListContasByDespesa(Convert.ToInt32(cbDespesa.SelectedValue));
-                txtID.Text = cbDespesa.SelectedValue.ToString();
-                txtValor.Text = sumCol(1).ToString();
-            }
+            dt = ccp.getListContasByDespesa(Convert.ToInt32(cbDespesa.SelectedValue));
+            txtID.Text = cbDespesa.SelectedValue.ToString();
+            txtValor.Text = sumCol(1).ToString();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -80,6 +87,12 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             if (MessageBox.Show("Deseja mesmo excluir?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 lbAPagar.Items.Remove(lbAPagar.SelectedItem);
+                if (lbAPagar.Items.Count == 0)
+                {
+                    btnOk.Enabled = false;
+                    btnRemove.Enabled = false;
+                }
+
             }   
         }
         public double sumCol(int col)
