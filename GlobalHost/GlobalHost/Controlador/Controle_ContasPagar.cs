@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Resources;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,6 +49,7 @@ namespace GlobalHost.Controlador
         }
         public bool pay(int despesa, double valor, double valor_a_pagar)
         {
+            Controle_Despesa cd = new Controle_Despesa();
             bool res = false;
             ContasPagarDB db = new ContasPagarDB();
             List<Contas_Pagar> contas = db.getFromDespesa(despesa);
@@ -65,6 +67,11 @@ namespace GlobalHost.Controlador
                 }
                 valor_a_pagar -= c.Valor;
                 res = db.Update(c);
+            }
+            if(valor_a_pagar <=0)
+            {
+                DataRow dr = cd.get(despesa).Rows[0];
+                cd.update(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString(), "PAGO");
             }
             // se valor total ainda não acabou, estornar, mas aí não é problema meu
             return res;

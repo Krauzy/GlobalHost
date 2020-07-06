@@ -236,9 +236,9 @@
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label13.Location = new System.Drawing.Point(458, 221);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(79, 20);
+            this.label13.Size = new System.Drawing.Size(86, 20);
             this.label13.TabIndex = 98;
-            this.label13.Text = "Telefone";
+            this.label13.Text = "Telefone*";
             // 
             // txtEmail
             // 
@@ -259,9 +259,9 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label9.Location = new System.Drawing.Point(48, 278);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 20);
+            this.label9.Size = new System.Drawing.Size(66, 20);
             this.label9.TabIndex = 97;
-            this.label9.Text = "E-mail";
+            this.label9.Text = "E-mail*";
             // 
             // label8
             // 
@@ -270,9 +270,9 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label8.Location = new System.Drawing.Point(295, 166);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(92, 20);
+            this.label8.Size = new System.Drawing.Size(99, 20);
             this.label8.TabIndex = 96;
-            this.label8.Text = "CPF/CNPJ";
+            this.label8.Text = "CPF/CNPJ*";
             // 
             // txtEndereco
             // 
@@ -293,9 +293,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label7.Location = new System.Drawing.Point(48, 220);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 20);
+            this.label7.Size = new System.Drawing.Size(93, 20);
             this.label7.TabIndex = 95;
-            this.label7.Text = "Endereço";
+            this.label7.Text = "Endereço*";
             // 
             // label5
             // 
@@ -304,9 +304,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label5.Location = new System.Drawing.Point(48, 165);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 20);
+            this.label5.Size = new System.Drawing.Size(179, 20);
             this.label5.TabIndex = 88;
-            this.label5.Text = "Data de Nascimento";
+            this.label5.Text = "Data de Nascimento*";
             // 
             // txtNome
             // 
@@ -327,9 +327,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label4.Location = new System.Drawing.Point(183, 112);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 20);
+            this.label4.Size = new System.Drawing.Size(62, 20);
             this.label4.TabIndex = 87;
-            this.label4.Text = "Nome";
+            this.label4.Text = "Nome*";
             // 
             // txtID
             // 

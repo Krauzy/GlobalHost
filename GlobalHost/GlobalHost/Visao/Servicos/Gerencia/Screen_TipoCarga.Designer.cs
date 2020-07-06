@@ -305,9 +305,9 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label6.Location = new System.Drawing.Point(340, 192);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 20);
+            this.label6.Size = new System.Drawing.Size(136, 20);
             this.label6.TabIndex = 47;
-            this.label6.Text = "Dimensões (M)";
+            this.label6.Text = "Dimensões (M)*";
             // 
             // label5
             // 
@@ -316,9 +316,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label5.Location = new System.Drawing.Point(47, 211);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 20);
+            this.label5.Size = new System.Drawing.Size(56, 20);
             this.label5.TabIndex = 46;
-            this.label5.Text = "Peso";
+            this.label5.Text = "Peso*";
             // 
             // txtNome
             // 
@@ -339,9 +339,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label4.Location = new System.Drawing.Point(173, 111);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 20);
+            this.label4.Size = new System.Drawing.Size(96, 20);
             this.label4.TabIndex = 44;
-            this.label4.Text = "Descrição";
+            this.label4.Text = "Descrição*";
             // 
             // txtID
             // 
