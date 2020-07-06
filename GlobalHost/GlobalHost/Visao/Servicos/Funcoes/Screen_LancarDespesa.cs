@@ -21,13 +21,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             InitializeComponent();
             cd = new Controle_Despesa();
             ccp = new Controle_ContasPagar();
-            dt = new DataTable();
+         /*   dt = new DataTable();
             dt.Rows.Add("descricao",typeof(string));
             dt.Rows.Add("valor", typeof(double));
             dt.Rows.Add("parcelas",typeof(int));
             dt.Rows.Add("tipo", typeof(string));
             dt.Rows.Add("estado", typeof(string));
-            dgvDespesas.DataSource = dt;
+            dgvDespesas.DataSource = dt;*/
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
