@@ -56,10 +56,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtAdmissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDemissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
-            this.txtSalario = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.mtbCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
@@ -80,15 +88,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.ordOrder = new System.Windows.Forms.Label();
             this.btCEP = new System.Windows.Forms.Button();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtAdmissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtDemissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSalario = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -445,6 +445,68 @@
             this.dgvFuncionario.TabIndex = 73;
             this.dgvFuncionario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionario_CellDoubleClick);
             // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.Width = 150;
+            // 
+            // dtNascimento
+            // 
+            this.dtNascimento.DataPropertyName = "dtNascimento";
+            this.dtNascimento.HeaderText = "Data de Nascimento";
+            this.dtNascimento.Name = "dtNascimento";
+            this.dtNascimento.Width = 75;
+            // 
+            // cpf
+            // 
+            this.cpf.DataPropertyName = "cpf";
+            this.cpf.HeaderText = "CPF";
+            this.cpf.Name = "cpf";
+            this.cpf.Width = 120;
+            // 
+            // salario
+            // 
+            this.salario.DataPropertyName = "salario";
+            this.salario.HeaderText = "Salario";
+            this.salario.Name = "salario";
+            this.salario.Width = 400;
+            // 
+            // endereco
+            // 
+            this.endereco.DataPropertyName = "endereco";
+            this.endereco.HeaderText = "Endereco";
+            this.endereco.Name = "endereco";
+            this.endereco.Width = 250;
+            // 
+            // dtAdmissao
+            // 
+            this.dtAdmissao.DataPropertyName = "dtAdmissao";
+            this.dtAdmissao.HeaderText = "Data de Admissão";
+            this.dtAdmissao.Name = "dtAdmissao";
+            this.dtAdmissao.Width = 150;
+            // 
+            // dtDemissao
+            // 
+            this.dtDemissao.DataPropertyName = "dtDemissao";
+            this.dtDemissao.HeaderText = "Data de Demissao";
+            this.dtDemissao.Name = "dtDemissao";
+            this.dtDemissao.Width = 150;
+            // 
+            // telefone
+            // 
+            this.telefone.DataPropertyName = "telefone";
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.Width = 150;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "E-mail";
+            this.email.Name = "email";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -484,19 +546,6 @@
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(149, 25);
             this.cbFiltro.TabIndex = 75;
-            // 
-            // txtSalario
-            // 
-            this.txtSalario.BackColor = System.Drawing.Color.White;
-            this.txtSalario.Enabled = false;
-            this.txtSalario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtSalario.Location = new System.Drawing.Point(451, 298);
-            this.txtSalario.Name = "txtSalario";
-            this.txtSalario.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtSalario.Size = new System.Drawing.Size(107, 23);
-            this.txtSalario.TabIndex = 77;
-            this.txtSalario.TextChanged += new System.EventHandler(this.txtSalario_TextChanged_1);
             // 
             // label12
             // 
@@ -723,73 +772,21 @@
             this.btCEP.UseVisualStyleBackColor = true;
             this.btCEP.Click += new System.EventHandler(this.btCEP_Click);
             // 
-            // nome
+            // txtSalario
             // 
-            this.nome.DataPropertyName = "nome";
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            this.nome.Width = 150;
-            // 
-            // dtNascimento
-            // 
-            this.dtNascimento.DataPropertyName = "dtNascimento";
-            this.dtNascimento.HeaderText = "Data de Nascimento";
-            this.dtNascimento.Name = "dtNascimento";
-            this.dtNascimento.Width = 75;
-            // 
-            // cpf
-            // 
-            this.cpf.DataPropertyName = "cpf";
-            this.cpf.HeaderText = "CPF";
-            this.cpf.Name = "cpf";
-            this.cpf.Width = 120;
-            // 
-            // salario
-            // 
-            this.salario.DataPropertyName = "salario";
-            this.salario.HeaderText = "Salario";
-            this.salario.Name = "salario";
-            this.salario.Width = 400;
-            // 
-            // endereco
-            // 
-            this.endereco.DataPropertyName = "endereco";
-            this.endereco.HeaderText = "Endereco";
-            this.endereco.Name = "endereco";
-            this.endereco.Width = 250;
-            // 
-            // dtAdmissao
-            // 
-            this.dtAdmissao.DataPropertyName = "dtAdmissao";
-            this.dtAdmissao.HeaderText = "Data de Admissão";
-            this.dtAdmissao.Name = "dtAdmissao";
-            this.dtAdmissao.Width = 150;
-            // 
-            // dtDemissao
-            // 
-            this.dtDemissao.DataPropertyName = "dtDemissao";
-            this.dtDemissao.HeaderText = "Data de Demissao";
-            this.dtDemissao.Name = "dtDemissao";
-            this.dtDemissao.Width = 150;
-            // 
-            // telefone
-            // 
-            this.telefone.DataPropertyName = "telefone";
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            this.telefone.Width = 150;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "email";
-            this.email.HeaderText = "E-mail";
-            this.email.Name = "email";
+            this.txtSalario.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtSalario.Location = new System.Drawing.Point(451, 298);
+            this.txtSalario.Name = "txtSalario";
+            this.txtSalario.Size = new System.Drawing.Size(136, 23);
+            this.txtSalario.TabIndex = 100;
+            this.txtSalario.TextChanged += new System.EventHandler(this.txtSalario_TextChanged);
             // 
             // Screen_Funcionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txtSalario);
             this.Controls.Add(this.btCEP);
             this.Controls.Add(this.ordOrder);
             this.Controls.Add(this.label25);
@@ -810,7 +807,6 @@
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.mtbCPF);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtSalario);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.cbFiltro);
@@ -878,7 +874,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtBusca;
         private System.Windows.Forms.ComboBox cbFiltro;
-        private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.MaskedTextBox mtbCPF;
         private System.Windows.Forms.TextBox txtLogin;
@@ -908,5 +903,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dtDemissao;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.MaskedTextBox txtSalario;
     }
 }

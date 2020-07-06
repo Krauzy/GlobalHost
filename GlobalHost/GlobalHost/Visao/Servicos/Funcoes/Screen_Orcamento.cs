@@ -15,9 +15,12 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         private int id;
         private int new_id;
 
+        private int teste;
+
         public Screen_Orcamento ()
         {
             con = 0;
+            teste = 0;
             TOTAL = 0;
             taxas = new DataTable();
             taxas.Columns.Add("id", typeof(int));
@@ -34,7 +37,8 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void cbPedido_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbPedido.SelectedItem != null)
+            teste++;
+            if(cbPedido.SelectedItem != null && teste > 1)
             {
                 con = 1;
                 TOTAL = 0;
@@ -55,7 +59,6 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     string str = "- " + cargas.Rows[i]["descricao"].ToString() + " (" + cargas.Rows[i]["volume"].ToString() + ")";
                     listaCargas.Items.Add(str);
                 }
-
                 DataTable orc = Controle_Orcamento.get("pedido = " + id);
                 if (orc.Rows.Count > 0)
                 {
@@ -251,7 +254,15 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     {
                         for (int i = 0; i < taxas.Rows.Count; i++)
                             Controle_Taxa.Insert(taxas.Rows[i]["descricao"].ToString(), Convert.ToDouble(taxas.Rows[i]["valor"]), max);
-                        id = Convert.ToInt32(((DataRowView)cbPedido.SelectedValue)["id"]);
+                        try
+                        {
+                            id = Convert.ToInt32(((DataRowView)cbPedido.SelectedValue)["id"]);
+                        }
+                        catch
+                        {
+                            id = Convert.ToInt32(cbPedido.SelectedValue);
+                        }
+                        Controle_Pedido.UpdateSituacao(id, "Orçado");
                         ///////////////////////
                         this.con = 0;
                         //////////////////////

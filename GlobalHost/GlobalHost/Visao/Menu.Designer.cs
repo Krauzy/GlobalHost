@@ -56,7 +56,7 @@ namespace GlobalHost.Visao
             this.button13 = new System.Windows.Forms.Button();
             this.btnPagamentos = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btAbrirFrete = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.btPedido = new System.Windows.Forms.Button();
             this.btDespesa = new System.Windows.Forms.Button();
@@ -67,6 +67,7 @@ namespace GlobalHost.Visao
             this.button18 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.scrAbrirFrete = new GlobalHost.Visao.Servicos.Funcoes.Screen_AbrirFrete();
             this.scrFuncionario = new GlobalHost.Visao.Servicos.Screen_Funcionarios();
             this.scrRemessa = new GlobalHost.Visao.Servicos.Gerencia.Screen_Remessa();
             this.scrPedido = new GlobalHost.Visao.Servicos.Funcoes.Screen_Pedido();
@@ -374,7 +375,7 @@ namespace GlobalHost.Visao
             this.pnFuncoes.Controls.Add(this.button13);
             this.pnFuncoes.Controls.Add(this.btnPagamentos);
             this.pnFuncoes.Controls.Add(this.button10);
-            this.pnFuncoes.Controls.Add(this.button9);
+            this.pnFuncoes.Controls.Add(this.btAbrirFrete);
             this.pnFuncoes.Controls.Add(this.button8);
             this.pnFuncoes.Controls.Add(this.btPedido);
             this.pnFuncoes.Controls.Add(this.btDespesa);
@@ -455,19 +456,20 @@ namespace GlobalHost.Visao
             this.button10.Text = "Fechar Frete";
             this.button10.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // btAbrirFrete
             // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(439, 101);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(134, 219);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "Abrir Frete";
-            this.button9.UseVisualStyleBackColor = false;
+            this.btAbrirFrete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btAbrirFrete.FlatAppearance.BorderSize = 0;
+            this.btAbrirFrete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAbrirFrete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAbrirFrete.ForeColor = System.Drawing.Color.White;
+            this.btAbrirFrete.Location = new System.Drawing.Point(439, 101);
+            this.btAbrirFrete.Name = "btAbrirFrete";
+            this.btAbrirFrete.Size = new System.Drawing.Size(134, 219);
+            this.btAbrirFrete.TabIndex = 2;
+            this.btAbrirFrete.Text = "Abrir Frete";
+            this.btAbrirFrete.UseVisualStyleBackColor = false;
+            this.btAbrirFrete.Click += new System.EventHandler(this.btAbrirFrete_Click);
             // 
             // button8
             // 
@@ -606,6 +608,15 @@ namespace GlobalHost.Visao
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // scrAbrirFrete
+            // 
+            this.scrAbrirFrete.BackColor = System.Drawing.Color.White;
+            this.scrAbrirFrete.Location = new System.Drawing.Point(225, 27);
+            this.scrAbrirFrete.Margin = new System.Windows.Forms.Padding(2);
+            this.scrAbrirFrete.Name = "scrAbrirFrete";
+            this.scrAbrirFrete.Size = new System.Drawing.Size(1031, 562);
+            this.scrAbrirFrete.TabIndex = 24;
+            // 
             // scrFuncionario
             // 
             this.scrFuncionario.BackColor = System.Drawing.Color.White;
@@ -714,7 +725,6 @@ namespace GlobalHost.Visao
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1255, 590);
-            this.Controls.Add(this.scrLancarDesp);
             this.Controls.Add(this.brMinimize);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.pictureBox1);
@@ -735,6 +745,8 @@ namespace GlobalHost.Visao
             this.Controls.Add(this.pnGerenciamento);
             this.Controls.Add(this.screOrcamento);
             this.Controls.Add(this.scrPagamento);
+            this.Controls.Add(this.scrLancarDesp);
+            this.Controls.Add(this.scrAbrirFrete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
@@ -784,7 +796,7 @@ namespace GlobalHost.Visao
         private System.Windows.Forms.Button btnPagamentos;
         private System.Windows.Forms.Button btDespesa;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btAbrirFrete;
         private System.Windows.Forms.Panel pnRelatorios;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button17;
@@ -803,5 +815,6 @@ namespace GlobalHost.Visao
         private Screen_Orcamento screOrcamento;
         private ScreenRealizarPagamento scrPagamento;
         private Screen_LancarDespesa scrLancarDesp;
+        private Screen_AbrirFrete scrAbrirFrete;
     }
 }

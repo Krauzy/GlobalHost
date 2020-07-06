@@ -20,6 +20,7 @@ namespace GlobalHost.Visao.Servicos
         private DataTable data;
         private int ID;
         private double V;
+        private double sal;
 
         public Screen_Funcionarios()
         {
@@ -382,6 +383,15 @@ namespace GlobalHost.Visao.Servicos
             ex.ShowDialog();
             if (!ex.IsCancel)
                 txtEndereco.Text = ex.Str;
+        }
+
+        private void txtSalario_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSalario.Text != string.Empty)
+            {
+                txtSalario.Text = API.Validate.MONEY(txtSalario.Text);
+                sal = Convert.ToDouble(txtSalario.Text);
+            }
         }
     }    
 }

@@ -131,6 +131,15 @@ namespace GlobalHost.Controlador
             P.Remessa = R;
             return db.Update(P);
         }
+
+        public static bool UpdateSituacao(int ID, string situacao)
+        {
+            PedidoDB db = new PedidoDB();
+            Pedido P = db.get(ID);
+            P.Situacao = situacao;
+            return db.Update(P);
+        }
+
         public static void Reverse()
         {
             Banco banco = new Banco();

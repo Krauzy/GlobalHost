@@ -150,3 +150,4 @@ C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\Gl
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_LancarDespesa.resources
 C:\Users\PICHAU\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_AbrirFrete.resources
 C:\Users\Campos\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_AbrirFrete.resources
+C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csprojAssemblyReference.cache

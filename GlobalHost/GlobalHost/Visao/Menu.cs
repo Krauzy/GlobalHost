@@ -322,5 +322,14 @@ namespace GlobalHost.Visao
             changeBoolServ();
             scrLancarDesp.BringToFront();
         }
+
+        private void btAbrirFrete_Click(object sender, EventArgs e)
+        {
+            ger = false;
+            fun = false;
+            rel = false;
+            changeBoolServ();
+            scrAbrirFrete.BringToFront();
+        }
     }
 }
