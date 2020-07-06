@@ -59,7 +59,7 @@ namespace GlobalHost.Visao
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.btPedido = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btDespesa = new System.Windows.Forms.Button();
             this.pnRelatorios = new System.Windows.Forms.Panel();
             this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
@@ -67,7 +67,6 @@ namespace GlobalHost.Visao
             this.button18 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.scrPagamento = new GlobalHost.Visao.Servicos.Funcoes.ScreenRealizarPagamento();
             this.scrFuncionario = new GlobalHost.Visao.Servicos.Screen_Funcionarios();
             this.scrRemessa = new GlobalHost.Visao.Servicos.Gerencia.Screen_Remessa();
             this.scrPedido = new GlobalHost.Visao.Servicos.Funcoes.Screen_Pedido();
@@ -79,6 +78,8 @@ namespace GlobalHost.Visao
             this.screen_Transportadora = new GlobalHost.Visao.Servicos.Screen_Transportadora();
             this.scrRealizarPagamento = new GlobalHost.Visao.Servicos.Funcoes.ScreenRealizarPagamento();
             this.screOrcamento = new GlobalHost.Visao.Servicos.Funcoes.Screen_Orcamento();
+            this.scrPagamento = new GlobalHost.Visao.Servicos.Funcoes.ScreenRealizarPagamento();
+            this.scrLancarDesp = new GlobalHost.Visao.Servicos.Funcoes.Screen_LancarDespesa();
             this.paneMenu.SuspendLayout();
             this.paneServ.SuspendLayout();
             this.pnGerenciamento.SuspendLayout();
@@ -376,7 +377,7 @@ namespace GlobalHost.Visao
             this.pnFuncoes.Controls.Add(this.button9);
             this.pnFuncoes.Controls.Add(this.button8);
             this.pnFuncoes.Controls.Add(this.btPedido);
-            this.pnFuncoes.Controls.Add(this.button11);
+            this.pnFuncoes.Controls.Add(this.btDespesa);
             this.pnFuncoes.Location = new System.Drawing.Point(225, 27);
             this.pnFuncoes.Name = "pnFuncoes";
             this.pnFuncoes.Size = new System.Drawing.Size(1031, 562);
@@ -497,19 +498,20 @@ namespace GlobalHost.Visao
             this.btPedido.UseVisualStyleBackColor = false;
             this.btPedido.Click += new System.EventHandler(this.btPedido_Click);
             // 
-            // button11
+            // btDespesa
             // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(719, 101);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(119, 163);
-            this.button11.TabIndex = 4;
-            this.button11.Text = "Despesas";
-            this.button11.UseVisualStyleBackColor = false;
+            this.btDespesa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btDespesa.FlatAppearance.BorderSize = 0;
+            this.btDespesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btDespesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDespesa.ForeColor = System.Drawing.Color.White;
+            this.btDespesa.Location = new System.Drawing.Point(719, 101);
+            this.btDespesa.Name = "btDespesa";
+            this.btDespesa.Size = new System.Drawing.Size(119, 163);
+            this.btDespesa.TabIndex = 4;
+            this.btDespesa.Text = "Despesas";
+            this.btDespesa.UseVisualStyleBackColor = false;
+            this.btDespesa.Click += new System.EventHandler(this.btDespesa_Click);
             // 
             // pnRelatorios
             // 
@@ -604,13 +606,6 @@ namespace GlobalHost.Visao
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // scrPagamento
-            // 
-            this.scrPagamento.Location = new System.Drawing.Point(225, 27);
-            this.scrPagamento.Name = "scrPagamento";
-            this.scrPagamento.Size = new System.Drawing.Size(1031, 562);
-            this.scrPagamento.TabIndex = 22;
-            // 
             // scrFuncionario
             // 
             this.scrFuncionario.BackColor = System.Drawing.Color.White;
@@ -699,12 +694,27 @@ namespace GlobalHost.Visao
             this.screOrcamento.Size = new System.Drawing.Size(1031, 562);
             this.screOrcamento.TabIndex = 21;
             // 
+            // scrPagamento
+            // 
+            this.scrPagamento.Location = new System.Drawing.Point(225, 27);
+            this.scrPagamento.Name = "scrPagamento";
+            this.scrPagamento.Size = new System.Drawing.Size(1031, 562);
+            this.scrPagamento.TabIndex = 22;
+            // 
+            // scrLancarDesp
+            // 
+            this.scrLancarDesp.Location = new System.Drawing.Point(225, 27);
+            this.scrLancarDesp.Name = "scrLancarDesp";
+            this.scrLancarDesp.Size = new System.Drawing.Size(1031, 562);
+            this.scrLancarDesp.TabIndex = 23;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1255, 590);
+            this.Controls.Add(this.scrLancarDesp);
             this.Controls.Add(this.brMinimize);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.pictureBox1);
@@ -772,7 +782,7 @@ namespace GlobalHost.Visao
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button btnPagamentos;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btDespesa;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel pnRelatorios;
@@ -792,5 +802,6 @@ namespace GlobalHost.Visao
         private System.Windows.Forms.Button btOrcamento;
         private Screen_Orcamento screOrcamento;
         private ScreenRealizarPagamento scrPagamento;
+        private Screen_LancarDespesa scrLancarDesp;
     }
 }

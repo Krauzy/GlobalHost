@@ -102,7 +102,6 @@ C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\ob
 C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_RealizarPagamento.resources
 C:\Users\gabri\OneDrive\Documentos\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Gerencia.Screen_Remessa.resources
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Gerencia.Screen_Remessa.resources
-C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.csprojAssemblyReference.cache
 C:\Users\PICHAU\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Pedido.Screen_Carga.resources
 C:\Users\PICHAU\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.ScreenRealizarPagamento.resources
 C:\Users\PICHAU\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_LancarDespesa.resources

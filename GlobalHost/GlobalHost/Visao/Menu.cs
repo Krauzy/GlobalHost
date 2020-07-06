@@ -313,5 +313,14 @@ namespace GlobalHost.Visao
             changeBoolServ();
             scrPagamento.BringToFront();
         }
+
+        private void btDespesa_Click(object sender, EventArgs e)
+        {
+            ger = false;
+            fun = false;
+            rel = false;
+            changeBoolServ();
+            scrLancarDesp.BringToFront();
+        }
     }
 }
