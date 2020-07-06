@@ -24,10 +24,10 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Frete))
             {
                 Frete f = (Frete)obj;
-                string SQL = @"INSERT INTO Frete (total, situacao, orcamento, remessa)"
-                        + @"VALUES (@total, @situacao, @orcamento, @remessa)";
+                string SQL = @"INSERT INTO Frete (valor_total, situacao, orcamento, remessa)"
+                        + @"VALUES (@valor_total, @situacao, @orcamento, @remessa)";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, SQL, "@total", f.Total, "@situacao",
+                result = banco.ExecuteNonQuery(SQL, "@valor_total", f.Total, "@situacao",
                     f.Situacao, "@orcamento", f.Orcamento.Id, "@remessa", f.Remessa.Id);
                 banco.Disconnect();
             }
@@ -48,10 +48,10 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Frete))
             {
                 Frete f = (Frete)obj;
-                string SQL = @"UPDATE Frete SET total = @total, situacao = @situacao, orcamento = @orcamento, remessa = @remessa"
+                string SQL = @"UPDATE Frete SET valor_total = @valor_total, situacao = @situacao, orcamento = @orcamento, remessa = @remessa"
                         + @"WHERE id =  " + f.Id;
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, SQL, "@total", f.Total, "@situacao",
+                result = banco.ExecuteNonQuery(SQL, "@valor_total", f.Total, "@situacao",
                     f.Situacao, "@orcamento", f.Orcamento.Id, "@remessa", f.Remessa.Id); 
                 banco.Disconnect();
             }
@@ -72,7 +72,7 @@ namespace GlobalHost.Persistencia
                 try
                 {
                     f = new Frete((int)dt.Rows[0]["id"],
-                                     Convert.ToDouble(dt.Rows[0]["total"]),
+                                     Convert.ToDouble(dt.Rows[0]["valor_total"]),
                                      dt.Rows[0]["situacao"].ToString(),
                          ODB.get((int)dt.Rows[0]["Orcamento"]),
                          RDB.get((int)dt.Rows[0]["Remessa"]));
@@ -80,7 +80,7 @@ namespace GlobalHost.Persistencia
                 catch (Exception ex)
                 {
                     f = new Frete((int)dt.Rows[0]["id"],
-                                      Convert.ToDouble(dt.Rows[0]["total"]),
+                                      Convert.ToDouble(dt.Rows[0]["valor_total"]),
                                       dt.Rows[0]["situacao"].ToString(),
                           ODB.get((int)dt.Rows[0]["Orcamento"]),
                           RDB.get((int)dt.Rows[0]["Remessa"]));
@@ -108,18 +108,18 @@ namespace GlobalHost.Persistencia
                     try
                     {
                         f = new Frete((int)dt.Rows[0]["id"],
-                                     Convert.ToDouble(dt.Rows[0]["total"]),
+                                     Convert.ToDouble(dt.Rows[0]["valor_total"]),
                                      dt.Rows[0]["situacao"].ToString(),
-                         ODB.get((int)dt.Rows[0]["Orcamento"]),
-                         RDB.get((int)dt.Rows[0]["Remessa"]));
+                         ODB.get((int)dt.Rows[0]["orcamento"]),
+                         RDB.get((int)dt.Rows[0]["eemessa"]));
                     }
                     catch (Exception ex)
                     {
                         f = new Frete((int)dt.Rows[0]["id"],
-                                       Convert.ToDouble(dt.Rows[0]["total"]),
+                                       Convert.ToDouble(dt.Rows[0]["valor_total"]),
                                        dt.Rows[0]["situacao"].ToString(),
-                           ODB.get((int)dt.Rows[0]["Orcamento"]),
-                           RDB.get((int)dt.Rows[0]["Remessa"]));
+                           ODB.get((int)dt.Rows[0]["orcamento"]),
+                           RDB.get((int)dt.Rows[0]["eemessa"]));
                         //MessageBox.Show("Erro ao retornar os dados do frete","ERRO",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                     list.Add(f);
@@ -146,7 +146,7 @@ namespace GlobalHost.Persistencia
                     try
                     {
                         f = new Frete((int)dt.Rows[0]["id"],
-                                     Convert.ToDouble(dt.Rows[0]["total"]),
+                                     Convert.ToDouble(dt.Rows[0]["valor_total"]),
                                      dt.Rows[0]["situacao"].ToString(),
                          ODB.get((int)dt.Rows[0]["Orcamento"]),
                          RDB.get((int)dt.Rows[0]["Remessa"]));
@@ -154,7 +154,7 @@ namespace GlobalHost.Persistencia
                     catch (Exception ex)
                     {
                         f = new Frete((int)dt.Rows[0]["id"],
-                                       Convert.ToDouble(dt.Rows[0]["total"]),
+                                       Convert.ToDouble(dt.Rows[0]["valor_total"]),
                                        dt.Rows[0]["situacao"].ToString(),
                            ODB.get((int)dt.Rows[0]["Orcamento"]),
                            RDB.get((int)dt.Rows[0]["Remessa"]));
