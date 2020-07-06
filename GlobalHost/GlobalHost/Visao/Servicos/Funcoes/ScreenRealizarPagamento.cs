@@ -16,6 +16,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
     {
         Controle_Despesa cd;
         Controle_ContasPagar ccp;
+        DataTable dt;
         public ScreenRealizarPagamento()
         {
             InitializeComponent();
@@ -23,13 +24,18 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             ccp = new Controle_ContasPagar();
             cbDespesa.ValueMember = "id";
             cbDespesa.DisplayMember = "descricao";
-            cbDespesa.DataSource = cd.get("");
+            dt = cd.get("");
+            cbDespesa.DataSource = dt;
             Filters.numericField(txtValor);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             bool res = false;//ccp.updateAll(lbAPagar.Items);
+            foreach(object o in lbAPagar.Items)
+            {
+
+            }
             if(res)
             {
                 MessageBox.Show("O pagamento foi realizado com sucesso!");
@@ -42,22 +48,28 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            lbAPagar.Items.Add(dgvContas.SelectedRows);
+            lbAPagar.Items.Add(dgvContas.CurrentRow.ToString());
         }
 
         private void cbDespesa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbDespesa.Items.Add(ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString())));
+            //cbDespesa.Items.Add(ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString())));
+            dt.Rows.Clear();
+            dt.Rows.Add(ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString())));
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            lbAPagar.Items.Remove(lbAPagar.SelectedItem);
+            if (MessageBox.Show("Deseja mesmo excluir?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                lbAPagar.Items.Remove(lbAPagar.SelectedItem);
+            }   
         }
 
         private void dgvContas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            txtID.Text = dt.Rows[dgvContas.CurrentRow.Index][0].ToString();
+            txtValor.Text = dt.Rows[dgvContas.CurrentRow.Index][1].ToString();
         }
     }
 }

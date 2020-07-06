@@ -52,12 +52,17 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 int parcelas = Convert.ToInt32(dr["parcelas"]);
                 bool res = cd.insert(dr["descricao"].ToString(), dr["tipo"].ToString(), dr["estado"].ToString());
                 double total = Convert.ToDouble(dr["valor"]), valorP = total / parcelas;
-                if(res)
+                if (res)
                 {
                     for (int j = 0; j < parcelas; j++)
                     {
                         ccp.insert(valorP, dr["tipo"].ToString(), dr["estado"].ToString(), -1, cd.getIdentity());
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Erro durante a gravação!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             MessageBox.Show("Gravação feita com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

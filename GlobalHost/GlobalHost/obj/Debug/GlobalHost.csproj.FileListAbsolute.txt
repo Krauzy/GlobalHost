@@ -149,3 +149,4 @@ C:\Users\Campos\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\G
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.ScreenRealizarPagamento.resources
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_AbrirFrete.resources
 C:\Users\Trbry\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_LancarDespesa.resources
+C:\Users\PICHAU\Documents\GitHub\Engenharia-II\GlobalHost\GlobalHost\obj\Debug\GlobalHost.Visao.Servicos.Funcoes.Screen_AbrirFrete.resources

@@ -224,7 +224,6 @@
             // 
             // cbDespesa
             // 
-            this.cbDespesa.Enabled = false;
             this.cbDespesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cbDespesa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.cbDespesa.FormattingEnabled = true;
