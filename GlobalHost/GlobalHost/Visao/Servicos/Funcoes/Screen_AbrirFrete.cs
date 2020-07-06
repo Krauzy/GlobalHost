@@ -16,5 +16,15 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         {
             InitializeComponent();
         }
+
+        private void btMais_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

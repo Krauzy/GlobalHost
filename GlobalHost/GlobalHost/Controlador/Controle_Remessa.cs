@@ -67,6 +67,7 @@ namespace GlobalHost.Controlador
                 linha["id"] = r.Id;
                 linha["descricao"] = r.Descricao;
                 linha["origem"] = r.Origem;
+                linha["destino"] = r.Origem;
                 linha["data_saida"] = r.Saida;
                 linha["previsao_requerida"] = r.Previsao;
                 linha["data_requerida"] = r.Requerimento;

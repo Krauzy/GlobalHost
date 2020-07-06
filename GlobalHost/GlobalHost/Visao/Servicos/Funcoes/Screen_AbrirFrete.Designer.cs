@@ -28,42 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtBusca = new System.Windows.Forms.TextBox();
-            this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.dgvFrete = new System.Windows.Forms.DataGridView();
-            this.ID_Remessa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total_AbrirFrete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Situacao_AbrirFrete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Orçamento_AbrirFrete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remessa_AbrirFrete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPedido = new System.Windows.Forms.DataGridView();
-            this.Pedido_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Origem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Destino = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Despachante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Remessa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btMenos = new System.Windows.Forms.Button();
-            this.btMais = new System.Windows.Forms.Button();
-            this.cbFiltroPedido = new System.Windows.Forms.ComboBox();
+            this.btBuscar = new System.Windows.Forms.Button();
+            this.cbFiltroRemessa = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtTransporte = new System.Windows.Forms.TextBox();
+            this.txtDestino = new System.Windows.Forms.TextBox();
+            this.txtCarga = new System.Windows.Forms.TextBox();
+            this.txtRemessa = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtOrigem = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lValorFreteAtual = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lValorFreteFinal = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lPrevisaoEntrega = new System.Windows.Forms.Label();
+            this.gbFrete = new System.Windows.Forms.GroupBox();
+            this.Remessa_DataSaida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remessa_Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFrete)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
+            this.gbFrete.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -95,39 +92,12 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label11.Location = new System.Drawing.Point(575, 131);
+            this.label11.Location = new System.Drawing.Point(758, 131);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 23);
+            this.label11.Size = new System.Drawing.Size(101, 23);
             this.label11.TabIndex = 131;
-            this.label11.Text = "Buscar";
-            // 
-            // txtBusca
-            // 
-            this.txtBusca.BackColor = System.Drawing.Color.White;
-            this.txtBusca.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtBusca.Location = new System.Drawing.Point(579, 161);
-            this.txtBusca.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(206, 27);
-            this.txtBusca.TabIndex = 129;
-            // 
-            // cbFiltro
-            // 
-            this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFiltro.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.cbFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.cbFiltro.FormattingEnabled = true;
-            this.cbFiltro.Items.AddRange(new object[] {
-            "Id",
-            "Total",
-            "Situacao"});
-            this.cbFiltro.Location = new System.Drawing.Point(838, 161);
-            this.cbFiltro.Margin = new System.Windows.Forms.Padding(4);
-            this.cbFiltro.Name = "cbFiltro";
-            this.cbFiltro.Size = new System.Drawing.Size(192, 29);
-            this.cbFiltro.TabIndex = 130;
+            this.label11.Text = "Situação:";
             // 
             // dgvFrete
             // 
@@ -136,94 +106,6 @@
             this.dgvFrete.BackgroundColor = System.Drawing.Color.White;
             this.dgvFrete.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvFrete.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFrete.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvFrete.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFrete.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID_Remessa,
-            this.Total_AbrirFrete,
-            this.Situacao_AbrirFrete,
-            this.Orçamento_AbrirFrete,
-            this.Remessa_AbrirFrete});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFrete.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvFrete.EnableHeadersVisualStyles = false;
-            this.dgvFrete.Location = new System.Drawing.Point(579, 206);
-            this.dgvFrete.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvFrete.Name = "dgvFrete";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFrete.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvFrete.RowHeadersVisible = false;
-            this.dgvFrete.RowHeadersWidth = 51;
-            this.dgvFrete.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFrete.Size = new System.Drawing.Size(451, 363);
-            this.dgvFrete.TabIndex = 128;
-            // 
-            // ID_Remessa
-            // 
-            this.ID_Remessa.DataPropertyName = "id";
-            this.ID_Remessa.HeaderText = "ID";
-            this.ID_Remessa.MinimumWidth = 6;
-            this.ID_Remessa.Name = "ID_Remessa";
-            this.ID_Remessa.Width = 50;
-            // 
-            // Total_AbrirFrete
-            // 
-            this.Total_AbrirFrete.DataPropertyName = "total";
-            this.Total_AbrirFrete.HeaderText = "Total";
-            this.Total_AbrirFrete.MinimumWidth = 6;
-            this.Total_AbrirFrete.Name = "Total_AbrirFrete";
-            this.Total_AbrirFrete.Width = 150;
-            // 
-            // Situacao_AbrirFrete
-            // 
-            this.Situacao_AbrirFrete.DataPropertyName = "situacao";
-            this.Situacao_AbrirFrete.HeaderText = "Situação";
-            this.Situacao_AbrirFrete.MinimumWidth = 6;
-            this.Situacao_AbrirFrete.Name = "Situacao_AbrirFrete";
-            this.Situacao_AbrirFrete.Width = 125;
-            // 
-            // Orçamento_AbrirFrete
-            // 
-            this.Orçamento_AbrirFrete.DataPropertyName = "orcamento";
-            this.Orçamento_AbrirFrete.HeaderText = "Orçamento";
-            this.Orçamento_AbrirFrete.MinimumWidth = 6;
-            this.Orçamento_AbrirFrete.Name = "Orçamento_AbrirFrete";
-            this.Orçamento_AbrirFrete.Width = 125;
-            // 
-            // Remessa_AbrirFrete
-            // 
-            this.Remessa_AbrirFrete.DataPropertyName = "remessa";
-            this.Remessa_AbrirFrete.HeaderText = "Remessa";
-            this.Remessa_AbrirFrete.MinimumWidth = 6;
-            this.Remessa_AbrirFrete.Name = "Remessa_AbrirFrete";
-            this.Remessa_AbrirFrete.Width = 125;
-            // 
-            // dgvPedido
-            // 
-            this.dgvPedido.AllowUserToAddRows = false;
-            this.dgvPedido.AllowUserToResizeRows = false;
-            this.dgvPedido.BackgroundColor = System.Drawing.Color.White;
-            this.dgvPedido.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            this.dgvPedido.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,19 +113,11 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedido.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Pedido_ID,
-            this.Pedido_Data,
-            this.Pedido_Modalidade,
-            this.Pedido_Origem,
-            this.Pedido_Destino,
-            this.Pedido_Despachante,
-            this.Pedido_Situacao,
-            this.Pedido_Cliente,
-            this.Pedido_Funcionario,
-            this.Pedido_Remessa});
+            this.dgvFrete.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvFrete.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFrete.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Remessa_DataSaida,
+            this.Remessa_Descricao});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,11 +125,11 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPedido.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvPedido.EnableHeadersVisualStyles = false;
-            this.dgvPedido.Location = new System.Drawing.Point(51, 206);
-            this.dgvPedido.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvPedido.Name = "dgvPedido";
+            this.dgvFrete.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvFrete.EnableHeadersVisualStyles = false;
+            this.dgvFrete.Location = new System.Drawing.Point(661, 68);
+            this.dgvFrete.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvFrete.Name = "dgvFrete";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -263,144 +137,38 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvPedido.RowHeadersVisible = false;
-            this.dgvPedido.RowHeadersWidth = 51;
-            this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedido.Size = new System.Drawing.Size(455, 363);
-            this.dgvPedido.TabIndex = 132;
+            this.dgvFrete.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvFrete.RowHeadersVisible = false;
+            this.dgvFrete.RowHeadersWidth = 51;
+            this.dgvFrete.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFrete.Size = new System.Drawing.Size(391, 174);
+            this.dgvFrete.TabIndex = 128;
             // 
-            // Pedido_ID
+            // btBuscar
             // 
-            this.Pedido_ID.DataPropertyName = "id";
-            this.Pedido_ID.HeaderText = "ID";
-            this.Pedido_ID.MinimumWidth = 6;
-            this.Pedido_ID.Name = "Pedido_ID";
-            this.Pedido_ID.ReadOnly = true;
-            this.Pedido_ID.Width = 125;
+            this.btBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btBuscar.Enabled = false;
+            this.btBuscar.FlatAppearance.BorderSize = 0;
+            this.btBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBuscar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBuscar.ForeColor = System.Drawing.Color.White;
+            this.btBuscar.Location = new System.Drawing.Point(245, 106);
+            this.btBuscar.Margin = new System.Windows.Forms.Padding(0);
+            this.btBuscar.Name = "btBuscar";
+            this.btBuscar.Size = new System.Drawing.Size(113, 30);
+            this.btBuscar.TabIndex = 134;
+            this.btBuscar.Text = "Buscar";
+            this.btBuscar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btBuscar.UseVisualStyleBackColor = false;
+            this.btBuscar.Click += new System.EventHandler(this.btMais_Click);
             // 
-            // Pedido_Data
+            // cbFiltroRemessa
             // 
-            this.Pedido_Data.DataPropertyName = "data";
-            this.Pedido_Data.HeaderText = "Data do Pedido";
-            this.Pedido_Data.MinimumWidth = 6;
-            this.Pedido_Data.Name = "Pedido_Data";
-            this.Pedido_Data.ReadOnly = true;
-            this.Pedido_Data.Width = 125;
-            // 
-            // Pedido_Modalidade
-            // 
-            this.Pedido_Modalidade.DataPropertyName = "modalidade";
-            this.Pedido_Modalidade.HeaderText = "Modalidade";
-            this.Pedido_Modalidade.MinimumWidth = 6;
-            this.Pedido_Modalidade.Name = "Pedido_Modalidade";
-            this.Pedido_Modalidade.ReadOnly = true;
-            this.Pedido_Modalidade.Width = 125;
-            // 
-            // Pedido_Origem
-            // 
-            this.Pedido_Origem.DataPropertyName = "origem";
-            this.Pedido_Origem.HeaderText = "Origem";
-            this.Pedido_Origem.MinimumWidth = 6;
-            this.Pedido_Origem.Name = "Pedido_Origem";
-            this.Pedido_Origem.ReadOnly = true;
-            this.Pedido_Origem.Width = 125;
-            // 
-            // Pedido_Destino
-            // 
-            this.Pedido_Destino.DataPropertyName = "destino";
-            this.Pedido_Destino.HeaderText = "Destino";
-            this.Pedido_Destino.MinimumWidth = 6;
-            this.Pedido_Destino.Name = "Pedido_Destino";
-            this.Pedido_Destino.ReadOnly = true;
-            this.Pedido_Destino.Width = 125;
-            // 
-            // Pedido_Despachante
-            // 
-            this.Pedido_Despachante.DataPropertyName = "despachante";
-            this.Pedido_Despachante.HeaderText = "Despachante";
-            this.Pedido_Despachante.MinimumWidth = 6;
-            this.Pedido_Despachante.Name = "Pedido_Despachante";
-            this.Pedido_Despachante.ReadOnly = true;
-            this.Pedido_Despachante.Width = 200;
-            // 
-            // Pedido_Situacao
-            // 
-            this.Pedido_Situacao.DataPropertyName = "situacao";
-            this.Pedido_Situacao.HeaderText = "Situação";
-            this.Pedido_Situacao.MinimumWidth = 6;
-            this.Pedido_Situacao.Name = "Pedido_Situacao";
-            this.Pedido_Situacao.ReadOnly = true;
-            this.Pedido_Situacao.Width = 125;
-            // 
-            // Pedido_Cliente
-            // 
-            this.Pedido_Cliente.DataPropertyName = "cliente";
-            this.Pedido_Cliente.HeaderText = "Cliente";
-            this.Pedido_Cliente.MinimumWidth = 6;
-            this.Pedido_Cliente.Name = "Pedido_Cliente";
-            this.Pedido_Cliente.ReadOnly = true;
-            this.Pedido_Cliente.Width = 125;
-            // 
-            // Pedido_Funcionario
-            // 
-            this.Pedido_Funcionario.DataPropertyName = "funcionario";
-            this.Pedido_Funcionario.HeaderText = "Funcionário";
-            this.Pedido_Funcionario.MinimumWidth = 6;
-            this.Pedido_Funcionario.Name = "Pedido_Funcionario";
-            this.Pedido_Funcionario.ReadOnly = true;
-            this.Pedido_Funcionario.Width = 125;
-            // 
-            // Pedido_Remessa
-            // 
-            this.Pedido_Remessa.DataPropertyName = "remessa";
-            this.Pedido_Remessa.HeaderText = "Remessa";
-            this.Pedido_Remessa.MinimumWidth = 6;
-            this.Pedido_Remessa.Name = "Pedido_Remessa";
-            this.Pedido_Remessa.ReadOnly = true;
-            this.Pedido_Remessa.Width = 125;
-            // 
-            // btMenos
-            // 
-            this.btMenos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btMenos.Enabled = false;
-            this.btMenos.FlatAppearance.BorderSize = 0;
-            this.btMenos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btMenos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMenos.ForeColor = System.Drawing.Color.White;
-            this.btMenos.Location = new System.Drawing.Point(313, 149);
-            this.btMenos.Margin = new System.Windows.Forms.Padding(0);
-            this.btMenos.Name = "btMenos";
-            this.btMenos.Size = new System.Drawing.Size(42, 39);
-            this.btMenos.TabIndex = 135;
-            this.btMenos.Text = "‒";
-            this.btMenos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btMenos.UseVisualStyleBackColor = false;
-            // 
-            // btMais
-            // 
-            this.btMais.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.btMais.Enabled = false;
-            this.btMais.FlatAppearance.BorderSize = 0;
-            this.btMais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btMais.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMais.ForeColor = System.Drawing.Color.White;
-            this.btMais.Location = new System.Drawing.Point(260, 149);
-            this.btMais.Margin = new System.Windows.Forms.Padding(0);
-            this.btMais.Name = "btMais";
-            this.btMais.Size = new System.Drawing.Size(42, 39);
-            this.btMais.TabIndex = 134;
-            this.btMais.Text = "+";
-            this.btMais.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btMais.UseVisualStyleBackColor = false;
-            // 
-            // cbFiltroPedido
-            // 
-            this.cbFiltroPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFiltroPedido.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.cbFiltroPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.cbFiltroPedido.FormattingEnabled = true;
-            this.cbFiltroPedido.Items.AddRange(new object[] {
+            this.cbFiltroRemessa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFiltroRemessa.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cbFiltroRemessa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.cbFiltroRemessa.FormattingEnabled = true;
+            this.cbFiltroRemessa.Items.AddRange(new object[] {
             "Data do Pedido",
             "Modalidade",
             "Origem",
@@ -410,42 +178,23 @@
             "Cliente",
             "Funcionario",
             "Remessa"});
-            this.cbFiltroPedido.Location = new System.Drawing.Point(51, 159);
-            this.cbFiltroPedido.Margin = new System.Windows.Forms.Padding(4);
-            this.cbFiltroPedido.Name = "cbFiltroPedido";
-            this.cbFiltroPedido.Size = new System.Drawing.Size(195, 29);
-            this.cbFiltroPedido.TabIndex = 133;
+            this.cbFiltroRemessa.Location = new System.Drawing.Point(41, 106);
+            this.cbFiltroRemessa.Margin = new System.Windows.Forms.Padding(4);
+            this.cbFiltroRemessa.Name = "cbFiltroRemessa";
+            this.cbFiltroRemessa.Size = new System.Drawing.Size(195, 29);
+            this.cbFiltroRemessa.TabIndex = 133;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label3.Location = new System.Drawing.Point(47, 131);
+            this.label3.Location = new System.Drawing.Point(37, 68);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 23);
+            this.label3.Size = new System.Drawing.Size(209, 23);
             this.label3.TabIndex = 136;
-            this.label3.Text = "Pedidos";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Enabled = false;
-            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnCancelar.FlatAppearance.BorderSize = 2;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnCancelar.Image = global::GlobalHost.Properties.Resources.cancel;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(1042, 473);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(125, 96);
-            this.btnCancelar.TabIndex = 138;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.label3.Text = "Código da Remessa";
             // 
             // btnOk
             // 
@@ -455,39 +204,292 @@
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.btnOk.Image = global::GlobalHost.Properties.Resources.ok;
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnOk.Location = new System.Drawing.Point(1042, 369);
+            this.btnOk.Location = new System.Drawing.Point(857, 393);
             this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(125, 96);
+            this.btnOk.Size = new System.Drawing.Size(195, 32);
             this.btnOk.TabIndex = 137;
-            this.btnOk.Text = "OK";
+            this.btnOk.Text = "Confirmar Entrega";
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label4.Location = new System.Drawing.Point(304, 246);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 23);
+            this.label4.TabIndex = 139;
+            this.label4.Text = "Destino";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label5.Location = new System.Drawing.Point(37, 171);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 23);
+            this.label5.TabIndex = 140;
+            this.label5.Text = "Remessa";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label6.Location = new System.Drawing.Point(304, 171);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 23);
+            this.label6.TabIndex = 141;
+            this.label6.Text = "Carga";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label7.Location = new System.Drawing.Point(37, 246);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 23);
+            this.label7.TabIndex = 142;
+            this.label7.Text = "Origem";
+            // 
+            // txtTransporte
+            // 
+            this.txtTransporte.BackColor = System.Drawing.Color.White;
+            this.txtTransporte.Enabled = false;
+            this.txtTransporte.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTransporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtTransporte.Location = new System.Drawing.Point(41, 349);
+            this.txtTransporte.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTransporte.Name = "txtTransporte";
+            this.txtTransporte.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtTransporte.Size = new System.Drawing.Size(408, 27);
+            this.txtTransporte.TabIndex = 144;
+            // 
+            // txtDestino
+            // 
+            this.txtDestino.BackColor = System.Drawing.Color.White;
+            this.txtDestino.Enabled = false;
+            this.txtDestino.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDestino.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtDestino.Location = new System.Drawing.Point(308, 273);
+            this.txtDestino.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDestino.Name = "txtDestino";
+            this.txtDestino.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtDestino.Size = new System.Drawing.Size(141, 27);
+            this.txtDestino.TabIndex = 145;
+            // 
+            // txtCarga
+            // 
+            this.txtCarga.BackColor = System.Drawing.Color.White;
+            this.txtCarga.Enabled = false;
+            this.txtCarga.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtCarga.Location = new System.Drawing.Point(308, 198);
+            this.txtCarga.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCarga.Name = "txtCarga";
+            this.txtCarga.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtCarga.Size = new System.Drawing.Size(141, 27);
+            this.txtCarga.TabIndex = 146;
+            // 
+            // txtRemessa
+            // 
+            this.txtRemessa.BackColor = System.Drawing.Color.White;
+            this.txtRemessa.Enabled = false;
+            this.txtRemessa.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRemessa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtRemessa.Location = new System.Drawing.Point(41, 198);
+            this.txtRemessa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRemessa.Name = "txtRemessa";
+            this.txtRemessa.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtRemessa.Size = new System.Drawing.Size(141, 27);
+            this.txtRemessa.TabIndex = 147;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label8.Location = new System.Drawing.Point(37, 322);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(109, 23);
+            this.label8.TabIndex = 143;
+            this.label8.Text = "Transporte";
+            // 
+            // txtOrigem
+            // 
+            this.txtOrigem.BackColor = System.Drawing.Color.White;
+            this.txtOrigem.Enabled = false;
+            this.txtOrigem.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOrigem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtOrigem.Location = new System.Drawing.Point(41, 273);
+            this.txtOrigem.Margin = new System.Windows.Forms.Padding(4);
+            this.txtOrigem.Name = "txtOrigem";
+            this.txtOrigem.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtOrigem.Size = new System.Drawing.Size(141, 27);
+            this.txtOrigem.TabIndex = 148;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label9.Location = new System.Drawing.Point(657, 246);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(210, 23);
+            this.label9.TabIndex = 149;
+            this.label9.Text = "Valor de Frete Atual:";
+            // 
+            // lValorFreteAtual
+            // 
+            this.lValorFreteAtual.AutoSize = true;
+            this.lValorFreteAtual.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lValorFreteAtual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.lValorFreteAtual.Location = new System.Drawing.Point(880, 246);
+            this.lValorFreteAtual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lValorFreteAtual.Name = "lValorFreteAtual";
+            this.lValorFreteAtual.Size = new System.Drawing.Size(18, 23);
+            this.lValorFreteAtual.TabIndex = 150;
+            this.lValorFreteAtual.Text = "-";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label12.Location = new System.Drawing.Point(657, 281);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(204, 23);
+            this.label12.TabIndex = 151;
+            this.label12.Text = "Valor de Frete Final:";
+            // 
+            // lValorFreteFinal
+            // 
+            this.lValorFreteFinal.AutoSize = true;
+            this.lValorFreteFinal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lValorFreteFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.lValorFreteFinal.Location = new System.Drawing.Point(880, 281);
+            this.lValorFreteFinal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lValorFreteFinal.Name = "lValorFreteFinal";
+            this.lValorFreteFinal.Size = new System.Drawing.Size(18, 23);
+            this.lValorFreteFinal.TabIndex = 152;
+            this.lValorFreteFinal.Text = "-";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(659, 339);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(208, 23);
+            this.label14.TabIndex = 153;
+            this.label14.Text = "Previsão de Entrega:";
+            // 
+            // lPrevisaoEntrega
+            // 
+            this.lPrevisaoEntrega.AutoSize = true;
+            this.lPrevisaoEntrega.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lPrevisaoEntrega.ForeColor = System.Drawing.Color.Red;
+            this.lPrevisaoEntrega.Location = new System.Drawing.Point(880, 339);
+            this.lPrevisaoEntrega.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lPrevisaoEntrega.Name = "lPrevisaoEntrega";
+            this.lPrevisaoEntrega.Size = new System.Drawing.Size(18, 23);
+            this.lPrevisaoEntrega.TabIndex = 154;
+            this.lPrevisaoEntrega.Text = "-";
+            // 
+            // gbFrete
+            // 
+            this.gbFrete.Controls.Add(this.label10);
+            this.gbFrete.Controls.Add(this.label3);
+            this.gbFrete.Controls.Add(this.lPrevisaoEntrega);
+            this.gbFrete.Controls.Add(this.cbFiltroRemessa);
+            this.gbFrete.Controls.Add(this.label14);
+            this.gbFrete.Controls.Add(this.btBuscar);
+            this.gbFrete.Controls.Add(this.lValorFreteFinal);
+            this.gbFrete.Controls.Add(this.label4);
+            this.gbFrete.Controls.Add(this.label12);
+            this.gbFrete.Controls.Add(this.label5);
+            this.gbFrete.Controls.Add(this.lValorFreteAtual);
+            this.gbFrete.Controls.Add(this.label6);
+            this.gbFrete.Controls.Add(this.label9);
+            this.gbFrete.Controls.Add(this.label7);
+            this.gbFrete.Controls.Add(this.btnOk);
+            this.gbFrete.Controls.Add(this.txtOrigem);
+            this.gbFrete.Controls.Add(this.label8);
+            this.gbFrete.Controls.Add(this.dgvFrete);
+            this.gbFrete.Controls.Add(this.txtRemessa);
+            this.gbFrete.Controls.Add(this.txtTransporte);
+            this.gbFrete.Controls.Add(this.txtCarga);
+            this.gbFrete.Controls.Add(this.txtDestino);
+            this.gbFrete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbFrete.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFrete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.gbFrete.Location = new System.Drawing.Point(51, 131);
+            this.gbFrete.Margin = new System.Windows.Forms.Padding(4);
+            this.gbFrete.Name = "gbFrete";
+            this.gbFrete.Padding = new System.Windows.Forms.Padding(4);
+            this.gbFrete.Size = new System.Drawing.Size(1106, 449);
+            this.gbFrete.TabIndex = 158;
+            this.gbFrete.TabStop = false;
+            this.gbFrete.Text = "Dados do Frete";
+            // 
+            // Remessa_DataSaida
+            // 
+            this.Remessa_DataSaida.DataPropertyName = "data_saida";
+            this.Remessa_DataSaida.HeaderText = "Data Saída";
+            this.Remessa_DataSaida.MinimumWidth = 6;
+            this.Remessa_DataSaida.Name = "Remessa_DataSaida";
+            this.Remessa_DataSaida.Width = 150;
+            // 
+            // Remessa_Descricao
+            // 
+            this.Remessa_Descricao.DataPropertyName = "descricao";
+            this.Remessa_Descricao.HeaderText = "Descrição";
+            this.Remessa_Descricao.MinimumWidth = 6;
+            this.Remessa_Descricao.Name = "Remessa_Descricao";
+            this.Remessa_Descricao.Width = 250;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label10.Location = new System.Drawing.Point(659, 41);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(101, 23);
+            this.label10.TabIndex = 155;
+            this.label10.Text = "Situação:";
             // 
             // Screen_AbrirFrete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btMenos);
-            this.Controls.Add(this.btMais);
-            this.Controls.Add(this.cbFiltroPedido);
-            this.Controls.Add(this.dgvPedido);
+            this.Controls.Add(this.gbFrete);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.txtBusca);
-            this.Controls.Add(this.cbFiltro);
-            this.Controls.Add(this.dgvFrete);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "Screen_AbrirFrete";
             this.Size = new System.Drawing.Size(1375, 692);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFrete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
+            this.gbFrete.ResumeLayout(false);
+            this.gbFrete.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -498,30 +500,30 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtBusca;
-        private System.Windows.Forms.ComboBox cbFiltro;
         private System.Windows.Forms.DataGridView dgvFrete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Remessa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total_AbrirFrete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Situacao_AbrirFrete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Orçamento_AbrirFrete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Remessa_AbrirFrete;
-        private System.Windows.Forms.DataGridView dgvPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Modalidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Origem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Destino;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Despachante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Situacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Funcionario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Remessa;
-        private System.Windows.Forms.Button btMenos;
-        private System.Windows.Forms.Button btMais;
-        private System.Windows.Forms.ComboBox cbFiltroPedido;
+        private System.Windows.Forms.Button btBuscar;
+        private System.Windows.Forms.ComboBox cbFiltroRemessa;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtTransporte;
+        private System.Windows.Forms.TextBox txtDestino;
+        private System.Windows.Forms.TextBox txtCarga;
+        private System.Windows.Forms.TextBox txtRemessa;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtOrigem;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lValorFreteAtual;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lValorFreteFinal;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lPrevisaoEntrega;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remessa_DataSaida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remessa_Descricao;
+        private System.Windows.Forms.GroupBox gbFrete;
+        private System.Windows.Forms.Label label10;
     }
 }

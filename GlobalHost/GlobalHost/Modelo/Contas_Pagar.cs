@@ -8,23 +8,23 @@ namespace GlobalHost.Modelo
 {
     class Contas_Pagar
     {
-        private int Id;
+        private int id;
         private double valor;
         private string tipo;
         private string situacao;
         private int frete;
         private int despesa;
 
-        public Contas_Pagar(int iD, double valor, string tipo, string situacao)
+        public Contas_Pagar(int id, double valor, string tipo, string situacao)
         {
-            this.Id = iD;
+            this.id = id;
             this.valor = valor;
             this.tipo = tipo;
             this.situacao = situacao;
         }
-        public Contas_Pagar(int iD, double valor, string tipo, string situacao, int frete, int despesa)
+        public Contas_Pagar(int id, double valor, string tipo, string situacao, int frete, int despesa)
         {
-            this.Id = iD;
+            this.id = id;
             this.valor = valor;
             this.tipo = tipo;
             this.situacao = situacao;
@@ -46,7 +46,7 @@ namespace GlobalHost.Modelo
             this.despesa = despesa;
         }
 
-        public int ID { get => ID; set => ID = value; }
+        public int ID { get => id; set => id = value; }
         public double Valor { get => valor; set => valor = value; }
         public string Tipo { get => tipo; set => tipo = value; }
         public string Situacao { get => situacao; set => situacao = value; }
