@@ -83,6 +83,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 limpaCampos();
                 btnOk.Enabled = false;
                 btnCancelar.Enabled = false;
+                btnExcluir.Enabled = false;
             }
             else
             {
