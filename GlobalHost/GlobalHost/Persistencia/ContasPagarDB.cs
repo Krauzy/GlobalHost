@@ -98,9 +98,9 @@ namespace GlobalHost.Persistencia
             banco.Disconnect();
             return list;
         }
-        public List<object> getFromDespesa(int desp)
+        public List<Contas_Pagar> getFromDespesa(int desp)
         {
-            List<object> list = new List<object>();
+            List<Contas_Pagar> list = new List<Contas_Pagar>();
             DataTable dt = new DataTable();
             string SQL = @"SELECT * FROM Contas_Pagar where despesa="+desp;
             banco.Connect();

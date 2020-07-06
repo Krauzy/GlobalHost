@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GlobalHost.Controlador;
 using GlobalHost.API;
+using GlobalHost.Modelo;
 
 namespace GlobalHost.Visao.Servicos.Funcoes
 {
@@ -24,8 +25,9 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             ccp = new Controle_ContasPagar();
             cbDespesa.ValueMember = "id";
             cbDespesa.DisplayMember = "descricao";
-            dt = cd.get("");
-            cbDespesa.DataSource = dt;
+            cbDespesa.DataSource = cd.get("");
+            cbDespesa.SelectedIndex = 0;
+            dt = ccp.getListContasByDespesa(Convert.ToInt32(cbDespesa.SelectedValue));
             Filters.numericField(txtValor);
         }
 
@@ -34,7 +36,8 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             bool res = false;//ccp.updateAll(lbAPagar.Items);
             foreach(object o in lbAPagar.Items)
             {
-
+                ccp.pay(Convert.ToInt32(o.ToString().Split(',')[0]),Convert.ToInt32(cbDespesa.SelectedValue),Convert.ToDouble(txtValor.Text));
+                txtValor.Text = (Convert.ToDouble(txtValor.Text) - Convert.ToDouble(lbAPagar.Items[lbAPagar.Items.IndexOf(o)].ToString().Split(',')[1])).ToString();
             }
             if(res)
             {
@@ -54,8 +57,11 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         private void cbDespesa_SelectedIndexChanged(object sender, EventArgs e)
         {
             //cbDespesa.Items.Add(ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString())));
-            dt.Rows.Clear();
-            dt.Rows.Add(ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString())));
+            if(dt != null)
+            {
+                dt.Rows.Clear();
+                dt.Rows.Add(ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString())));
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
