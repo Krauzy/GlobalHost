@@ -46,24 +46,28 @@ namespace GlobalHost.Controlador
             Contas_Pagar c = new Contas_Pagar(id, valor, tipo, situacao, frete,despesa);
             return db.Update(c);
         }
-        public bool pay(int id,int despesa, double valor)
+        public bool pay(int despesa, double valor, double valor_a_pagar)
         {
             bool res = false;
             ContasPagarDB db = new ContasPagarDB();
-            Contas_Pagar c = db.get(id);
-            if(valor > c.Valor)
+            List<Contas_Pagar> contas = db.getFromDespesa(despesa);
+            foreach(Contas_Pagar c in contas)
             {
-                c.Situacao = "PAGO";
+                if (valor_a_pagar >= c.Valor)
+                {
+                    c.Situacao = "PAGO";
+                }
+                else
+                {
+                    Contas_Pagar resto = new Contas_Pagar(valor - c.Valor, c.Tipo, "PARCELA PARCIAL",despesa);
+                    db.Insert(resto);
+                    c.Situacao = "PARCIALMENTE PAGA";
+                }
+                valor_a_pagar -= c.Valor;
+                res = db.Update(c);
             }
-            else
-            {
-                Contas_Pagar resto = new Contas_Pagar(valor - c.Valor, c.Tipo, "PARCELA PARCIAL");
-                db.Insert(resto);
-                c.Situacao= "PARCIALMENTE PAGA";
-            }
-            res = db.Update(c);
+            // se valor total ainda não acabou, estornar, mas aí não é problema meu
             return res;
-
         }
         public DataTable get(object obj)
         {

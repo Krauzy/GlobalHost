@@ -37,6 +37,13 @@ namespace GlobalHost.Modelo
             this.tipo = tipo;
             this.situacao = situacao;
         }
+        public Contas_Pagar(double valor, string tipo, string situacao, int despesa)
+        {
+            this.valor = valor;
+            this.tipo = tipo;
+            this.situacao = situacao;
+            this.despesa = despesa;
+        }
         public Contas_Pagar(double valor, string tipo, string situacao, int frete, int despesa)
         {
             this.valor = valor;

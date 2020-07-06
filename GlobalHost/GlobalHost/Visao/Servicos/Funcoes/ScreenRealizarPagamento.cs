@@ -23,21 +23,27 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             InitializeComponent();
             cd = new Controle_Despesa();
             ccp = new Controle_ContasPagar();
+            carregaCB();
+            dgvContas.DataSource = dt;
+            txtID.Text = cbDespesa.SelectedValue.ToString();
+            txtValor.Text = sumCol(1).ToString();
+            Filters.numericField(txtValor);
+        }
+        public void carregaCB()
+        {
             cbDespesa.ValueMember = "id";
             cbDespesa.DisplayMember = "descricao";
             cbDespesa.DataSource = cd.get("");
             cbDespesa.SelectedIndex = 0;
             dt = ccp.getListContasByDespesa(Convert.ToInt32(cbDespesa.SelectedValue));
-            Filters.numericField(txtValor);
         }
-
         private void btnOk_Click(object sender, EventArgs e)
         {
             bool res = false;//ccp.updateAll(lbAPagar.Items);
             foreach(object o in lbAPagar.Items)
             {
-                ccp.pay(Convert.ToInt32(o.ToString().Split(',')[0]),Convert.ToInt32(cbDespesa.SelectedValue),Convert.ToDouble(txtValor.Text));
-                txtValor.Text = (Convert.ToDouble(txtValor.Text) - Convert.ToDouble(lbAPagar.Items[lbAPagar.Items.IndexOf(o)].ToString().Split(',')[1])).ToString();
+                res = ccp.pay(Convert.ToInt32(o.ToString().Split(',')[0]),Convert.ToDouble(txtValor.Text),Convert.ToDouble(txtAPagar.Text));
+                //txtValor.Text = (Convert.ToDouble(txtValor.Text) - Convert.ToDouble(lbAPagar.Items[lbAPagar.Items.IndexOf(o)].ToString().Split(',')[1])).ToString();
             }
             if(res)
             {
@@ -47,11 +53,15 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             {
                 MessageBox.Show("O pagamento da despesa falhou, tente novamente mais tarde...");
             }
+            carregaCB();
+            lbAPagar.Items.Clear();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            lbAPagar.Items.Add(dgvContas.CurrentRow.ToString());
+            DataRow dr = dt.Rows[dgvContas.CurrentRow.Index];
+            string s = txtID.Text + "," + txtValor.Text + "," + dr[2] + "," + dr[3] + "," + txtAPagar.Text;
+            lbAPagar.Items.Add(s);
         }
 
         private void cbDespesa_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,8 +69,9 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             //cbDespesa.Items.Add(ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString())));
             if(dt != null)
             {
-                dt.Rows.Clear();
-                dt.Rows.Add(ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString())));
+                dt = ccp.getListContasByDespesa(Convert.ToInt32(cbDespesa.SelectedValue));
+                txtID.Text = cbDespesa.SelectedValue.ToString();
+                txtValor.Text = sumCol(1).ToString();
             }
         }
 
@@ -71,11 +82,19 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 lbAPagar.Items.Remove(lbAPagar.SelectedItem);
             }   
         }
-
+        public double sumCol(int col)
+        {
+            double soma = 0;
+            for(int i = 0; i < dt.Rows.Count;i++)
+            {
+                soma += Convert.ToDouble(dt.Rows[i][col]);
+            }
+            return soma;
+        }
         private void dgvContas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtID.Text = dt.Rows[dgvContas.CurrentRow.Index][0].ToString();
-            txtValor.Text = dt.Rows[dgvContas.CurrentRow.Index][1].ToString();
+            txtID.Text = cbDespesa.SelectedValue.ToString() ;//dt.Rows[dgvContas.CurrentRow.Index][0].ToString();
+            txtValor.Text = sumCol(1).ToString();
         }
     }
 }

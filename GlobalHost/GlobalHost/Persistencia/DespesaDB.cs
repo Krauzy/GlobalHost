@@ -71,7 +71,6 @@ namespace GlobalHost.Persistencia
             banco.Disconnect();
             return d;
         }
-
         public List<object> getAll()
         {
             List<object> list = new List<object>();
@@ -94,7 +93,28 @@ namespace GlobalHost.Persistencia
             banco.Disconnect();
             return list;
         }
-
+        public List<object> getNotPaga()
+        {
+            List<object> list = new List<object>();
+            DataTable dt = new DataTable();
+            string SQL = @"SELECT * FROM Despesa WHERE estado != 'PAGO'";
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out dt);
+            if (dt.Rows.Count > 0)
+            {
+                Despesa d;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    d = new Despesa((int)dt.Rows[i]["id"],
+                                    dt.Rows[i]["descricao"].ToString(),
+                                    dt.Rows[i]["tipo"].ToString(),
+                                    dt.Rows[i]["estado"].ToString());
+                    list.Add(d);
+                }
+            }
+            banco.Disconnect();
+            return list;
+        }
         public int getIdentity()
         {
             string SQL = @"SELECT IDENT_CURRENT('Despesa')";

@@ -60,6 +60,28 @@ namespace GlobalHost.Controlador
             }
             return table;
         }
+        public DataTable getNotPagas()
+        {
+            DespesaDB DB = new DespesaDB();
+            DataTable table = new DataTable();
+            List<object> list = new List<object>();
+            list = DB.getNotPaga();
+            table.Columns.Add("id", typeof(int));
+            table.Columns.Add("descricao", typeof(string));
+            table.Columns.Add("tipo", typeof(string));
+            table.Columns.Add("estado", typeof(string));
+            foreach (var item in list)
+            {
+                DataRow linha = table.NewRow();
+                Despesa aux = (Despesa)item;
+                linha["id"] = aux.Id;
+                linha["descricao"] = aux.Descricao;
+                linha["tipo"] = aux.Tipo;
+                linha["estado"] = aux.Estado;
+                table.Rows.Add(linha);
+            }
+            return table;
+        }
 
         public int getIdentity()
         {
