@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ordOrder = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
@@ -55,16 +55,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gbPedido = new System.Windows.Forms.GroupBox();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
-            this.Pedido_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Origem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Destino = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Despachante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pedido_Remessa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btMenos = new System.Windows.Forms.Button();
             this.btMais = new System.Windows.Forms.Button();
             this.cbFiltroPedido = new System.Windows.Forms.ComboBox();
@@ -92,6 +82,17 @@
             this.dtpPrevisao = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpSaida = new System.Windows.Forms.DateTimePicker();
+            this.Pedido_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pedido_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pedido_Modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pedido_Origem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pedido_Destino = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pedido_Despachante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pedido_Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pedido_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pedido_Funcionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pedido_Remessa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pedido_Autorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRemessa)).BeginInit();
             this.gbPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
@@ -133,6 +134,7 @@
             this.txtBusca.Size = new System.Drawing.Size(243, 27);
             this.txtBusca.TabIndex = 125;
             this.txtBusca.Click += new System.EventHandler(this.txtBusca_TextChanged);
+            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
             // cbFiltro
             // 
@@ -141,12 +143,9 @@
             this.cbFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Items.AddRange(new object[] {
-            "Nome",
-            "Salario",
-            "CPF",
-            "Endereço",
-            "Telefone",
-            "E-mail"});
+            "Descrição",
+            "Origem",
+            "Destino"});
             this.cbFiltro.Location = new System.Drawing.Point(1132, 164);
             this.cbFiltro.Margin = new System.Windows.Forms.Padding(4);
             this.cbFiltro.Name = "cbFiltro";
@@ -160,14 +159,14 @@
             this.dgvRemessa.BackgroundColor = System.Drawing.Color.White;
             this.dgvRemessa.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvRemessa.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRemessa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRemessa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvRemessa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRemessa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID_Remessa,
@@ -177,26 +176,26 @@
             this.DataSaida_Remessa,
             this.PrevisaoRequerida_Remessa,
             this.Transportadora_Remessa});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRemessa.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRemessa.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvRemessa.EnableHeadersVisualStyles = false;
             this.dgvRemessa.Location = new System.Drawing.Point(880, 222);
             this.dgvRemessa.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRemessa.Name = "dgvRemessa";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRemessa.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRemessa.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvRemessa.RowHeadersVisible = false;
             this.dgvRemessa.RowHeadersWidth = 51;
             this.dgvRemessa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -406,14 +405,14 @@
             this.dgvPedido.BackgroundColor = System.Drawing.Color.White;
             this.dgvPedido.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvPedido.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedido.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Pedido_ID,
@@ -425,122 +424,33 @@
             this.Pedido_Situacao,
             this.Pedido_Cliente,
             this.Pedido_Funcionario,
-            this.Pedido_Remessa});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPedido.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Pedido_Remessa,
+            this.Pedido_Autorizacao});
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPedido.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgvPedido.EnableHeadersVisualStyles = false;
             this.dgvPedido.Location = new System.Drawing.Point(35, 68);
             this.dgvPedido.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPedido.Name = "dgvPedido";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedido.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvPedido.RowHeadersVisible = false;
             this.dgvPedido.RowHeadersWidth = 51;
             this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedido.Size = new System.Drawing.Size(668, 150);
             this.dgvPedido.TabIndex = 47;
-            // 
-            // Pedido_ID
-            // 
-            this.Pedido_ID.DataPropertyName = "id";
-            this.Pedido_ID.HeaderText = "ID";
-            this.Pedido_ID.MinimumWidth = 6;
-            this.Pedido_ID.Name = "Pedido_ID";
-            this.Pedido_ID.ReadOnly = true;
-            this.Pedido_ID.Width = 125;
-            // 
-            // Pedido_Data
-            // 
-            this.Pedido_Data.DataPropertyName = "data";
-            this.Pedido_Data.HeaderText = "Data do Pedido";
-            this.Pedido_Data.MinimumWidth = 6;
-            this.Pedido_Data.Name = "Pedido_Data";
-            this.Pedido_Data.ReadOnly = true;
-            this.Pedido_Data.Width = 125;
-            // 
-            // Pedido_Modalidade
-            // 
-            this.Pedido_Modalidade.DataPropertyName = "modalidade";
-            this.Pedido_Modalidade.HeaderText = "Modalidade";
-            this.Pedido_Modalidade.MinimumWidth = 6;
-            this.Pedido_Modalidade.Name = "Pedido_Modalidade";
-            this.Pedido_Modalidade.ReadOnly = true;
-            this.Pedido_Modalidade.Width = 125;
-            // 
-            // Pedido_Origem
-            // 
-            this.Pedido_Origem.DataPropertyName = "origem";
-            this.Pedido_Origem.HeaderText = "Origem";
-            this.Pedido_Origem.MinimumWidth = 6;
-            this.Pedido_Origem.Name = "Pedido_Origem";
-            this.Pedido_Origem.ReadOnly = true;
-            this.Pedido_Origem.Width = 125;
-            // 
-            // Pedido_Destino
-            // 
-            this.Pedido_Destino.DataPropertyName = "destino";
-            this.Pedido_Destino.HeaderText = "Destino";
-            this.Pedido_Destino.MinimumWidth = 6;
-            this.Pedido_Destino.Name = "Pedido_Destino";
-            this.Pedido_Destino.ReadOnly = true;
-            this.Pedido_Destino.Width = 125;
-            // 
-            // Pedido_Despachante
-            // 
-            this.Pedido_Despachante.DataPropertyName = "despachante";
-            this.Pedido_Despachante.HeaderText = "Despachante";
-            this.Pedido_Despachante.MinimumWidth = 6;
-            this.Pedido_Despachante.Name = "Pedido_Despachante";
-            this.Pedido_Despachante.ReadOnly = true;
-            this.Pedido_Despachante.Width = 200;
-            // 
-            // Pedido_Situacao
-            // 
-            this.Pedido_Situacao.DataPropertyName = "situacao";
-            this.Pedido_Situacao.HeaderText = "Situação";
-            this.Pedido_Situacao.MinimumWidth = 6;
-            this.Pedido_Situacao.Name = "Pedido_Situacao";
-            this.Pedido_Situacao.ReadOnly = true;
-            this.Pedido_Situacao.Width = 125;
-            // 
-            // Pedido_Cliente
-            // 
-            this.Pedido_Cliente.DataPropertyName = "cliente";
-            this.Pedido_Cliente.HeaderText = "Cliente";
-            this.Pedido_Cliente.MinimumWidth = 6;
-            this.Pedido_Cliente.Name = "Pedido_Cliente";
-            this.Pedido_Cliente.ReadOnly = true;
-            this.Pedido_Cliente.Width = 125;
-            // 
-            // Pedido_Funcionario
-            // 
-            this.Pedido_Funcionario.DataPropertyName = "funcionario";
-            this.Pedido_Funcionario.HeaderText = "Funcionário";
-            this.Pedido_Funcionario.MinimumWidth = 6;
-            this.Pedido_Funcionario.Name = "Pedido_Funcionario";
-            this.Pedido_Funcionario.ReadOnly = true;
-            this.Pedido_Funcionario.Width = 125;
-            // 
-            // Pedido_Remessa
-            // 
-            this.Pedido_Remessa.DataPropertyName = "remessa";
-            this.Pedido_Remessa.HeaderText = "Remessa";
-            this.Pedido_Remessa.MinimumWidth = 6;
-            this.Pedido_Remessa.Name = "Pedido_Remessa";
-            this.Pedido_Remessa.ReadOnly = true;
-            this.Pedido_Remessa.Width = 125;
             // 
             // btMenos
             // 
@@ -914,6 +824,104 @@
             this.dtpSaida.Size = new System.Drawing.Size(141, 27);
             this.dtpSaida.TabIndex = 120;
             // 
+            // Pedido_ID
+            // 
+            this.Pedido_ID.DataPropertyName = "id";
+            this.Pedido_ID.HeaderText = "ID";
+            this.Pedido_ID.MinimumWidth = 6;
+            this.Pedido_ID.Name = "Pedido_ID";
+            this.Pedido_ID.ReadOnly = true;
+            this.Pedido_ID.Width = 125;
+            // 
+            // Pedido_Data
+            // 
+            this.Pedido_Data.DataPropertyName = "data";
+            this.Pedido_Data.HeaderText = "Data do Pedido";
+            this.Pedido_Data.MinimumWidth = 6;
+            this.Pedido_Data.Name = "Pedido_Data";
+            this.Pedido_Data.ReadOnly = true;
+            this.Pedido_Data.Width = 125;
+            // 
+            // Pedido_Modalidade
+            // 
+            this.Pedido_Modalidade.DataPropertyName = "modalidade";
+            this.Pedido_Modalidade.HeaderText = "Modalidade";
+            this.Pedido_Modalidade.MinimumWidth = 6;
+            this.Pedido_Modalidade.Name = "Pedido_Modalidade";
+            this.Pedido_Modalidade.ReadOnly = true;
+            this.Pedido_Modalidade.Width = 125;
+            // 
+            // Pedido_Origem
+            // 
+            this.Pedido_Origem.DataPropertyName = "origem";
+            this.Pedido_Origem.HeaderText = "Origem";
+            this.Pedido_Origem.MinimumWidth = 6;
+            this.Pedido_Origem.Name = "Pedido_Origem";
+            this.Pedido_Origem.ReadOnly = true;
+            this.Pedido_Origem.Width = 125;
+            // 
+            // Pedido_Destino
+            // 
+            this.Pedido_Destino.DataPropertyName = "destino";
+            this.Pedido_Destino.HeaderText = "Destino";
+            this.Pedido_Destino.MinimumWidth = 6;
+            this.Pedido_Destino.Name = "Pedido_Destino";
+            this.Pedido_Destino.ReadOnly = true;
+            this.Pedido_Destino.Width = 125;
+            // 
+            // Pedido_Despachante
+            // 
+            this.Pedido_Despachante.DataPropertyName = "despachante";
+            this.Pedido_Despachante.HeaderText = "Despachante";
+            this.Pedido_Despachante.MinimumWidth = 6;
+            this.Pedido_Despachante.Name = "Pedido_Despachante";
+            this.Pedido_Despachante.ReadOnly = true;
+            this.Pedido_Despachante.Width = 200;
+            // 
+            // Pedido_Situacao
+            // 
+            this.Pedido_Situacao.DataPropertyName = "situacao";
+            this.Pedido_Situacao.HeaderText = "Situação";
+            this.Pedido_Situacao.MinimumWidth = 6;
+            this.Pedido_Situacao.Name = "Pedido_Situacao";
+            this.Pedido_Situacao.ReadOnly = true;
+            this.Pedido_Situacao.Width = 125;
+            // 
+            // Pedido_Cliente
+            // 
+            this.Pedido_Cliente.DataPropertyName = "cliente";
+            this.Pedido_Cliente.HeaderText = "Cliente";
+            this.Pedido_Cliente.MinimumWidth = 6;
+            this.Pedido_Cliente.Name = "Pedido_Cliente";
+            this.Pedido_Cliente.ReadOnly = true;
+            this.Pedido_Cliente.Width = 125;
+            // 
+            // Pedido_Funcionario
+            // 
+            this.Pedido_Funcionario.DataPropertyName = "funcionario";
+            this.Pedido_Funcionario.HeaderText = "Funcionário";
+            this.Pedido_Funcionario.MinimumWidth = 6;
+            this.Pedido_Funcionario.Name = "Pedido_Funcionario";
+            this.Pedido_Funcionario.ReadOnly = true;
+            this.Pedido_Funcionario.Width = 125;
+            // 
+            // Pedido_Remessa
+            // 
+            this.Pedido_Remessa.DataPropertyName = "remessa";
+            this.Pedido_Remessa.HeaderText = "Remessa";
+            this.Pedido_Remessa.MinimumWidth = 6;
+            this.Pedido_Remessa.Name = "Pedido_Remessa";
+            this.Pedido_Remessa.ReadOnly = true;
+            this.Pedido_Remessa.Width = 125;
+            // 
+            // Pedido_Autorizacao
+            // 
+            this.Pedido_Autorizacao.DataPropertyName = "autorizacao";
+            this.Pedido_Autorizacao.HeaderText = "Autorização";
+            this.Pedido_Autorizacao.MinimumWidth = 6;
+            this.Pedido_Autorizacao.Name = "Pedido_Autorizacao";
+            this.Pedido_Autorizacao.Width = 125;
+            // 
             // Screen_Remessa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -964,16 +972,6 @@
         private System.Windows.Forms.Button btMais;
         private System.Windows.Forms.ComboBox cbFiltroPedido;
         private System.Windows.Forms.DataGridView dgvPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Modalidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Origem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Destino;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Despachante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Situacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Funcionario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Remessa;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_Remessa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao_Remessa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Origem_Remessa;
@@ -1005,5 +1003,16 @@
         private System.Windows.Forms.DateTimePicker dtpPrevisao;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpSaida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Modalidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Origem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Destino;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Despachante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Situacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Funcionario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Remessa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pedido_Autorizacao;
     }
 }

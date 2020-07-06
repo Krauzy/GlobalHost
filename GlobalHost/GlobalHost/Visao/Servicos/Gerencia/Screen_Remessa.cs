@@ -29,7 +29,7 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             cbTransportadora.DataSource = Controle_Transportadora.get("");
             cbTransportadora.DisplayMember = "nome";
             cbTransportadora.ValueMember = "id";
-            cbFiltroPedido.DataSource = Controle_Pedido.get("");
+            cbFiltroPedido.DataSource = Controle_Pedido.get("remessa is null or remessa = -1");
             cbFiltroPedido.DisplayMember = "nome";
             cbFiltroPedido.ValueMember = "id";
             dgvRemessa.DataSource = Controle_Remessa.get("");
@@ -162,6 +162,7 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             dtpPrevisao.Value = DateTime.Now;
             dtpRequerimento.Value = DateTime.Now;
             dtpSaida.Value = DateTime.Now;
+            dgvPedido.DataSource = Controle_Pedido.get("id = -1");
             //dgvPedido.Rows.Clear();
         }
 
@@ -245,11 +246,16 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             }
             else if (exc == true)
             {
-                Controle_Remessa.delete(Convert.ToInt32(txtID.Text));
-                for (int i = 0; i < dgvPedido.Rows.Count; i++)
-                    Controle_Pedido.UpdateByRemessa((int)dgvPedido.Rows[i].Cells["Pedido_ID"].Value, -1);
-                dgvRemessa.DataSource = Controle_Remessa.get("");
-                _default();
+                
+                if(MessageBox.Show("Deseja realmente excluir este pedido?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    for (int i = 0; i < dgvPedido.Rows.Count; i++)
+                        Controle_Pedido.UpdateByRemessa((int)dgvPedido.Rows[i].Cells["Pedido_ID"].Value, -1);
+                    Controle_Remessa.delete(Convert.ToInt32(txtID.Text));
+                    dgvRemessa.DataSource = Controle_Remessa.get("");
+                }
+                else
+                    _default();
             }
             //_default();
         }
@@ -330,18 +336,13 @@ namespace GlobalHost.Visao.Servicos.Gerencia
 
         private void btMenos_Click(object sender, EventArgs e)
         {
-            if (cbFiltroPedido.SelectedIndex > -1)
+            if (dgvPedido.SelectedRows.Count == 1)
             {
-                for (int i = 0; i < dgvPedido.Rows.Count; i++)
-                {
-                    if (Convert.ToInt32(dgvPedido.Rows[i].Cells["Pedido_ID"].Value) == Convert.ToInt32(cbFiltroPedido.Text))
-                    {
-                        dgvPedido.Rows.RemoveAt(i);
-                    }
-                }
+                int i = dgvPedido.SelectedRows[0].Index;
+                dgvPedido.Rows.RemoveAt(i);
             }
             else
-                MessageBox.Show("Selecione um pedido!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Selecione um pedido para ser excluído!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btCEPOrigem_Click(object sender, EventArgs e)
@@ -379,29 +380,6 @@ namespace GlobalHost.Visao.Servicos.Gerencia
                         case "Destino":
                             data = Controle_Remessa.get("destino LIKE '%" + txtBusca.Text + "%'");
                             break;
-
-                        case "Data de Saída":
-                            data = Controle_Remessa.get("data_saida <= " + Convert.ToDateTime(txtBusca.Text));
-                            break;
-
-                        case "Previsão Requerida":
-                            data = Controle_Remessa.get("previsao_requerida <= " + Convert.ToDateTime(txtBusca.Text));
-                            break;
-
-                        case "Data Requerida":
-                            data = Controle_Remessa.get("data_requerida <= " + Convert.ToDateTime(txtBusca.Text));
-                            break;
-
-                            //case "Tipo de Transporte":
-                            //    data = Controle_Remessa.get("");
-                            //    DataTable temp = data.Clone();
-                            //    temp.Clear();
-                            //    foreach (DataRow linha in data.Rows)
-                            //        if (linha["tipo"].ToString().ToUpper().Contains(txtBusca.Text.ToUpper()))
-                            //            temp.ImportRow(linha);
-                            //    data = temp;
-                            //    temp.Dispose();
-                            //    break;
                     }
                 }
                 catch (Exception)
@@ -425,8 +403,7 @@ namespace GlobalHost.Visao.Servicos.Gerencia
                 cbTransportadora.Text = dgvRemessa.SelectedRows[0].Cells["Transportadora_Remessa"].Value.ToString();
                 dtpPrevisao.Value = Convert.ToDateTime(dgvRemessa.SelectedRows[0].Cells["PrevisaoRequerida_Remessa"].Value.ToString());
                 dtpSaida.Value = Convert.ToDateTime(dgvRemessa.SelectedRows[0].Cells["DataSaida_Remessa"].Value.ToString());
-                //dgvPedido.DataSource = Controle_Pedido.get("");
-                //LoadGrid();
+                dgvPedido.DataSource = Controle_Pedido.get("remessa = " + Convert.ToInt32(txtID.Text));
             }
         }
     }
