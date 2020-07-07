@@ -341,7 +341,9 @@ namespace GlobalHost.Visao.Servicos
             txtNome.Text = dr["nome"].ToString();
             dtpNascimento.Value = Convert.ToDateTime(dr["dtnascimento"].ToString());
             mtbCPF_CNPJ.Text = dr["cpf_cnpj"].ToString();
-            txtEndereco.Text = dr["endereco"].ToString();
+            txtEndereco.Text = dr["endereco"].ToString().Split(',')[0];
+            txtBairro.Text = dr["endereco"].ToString().Split(',')[1];
+            txtNum.Text = dr["endereco"].ToString().Split(',')[2];
             txtTelefone.Text = dr["telefone"].ToString();
             txtEmail.Text = dr["email"].ToString();
             btnAlterar.Enabled = true;
