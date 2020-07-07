@@ -30,7 +30,7 @@ namespace GlobalHost.Controlador
         public static bool delete(int id)
         {
             PedidoDB pdb = new PedidoDB();
-            pdb.DeletePorRemessa(id);
+            pdb.UpdatePorRemessa(id);
             RemessaDB DB = new RemessaDB();
            
             return DB.Delete(id);
