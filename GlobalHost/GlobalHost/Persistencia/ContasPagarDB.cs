@@ -22,9 +22,9 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Contas_Pagar))
             {
                 Contas_Pagar c = (Contas_Pagar)obj;
-                string SQL = @"INSERT INTO Contas_Pagar (valor, situacao, frete, despesa) VALUES (@valor, @situacao, @frete, @despesa)";
+                string SQL = @"INSERT INTO Contas_Pagar (valor, tipo, situacao, frete, despesa, data_emissao, data_vencimento, data_pagto, valor_pago) VALUES (@valor, @tipo, @situacao, @frete, @despesa, @data_emissao, @data_vencimento, @data_pagto, @valor_pago)";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, "@valor", c.Valor, "@tipo", c.Tipo, "@situacao", c.Situacao, "@frete", c.Frete, "@despesa", c.Despesa);
+                result = banco.ExecuteNonQuery(SQL, "@valor", c.Valor, "@tipo", c.Tipo, "@situacao", c.Situacao, "@frete", c.Frete, "@despesa", c.Despesa, "@data_emissao",c.Dt_emissao, "@data_vencimento",c.Dt_vencimento, "@data_pagto",c.Dt_pagto, "@valor_pago",c.Pago);
                 banco.Disconnect();
             }
             return result;
@@ -44,9 +44,12 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Contas_Pagar))
             {
                 Contas_Pagar c = (Contas_Pagar)obj;
-                string SQL = @"UPDATE Contas_Pagar SET valor=@valor, tipo=@tipo, situacao=@situacao,frete=@frete,despesa=@despesa";
+                string SQL = @"UPDATE Contas_Pagar SET valor=@valor, tipo=@tipo, situacao=@situacao,frete=@frete,despesa=@despesa,
+                data_emissao=@data_emissao,data_vencimento=@data_vencimento,data_pagto=@data_pagto,valor_pago=@valor_pago";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, "@valor",c.Valor,"@tipo",c.Tipo,"@situacao",c.Situacao,"@frete",c.Frete,"@despesa",c.Despesa);
+                result = banco.ExecuteNonQuery(SQL, "@valor", c.Valor, "@tipo", c.Tipo, "@situacao", c.Situacao, 
+                    "@frete", c.Frete, "@despesa", c.Despesa, "@data_emissao", c.Dt_emissao, "@data_vencimento", c.Dt_vencimento, 
+                    "@data_pagto", c.Dt_pagto, "@valor_pago", c.Pago);
             }
             return result;
         }
@@ -67,7 +70,11 @@ namespace GlobalHost.Persistencia
                                     dt.Rows[i]["tipo"].ToString(),
                                     dt.Rows[i]["situacao"].ToString(),
                                     (int)dt.Rows[i]["frete"],
-                                    (int)dt.Rows[i]["despesa"]);
+                                    (int)dt.Rows[i]["despesa"],
+                                    Convert.ToDateTime(dt.Rows[i]["data_emissao"]),
+                                    Convert.ToDateTime(dt.Rows[i]["data_vencimento"]),
+                                    Convert.ToDateTime(dt.Rows[i]["data_pagto"]),
+                                    Convert.ToDouble(dt.Rows[i]["valor_pago"]));
                 }
             }
             banco.Disconnect();
@@ -91,7 +98,11 @@ namespace GlobalHost.Persistencia
                                     dt.Rows[i]["tipo"].ToString(),
                                     dt.Rows[i]["situacao"].ToString(),
                                     (int)dt.Rows[i]["frete"],
-                                    (int)dt.Rows[i]["despesa"]);
+                                    (int)dt.Rows[i]["despesa"],
+                                    Convert.ToDateTime(dt.Rows[i]["data_emissao"]),
+                                    Convert.ToDateTime(dt.Rows[i]["data_vencimento"]),
+                                    Convert.ToDateTime(dt.Rows[i]["data_pagto"]),
+                                    Convert.ToDouble(dt.Rows[i]["valor_pago"]));
                     list.Add(c);
                 }
             }
@@ -121,7 +132,10 @@ namespace GlobalHost.Persistencia
                                     dt.Rows[i]["tipo"].ToString(),
                                     dt.Rows[i]["situacao"].ToString(),
                                     frete,
-                                    despesa);
+                                    despesa, Convert.ToDateTime(dt.Rows[i]["data_emissao"]),
+                                    Convert.ToDateTime(dt.Rows[i]["data_vencimento"]),
+                                    Convert.ToDateTime(dt.Rows[i]["data_pagto"]),
+                                    Convert.ToDouble(dt.Rows[i]["valor_pago"]));
                     list.Add(c);
                 }
             }

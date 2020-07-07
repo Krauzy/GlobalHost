@@ -124,10 +124,17 @@ namespace GlobalHost.Visao.Servicos
                 if (txtID.Text != string.Empty)
                 {
                     string n = Controle_Cliente.get(ID).Rows[0]["nome"].ToString();
-                    if (!Controle_Cliente.delete(ID))
-                        MessageBox.Show("Falha ao exluir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else
-                        MessageBox.Show("Excluído com sucesso!", "Operação sem falhas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    try
+                    {
+                        if (!Controle_Cliente.delete(ID))
+                            MessageBox.Show("Falha ao exluir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            MessageBox.Show("Excluído com sucesso!", "Operação sem falhas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Existem pedidos ligadas a este cliente, não é possível excluir", "Erro de Chave Estrangeira", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
 

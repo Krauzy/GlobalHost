@@ -15,10 +15,10 @@ namespace GlobalHost.Controlador
 {
     class Controle_ContasPagar
     {
-        public bool insert(double valor, string tipo, string situacao, int frete, int despesa)
+        public bool insert(double valor, string tipo, string situacao, int frete, int despesa, DateTime dte, DateTime dtv, DateTime dtp, double pago)
         {
             ContasPagarDB db = new ContasPagarDB();
-            Contas_Pagar c = new Contas_Pagar(valor, tipo, situacao,frete,despesa);
+            Contas_Pagar c = new Contas_Pagar(valor, tipo, situacao,frete,despesa,dte,dtv,dtp,pago);
             return db.Insert(c);
         }
 
@@ -39,12 +39,14 @@ namespace GlobalHost.Controlador
             dt.Columns.Add("despesa", typeof(int));
             dt.Columns.Add("data_emissao", typeof(DateTime));
             dt.Columns.Add("data_vencimento", typeof(DateTime));
+            dt.Columns.Add("data_pagto", typeof(DateTime));
+            dt.Columns.Add("valor_pago", typeof(double));
             return dt;
         }
-        public bool update(int id,double valor,string tipo, string situacao, int frete, int despesa)
+        public bool update(int id,double valor,string tipo, string situacao, int frete, int despesa, DateTime dte, DateTime dtv, DateTime dtp, double pago)
         {
             ContasPagarDB db = new ContasPagarDB();
-            Contas_Pagar c = new Contas_Pagar(id, valor, tipo, situacao, frete,despesa);
+            Contas_Pagar c = new Contas_Pagar(id, valor, tipo, situacao, frete,despesa, dte, dtv, dtp, pago);
             return db.Update(c);
         }
         public bool pay(int despesa, double valor, double valor_a_pagar)
@@ -89,12 +91,6 @@ namespace GlobalHost.Controlador
             else
                 list = DB.getAll();
             table = getDtSchema();
-            table.Columns.Add("id", typeof(int));
-            table.Columns.Add("valor", typeof(string));
-            table.Columns.Add("tipo", typeof(string));
-            table.Columns.Add("situacao", typeof(string));
-            table.Columns.Add("frete", typeof(int));
-            table.Columns.Add("despesa", typeof(int));
             foreach (var item in list)
             {
                 DataRow linha = table.NewRow();
@@ -105,6 +101,10 @@ namespace GlobalHost.Controlador
                 linha["situacao"] = aux.Situacao;
                 linha["frete"] = aux.Frete;
                 linha["despesa"] = aux.Despesa;
+                linha["data_emissao"] = aux.Dt_emissao;
+                linha["data_vencimento"] = aux.Dt_vencimento;
+                linha["data_pagto"] = aux.Dt_pagto;
+                linha["valor_pago"] = aux.Pago;
                 table.Rows.Add(linha);
             }
             return table;
@@ -129,7 +129,7 @@ namespace GlobalHost.Controlador
                 dr[7] = "01/01/1999";
                  */
                 Contas_Pagar c = l[i];
-                dt.Rows.Add(c.ID,c.Valor,c.Tipo,c.Situacao,c.Frete,c.Despesa,null,null);
+                dt.Rows.Add(c.ID,c.Valor,c.Tipo,c.Situacao,c.Frete,c.Despesa,c.Dt_emissao,c.Dt_vencimento,c.Dt_pagto,c.Pago);
             }
             return dt;
         }
@@ -142,30 +142,6 @@ namespace GlobalHost.Controlador
             //    Contas_Pagar c = new Contas_Pagar(i, 50,"DÍVIDA DO AGIOTA", "PENDENTE");
             //}
             return l;
-        }
-
-        public bool updateAll(ListBox.ObjectCollection items,String v)
-        {
-            //trocar pra datasource dps
-            bool res = false;
-            Double valor = Double.Parse(v);
-            ContasPagarDB db = new ContasPagarDB();
-            int tam = items.Count;
-            foreach (object o in items)
-            {
-                Contas_Pagar c = (Contas_Pagar)o;
-                c.Valor -= valor / tam;
-                valor -= valor / tam;
-                if (c.Valor == 0)
-                    c.Situacao = "PAGO";
-                else
-                {
-                    c.Situacao = "PARCIALMENTE PAGO";
-                    //gerar nova com novo valor
-                }
-                res = db.Update(c);
-            }
-            return res;
         }
     }
 }

@@ -65,9 +65,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 double total = Convert.ToDouble(dr["valor"]), valorP = total / parcelas;
                 if (res)
                 {
+                    DateTime data_e = Convert.ToDateTime(dr["data_emissao"]);
+                    int inc = Convert.ToInt16(txtDiasParcela.Text) - 1;
+                    DateTime vencimentos = data_e.AddDays(inc);
                     for (int j = 0; j < parcelas; j++)
                     {
-                        res = ccp.insert(valorP, dr["tipo"].ToString(), dr["estado"].ToString(), -1, cd.getIdentity());
+                        res = ccp.insert(valorP, dr["tipo"].ToString(), dr["estado"].ToString(), 0, cd.getIdentity(),data_e,vencimentos,Convert.ToDateTime("01/01/1850"),0);
+                        vencimentos = vencimentos.AddDays(inc);
                     }
                 }
                 else
@@ -116,6 +120,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     btnCancelar.Enabled = true;
                     btnOk.Enabled = true;
                 }
+                limpaCampos();
             }
             else
             {
