@@ -43,6 +43,12 @@ namespace GlobalHost.Controlador
             return db.Delete(id);
         }
 
+        public static bool DeletePorRemessa(int idR)
+        {
+            PedidoDB db = new PedidoDB();
+            return db.UpdatePorRemessa(idR);
+        }
+
         public static bool Update(DateTime data, string mod, string orig, string dest, string desp, string sit, int cli, int fun, int rem)
         {
             FuncionarioDB funcionarios = new FuncionarioDB();
