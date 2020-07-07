@@ -161,12 +161,12 @@
             this.LittleMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itFechar});
             this.LittleMenu.Name = "LittleMenu";
-            this.LittleMenu.Size = new System.Drawing.Size(181, 48);
+            this.LittleMenu.Size = new System.Drawing.Size(110, 26);
             // 
             // itFechar
             // 
             this.itFechar.Name = "itFechar";
-            this.itFechar.Size = new System.Drawing.Size(180, 22);
+            this.itFechar.Size = new System.Drawing.Size(109, 22);
             this.itFechar.Text = "Fechar";
             this.itFechar.Click += new System.EventHandler(this.itFechar_Click);
             // 

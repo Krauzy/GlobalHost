@@ -41,7 +41,7 @@ namespace GlobalHost.Visao.Servicos
             dtpAdmissao.Enabled = false;
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
-
+            checkBox1.Enabled = false;
 
 
             dgvFuncionario.DataSource = Controle_Funcionario.get("");
@@ -89,11 +89,11 @@ namespace GlobalHost.Visao.Servicos
             txtNome.Enabled = true;
             txtTelefone.Enabled = true;
             dtpAdmissao.Enabled = true;
-            dtpDemissao.Enabled = true;
             dtpNascimento.Enabled = true;
             txtLogin.Enabled = true;
             mtbSenha.Enabled = true;
             cbNivel.Enabled = true;
+            checkBox1.Enabled = true;
             insere = true;
             altera = false;
             exclui = false;
@@ -116,11 +116,11 @@ namespace GlobalHost.Visao.Servicos
             txtNome.Enabled = true;
             txtTelefone.Enabled = true;
             dtpAdmissao.Enabled = true;
-            dtpDemissao.Enabled = true;
             dtpNascimento.Enabled = true;
             txtLogin.Enabled = true;
             mtbSenha.Enabled = true;
             cbNivel.Enabled = true;
+            checkBox1.Enabled = true;
             insere = false;
             altera = true;
             exclui = false;
@@ -148,6 +148,7 @@ namespace GlobalHost.Visao.Servicos
             txtLogin.Enabled = false;
             mtbSenha.Enabled = false;
             cbNivel.Enabled = false;
+            checkBox1.Enabled = false;
             insere = false;
             altera = false;
             exclui = true;
@@ -191,8 +192,12 @@ namespace GlobalHost.Visao.Servicos
                 if (txtID.Text != string.Empty)
                 {
                     string n = Controle_Funcionario.get(ID).Rows[0]["nome"].ToString();
+                    int log = ((Login)Controle_Funcionario.get(ID).Rows[0]["login"]).Id;                
                     if (!Controle_Funcionario.delete(ID))
                         MessageBox.Show("Falha ao exluir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else 
+                        if (!Controle_Login.delete(log))
+                            MessageBox.Show("Falha ao exluir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);                            
                 }
             }
 
@@ -217,6 +222,7 @@ namespace GlobalHost.Visao.Servicos
             dtpAdmissao.Enabled = false;
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
+            checkBox1.Enabled = false;
 
             txtID.Text = string.Empty;
             txtNome.Text = string.Empty;
@@ -297,6 +303,7 @@ namespace GlobalHost.Visao.Servicos
             dtpAdmissao.Enabled = false;
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
+            checkBox1.Enabled = false;
 
             txtID.Text = string.Empty;
             txtNome.Text = string.Empty;
@@ -333,6 +340,11 @@ namespace GlobalHost.Visao.Servicos
                 dtpDemissao.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["dtDemissao"].Value);
                 txtTelefone.Text = dgvFuncionario.SelectedRows[0].Cells["telefone"].Value.ToString();
                 txtEmail.Text = dgvFuncionario.SelectedRows[0].Cells["email"].Value.ToString();
+
+                int log = ((Login)(Controle_Funcionario.get("id = " + int.Parse(txtID.Text)).Rows[0]["login"])).Id;
+                txtLogin.Text = Controle_Login.get(log).Usuario;
+                mtbSenha.Text = Controle_Login.get(log).Senha;
+                cbNivel.SelectedIndex = Controle_Login.get(log).Nivel;
             }
         }
 
@@ -394,6 +406,11 @@ namespace GlobalHost.Visao.Servicos
                 txtSalario.Text = API.Validate.MONEY(txtSalario.Text);
                 sal = Convert.ToDouble(txtSalario.Text);
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpDemissao.Enabled = checkBox1.Checked;
         }
     }    
 }

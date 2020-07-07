@@ -54,6 +54,9 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 dgvFrete.Rows.Add();
             dgvFrete.Rows[0].Cells[0].Value = DateTime.Now.ToShortDateString();
             dgvFrete.Rows[0].Cells[1].Value = Controle_Pedido.get("id = " + cbPedido.Text).Rows[0]["situacao"].ToString();
+
+            lNome.Text = ((Cliente)Controle_Pedido.get("id = " + cbPedido.Text).Rows[0]["cliente"]).Nome;
+
         }
 
         private void btnOk_Click(object sender, EventArgs e)

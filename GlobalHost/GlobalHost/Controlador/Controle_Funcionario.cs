@@ -26,9 +26,15 @@ namespace GlobalHost.Controlador
 
         public static bool update(int id, string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, string login, string senha, int nivel)
         {
-            Login l = new Login(login, senha, nivel);
-            Funcionario f = new Funcionario(id,nome, dtnascimento, cpf, salario, endereco, dtadmissao, dtdemissao, telefone, email, l);
             FuncionarioDB DB = new FuncionarioDB();
+            LoginDB DBL = new LoginDB();
+            Login l = DB.get(id).Login;
+            l.Usuario = login;
+            l.Senha = senha;
+            l.Nivel = nivel;
+            if (!DBL.Update(l))
+                return false;
+            Funcionario f = new Funcionario(id, nome, dtnascimento, cpf, salario, endereco, dtadmissao, dtdemissao, telefone, email, l);            
             return DB.Update(f);
         }
 

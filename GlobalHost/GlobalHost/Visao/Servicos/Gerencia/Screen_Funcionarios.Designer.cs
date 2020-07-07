@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInserir = new System.Windows.Forms.Button();
@@ -89,6 +89,7 @@
             this.ordOrder = new System.Windows.Forms.Label();
             this.btCEP = new System.Windows.Forms.Button();
             this.txtSalario = new System.Windows.Forms.MaskedTextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -347,9 +348,10 @@
             // 
             // dtpDemissao
             // 
+            this.dtpDemissao.Enabled = false;
             this.dtpDemissao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDemissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDemissao.Location = new System.Drawing.Point(41, 403);
+            this.dtpDemissao.Location = new System.Drawing.Point(63, 403);
             this.dtpDemissao.Name = "dtpDemissao";
             this.dtpDemissao.Size = new System.Drawing.Size(112, 23);
             this.dtpDemissao.TabIndex = 68;
@@ -401,14 +403,14 @@
             this.dgvFuncionario.BackgroundColor = System.Drawing.Color.White;
             this.dgvFuncionario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvFuncionario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFuncionario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFuncionario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFuncionario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nome,
@@ -420,25 +422,25 @@
             this.dtDemissao,
             this.telefone,
             this.email});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFuncionario.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFuncionario.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgvFuncionario.EnableHeadersVisualStyles = false;
             this.dgvFuncionario.Location = new System.Drawing.Point(648, 174);
             this.dgvFuncionario.Name = "dgvFuncionario";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFuncionario.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFuncionario.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvFuncionario.RowHeadersVisible = false;
             this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionario.Size = new System.Drawing.Size(339, 357);
@@ -563,7 +565,7 @@
             this.mtbCPF.Location = new System.Drawing.Point(288, 183);
             this.mtbCPF.Mask = "000.000.000-00";
             this.mtbCPF.Name = "mtbCPF";
-            this.mtbCPF.Size = new System.Drawing.Size(131, 20);
+            this.mtbCPF.Size = new System.Drawing.Size(100, 20);
             this.mtbCPF.TabIndex = 79;
             // 
             // txtLogin
@@ -608,7 +610,7 @@
             this.cbNivel.FormattingEnabled = true;
             this.cbNivel.Items.AddRange(new object[] {
             "0 - Funcionário",
-            "1 - Administrador (Gerente)"});
+            "1 - Administrador"});
             this.cbNivel.Location = new System.Drawing.Point(451, 353);
             this.cbNivel.Name = "cbNivel";
             this.cbNivel.Size = new System.Drawing.Size(136, 25);
@@ -781,11 +783,22 @@
             this.txtSalario.TabIndex = 100;
             this.txtSalario.TextChanged += new System.EventHandler(this.txtSalario_TextChanged);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(41, 408);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 101;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Screen_Funcionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.txtSalario);
             this.Controls.Add(this.btCEP);
             this.Controls.Add(this.ordOrder);
@@ -904,5 +917,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.MaskedTextBox txtSalario;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -29,7 +29,7 @@ namespace GlobalHost.Visao
             sobre = false;
             changeBool();
             paneHome.BringToFront();
-            
+            btFuncionario.Enabled = Program.admin;
         }
 
         public void LoadLogo()
