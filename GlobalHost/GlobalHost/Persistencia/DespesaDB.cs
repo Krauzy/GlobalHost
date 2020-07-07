@@ -44,9 +44,9 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Despesa))
             {
                 Despesa d = (Despesa)obj;
-                string SQL = @"UPDATE Cliente SET descricao=@descricao, tipo=@tipo, estado=@estado";
+                string SQL = @"UPDATE Despesa SET descricao=@descricao, tipo=@tipo, estado=@estado where ID=@ID";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, "@descricao", d.Descricao, "@tipo", d.Tipo, "@estado", d.Estado);
+                result = banco.ExecuteNonQuery(SQL, "@descricao", d.Descricao, "@tipo", d.Tipo, "@estado", d.Estado,"@ID",d.Id);
             }
             return result;
         }
@@ -97,7 +97,7 @@ namespace GlobalHost.Persistencia
         {
             List<object> list = new List<object>();
             DataTable dt = new DataTable();
-            string SQL = @"SELECT * FROM Despesa WHERE estado != 'PAGO'";
+            string SQL = @"SELECT * FROM Despesa WHERE estado <> 'PAGO'";
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt);
             if (dt.Rows.Count > 0)

@@ -23,29 +23,24 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             InitializeComponent();
             cd = new Controle_Despesa();
             ccp = new Controle_ContasPagar();
-            carregaCB();
-            dgvContas.DataSource = dt;
-            notPagas = cd.getNotPagas();
             
-            if(notPagas.Rows.Count == 0)
-            {
-                cbDespesa.Enabled = false;
-                MessageBox.Show("Não existem despesas pendentes para pagamento", "ERRO",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
+            //dgvContas.DataSource = dt;
+            notPagas = cd.getNotPagas();
+            carregaCB();
+
             //txtID.Text = cbDespesa.SelectedValue.ToString();
             //txtValor.Text = sumCol(1).ToString();
             Filters.numericField(txtValor);
-            
             btnOk.Enabled = false;
         }
         public void carregaCB()
         {
-            cbDespesa.ValueMember = "id";
-            cbDespesa.DisplayMember = "descricao";
             cbDespesa.DataSource = notPagas;
+            cbDespesa.ValueMember = "ID";
+            cbDespesa.DisplayMember = "descricao";
             //cbDespesa.SelectedIndex = 0;
-            
             dt = ccp.getListContasByDespesa(Convert.ToInt32(cbDespesa.SelectedValue));
+            dgvContas.DataSource = dt;
         }
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -75,9 +70,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         private void cbDespesa_SelectedIndexChanged(object sender, EventArgs e)
         {
             //cbDespesa.Items.Add(ccp.getListaContas(int.Parse(cbDespesa.SelectedValue.ToString())));
-            dt = ccp.getListContasByDespesa(Convert.ToInt32(cbDespesa.SelectedValue));
+            //DataRowView drv = (DataRowView)cbDespesa.SelectedValue;
+            //int desp = Convert.ToInt32(drv[0]);
+            int desp = Convert.ToInt32(notPagas.Rows[cbDespesa.SelectedIndex]["ID"]);
+            dt = ccp.getListContasByDespesa(desp);
             txtID.Text = cbDespesa.SelectedValue.ToString();
             txtValor.Text = sumCol(1).ToString();
+            dgvContas.DataSource = dt;
         }
         public double sumCol(int col)
         {
@@ -94,11 +93,39 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         }
 
+        public void checkDateOffset()
+        {
+            if (dtpEmissao.Value > dtpVencimento.Value)
+            {
+                MessageBox.Show("Intervalo inválido", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                dgvContas.DataSource = cd.getByInterval(dtpEmissao.Value, dtpVencimento.Value);
+            }
+        }
+        private void dtpEmissao_ValueChanged(object sender, EventArgs e)
+        {
+            checkDateOffset();
+
+        }
+
+        private void dtpVencimento_ValueChanged(object sender, EventArgs e)
+        {
+            checkDateOffset();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            carregaCB();
+        }
+
         private void dgvContas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataRow dr = dt.Rows[dgvContas.CurrentRow.Index];
             txtID.Text = dr[0].ToString();//cbDespesa.SelectedValue.ToString() ;//dt.Rows[dgvContas.CurrentRow.Index][0].ToString();
             txtValor.Text = dr[1].ToString();
+            btnOk.Enabled = true;
         }
     }
 }

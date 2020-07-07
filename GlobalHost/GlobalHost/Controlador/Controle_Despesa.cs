@@ -82,6 +82,26 @@ namespace GlobalHost.Controlador
             }
             return table;
         }
+
+        public DataTable getByInterval(DateTime dt1, DateTime dt2)
+        {
+            DataTable dt = getNotPagas();
+            Controle_ContasPagar ccp = new Controle_ContasPagar();
+            DataTable table = new DataTable();
+            table.Columns.Add("id", typeof(int));
+            table.Columns.Add("descricao", typeof(string));
+            table.Columns.Add("tipo", typeof(string));
+            table.Columns.Add("estado", typeof(string));
+            foreach(DataRow row in dt.Rows)
+            {
+                int id = Convert.ToInt32(row["id"]);
+                if (ccp.getFirstEmmited(id,dt1) && ccp.getLastToExpire(id,dt2))
+                {
+                    table.Rows.Add(row[0], row[1], row[2], row[3]);
+                }
+            }
+            return table;
+        }
         public void checkPaid(int desp)
         {
             DespesaDB db = new DespesaDB();

@@ -200,29 +200,20 @@ namespace GlobalHost.Visao.Servicos
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
-            if (txtBusca.Text != string.Empty)
+            switch (cbFiltro.Text)
             {
-                try
-                {
-                    switch (cbFiltro.Text)
-                    {
-                        case "Descrição":
-                            data = Controle_TipoCarga.get("descricao LIKE '%" + txtBusca.Text + "%'");
-                            break;
+                case "Descrição":
+                    data = Controle_TipoCarga.get("descricao LIKE '%" + txtBusca.Text + "%'");
+                    break;
 
-                        case "Peso":
-                            data = Controle_TipoCarga.get("peso >= " + Convert.ToInt32(txtBusca.Text));
-                            break;
+                case "Peso":
+                    data = Controle_TipoCarga.get("peso >= " + Convert.ToInt32(txtBusca.Text));
+                    break;
 
-                        case "Dimensão":
-                            data = Controle_TipoCarga.get("dimensoes LIKE '%" + txtBusca.Text + "%'");
-                            break;
-                    }
-                }
-                catch (Exception) { data = Controle_TipoCarga.get(""); }
+                case "Dimensão":
+                    data = Controle_TipoCarga.get("dimensoes LIKE '%" + txtBusca.Text + "%'");
+                    break;
             }
-            else
-                data = Controle_TipoCarga.get("");
             dgvTipo.DataSource = data;
         }
 

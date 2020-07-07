@@ -317,9 +317,21 @@ namespace GlobalHost.Visao.Servicos
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
-            string s = cbFiltro.Text.Replace("/", "_").Replace("-","").ToLower();
-            data = Controle_Cliente.getByFilter(s,txtBusca.Text);
-            dgvCliente.DataSource = data;
+            string s = "";
+            switch(cbFiltro.Text)
+            {
+                case "Nome":s = "nome";
+                    break;
+                case "Endereço":s = "endereco";
+                    break;
+                case "Telefone":s = "telefone";
+                    break;
+                case "E-mail":s = "email";
+                    break;
+                case "CPF/CNPJ":s = "cpf_cnpj";
+                    break;
+            }
+            dgvCliente.DataSource = Controle_Cliente.getByFilter(s,txtBusca.Text);
         }
 
         private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
