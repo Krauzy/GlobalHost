@@ -27,6 +27,7 @@ namespace GlobalHost.Visao.Servicos
                      mtbCPF_CNPJ.Text != string.Empty && 
                      mtbCEP.Text != string.Empty && 
                      txtEndereco.Text != string.Empty && 
+                     
                      txtEmail.Text != string.Empty && 
                      txtEmail.Text.Contains("@") && 
                      txtTelefone.Text != string.Empty && 
@@ -43,6 +44,8 @@ namespace GlobalHost.Visao.Servicos
                     txtEndereco.Enabled = true;
                     txtNome.Enabled = true;
                     txtTelefone.Enabled = true;
+                    txtNum.Enabled = true;
+                    txtBairro.Enabled = true;
                     dtpNascimento.Enabled = true;
                     break;
                 case "delete":
@@ -58,6 +61,8 @@ namespace GlobalHost.Visao.Servicos
                     txtEndereco.Enabled = false;
                     txtNome.Enabled = false;
                     txtTelefone.Enabled = false;
+                    txtNum.Enabled = false;
+                    txtBairro.Enabled = false;
                     dtpNascimento.Enabled = false;
                     break;
             }
@@ -69,6 +74,7 @@ namespace GlobalHost.Visao.Servicos
             liberaCampos("idle");
             data = Controle_Cliente.get("");
             dgvCliente.DataSource = data;
+            rbCPF.Checked = true;
         }
 
         private void changeBool()
@@ -92,17 +98,31 @@ namespace GlobalHost.Visao.Servicos
                 btnExcluir.Image = GlobalHost.Properties.Resources.lixo2;
             }
         }
-        
+        public string getFullAddress()
+        {
+            return txtEndereco.Text + ", " + txtBairro.Text + ", N° " + txtNum.Text;
+        }
         private void btnOk_Click(object sender, EventArgs e)
         {
             if (insere)
             {
                 if (checkFields())
                 {
-                    if (!Controle_Cliente.insert(txtNome.Text, txtEndereco.Text, (DateTime)dtpNascimento.Value, mtbCPF_CNPJ.Text, mtbCEP.Text, txtEmail.Text, txtTelefone.Text))
+                    if (!Controle_Cliente.insert(txtNome.Text, getFullAddress(), (DateTime)dtpNascimento.Value, mtbCPF_CNPJ.Text, mtbCEP.Text, txtEmail.Text, txtTelefone.Text))
                         MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                         MessageBox.Show("Inserido com sucesso!", "Operação sem falhas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtID.Text = string.Empty;
+                    txtNome.Text = string.Empty;
+                    txtEndereco.Text = string.Empty;
+                    txtTelefone.Text = string.Empty;
+                    txtEmail.Text = string.Empty;
+                    mtbCPF_CNPJ.Text = string.Empty;
+                    txtBusca.Text = string.Empty;
+                    txtNum.Enabled = false;
+                    txtBairro.Enabled = false;
+                    dtpNascimento.Text = string.Empty;
+                    liberaCampos("idle");
                 }
                 else
                 {
@@ -113,23 +133,48 @@ namespace GlobalHost.Visao.Servicos
             {
                 if (checkFields())
                 {
-                    if (!Controle_Cliente.update(Convert.ToInt32(txtID.Text), txtNome.Text, txtEndereco.Text, (DateTime)dtpNascimento.Value, mtbCPF_CNPJ.Text, mtbCEP.Text, txtEmail.Text, txtTelefone.Text))
+                    if (!Controle_Cliente.update(Convert.ToInt32(txtID.Text), txtNome.Text, getFullAddress(), (DateTime)dtpNascimento.Value, mtbCPF_CNPJ.Text, mtbCEP.Text, txtEmail.Text, txtTelefone.Text))
                         MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
+                    {
                         MessageBox.Show("Alterado com sucesso!", "Operação sem falhas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtID.Text = string.Empty;
+                        txtNome.Text = string.Empty;
+                        txtEndereco.Text = string.Empty;
+                        txtTelefone.Text = string.Empty;
+                        txtEmail.Text = string.Empty;
+                        mtbCPF_CNPJ.Text = string.Empty;
+                        txtBusca.Text = string.Empty;
+                        txtNum.Enabled = false;
+                        txtBairro.Enabled = false;
+                        dtpNascimento.Text = string.Empty;
+                        liberaCampos("idle");
+                    }
                 }
             }
             else if (exclui)
             {
                 if (txtID.Text != string.Empty)
                 {
-                    string n = Controle_Cliente.get(ID).Rows[0]["nome"].ToString();
+                    //string n = Controle_Cliente.get(ID).Rows[0]["nome"].ToString();
+                    ID = Convert.ToInt32(txtID.Text);
                     try
                     {
                         if (!Controle_Cliente.delete(ID))
                             MessageBox.Show("Falha ao exluir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
                             MessageBox.Show("Excluído com sucesso!", "Operação sem falhas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txtID.Text = string.Empty;
+                        txtNome.Text = string.Empty;
+                        txtEndereco.Text = string.Empty;
+                        txtTelefone.Text = string.Empty;
+                        txtEmail.Text = string.Empty;
+                        mtbCPF_CNPJ.Text = string.Empty;
+                        txtBusca.Text = string.Empty;
+                        txtNum.Enabled = false;
+                        txtBairro.Enabled = false;
+                        dtpNascimento.Text = string.Empty;
+                        liberaCampos("idle");
                     }
                     catch(Exception ex)
                     {
@@ -142,17 +187,7 @@ namespace GlobalHost.Visao.Servicos
             altera = false;
             exclui = false;
             changeBool();
-            liberaCampos("idle");
-
-            txtID.Text = string.Empty;
-            txtNome.Text = string.Empty;
-            txtEndereco.Text = string.Empty;
-            txtTelefone.Text = string.Empty;
-            txtEmail.Text = string.Empty;
-            mtbCPF_CNPJ.Text = string.Empty;
-            txtBusca.Text = string.Empty;
-
-            dtpNascimento.Text = string.Empty;
+            
 
             btnOk.Enabled = false;
             btnCancelar.Enabled = false;
@@ -184,7 +219,8 @@ namespace GlobalHost.Visao.Servicos
             txtEmail.Text = string.Empty;
             mtbCPF_CNPJ.Text = string.Empty;
             txtBusca.Text = string.Empty;
-
+            txtNum.Text = string.Empty;
+            txtBairro.Text = string.Empty ;
             dtpNascimento.Text = string.Empty;
 
             btnOk.Enabled = false;
@@ -281,8 +317,9 @@ namespace GlobalHost.Visao.Servicos
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
-            data = Controle_Cliente.get(txtBusca.Text);
-            dgvCliente.Update();
+            string s = cbFiltro.Text.Replace("/", "_").Replace("-","").ToLower();
+            data = Controle_Cliente.getByFilter(s,txtBusca.Text);
+            dgvCliente.DataSource = data;
         }
 
         private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -297,6 +334,33 @@ namespace GlobalHost.Visao.Servicos
             txtEmail.Text = dr["email"].ToString();
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
+        }
+
+        private void rbCPF_CheckedChanged(object sender, EventArgs e)
+        {
+            rbCNPJ.Checked = false;
+            mtbCPF_CNPJ.Mask = "000.000.000-00";
+        }
+
+        private void rbCNPJ_CheckedChanged(object sender, EventArgs e)
+        {
+            rbCPF.Checked = false;
+            mtbCPF_CNPJ.Mask = "00.000.000/0000-00";
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //txtBusca_TextChanged(null, null);
+            if(dgvCliente.SelectedRows.Count >0)
+            {
+                btnAlterar.Enabled = true;
+                btnExcluir.Enabled = true;
+            }
+            else
+            {
+                btnAlterar.Enabled = false;
+                btnExcluir.Enabled = false;
+            }
         }
     }
 }

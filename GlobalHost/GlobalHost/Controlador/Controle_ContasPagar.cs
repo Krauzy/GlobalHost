@@ -49,7 +49,37 @@ namespace GlobalHost.Controlador
             Contas_Pagar c = new Contas_Pagar(id, valor, tipo, situacao, frete,despesa, dte, dtv, dtp, pago);
             return db.Update(c);
         }
-        public bool pay(int despesa, double valor, double valor_a_pagar)
+        public bool pay(int desp, int cp, double valor)
+        {
+            bool res = false;
+            Controle_Despesa cd = new Controle_Despesa();
+            ContasPagarDB db = new ContasPagarDB();
+            Contas_Pagar c = db.get(cp);
+            if(valor > c.Valor)
+            {
+                c.Pago = c.Valor;
+                c.Situacao = "PAGO";
+                c.Dt_pagto = DateTime.Now;
+            }
+            else
+            {
+                c.Pago -= valor;
+                c.Situacao = "PARCIALMENTE PAGO";
+                c.Dt_pagto = DateTime.Now;
+            }
+            valor -= c.Valor;
+            if(valor <= 0)
+            {
+                //gerar nova?
+            }
+            else // estorno
+            {
+                Controle_ContasReceber ccr = new Controle_ContasReceber();
+                ccr.insert(valor,"ESTORNO");
+            }
+            return res;
+        }
+        public bool paya(int despesa, double valor, double valor_a_pagar)
         {
             Controle_Despesa cd = new Controle_Despesa();
             bool res = false;

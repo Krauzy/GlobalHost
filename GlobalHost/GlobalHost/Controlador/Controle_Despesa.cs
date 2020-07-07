@@ -82,7 +82,22 @@ namespace GlobalHost.Controlador
             }
             return table;
         }
-
+        public void checkPaid(int desp)
+        {
+            DespesaDB db = new DespesaDB();
+            Despesa d = db.get(desp);
+            Controle_ContasPagar ccp = new Controle_ContasPagar() ;
+            List<Contas_Pagar> l = ccp.getListaContas(desp);
+            double soma = 0, somapago = 0;
+            foreach(Contas_Pagar c in l)
+            {
+                soma += c.Valor;
+                somapago += c.Pago;
+            }
+            if (soma != somapago) d.Estado = "PARCIALMENTE PAGO";
+            else d.Estado = "PAGO";
+            db.Update(d);
+        }
         public int getIdentity()
         {
             DespesaDB DB = new DespesaDB();

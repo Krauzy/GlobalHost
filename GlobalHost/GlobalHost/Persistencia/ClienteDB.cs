@@ -32,9 +32,17 @@ namespace GlobalHost.Persistencia
         public bool Delete(int id)
         {
             string SQL = @"DELETE FROM Cliente WHERE id = @id";
-            banco.Connect();
-            bool result = banco.ExecuteNonQuery(SQL, "@id", id);
-            banco.Disconnect();
+            bool result = false;
+            try
+            {
+                banco.Connect();
+                result = banco.ExecuteNonQuery(SQL, "@id", id);
+                banco.Disconnect();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("erro de delete");
+            }
             return result;
         }
 
@@ -44,9 +52,9 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Cliente))
             {
                 Cliente c = (Cliente)obj;
-                string SQL = @"UPDATE Cliente SET nome = @nome, endereco = @endereco, dtnascimento = @dtnascimento, cpf_cnpj = @cpf_cnpj, cep = @cep, email = @email, telefone = @telefone";
+                string SQL = @"UPDATE Cliente SET nome = @nome, endereco = @endereco, dtnascimento = @dtnascimento, cpf_cnpj = @cpf_cnpj, cep = @cep, email = @email, telefone = @telefone where ID = @ID";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, "@nome", c.Nome, "@endereco", c.Endereco, "@dtnascimento", c.Dtnascimento, "@cpf_cnpj", c.Cpf_cnpj, "@cep", c.Cep, "@email", c.Email, "@telefone", c.Telefone);
+                result = banco.ExecuteNonQuery(SQL, "@nome", c.Nome, "@endereco", c.Endereco, "@dtnascimento", c.Dtnascimento, "@cpf_cnpj", c.Cpf_cnpj, "@cep", c.Cep, "@email", c.Email, "@telefone", c.Telefone,"@ID",c.Id);
             }
             return result;
         }
@@ -102,6 +110,33 @@ namespace GlobalHost.Persistencia
             return list;
         }
 
+        public List<object> getByFilter(string atrib, string valor)
+        {
+            DataTable dt = new DataTable();
+            Cliente c = null;
+            List<object> l = new List<object>();
+            string SQL = @"SELECT * FROM Cliente WHERE @atrib like '% @valor %'";
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out dt, "@atrib", atrib,"@valor",valor);
+            if (dt.Rows.Count > 0)
+            {
+                for(int i = 0; i < dt.Rows.Count;i++)
+                {
+                    c = new Cliente((int)dt.Rows[i]["id"],
+                                    dt.Rows[0]["nome"].ToString(),
+                                    dt.Rows[0]["endereco"].ToString(),
+                                    DateTime.Parse(dt.Rows[0]["dtnascimento"].ToString()),
+                                    dt.Rows[0]["cpf_cnpj"].ToString(),
+                                    dt.Rows[0]["cep"].ToString(),
+                                    dt.Rows[0]["email"].ToString(),
+                                    dt.Rows[0]["telefone"].ToString()
+                                    );
+                    l.Add(c);
+                }
+            }
+            banco.Disconnect();
+            return l;
+        }
         public List<object> getAll()
         {
             List<object> list = new List<object>();

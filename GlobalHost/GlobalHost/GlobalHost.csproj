@@ -97,6 +97,7 @@
     <Compile Include="Controlador\Controle_AbrirFrete.cs" />
     <Compile Include="Controlador\Controle_Carga.cs" />
     <Compile Include="Controlador\Controle_ContasPagar.cs" />
+    <Compile Include="Controlador\Controle_ContasReceber.cs" />
     <Compile Include="Controlador\Controle_Despesa.cs" />
     <Compile Include="Controlador\Controle_Funcionario.cs" />
     <Compile Include="Controlador\Controle_Login.cs" />
@@ -218,10 +219,10 @@
     <Compile Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.Designer.cs">
       <DependentUpon>Screen_Pedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visao\Servicos\Funcoes\ScreenRealizarPagamento.cs">
+    <Compile Include="Visao\Servicos\Funcoes\Despesas\ScreenRealizarPagamento.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visao\Servicos\Funcoes\ScreenRealizarPagamento.Designer.cs">
+    <Compile Include="Visao\Servicos\Funcoes\Despesas\ScreenRealizarPagamento.Designer.cs">
       <DependentUpon>ScreenRealizarPagamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Servicos\Funcoes\Screen_AbrirFrete.cs">
@@ -230,10 +231,10 @@
     <Compile Include="Visao\Servicos\Funcoes\Screen_AbrirFrete.Designer.cs">
       <DependentUpon>Screen_AbrirFrete.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visao\Servicos\Funcoes\Screen_LancarDespesa.cs">
+    <Compile Include="Visao\Servicos\Funcoes\Despesas\Screen_LancarDespesa.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visao\Servicos\Funcoes\Screen_LancarDespesa.Designer.cs">
+    <Compile Include="Visao\Servicos\Funcoes\Despesas\Screen_LancarDespesa.Designer.cs">
       <DependentUpon>Screen_LancarDespesa.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Servicos\Funcoes\Screen_Orcamento.cs">
@@ -318,13 +319,13 @@
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.resx">
       <DependentUpon>Screen_Pedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visao\Servicos\Funcoes\ScreenRealizarPagamento.resx">
+    <EmbeddedResource Include="Visao\Servicos\Funcoes\Despesas\ScreenRealizarPagamento.resx">
       <DependentUpon>ScreenRealizarPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_AbrirFrete.resx">
       <DependentUpon>Screen_AbrirFrete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_LancarDespesa.resx">
+    <EmbeddedResource Include="Visao\Servicos\Funcoes\Despesas\Screen_LancarDespesa.resx">
       <DependentUpon>Screen_LancarDespesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_Orcamento.resx">
