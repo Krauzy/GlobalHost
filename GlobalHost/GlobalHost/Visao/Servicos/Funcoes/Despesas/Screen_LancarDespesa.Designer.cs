@@ -151,6 +151,7 @@
             // dgvDespesas
             // 
             this.dgvDespesas.AllowUserToAddRows = false;
+            this.dgvDespesas.AllowUserToDeleteRows = false;
             this.dgvDespesas.AllowUserToResizeRows = false;
             this.dgvDespesas.BackgroundColor = System.Drawing.Color.White;
             this.dgvDespesas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -182,6 +183,7 @@
             this.dgvDespesas.EnableHeadersVisualStyles = false;
             this.dgvDespesas.Location = new System.Drawing.Point(10, 189);
             this.dgvDespesas.Name = "dgvDespesas";
+            this.dgvDespesas.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -351,29 +353,35 @@
             this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.valor.HeaderText = "Valor";
             this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
             // 
             // parcelas
             // 
             this.parcelas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.parcelas.HeaderText = "Parcelas";
             this.parcelas.Name = "parcelas";
+            this.parcelas.ReadOnly = true;
             // 
             // tipo
             // 
             this.tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.tipo.HeaderText = "Tipo";
             this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
             // 
             // estado
             // 
             this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.estado.HeaderText = "Estado";
             this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
             // 
             // data_emissao
             // 
+            this.data_emissao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.data_emissao.HeaderText = "Dt Emissão";
             this.data_emissao.Name = "data_emissao";
+            this.data_emissao.ReadOnly = true;
             // 
             // Screen_LancarDespesa
             // 

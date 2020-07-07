@@ -19,7 +19,7 @@ namespace GlobalHost
             //Program.admin = true;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Visao.Screen_Login());
+            Application.Run(new Visao.Menu());
             //Application.Run(new Visao.Menu());
             //API.Boleto.Create(123.56);
         }

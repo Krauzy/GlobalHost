@@ -75,7 +75,7 @@ namespace GlobalHost.Controlador
         {
             ClienteDB DB = new ClienteDB();
             DataTable table = new DataTable();
-            List<object> list = new List<object>();
+           List<object> list = new List<object>();
             if (valor.Length > 0)
                 list = DB.getByFilter(atrib,valor);
             else

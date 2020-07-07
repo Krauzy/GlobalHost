@@ -115,7 +115,7 @@ namespace GlobalHost.Persistencia
             DataTable dt = new DataTable();
             Cliente c = null;
             List<object> l = new List<object>();
-            string SQL = @"SELECT * FROM Cliente WHERE "+atrib+" like '% "+valor+" %'";
+            string SQL = @"SELECT * FROM Cliente WHERE "+atrib+" like '%"+valor+"%'";
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt);
             if (dt.Rows.Count > 0)

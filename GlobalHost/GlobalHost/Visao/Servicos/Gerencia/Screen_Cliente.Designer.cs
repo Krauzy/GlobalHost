@@ -66,14 +66,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dgvCliente = new System.Windows.Forms.DataGridView();
-            this.ide = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpf_cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtnascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -495,15 +487,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ide,
-            this.nome,
-            this.Endereco,
-            this.cpf_cnpj,
-            this.dtnascimento,
-            this.cep,
-            this.email,
-            this.telefone});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
@@ -532,54 +515,6 @@
             this.dgvCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellContentClick);
             this.dgvCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellContentClick);
             this.dgvCliente.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellContentClick);
-            // 
-            // ide
-            // 
-            this.ide.HeaderText = "ID";
-            this.ide.Name = "ide";
-            this.ide.ReadOnly = true;
-            // 
-            // nome
-            // 
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            // 
-            // Endereco
-            // 
-            this.Endereco.HeaderText = "Endereco";
-            this.Endereco.Name = "Endereco";
-            this.Endereco.ReadOnly = true;
-            // 
-            // cpf_cnpj
-            // 
-            this.cpf_cnpj.HeaderText = "CPF/CNPJ";
-            this.cpf_cnpj.Name = "cpf_cnpj";
-            this.cpf_cnpj.ReadOnly = true;
-            // 
-            // dtnascimento
-            // 
-            this.dtnascimento.HeaderText = "Dt. Nasc.";
-            this.dtnascimento.Name = "dtnascimento";
-            this.dtnascimento.ReadOnly = true;
-            // 
-            // cep
-            // 
-            this.cep.HeaderText = "CEP";
-            this.cep.Name = "cep";
-            this.cep.ReadOnly = true;
-            // 
-            // email
-            // 
-            this.email.HeaderText = "E-Mail";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
-            // telefone
-            // 
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            this.telefone.ReadOnly = true;
             // 
             // Screen_Cliente
             // 
@@ -665,13 +600,5 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView dgvCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ide;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Endereco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cpf_cnpj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtnascimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
     }
 }
