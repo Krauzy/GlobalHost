@@ -31,7 +31,7 @@ namespace GlobalHost.Controlador
         public DataTable getDtSchema()
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("id", typeof(int));
+            dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("valor", typeof(string));
             dt.Columns.Add("tipo", typeof(string));
             dt.Columns.Add("situacao", typeof(string));
@@ -55,7 +55,7 @@ namespace GlobalHost.Controlador
             Controle_Despesa cd = new Controle_Despesa();
             ContasPagarDB db = new ContasPagarDB();
             Contas_Pagar c = db.get(cp);
-            if(valor > c.Valor)
+            if(valor >= c.Valor)
             {
                 c.Pago = c.Valor;
                 c.Situacao = "PAGO";
@@ -63,11 +63,12 @@ namespace GlobalHost.Controlador
             }
             else
             {
-                c.Pago -= valor;
+                c.Pago += valor;
                 c.Situacao = "PARCIALMENTE PAGO";
                 c.Dt_pagto = DateTime.Now;
             }
             valor -= c.Valor;
+            res = db.Update(c);
             if(valor <= 0)
             {
                 //gerar nova?
@@ -78,6 +79,24 @@ namespace GlobalHost.Controlador
                 ccr.insert(valor,"ESTORNO");
             }
             return res;
+        }
+        public bool getFirstEmmited(int desp, DateTime dt)
+        {
+            ContasPagarDB db = new ContasPagarDB();
+            List<Contas_Pagar> l = db.getFromDespesa(desp);
+            DateTime min = l.Min(item => item.Dt_emissao);
+            if(dt >= min)
+              return true;
+            return false;
+        }
+        public bool getLastToExpire(int desp, DateTime dt)
+        {
+            ContasPagarDB db = new ContasPagarDB();
+            List<Contas_Pagar> l = db.getFromDespesa(desp);
+            DateTime max = l.Max(item => item.Dt_vencimento);
+            if(dt <= max)
+                    return true;
+            return false;
         }
         public bool paya(int despesa, double valor, double valor_a_pagar)
         {

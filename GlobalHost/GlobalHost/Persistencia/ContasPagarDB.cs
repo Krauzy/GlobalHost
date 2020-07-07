@@ -45,11 +45,11 @@ namespace GlobalHost.Persistencia
             {
                 Contas_Pagar c = (Contas_Pagar)obj;
                 string SQL = @"UPDATE Contas_Pagar SET valor=@valor, tipo=@tipo, situacao=@situacao,frete=@frete,despesa=@despesa,
-                data_emissao=@data_emissao,data_vencimento=@data_vencimento,data_pagto=@data_pagto,valor_pago=@valor_pago";
+                data_emissao=@data_emissao,data_vencimento=@data_vencimento,data_pagto=@data_pagto,valor_pago=@valor_pago where ID=@ID";
                 banco.Connect();
                 result = banco.ExecuteNonQuery(SQL, "@valor", c.Valor, "@tipo", c.Tipo, "@situacao", c.Situacao, 
                     "@frete", c.Frete, "@despesa", c.Despesa, "@data_emissao", c.Dt_emissao, "@data_vencimento", c.Dt_vencimento, 
-                    "@data_pagto", c.Dt_pagto, "@valor_pago", c.Pago);
+                    "@data_pagto", c.Dt_pagto, "@valor_pago", c.Pago,"@ID",c.ID);
             }
             return result;
         }
@@ -65,16 +65,17 @@ namespace GlobalHost.Persistencia
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    c = new Contas_Pagar((int)dt.Rows[i]["id"],
-                                    (double)dt.Rows[i]["valor"],
+                    double vpago = Convert.ToDouble(dt.Rows[i]["valor_pago"]);
+                    c = new Contas_Pagar(Convert.ToInt32(dt.Rows[i]["id"]),
+                                    Convert.ToDouble(dt.Rows[i]["valor"]),
                                     dt.Rows[i]["tipo"].ToString(),
                                     dt.Rows[i]["situacao"].ToString(),
-                                    (int)dt.Rows[i]["frete"],
-                                    (int)dt.Rows[i]["despesa"],
+                                    Convert.ToInt32(dt.Rows[i]["frete"]),
+                                    Convert.ToInt32(dt.Rows[i]["despesa"]),
                                     Convert.ToDateTime(dt.Rows[i]["data_emissao"]),
                                     Convert.ToDateTime(dt.Rows[i]["data_vencimento"]),
                                     Convert.ToDateTime(dt.Rows[i]["data_pagto"]),
-                                    Convert.ToDouble(dt.Rows[i]["valor_pago"]));
+                                    vpago);
                 }
             }
             banco.Disconnect();
@@ -127,14 +128,17 @@ namespace GlobalHost.Persistencia
                     double.TryParse(dt.Rows[i]["valor"].ToString(),out valor);
                     Int32.TryParse(dt.Rows[i]["frete"].ToString(), out frete) ;
                     Int32.TryParse(dt.Rows[i]["despesa"].ToString(),out despesa);
+                    DateTime dte = Convert.ToDateTime(dt.Rows[i]["data_emissao"]), dtv = Convert.ToDateTime(dt.Rows[i]["data_vencimento"]), dtp = Convert.ToDateTime(dt.Rows[i]["data_pagto"]);
+
                     c = new Contas_Pagar(id,
                                     valor,
                                     dt.Rows[i]["tipo"].ToString(),
                                     dt.Rows[i]["situacao"].ToString(),
                                     frete,
-                                    despesa, Convert.ToDateTime(dt.Rows[i]["data_emissao"]),
-                                    Convert.ToDateTime(dt.Rows[i]["data_vencimento"]),
-                                    Convert.ToDateTime(dt.Rows[i]["data_pagto"]),
+                                    despesa, 
+                                    dte,
+                                    dtv,
+                                    dtp,
                                     Convert.ToDouble(dt.Rows[i]["valor_pago"]));
                     list.Add(c);
                 }

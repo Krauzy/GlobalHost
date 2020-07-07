@@ -66,7 +66,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 double total = Convert.ToDouble(dr["valor"]), valorP = total / parcelas;
                 if (res)
                 {
-                    DateTime data_e = Convert.ToDateTime(dr["data_emissao"]);
+                    DateTime data_e = DateTime.Now;//Convert.ToDateTime(dr["data_emissao"]);
                     int inc = Convert.ToInt16(txtDiasParcela.Text) - 1;
                     DateTime vencimentos = data_e.AddDays(inc);
                     for (int j = 0; j < parcelas; j++)

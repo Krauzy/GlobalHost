@@ -42,22 +42,24 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnOk = new System.Windows.Forms.Button();
             this.txtAPagar = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data_emissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data_vencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data_pagto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpEmissao = new System.Windows.Forms.DateTimePicker();
             this.dtpVencimento = new System.Windows.Forms.DateTimePicker();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.frete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.despesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data_emissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data_vencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data_pagto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).BeginInit();
             this.SuspendLayout();
@@ -125,6 +127,7 @@
             // dgvContas
             // 
             this.dgvContas.AllowUserToAddRows = false;
+            this.dgvContas.AllowUserToDeleteRows = false;
             this.dgvContas.AllowUserToResizeRows = false;
             this.dgvContas.BackgroundColor = System.Drawing.Color.White;
             this.dgvContas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -143,6 +146,8 @@
             this.valor,
             this.tipo,
             this.situacao,
+            this.frete,
+            this.despesa,
             this.data_emissao,
             this.data_vencimento,
             this.data_pagto,
@@ -158,6 +163,7 @@
             this.dgvContas.EnableHeadersVisualStyles = false;
             this.dgvContas.Location = new System.Drawing.Point(22, 146);
             this.dgvContas.Name = "dgvContas";
+            this.dgvContas.ReadOnly = true;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -168,9 +174,11 @@
             this.dgvContas.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvContas.RowHeadersVisible = false;
             this.dgvContas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvContas.Size = new System.Drawing.Size(663, 148);
+            this.dgvContas.Size = new System.Drawing.Size(872, 148);
             this.dgvContas.TabIndex = 65;
+            this.dgvContas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContas_CellContentClick);
             this.dgvContas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContas_CellContentClick);
+            this.dgvContas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContas_CellContentClick);
             // 
             // cbDespesa
             // 
@@ -216,30 +224,12 @@
             this.label2.TabIndex = 62;
             this.label2.Text = "________________________________________________";
             // 
-            // btnOk
-            // 
-            this.btnOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.btnOk.FlatAppearance.BorderSize = 2;
-            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.btnOk.Image = global::GlobalHost.Properties.Resources.ok;
-            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnOk.Location = new System.Drawing.Point(591, 321);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(94, 78);
-            this.btnOk.TabIndex = 69;
-            this.btnOk.Text = "OK";
-            this.btnOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
             // txtAPagar
             // 
             this.txtAPagar.BackColor = System.Drawing.Color.White;
             this.txtAPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtAPagar.Location = new System.Drawing.Point(348, 345);
+            this.txtAPagar.Location = new System.Drawing.Point(478, 345);
             this.txtAPagar.Name = "txtAPagar";
             this.txtAPagar.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtAPagar.Size = new System.Drawing.Size(114, 20);
@@ -250,63 +240,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label6.Location = new System.Drawing.Point(344, 321);
+            this.label6.Location = new System.Drawing.Point(474, 321);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 20);
             this.label6.TabIndex = 70;
             this.label6.Text = "Valor a pagar*";
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
-            this.ID.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // valor
-            // 
-            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            // 
-            // tipo
-            // 
-            this.tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tipo.HeaderText = "Tipo";
-            this.tipo.Name = "tipo";
-            // 
-            // situacao
-            // 
-            this.situacao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.situacao.HeaderText = "Situação";
-            this.situacao.Name = "situacao";
-            // 
-            // data_emissao
-            // 
-            this.data_emissao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.data_emissao.HeaderText = "Dt Emissão";
-            this.data_emissao.Name = "data_emissao";
-            // 
-            // data_vencimento
-            // 
-            this.data_vencimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.data_vencimento.HeaderText = "Dt Venc.";
-            this.data_vencimento.Name = "data_vencimento";
-            // 
-            // data_pagto
-            // 
-            this.data_pagto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.data_pagto.HeaderText = "Dt. Pagto.";
-            this.data_pagto.Name = "data_pagto";
-            // 
-            // valor_pago
-            // 
-            this.valor_pago.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.valor_pago.HeaderText = "Valor Pago";
-            this.valor_pago.Name = "valor_pago";
             // 
             // label5
             // 
@@ -336,6 +274,7 @@
             this.dtpEmissao.Name = "dtpEmissao";
             this.dtpEmissao.Size = new System.Drawing.Size(122, 20);
             this.dtpEmissao.TabIndex = 72;
+            this.dtpEmissao.ValueChanged += new System.EventHandler(this.dtpEmissao_ValueChanged);
             // 
             // dtpVencimento
             // 
@@ -343,11 +282,120 @@
             this.dtpVencimento.Name = "dtpVencimento";
             this.dtpVencimento.Size = new System.Drawing.Size(123, 20);
             this.dtpVencimento.TabIndex = 73;
+            this.dtpVencimento.ValueChanged += new System.EventHandler(this.dtpVencimento_ValueChanged);
+            // 
+            // btnOk
+            // 
+            this.btnOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btnOk.FlatAppearance.BorderSize = 2;
+            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btnOk.Image = global::GlobalHost.Properties.Resources.ok;
+            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnOk.Location = new System.Drawing.Point(800, 321);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(94, 78);
+            this.btnOk.TabIndex = 69;
+            this.btnOk.Text = "OK";
+            this.btnOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btnRefresh.FlatAppearance.BorderSize = 2;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btnRefresh.Image = global::GlobalHost.Properties.Resources.alterar2;
+            this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRefresh.Location = new System.Drawing.Point(700, 321);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(94, 78);
+            this.btnRefresh.TabIndex = 74;
+            this.btnRefresh.Text = "Atualizar";
+            this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
+            this.ID.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // valor
+            // 
+            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            // 
+            // tipo
+            // 
+            this.tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tipo.HeaderText = "Tipo";
+            this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
+            // 
+            // situacao
+            // 
+            this.situacao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.situacao.HeaderText = "Situação";
+            this.situacao.Name = "situacao";
+            this.situacao.ReadOnly = true;
+            // 
+            // frete
+            // 
+            this.frete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.frete.HeaderText = "Frete";
+            this.frete.Name = "frete";
+            this.frete.ReadOnly = true;
+            // 
+            // despesa
+            // 
+            this.despesa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.despesa.HeaderText = "Despesa";
+            this.despesa.Name = "despesa";
+            this.despesa.ReadOnly = true;
+            // 
+            // data_emissao
+            // 
+            this.data_emissao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.data_emissao.HeaderText = "Dt Emissão";
+            this.data_emissao.Name = "data_emissao";
+            this.data_emissao.ReadOnly = true;
+            // 
+            // data_vencimento
+            // 
+            this.data_vencimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.data_vencimento.HeaderText = "Dt Venc.";
+            this.data_vencimento.Name = "data_vencimento";
+            this.data_vencimento.ReadOnly = true;
+            // 
+            // data_pagto
+            // 
+            this.data_pagto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.data_pagto.HeaderText = "Dt. Pagto.";
+            this.data_pagto.Name = "data_pagto";
+            this.data_pagto.ReadOnly = true;
+            // 
+            // valor_pago
+            // 
+            this.valor_pago.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.valor_pago.HeaderText = "Valor Pago";
+            this.valor_pago.Name = "valor_pago";
+            this.valor_pago.ReadOnly = true;
             // 
             // ScreenRealizarPagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.dtpVencimento);
             this.Controls.Add(this.dtpEmissao);
             this.Controls.Add(this.label7);
@@ -362,7 +410,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "ScreenRealizarPagamento";
-            this.Size = new System.Drawing.Size(701, 418);
+            this.Size = new System.Drawing.Size(912, 418);
             this.Load += new System.EventHandler(this.ScreenRealizarPagamento_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -386,18 +434,20 @@
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.TextBox txtAPagar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_emissao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_vencimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_pagto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor_pago;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpEmissao;
         private System.Windows.Forms.DateTimePicker dtpVencimento;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn situacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn frete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn despesa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data_emissao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data_vencimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data_pagto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor_pago;
     }
 }
