@@ -25,11 +25,12 @@ namespace GlobalHost.Visao.Servicos.Gerencia
         {
             InitializeComponent();
             txtID.Enabled = false;
-
+            DataPedido = Controle_Pedido.get("");
+            DataPedido.Rows.Clear();
             cbTransportadora.DataSource = Controle_Transportadora.get("");
             cbTransportadora.DisplayMember = "nome";
             cbTransportadora.ValueMember = "id";
-            cbFiltroPedido.DataSource = Controle_Pedido.get("remessa is null or remessa = -1");
+            cbFiltroPedido.DataSource = Controle_Pedido.get("remessa is null or remessa = 0");
             cbFiltroPedido.DisplayMember = "nome";
             cbFiltroPedido.ValueMember = "id";
             dgvRemessa.DataSource = Controle_Remessa.get("");
@@ -236,12 +237,18 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             {
                 if (check())
                 {
-                    Controle_Remessa.update(Convert.ToInt32(txtID.Text), txtDescricao.Text, txtOrigem.Text, txtDestino.Text, dtpSaida.Value, dtpPrevisao.Value,
-                        dtpRequerimento.Value, (int)cbTransportadora.SelectedValue);
+                    DataTable dtP = Controle_Pedido.get("remessa = " + txtID.Text);
+                    MessageBox.Show("" + dtP.Rows.Count);
+                    MessageBox.Show("" + dgvPedido.Rows.Count);
+                    for (int i = 0; i < dtP.Rows.Count; i++)
+                        Controle_Pedido.SetRemessaID((int)dtP.Rows[i]["id"], 0);
                     for (int i = 0; i < dgvPedido.Rows.Count; i++)
                         Controle_Pedido.UpdateByRemessa((int)dgvPedido.Rows[i].Cells["Pedido_ID"].Value, Convert.ToInt32(txtID.Text));
-                    dgvRemessa.DataSource = Controle_Remessa.get("");
+                    Controle_Remessa.update(Convert.ToInt32(txtID.Text), txtDescricao.Text, txtOrigem.Text, txtDestino.Text, dtpSaida.Value, dtpPrevisao.Value,
+                        dtpRequerimento.Value, (int)cbTransportadora.SelectedValue);
+
                     _default();
+                    dgvRemessa.DataSource = Controle_Remessa.get("");
                 }
             }
             else if (exc == true)
@@ -250,7 +257,7 @@ namespace GlobalHost.Visao.Servicos.Gerencia
                 if(MessageBox.Show("Deseja realmente excluir este pedido?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     for (int i = 0; i < dgvPedido.Rows.Count; i++)
-                        Controle_Pedido.UpdateByRemessa((int)dgvPedido.Rows[i].Cells["Pedido_ID"].Value, -1);
+                        Controle_Pedido.SetRemessaID((int)dgvPedido.Rows[i].Cells["Pedido_ID"].Value, 0);
                     Controle_Remessa.delete(Convert.ToInt32(txtID.Text));
                     dgvRemessa.DataSource = Controle_Remessa.get("");
                 }
@@ -315,19 +322,36 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             if (cbFiltroPedido.SelectedIndex > -1)
             {
                 //dgvPedido.DataSource = Controle_Pedido.get("id = " + Convert.ToInt32(cbFiltroPedido.Text));
+                
                 DataTable dtMais = Controle_Pedido.get("id = " + Convert.ToInt32(cbFiltroPedido.Text));
-                dgvPedido.Rows.Add();
-                dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_ID"].Value = dtMais.Rows[0]["id"];
-                dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Data"].Value = dtMais.Rows[0]["data"];
-                dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Modalidade"].Value = dtMais.Rows[0]["modalidade"];
-                dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Origem"].Value = dtMais.Rows[0]["origem"];
-                dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Destino"].Value = dtMais.Rows[0]["destino"];
-                dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Despachante"].Value = dtMais.Rows[0]["despachante"];
-                dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Situacao"].Value = dtMais.Rows[0]["situacao"];
-                dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Cliente"].Value = dtMais.Rows[0]["cliente"];
-                dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Funcionario"].Value = dtMais.Rows[0]["funcionario"];
-                dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Remessa"].Value = dtMais.Rows[0]["remessa"];
-                dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Autorizacao"].Value = dtMais.Rows[0]["autorizacao"];
+                DataRow linha = DataPedido.NewRow();
+                linha["id"] = dtMais.Rows[0]["id"];
+                linha["data"] = dtMais.Rows[0]["data"];
+                linha["modalidade"] = dtMais.Rows[0]["modalidade"];
+                linha["origem"] = dtMais.Rows[0]["origem"];
+                linha["destino"] = dtMais.Rows[0]["destino"];
+                linha["despachante"] = dtMais.Rows[0]["despachante"];
+                linha["situacao"] = dtMais.Rows[0]["situacao"];
+                linha["cliente"] = dtMais.Rows[0]["cliente"];
+                linha["funcionario"] = dtMais.Rows[0]["funcionario"];
+                linha["remessa"] = dtMais.Rows[0]["remessa"];
+                linha["autorizacao"] = dtMais.Rows[0]["autorizacao"];
+                DataPedido.Rows.Add(linha);
+                dgvPedido.DataSource = DataPedido;
+
+                //dgvPedido.Rows.Add();
+                //dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_ID"].Value = dtMais.Rows[0]["id"];
+                //dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Data"].Value = dtMais.Rows[0]["data"];
+                //dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Modalidade"].Value = dtMais.Rows[0]["modalidade"];
+                //dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Origem"].Value = dtMais.Rows[0]["origem"];
+                //dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Destino"].Value = dtMais.Rows[0]["destino"];
+                //dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Despachante"].Value = dtMais.Rows[0]["despachante"];
+                //dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Situacao"].Value = dtMais.Rows[0]["situacao"];
+                //dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Cliente"].Value = dtMais.Rows[0]["cliente"];
+                //dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Funcionario"].Value = dtMais.Rows[0]["funcionario"];
+                //dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Remessa"].Value = dtMais.Rows[0]["remessa"];
+                //dgvPedido.Rows[dgvPedido.Rows.Count - 1].Cells["Pedido_Autorizacao"].Value = dtMais.Rows[0]["autorizacao"];
+                
             }
             else
                 MessageBox.Show("Selecione um pedido!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -339,7 +363,8 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             if (dgvPedido.SelectedRows.Count == 1)
             {
                 int i = dgvPedido.SelectedRows[0].Index;
-                dgvPedido.Rows.RemoveAt(i);
+                DataPedido.Rows.RemoveAt(i);
+                dgvPedido.DataSource = DataPedido;
             }
             else
                 MessageBox.Show("Selecione um pedido para ser excluído!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -403,7 +428,8 @@ namespace GlobalHost.Visao.Servicos.Gerencia
                 cbTransportadora.Text = dgvRemessa.SelectedRows[0].Cells["Transportadora_Remessa"].Value.ToString();
                 dtpPrevisao.Value = Convert.ToDateTime(dgvRemessa.SelectedRows[0].Cells["PrevisaoRequerida_Remessa"].Value.ToString());
                 dtpSaida.Value = Convert.ToDateTime(dgvRemessa.SelectedRows[0].Cells["DataSaida_Remessa"].Value.ToString());
-                dgvPedido.DataSource = Controle_Pedido.get("remessa = " + Convert.ToInt32(txtID.Text));
+                DataPedido = Controle_Pedido.get("remessa = " + Convert.ToInt32(txtID.Text));
+                dgvPedido.DataSource = DataPedido;
             }
         }
     }

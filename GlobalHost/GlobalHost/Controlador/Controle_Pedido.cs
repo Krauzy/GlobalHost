@@ -132,6 +132,15 @@ namespace GlobalHost.Controlador
             return db.Update(P);
         }
 
+        public static bool SetRemessaID(int ID, int remessa)
+        {
+            PedidoDB db = new PedidoDB();
+            Pedido P = db.get(ID);
+            Remessa R = new Modelo.Remessa(remessa);
+            P.Remessa = R;
+            return db.Update(P);
+        }
+
         public static bool UpdateSituacao(int ID, string situacao)
         {
             PedidoDB db = new PedidoDB();
