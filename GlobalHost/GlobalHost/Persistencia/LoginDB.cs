@@ -33,7 +33,7 @@ namespace GlobalHost.Persistencia
 
         public bool Delete(int id)
         {
-            string SQL = @"DELETE FROM Login WHERE id = @id on cascade";
+            string SQL = @"DELETE FROM Login WHERE id = @id";
             banco.Connect();
             bool result = banco.ExecuteNonQuery(SQL, "@id", id);
             banco.Disconnect();
@@ -46,7 +46,7 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Login))
             {
                 Login log = (Login)obj;
-                string SQL = @"UPDATE Login SET usuario = @usuario, senha = @senha, nivel = @nivel";
+                string SQL = @"UPDATE Login SET usuario = @usuario, senha = @senha, nivel = @nivel WHERE id = " + log.Id;
                 banco.Connect();
                 result = banco.ExecuteNonQuery(SQL, "@usuario", log.Usuario, "@senha",log.Senha, "@nivel",log.Nivel);
             }

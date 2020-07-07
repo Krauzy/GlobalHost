@@ -49,5 +49,19 @@ namespace GlobalHost.Controlador
             Login l = DB.get(user);
             return l.Id;
         }
+
+        public static bool isAdmin(int id)
+        {
+            LoginDB db = new LoginDB();
+            Login l = db.get(id);
+            return l.Nivel == 1;
+        }
+
+        public static Login get(int id)
+        {
+            LoginDB DB = new LoginDB();
+            Login l = DB.get(id);
+            return l;
+        }
     }
 }

@@ -612,7 +612,7 @@ namespace GlobalHost.Visao
             // 
             this.scrAbrirFrete.BackColor = System.Drawing.Color.White;
             this.scrAbrirFrete.Location = new System.Drawing.Point(225, 27);
-            this.scrAbrirFrete.Margin = new System.Windows.Forms.Padding(2);
+            this.scrAbrirFrete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.scrAbrirFrete.Name = "scrAbrirFrete";
             this.scrAbrirFrete.Size = new System.Drawing.Size(1031, 562);
             this.scrAbrirFrete.TabIndex = 24;
@@ -730,6 +730,11 @@ namespace GlobalHost.Visao
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.paneServ);
             this.Controls.Add(this.paneMenu);
+            this.Controls.Add(this.pnGerenciamento);
+            this.Controls.Add(this.screOrcamento);
+            this.Controls.Add(this.scrPagamento);
+            this.Controls.Add(this.scrLancarDesp);
+            this.Controls.Add(this.scrAbrirFrete);
             this.Controls.Add(this.pnFuncoes);
             this.Controls.Add(this.pnRelatorios);
             this.Controls.Add(this.scrFuncionario);
@@ -742,11 +747,6 @@ namespace GlobalHost.Visao
             this.Controls.Add(this.scrOrcamento);
             this.Controls.Add(this.screen_Transportadora);
             this.Controls.Add(this.scrRealizarPagamento);
-            this.Controls.Add(this.pnGerenciamento);
-            this.Controls.Add(this.screOrcamento);
-            this.Controls.Add(this.scrPagamento);
-            this.Controls.Add(this.scrLancarDesp);
-            this.Controls.Add(this.scrAbrirFrete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
