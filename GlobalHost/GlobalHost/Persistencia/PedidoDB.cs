@@ -48,6 +48,15 @@ namespace GlobalHost.Persistencia
             return result;
         }
 
+        public bool DeletePorRemessa(int idR)
+        {
+            string SQL = @"DELETE FROM Pedido WHERE remessa = " + idR;
+            banco.Connect();
+            bool result = banco.ExecuteNonQuery(SQL);
+            banco.Disconnect();
+            return result;
+        }
+
         public bool Update(object obj)
         {
             bool result = false;

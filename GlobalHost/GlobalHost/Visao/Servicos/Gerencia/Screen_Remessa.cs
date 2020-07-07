@@ -30,7 +30,7 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             cbTransportadora.DataSource = Controle_Transportadora.get("");
             cbTransportadora.DisplayMember = "nome";
             cbTransportadora.ValueMember = "id";
-            cbFiltroPedido.DataSource = Controle_Pedido.get("remessa is null or remessa = 0");
+            cbFiltroPedido.DataSource = Controle_Pedido.get("remessa is null or remessa = -1");
             cbFiltroPedido.DisplayMember = "nome";
             cbFiltroPedido.ValueMember = "id";
             dgvRemessa.DataSource = Controle_Remessa.get("");
@@ -238,12 +238,24 @@ namespace GlobalHost.Visao.Servicos.Gerencia
                 if (check())
                 {
                     DataTable dtP = Controle_Pedido.get("remessa = " + txtID.Text);
-                    MessageBox.Show("" + dtP.Rows.Count);
-                    MessageBox.Show("" + dgvPedido.Rows.Count);
-                    for (int i = 0; i < dtP.Rows.Count; i++)
-                        Controle_Pedido.SetRemessaID((int)dtP.Rows[i]["id"], 0);
-                    for (int i = 0; i < dgvPedido.Rows.Count; i++)
-                        Controle_Pedido.UpdateByRemessa((int)dgvPedido.Rows[i].Cells["Pedido_ID"].Value, Convert.ToInt32(txtID.Text));
+                    //MessageBox.Show("" + dtP.Rows.Count);
+                    //MessageBox.Show("" + dgvPedido.Rows.Count);
+                    //for (int i = 0; i < dtP.Rows.Count-1; i++)
+                    //    Controle_Pedido.SetRemessaID((int)dtP.Rows[i]["id"], -1);
+                    Controle_Pedido.DeletePorRemessa(Convert.ToInt32(txtID.Text));
+                    for (int i = 0; i < dgvPedido.Rows.Count - 1; i++)
+                        AddPedidoRemessa((int)dtP.Rows[i]["id"], 
+                                        (DateTime)dtP.Rows[i]["data"], 
+                                        dtP.Rows[i]["modalidade"].ToString(),
+                                        dtP.Rows[i]["origem"].ToString(),
+                                        dtP.Rows[i]["destino"].ToString(),
+                                        dtP.Rows[i]["despachante"].ToString(),
+                                        dtP.Rows[i]["situacao"].ToString(),
+                                        (int)dtP.Rows[i]["cliente"],
+                                        (int)dtP.Rows[i]["funcionario"],
+                                        (int)dtP.Rows[i]["remessa"],
+                                        dtP.Rows[i]["autorizacao"].ToString());
+                        //Controle_Pedido.UpdateByRemessa((int)dgvPedido.Rows[i].Cells["Pedido_ID"].Value, Convert.ToInt32(txtID.Text));
                     Controle_Remessa.update(Convert.ToInt32(txtID.Text), txtDescricao.Text, txtOrigem.Text, txtDestino.Text, dtpSaida.Value, dtpPrevisao.Value,
                         dtpRequerimento.Value, (int)cbTransportadora.SelectedValue);
 
@@ -254,10 +266,11 @@ namespace GlobalHost.Visao.Servicos.Gerencia
             else if (exc == true)
             {
                 
-                if(MessageBox.Show("Deseja realmente excluir este pedido?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if(MessageBox.Show("Deseja realmente excluir esta remessa?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    for (int i = 0; i < dgvPedido.Rows.Count; i++)
-                        Controle_Pedido.SetRemessaID((int)dgvPedido.Rows[i].Cells["Pedido_ID"].Value, 0);
+                    
+                    //for (int i = 0; i < dgvPedido.Rows.Count; i++)
+                    //    Controle_Pedido.SetRemessaID((int)dgvPedido.Rows[i].Cells["Pedido_ID"].Value, -1);
                     Controle_Remessa.delete(Convert.ToInt32(txtID.Text));
                     dgvRemessa.DataSource = Controle_Remessa.get("");
                 }
@@ -265,6 +278,24 @@ namespace GlobalHost.Visao.Servicos.Gerencia
                     _default();
             }
             //_default();
+        }
+        public void AddPedidoRemessa(int id, DateTime data, string mod, string orig, string dest, string desp, string sit, int cli, int fun, int remes, string autorizacao)
+        {
+            DataTable dtMais = Controle_Pedido.get("id = " + Convert.ToInt32(cbFiltroPedido.Text));
+            DataRow linha = DataPedido.NewRow();
+            linha["id"] = id;
+            linha["data"] = data;
+            linha["modalidade"] = mod;
+            linha["origem"] = orig;
+            linha["destino"] = dest;
+            linha["despachante"] = desp;
+            linha["situacao"] = sit;
+            linha["cliente"] = cli;
+            linha["funcionario"] = fun;
+            linha["remessa"] = remes;
+            linha["autorizacao"] = autorizacao;
+            DataPedido.Rows.Add(linha);
+            dgvPedido.DataSource = DataPedido;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

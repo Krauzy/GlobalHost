@@ -130,7 +130,7 @@
             this.dgvFrete.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFrete.EnableHeadersVisualStyles = false;
             this.dgvFrete.Location = new System.Drawing.Point(661, 68);
-            this.dgvFrete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvFrete.Margin = new System.Windows.Forms.Padding(4);
             this.dgvFrete.Name = "dgvFrete";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -143,7 +143,7 @@
             this.dgvFrete.RowHeadersVisible = false;
             this.dgvFrete.RowHeadersWidth = 51;
             this.dgvFrete.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFrete.Size = new System.Drawing.Size(391, 174);
+            this.dgvFrete.Size = new System.Drawing.Size(375, 174);
             this.dgvFrete.TabIndex = 128;
             // 
             // Pedido_Data
@@ -196,7 +196,7 @@
             "Funcionario",
             "Remessa"});
             this.cbPedido.Location = new System.Drawing.Point(41, 106);
-            this.cbPedido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPedido.Margin = new System.Windows.Forms.Padding(4);
             this.cbPedido.Name = "cbPedido";
             this.cbPedido.Size = new System.Drawing.Size(195, 29);
             this.cbPedido.TabIndex = 133;
@@ -222,7 +222,7 @@
             this.btnOk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnOk.Location = new System.Drawing.Point(857, 393);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(195, 32);
             this.btnOk.TabIndex = 137;
@@ -393,9 +393,9 @@
             this.gbFrete.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFrete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.gbFrete.Location = new System.Drawing.Point(51, 130);
-            this.gbFrete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbFrete.Margin = new System.Windows.Forms.Padding(4);
             this.gbFrete.Name = "gbFrete";
-            this.gbFrete.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbFrete.Padding = new System.Windows.Forms.Padding(4);
             this.gbFrete.Size = new System.Drawing.Size(1107, 449);
             this.gbFrete.TabIndex = 158;
             this.gbFrete.TabStop = false;
@@ -407,7 +407,7 @@
             this.listCargas.FormattingEnabled = true;
             this.listCargas.ItemHeight = 19;
             this.listCargas.Location = new System.Drawing.Point(309, 198);
-            this.listCargas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listCargas.Margin = new System.Windows.Forms.Padding(4);
             this.listCargas.Name = "listCargas";
             this.listCargas.Size = new System.Drawing.Size(265, 80);
             this.listCargas.TabIndex = 163;
