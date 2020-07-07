@@ -42,6 +42,8 @@ namespace GlobalHost.Visao.Servicos
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
 
+
+
             dgvFuncionario.DataSource = Controle_Funcionario.get("");
         }
 

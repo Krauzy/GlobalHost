@@ -43,6 +43,12 @@ namespace GlobalHost.Controlador
             return db.Delete(id);
         }
 
+        public static bool DeletePorRemessa(int idR)
+        {
+            PedidoDB db = new PedidoDB();
+            return db.DeletePorRemessa(idR);
+        }
+
         public static bool Update(DateTime data, string mod, string orig, string dest, string desp, string sit, int cli, int fun, int rem)
         {
             FuncionarioDB funcionarios = new FuncionarioDB();
@@ -128,6 +134,15 @@ namespace GlobalHost.Controlador
             Pedido P = db.get(ID);
             RemessaDB dbR = new RemessaDB();
             Remessa R = dbR.get(Remessa);
+            P.Remessa = R;
+            return db.Update(P);
+        }
+
+        public static bool SetRemessaID(int ID, int remessa)
+        {
+            PedidoDB db = new PedidoDB();
+            Pedido P = db.get(ID);
+            Remessa R = new Modelo.Remessa(remessa);
             P.Remessa = R;
             return db.Update(P);
         }

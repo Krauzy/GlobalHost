@@ -58,6 +58,17 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Frete Aberto!", "FRETE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            dgvFrete.DataSource = Controle_Pedido.get("id = -1");
+            lOrigem.Text = "";
+            lDestino.Text = "";
+            lPrevisaoEntrega.Text = "";
+            lRemessa.Text = "";
+            lTransporte.Text = "";
+            lValorFreteAtual.Text = "";
+            lValorFreteFinal.Text = "";
+            listCargas.Items.Clear();
+
             //Fechar Frete
         }
     }
