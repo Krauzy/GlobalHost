@@ -22,7 +22,7 @@ namespace GlobalHost.Controlador
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
             Remessa r = remessas.get(rem);
-            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, r, "Em espera");
+            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, r, "Autorizado");
             return pedidos.Insert(p);
         }
 
@@ -33,7 +33,7 @@ namespace GlobalHost.Controlador
             PedidoDB pedidos = new PedidoDB();
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
-            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, "Em espera");
+            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, "Autorizado");
             return pedidos.Insert(p);
         }
 
@@ -57,7 +57,7 @@ namespace GlobalHost.Controlador
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
             Remessa r = null;                       /// Necessita da RemessaDB  <author>@campos</author>
-            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, "Em espera");
+            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, "Autorizado");
             return pedidos.Update(p);
 
         }
@@ -69,7 +69,7 @@ namespace GlobalHost.Controlador
             PedidoDB pedidos = new PedidoDB();
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
-            Pedido p = new Pedido(id, data, mod, orig, dest, desp, sit, c, f, "Em espera");
+            Pedido p = new Pedido(id, data, mod, orig, dest, desp, sit, c, f, "Autorizado");
             return pedidos.Update(p);
         }
 

@@ -40,6 +40,20 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             cbTransp.SelectedIndex = 0;
         }
 
+        public void Load()
+        {
+            string aux = "autorizado";
+            cbPedido.DataSource = Controle_Pedido.get("autorizacao LIKE '%" + aux + "%' AND remessa is null");
+            cbPedido.DisplayMember = "id";
+            cbPedido.ValueMember = "id";
+            try { cbPedido.SelectedIndex = 0; } catch { }
+
+            cbTransp.DataSource = Controle_Transportadora.get("");
+            cbTransp.DisplayMember = "nome";
+            cbTransp.ValueMember = "id";
+            try { cbTransp.SelectedIndex = 0; } catch { }
+        }
+
         private void todo()
         {
             cbTransp.Enabled = true;
