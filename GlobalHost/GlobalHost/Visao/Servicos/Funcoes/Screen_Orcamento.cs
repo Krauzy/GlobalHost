@@ -31,7 +31,8 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             cbPedido.DataSource = Controle_Pedido.get("autorizacao LIKE '%" + aux + "%' AND remessa is null");
             cbPedido.DisplayMember = "id";
             cbPedido.ValueMember = "id";
-            cbPedido.SelectedIndex = 0;
+            try { cbPedido.SelectedIndex = 0; } catch { }
+            
 
             cbTransp.DataSource = Controle_Transportadora.get("");
             cbTransp.DisplayMember = "nome";
@@ -62,8 +63,8 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             string mod = Controle_Pedido.get("id = " + id).Rows[0]["modalidade"].ToString();
             double exclusiv = 0;
             if (mod.Equals("Exclusivo"))
-                exclusiv = (valor_transp * 0.2);
-            double importacao = tot * 0.05;
+                exclusiv = (int)(valor_transp / 10);
+            double importacao = (int)(tot * 0.05);
             double pis = tot * 0.0165;
             double cofins = tot * 0.076;
             double dolar = 50 * API.Quot.getDolar();
@@ -126,7 +127,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void cbPedido_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(teste.ToString());
+            //MessageBox.Show(teste.ToString());
             teste++;
             if(cbPedido.SelectedItem != null && teste > 2)
             {
@@ -260,7 +261,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                         MessageBox.Show("Erro ao Orçar pedido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
-                        MessageBox.Show("");
+                        //MessageBox.Show("");
                         int max = Controle_Orcamento.MAX();
                         try
                         {
@@ -286,7 +287,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                             lbValHead.Visible = true;
                             lbVal.Visible = true;
                             lbVal.Text = Convert.ToDateTime(Controle_Orcamento.get(Controle_Orcamento.MAX()).Rows[0]["validade"]).ToShortDateString();
-                            MessageBox.Show("Orçamento feito com Sucesso!\nFrete do Pedido já disponível para abertura (Consulte 'Abrir Frete')\nA aprovação do Orçamento expira " + lbVal.Text);
+                            MessageBox.Show("Orçamento feito com Sucesso!\nFrete do Pedido já disponível para abertura (Consulte 'Abrir Frete')\nA aprovação do Orçamento expira " + lbVal.Text, "Orçado com Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
                         }
                         catch (Exception ex)
                         {

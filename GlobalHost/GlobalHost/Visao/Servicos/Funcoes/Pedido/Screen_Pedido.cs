@@ -13,6 +13,8 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         private bool alt;
         private bool exc;
 
+        private int aux;
+
         private int id;
 
         private int cont;
@@ -21,6 +23,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         public Screen_Pedido()
         {
             id = 0;
+            aux = 0;
             InitializeComponent();
             cont = 0;
             cbCliente.DataSource = Controle_Cliente.get("");
@@ -275,6 +278,11 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void btMais_Click(object sender, EventArgs e)
         {
+            if (aux == 0)
+            {
+                DataCarga.Rows.Clear();
+                aux++;
+            }                
             LoadGrid();
             Screen_Carga ex = new Screen_Carga(Screen_Carga.INSERT);
             ex.ShowDialog();
@@ -615,6 +623,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                                                         Controle_Pedido.MAX());
                             }
                             Clear();
+                            aux = 0;
                         }
                     }
                     else
@@ -654,6 +663,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                                                             dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString(), id);
                                 }
                                 Clear();
+                                aux = 0;
                             }
                         }
                         else
@@ -678,7 +688,10 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                                 if (!Controle_Pedido.Delete(Convert.ToInt32(txtID.Text)))
                                     MessageBox.Show("Pedido não excluído!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 else
+                                {
                                     Clear();
+                                    aux = 0;
+                                }                                   
                         }
                     }
                     else
