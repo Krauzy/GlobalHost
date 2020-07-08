@@ -606,7 +606,7 @@ namespace GlobalHost.Visao.Servicos
             if(txtValor.Text != string.Empty)
             {
                 txtValor.Text = API.Validate.MONEY(txtValor.Text);
-                V = Convert.ToDouble(txtValor.Text);
+                try { V = Convert.ToDouble(txtValor.Text); } catch { V = 0; }
             }
         }
     }

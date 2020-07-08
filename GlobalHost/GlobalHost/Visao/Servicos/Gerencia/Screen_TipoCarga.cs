@@ -137,10 +137,12 @@ namespace GlobalHost.Visao.Servicos
             btnOk.Enabled = false;
             //btnCancelar.Enabled = false;
         }
+
         public bool checkCamposNumericos()
         {
             return Convert.ToInt32(txtAltura.Text) > 0 && Convert.ToInt32(txtComprimento.Text) > 0 && Convert.ToInt32(txtLargura.Text) > 0 && Convert.ToInt32(txtPeso.Text) > 0;
         }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             if(checkCamposNumericos())
@@ -169,9 +171,13 @@ namespace GlobalHost.Visao.Servicos
                     if (txtID.Text != "")
                     {
                         string n = Controle_TipoCarga.get(Convert.ToInt32(txtID.Text)).Rows[0]["descricao"].ToString();
-                        if (!Controle_TipoCarga.delete(Convert.ToInt32(txtID.Text)))
-                            MessageBox.Show("Falha ao remover " + n + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        else MessageBox.Show("Operação feita com sucesso! Apagou " + txtNome.Text + "!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        if (MessageBox.Show("Deseja realmente excluir " + n + "?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            if (!Controle_TipoCarga.delete(Convert.ToInt32(txtID.Text)))
+                                MessageBox.Show("Falha ao remover " + n + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            else 
+                                MessageBox.Show("Operação feita com sucesso! Apagou " + txtNome.Text + "!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }                        
                     }
                 }
                 ins = false;

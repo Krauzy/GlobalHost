@@ -489,8 +489,9 @@ namespace GlobalHost.Visao.Servicos
                 if (dgvTipo.SelectedRows.Count == 1)
                 {
                     string n = dgvTipo.SelectedRows[0].Cells["col_desc"].Value.ToString();
-                    if (!Controle_TipoTransporte.delete(Convert.ToInt32(dgvTipo.SelectedRows[0].Cells["col_id"].Value.ToString())))
-                        MessageBox.Show("Erro ao remover " + n, "Falha de execução", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if(MessageBox.Show("Deseja realmente excluir " + n + "?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (!Controle_TipoTransporte.delete(Convert.ToInt32(dgvTipo.SelectedRows[0].Cells["col_id"].Value.ToString())))
+                            MessageBox.Show("Erro ao remover " + n, "Falha de execução", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             data = Controle_TipoTransporte.get("");

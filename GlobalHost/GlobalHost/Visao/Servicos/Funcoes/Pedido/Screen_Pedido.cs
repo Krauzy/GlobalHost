@@ -163,7 +163,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             btUpdate.Enabled = false;
             rdExclusivo.Enabled = false;
             rdExpresso.Enabled = false;
-            dgvCarga.Rows.Clear();
+            //dgvCarga.Rows.Clear();
 
             dotOrder.Visible = true;
             dotID.Visible = true;
@@ -623,6 +623,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 else
                     MessageBox.Show("Todos os campos obrigatórios(*) devem estar preenchidos e válidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             if(alt == true)
             {
                 if (txtID.Text != string.Empty && cbCliente.Text != string.Empty && txtOrigem.Text != string.Empty && txtDestino.Text != string.Empty)
@@ -634,25 +635,30 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                             n = "Expresso";
                         else
                             n = "Exclusivo";
-
-                        if (!Controle_Pedido.Update(id, DateTime.Now.Date, n, txtOrigem.Text, txtDestino.Text, Controle_Parametro.get().Razao_social, "Em espera", (int)Controle_Cliente.get(cbCliente.Text).Rows[0]["id"], Program.FUNC))
-                            MessageBox.Show("Pedido não atualizado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        else
+                        if (Controle_Pedido.get("id = " + txtID.Text).Rows[0]["remessa"].ToString() == "")
                         {
-                            Controle_Carga.DeleteByPedido(id);
-                            int i = 0;
-                            for (i = 0; i < dgvCarga.Rows.Count; i++)
+                            if (!Controle_Pedido.Update(id, DateTime.Now.Date, n, txtOrigem.Text, txtDestino.Text, Controle_Parametro.get().Razao_social, "Em espera", (int)Controle_Cliente.get(cbCliente.Text).Rows[0]["id"], Program.FUNC))
+                                MessageBox.Show("Pedido não atualizado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            else
                             {
-                                Controle_Carga.Insert(dgvCarga.Rows[i].Cells["Carga_Descricao"].Value.ToString(),
-                                                        Convert.ToInt32(dgvCarga.Rows[i].Cells["Carga_Volume"].Value),
-                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Peso"].Value),
-                                                        dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value.ToString(),
-                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value.ToString()),
-                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Valor"].Value.ToString()),
-                                                        dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString(), id);
+                                Controle_Carga.DeleteByPedido(id);
+                                int i = 0;
+                                for (i = 0; i < dgvCarga.Rows.Count; i++)
+                                {
+                                    Controle_Carga.Insert(dgvCarga.Rows[i].Cells["Carga_Descricao"].Value.ToString(),
+                                                            Convert.ToInt32(dgvCarga.Rows[i].Cells["Carga_Volume"].Value),
+                                                            Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Peso"].Value),
+                                                            dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value.ToString(),
+                                                            Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value.ToString()),
+                                                            Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Valor"].Value.ToString()),
+                                                            dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString(), id);
+                                }
+                                Clear();
                             }
-                            Clear();
                         }
+                        else
+                            MessageBox.Show("Erro ao alterar pedido [" + txtID.Text + "]!\nNão é possível excluir um pedido que já está dentro de uma remessa!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        
                     }
                     else
                         MessageBox.Show("Deve ter ao menos uma carga no pedido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -664,15 +670,19 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             {
                 if(txtID.Text != string.Empty)
                 {
-                    if(Controle_Pedido.get("id = " + txtID.Text).Rows.Count > 0)
+                    if(Controle_Pedido.get("id = " + txtID.Text).Rows[0]["remessa"].ToString() == "") 
                     {
-                        if (MessageBox.Show("Deseja realmente excluir o pedido (" + txtID.Text + ")?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                            if (!Controle_Pedido.Delete(Convert.ToInt32(txtID.Text)))
-                                MessageBox.Show("Pedido não excluído!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            else
-                                Clear();
-                        
+                        if (Controle_Pedido.get("id = " + txtID.Text).Rows.Count > 0)
+                        {
+                            if (MessageBox.Show("Deseja realmente excluir o pedido (" + txtID.Text + ")?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (!Controle_Pedido.Delete(Convert.ToInt32(txtID.Text)))
+                                    MessageBox.Show("Pedido não excluído!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                else
+                                    Clear();
+                        }
                     }
+                    else
+                        MessageBox.Show("Erro ao alterar pedido [" + txtID.Text + "]!\nNão é possível excluir um pedido que já está dentro de uma remessa!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
             dgvPedido.DataSource = Controle_Pedido.get("");
