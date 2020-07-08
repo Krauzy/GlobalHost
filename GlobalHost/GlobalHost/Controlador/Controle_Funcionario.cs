@@ -23,7 +23,34 @@ namespace GlobalHost.Controlador
             else
                 return false;
         }
-
+        public static bool insertSemDemissao(string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, string telefone, string email, string login, string senha, int nivel)
+        {
+            Login l = new Login(login, senha, nivel);
+            LoginDB dblog = new LoginDB();
+            if (dblog.Insert(l))
+            {
+                l.Id = dblog.getId();
+                Funcionario f = new Funcionario(nome, dtnascimento, cpf, salario, endereco, dtadmissao, telefone, email, l);
+                FuncionarioDB DB = new FuncionarioDB();
+                return DB.InsertSemDemissao(f);
+            }
+            else
+                return false;
+        }
+        public static bool updateSemDemissao (int id, string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, string telefone, string email, string login, string senha, int nivel)
+        {
+            Login l = new Login(login, senha, nivel);
+            LoginDB dblog = new LoginDB();
+            if (dblog.Insert(l))
+            {
+                l.Id = dblog.getId();
+                Funcionario f = new Funcionario(id, nome, dtnascimento, cpf, salario, endereco, dtadmissao, telefone, email, l);
+                FuncionarioDB DB = new FuncionarioDB();
+                return DB.UpadateSemDemissao(f);
+            }
+            else
+                return false;
+        }
         public static bool update(int id, string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, DateTime dtdemissao, string telefone, string email, string login, string senha, int nivel)
         {
             FuncionarioDB DB = new FuncionarioDB();
@@ -37,7 +64,6 @@ namespace GlobalHost.Controlador
             Funcionario f = new Funcionario(id, nome, dtnascimento, cpf, salario, endereco, dtadmissao, dtdemissao, telefone, email, l);            
             return DB.Update(f);
         }
-
         public static bool delete(int id)
         {
             FuncionarioDB DB = new FuncionarioDB();

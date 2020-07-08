@@ -70,6 +70,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             lTransporte.Text = "";
             lValorFreteAtual.Text = "";
             lValorFreteFinal.Text = "";
+            lNome.Text = "";
             listCargas.Items.Clear();
 
             //Fechar Frete

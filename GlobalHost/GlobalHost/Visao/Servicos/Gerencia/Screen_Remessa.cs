@@ -105,14 +105,19 @@ namespace GlobalHost.Visao.Servicos.Gerencia
                 MessageBox.Show("Campo DESCRIÇÃO vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            else if (txtOrigem.Text == string.Empty)
+            {
+                MessageBox.Show("Campo ORIGEM vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             else if (txtDestino.Text == string.Empty)
             {
                 MessageBox.Show("Campo DESTINO vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (txtOrigem.Text == string.Empty)
+            else if (cbTransportadora.SelectedIndex < 0)
             {
-                MessageBox.Show("Campo ORIGEM vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Selecione uma TRANSPORTADORA!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else if (dtpSaida.Value <= DateTime.Now)
