@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInserir = new System.Windows.Forms.Button();
@@ -56,10 +56,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtAdmissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtDemissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
-            this.txtSalario = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.mtbCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
@@ -80,15 +88,8 @@
             this.label25 = new System.Windows.Forms.Label();
             this.ordOrder = new System.Windows.Forms.Label();
             this.btCEP = new System.Windows.Forms.Button();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtAdmissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtDemissao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSalario = new System.Windows.Forms.MaskedTextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -347,9 +348,10 @@
             // 
             // dtpDemissao
             // 
+            this.dtpDemissao.Enabled = false;
             this.dtpDemissao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDemissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDemissao.Location = new System.Drawing.Point(41, 403);
+            this.dtpDemissao.Location = new System.Drawing.Point(63, 403);
             this.dtpDemissao.Name = "dtpDemissao";
             this.dtpDemissao.Size = new System.Drawing.Size(112, 23);
             this.dtpDemissao.TabIndex = 68;
@@ -401,14 +403,14 @@
             this.dgvFuncionario.BackgroundColor = System.Drawing.Color.White;
             this.dgvFuncionario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvFuncionario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFuncionario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFuncionario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFuncionario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nome,
@@ -420,30 +422,92 @@
             this.dtDemissao,
             this.telefone,
             this.email});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFuncionario.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFuncionario.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgvFuncionario.EnableHeadersVisualStyles = false;
             this.dgvFuncionario.Location = new System.Drawing.Point(648, 174);
             this.dgvFuncionario.Name = "dgvFuncionario";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFuncionario.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFuncionario.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvFuncionario.RowHeadersVisible = false;
             this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionario.Size = new System.Drawing.Size(339, 357);
             this.dgvFuncionario.TabIndex = 73;
             this.dgvFuncionario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionario_CellDoubleClick);
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.Width = 150;
+            // 
+            // dtNascimento
+            // 
+            this.dtNascimento.DataPropertyName = "dtNascimento";
+            this.dtNascimento.HeaderText = "Data de Nascimento";
+            this.dtNascimento.Name = "dtNascimento";
+            this.dtNascimento.Width = 75;
+            // 
+            // cpf
+            // 
+            this.cpf.DataPropertyName = "cpf";
+            this.cpf.HeaderText = "CPF";
+            this.cpf.Name = "cpf";
+            this.cpf.Width = 120;
+            // 
+            // salario
+            // 
+            this.salario.DataPropertyName = "salario";
+            this.salario.HeaderText = "Salario";
+            this.salario.Name = "salario";
+            this.salario.Width = 400;
+            // 
+            // endereco
+            // 
+            this.endereco.DataPropertyName = "endereco";
+            this.endereco.HeaderText = "Endereco";
+            this.endereco.Name = "endereco";
+            this.endereco.Width = 250;
+            // 
+            // dtAdmissao
+            // 
+            this.dtAdmissao.DataPropertyName = "dtAdmissao";
+            this.dtAdmissao.HeaderText = "Data de Admissão";
+            this.dtAdmissao.Name = "dtAdmissao";
+            this.dtAdmissao.Width = 150;
+            // 
+            // dtDemissao
+            // 
+            this.dtDemissao.DataPropertyName = "dtDemissao";
+            this.dtDemissao.HeaderText = "Data de Demissao";
+            this.dtDemissao.Name = "dtDemissao";
+            this.dtDemissao.Width = 150;
+            // 
+            // telefone
+            // 
+            this.telefone.DataPropertyName = "telefone";
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.Width = 150;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "E-mail";
+            this.email.Name = "email";
             // 
             // label11
             // 
@@ -485,19 +549,6 @@
             this.cbFiltro.Size = new System.Drawing.Size(149, 25);
             this.cbFiltro.TabIndex = 75;
             // 
-            // txtSalario
-            // 
-            this.txtSalario.BackColor = System.Drawing.Color.White;
-            this.txtSalario.Enabled = false;
-            this.txtSalario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtSalario.Location = new System.Drawing.Point(451, 298);
-            this.txtSalario.Name = "txtSalario";
-            this.txtSalario.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtSalario.Size = new System.Drawing.Size(107, 23);
-            this.txtSalario.TabIndex = 77;
-            this.txtSalario.TextChanged += new System.EventHandler(this.txtSalario_TextChanged_1);
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -514,7 +565,7 @@
             this.mtbCPF.Location = new System.Drawing.Point(288, 183);
             this.mtbCPF.Mask = "000.000.000-00";
             this.mtbCPF.Name = "mtbCPF";
-            this.mtbCPF.Size = new System.Drawing.Size(131, 20);
+            this.mtbCPF.Size = new System.Drawing.Size(100, 20);
             this.mtbCPF.TabIndex = 79;
             // 
             // txtLogin
@@ -559,7 +610,7 @@
             this.cbNivel.FormattingEnabled = true;
             this.cbNivel.Items.AddRange(new object[] {
             "0 - Funcionário",
-            "1 - Administrador (Gerente)"});
+            "1 - Administrador"});
             this.cbNivel.Location = new System.Drawing.Point(451, 353);
             this.cbNivel.Name = "cbNivel";
             this.cbNivel.Size = new System.Drawing.Size(136, 25);
@@ -723,73 +774,32 @@
             this.btCEP.UseVisualStyleBackColor = true;
             this.btCEP.Click += new System.EventHandler(this.btCEP_Click);
             // 
-            // nome
+            // txtSalario
             // 
-            this.nome.DataPropertyName = "nome";
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            this.nome.Width = 150;
+            this.txtSalario.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtSalario.Location = new System.Drawing.Point(451, 298);
+            this.txtSalario.Name = "txtSalario";
+            this.txtSalario.Size = new System.Drawing.Size(136, 23);
+            this.txtSalario.TabIndex = 100;
+            this.txtSalario.TextChanged += new System.EventHandler(this.txtSalario_TextChanged);
             // 
-            // dtNascimento
+            // checkBox1
             // 
-            this.dtNascimento.DataPropertyName = "dtNascimento";
-            this.dtNascimento.HeaderText = "Data de Nascimento";
-            this.dtNascimento.Name = "dtNascimento";
-            this.dtNascimento.Width = 75;
-            // 
-            // cpf
-            // 
-            this.cpf.DataPropertyName = "cpf";
-            this.cpf.HeaderText = "CPF";
-            this.cpf.Name = "cpf";
-            this.cpf.Width = 120;
-            // 
-            // salario
-            // 
-            this.salario.DataPropertyName = "salario";
-            this.salario.HeaderText = "Salario";
-            this.salario.Name = "salario";
-            this.salario.Width = 400;
-            // 
-            // endereco
-            // 
-            this.endereco.DataPropertyName = "endereco";
-            this.endereco.HeaderText = "Endereco";
-            this.endereco.Name = "endereco";
-            this.endereco.Width = 250;
-            // 
-            // dtAdmissao
-            // 
-            this.dtAdmissao.DataPropertyName = "dtAdmissao";
-            this.dtAdmissao.HeaderText = "Data de Admissão";
-            this.dtAdmissao.Name = "dtAdmissao";
-            this.dtAdmissao.Width = 150;
-            // 
-            // dtDemissao
-            // 
-            this.dtDemissao.DataPropertyName = "dtDemissao";
-            this.dtDemissao.HeaderText = "Data de Demissao";
-            this.dtDemissao.Name = "dtDemissao";
-            this.dtDemissao.Width = 150;
-            // 
-            // telefone
-            // 
-            this.telefone.DataPropertyName = "telefone";
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            this.telefone.Width = 150;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "email";
-            this.email.HeaderText = "E-mail";
-            this.email.Name = "email";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(41, 408);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 101;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Screen_Funcionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.txtSalario);
             this.Controls.Add(this.btCEP);
             this.Controls.Add(this.ordOrder);
             this.Controls.Add(this.label25);
@@ -810,7 +820,6 @@
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.mtbCPF);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtSalario);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.cbFiltro);
@@ -878,7 +887,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtBusca;
         private System.Windows.Forms.ComboBox cbFiltro;
-        private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.MaskedTextBox mtbCPF;
         private System.Windows.Forms.TextBox txtLogin;
@@ -908,5 +916,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dtDemissao;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.MaskedTextBox txtSalario;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -22,7 +22,7 @@ namespace GlobalHost.Persistencia
             {
                 Pedido p = (Pedido)obj;
                 string SQL;
-                MessageBox.Show("Data: " + p.Data + "\nModalidade: " + p.Modalidade + "\nOrigem: " + p.Origem + "\nDestino: " + p.Destino + "\nDespachante: " + p.Despachante + "\nSituação: " + p.Situacao + "\nCliente: " + p.Cliente + "\nFuncionário: " + p.Funcionario);
+                //MessageBox.Show("Data: " + p.Data + "\nModalidade: " + p.Modalidade + "\nOrigem: " + p.Origem + "\nDestino: " + p.Destino + "\nDespachante: " + p.Despachante + "\nSituação: " + p.Situacao + "\nCliente: " + p.Cliente + "\nFuncionário: " + p.Funcionario + "\nAutorização:", p.Autorizacao);
                 banco.Connect();
                 if (p.Remessa != null)
                 {
@@ -42,6 +42,15 @@ namespace GlobalHost.Persistencia
         public bool Delete(int id)
         {
             string SQL = @"DELETE FROM Pedido WHERE id = " + id;
+            banco.Connect();
+            bool result = banco.ExecuteNonQuery(SQL);
+            banco.Disconnect();
+            return result;
+        }
+
+        public bool UpdatePorRemessa(int idR)
+        {
+            string SQL = @"UPDATE Pedido SET remessa = null WHERE remessa = " + idR;
             banco.Connect();
             bool result = banco.ExecuteNonQuery(SQL);
             banco.Disconnect();

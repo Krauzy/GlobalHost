@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GlobalHost.Persistencia
 {
@@ -20,14 +21,16 @@ namespace GlobalHost.Persistencia
         public bool Insert(object obj)
         {
             bool result = false;
-            if(obj.GetType() == typeof(Remessa))
+            if (obj.GetType() == typeof(Remessa))
             {
+
                 Remessa r = (Remessa)obj;
+                //MessageBox.Show("\nID:" + r.Id + "\nDescricao:" + r.Descricao + "\nOrigem:" + r.Origem + "\nDestino:" + r.Destino + "\nSaida:" + r.Saida + "\nPrevisao:" + r.Previsao + "\nRequerimento:" + r.Requerimento + "\nTransportadora:" + r.Transportadora.Id);
                 string SQL = @"INSERT INTO Remessa (descricao, origem, destino, data_saida, previsao_requerida, data_requerida, transportadora)"
                         + @"VALUES (@descricao, @origem, @destino, @data_saida, @previsao_requerida, @data_requerida, @transportadora)";
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, SQL, "@descricao", r.Descricao, "@origem", r.Origem, "@destino", r.Destino, "@data_saida", r.Saida,
-                    "@previsao_requerida", r.Previsao, "@data_requerida", r.Requerimento, "@transportadora", r.Transportadora);
+                result = banco.ExecuteNonQuery(SQL, "@descricao", r.Descricao, "@origem", r.Origem, "@destino", r.Destino, "@data_saida", r.Saida,
+                    "@previsao_requerida", r.Previsao, "@data_requerida", r.Requerimento, "@transportadora", r.Transportadora.Id);
                 banco.Disconnect();
             }
             return result;
@@ -51,14 +54,14 @@ namespace GlobalHost.Persistencia
                 string SQL = @"UPDATE Remessa SET descricao = @descricao, origem = @origem, destino = @destino,"
                         + @" data_saida = @data_saida, previsao_requerida = @previsao_requerida, data_requerida = @data_requerida, transportadora = @transportadora WHERE id =  " + r.Id;
                 banco.Connect();
-                result = banco.ExecuteNonQuery(SQL, SQL, "@descricao", r.Descricao, "@origem", r.Origem, "@destino", r.Destino, "@data_saida", r.Saida,
+                result = banco.ExecuteNonQuery(SQL, "@descricao", r.Descricao, "@origem", r.Origem, "@destino", r.Destino, "@data_saida", r.Saida,
                     "@previsao_requerida", r.Previsao, "@data_requerida", r.Requerimento, "@transportadora", r.Transportadora.Id);
                 banco.Disconnect();
             }
             return result;
         }
 
-        public Remessa get (int id)
+        public Remessa get(int id)
         {
             DataTable dt = new DataTable();
             Remessa r = null;
@@ -66,9 +69,11 @@ namespace GlobalHost.Persistencia
             string SQL = @"SELECT * FROM Remessa WHERE id = " + id;
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt);
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
-                r = new Remessa((int)dt.Rows[0]["id"],
+                try
+                {
+                    r = new Remessa((int)dt.Rows[0]["id"],
                                      dt.Rows[0]["descricao"].ToString(),
                                      dt.Rows[0]["origem"].ToString(),
                                      dt.Rows[0]["destino"].ToString(),
@@ -76,6 +81,17 @@ namespace GlobalHost.Persistencia
                   Convert.ToDateTime(dt.Rows[0]["previsao_requerida"]),
                   Convert.ToDateTime(dt.Rows[0]["data_requerida"]),
                          DB.get((int)dt.Rows[0]["transportadora"]));
+                }
+                catch (Exception ex)
+                {
+                    r = new Remessa((int)dt.Rows[0]["id"],
+                                     dt.Rows[0]["descricao"].ToString(),
+                                     dt.Rows[0]["origem"].ToString(),
+                                     dt.Rows[0]["destino"].ToString(),
+                  Convert.ToDateTime(dt.Rows[0]["data_saida"]),
+                  Convert.ToDateTime(dt.Rows[0]["previsao_requerida"]),
+                         DB.get((int)dt.Rows[0]["transportadora"]));
+                }
             }
             banco.Disconnect();
             return r;
@@ -89,22 +105,34 @@ namespace GlobalHost.Persistencia
             string SQL = @"SELECT * FROM Remessa WHERE " + op;
             banco.Connect();
             banco.ExecuteQuery(SQL, out dt);
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 Remessa r;
-                for(int i = 0; i < dt.Rows.Count; i++)
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    r = new Remessa((int)dt.Rows[i]["id"],
-                                      dt.Rows[i]["descricao"].ToString(),
-                                      dt.Rows[i]["origem"].ToString(),
-                                      dt.Rows[i]["destino"].ToString(),
-                   Convert.ToDateTime(dt.Rows[i]["data_saida"]),
-                   Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
-                   Convert.ToDateTime(dt.Rows[i]["data_requerida"]),
-                          DB.get((int)dt.Rows[i]["transportadora"]));
-                   
-                   list.Add(r);
-                }  
+                    try
+                    {
+                        r = new Remessa((int)dt.Rows[i]["id"],
+                                         dt.Rows[i]["descricao"].ToString(),
+                                         dt.Rows[i]["origem"].ToString(),
+                                         dt.Rows[i]["destino"].ToString(),
+                      Convert.ToDateTime(dt.Rows[i]["data_saida"]),
+                      Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
+                      Convert.ToDateTime(dt.Rows[i]["data_requerida"]),
+                             DB.get((int)dt.Rows[i]["transportadora"]));
+                    }
+                    catch (Exception ex)
+                    {
+                        r = new Remessa((int)dt.Rows[i]["id"],
+                                         dt.Rows[i]["descricao"].ToString(),
+                                         dt.Rows[i]["origem"].ToString(),
+                                         dt.Rows[i]["destino"].ToString(),
+                      Convert.ToDateTime(dt.Rows[i]["data_saida"]),
+                      Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
+                             DB.get((int)dt.Rows[i]["transportadora"]));
+                    }
+                    list.Add(r);
+                }
             }
             banco.Disconnect();
             return list;
@@ -123,21 +151,44 @@ namespace GlobalHost.Persistencia
                 Remessa r;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    r = new Remessa((int)dt.Rows[i]["id"],
-                                      dt.Rows[i]["descricao"].ToString(),
-                                      dt.Rows[i]["origem"].ToString(),
-                                      dt.Rows[i]["destino"].ToString(),
-                   Convert.ToDateTime(dt.Rows[i]["data_saida"]),
-                   Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
-                   Convert.ToDateTime(dt.Rows[i]["data_requerida"]),
-                          DB.get((int)dt.Rows[i]["transportadora"]));
-
+                    try
+                    {
+                        r = new Remessa((int)dt.Rows[i]["id"],
+                                         dt.Rows[i]["descricao"].ToString(),
+                                         dt.Rows[i]["origem"].ToString(),
+                                         dt.Rows[i]["destino"].ToString(),
+                      Convert.ToDateTime(dt.Rows[i]["data_saida"]),
+                      Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
+                      Convert.ToDateTime(dt.Rows[i]["data_requerida"]),
+                             DB.get((int)dt.Rows[i]["transportadora"]));
+                    }
+                    catch (Exception ex)
+                    {
+                        r = new Remessa((int)dt.Rows[i]["id"],
+                                         dt.Rows[i]["descricao"].ToString(),
+                                         dt.Rows[i]["origem"].ToString(),
+                                         dt.Rows[i]["destino"].ToString(),
+                      Convert.ToDateTime(dt.Rows[i]["data_saida"]),
+                      Convert.ToDateTime(dt.Rows[i]["previsao_requerida"]),
+                             DB.get((int)dt.Rows[i]["transportadora"]));
+                    }
                     list.Add(r);
                 }
             }
             banco.Disconnect();
             return list;
         }
-
+        public int MAX()
+        {
+            int aux = 0;
+            DataTable data = new DataTable();
+            string SQL = @"SELECT MAX(id) AS aux FROM Remessa";
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out data);
+            if (data.Rows.Count > 0)
+                aux = (int)data.Rows[0]["aux"];
+            banco.Disconnect();
+            return aux;
+        }
     }
 }

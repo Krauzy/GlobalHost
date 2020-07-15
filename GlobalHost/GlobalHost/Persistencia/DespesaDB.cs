@@ -44,9 +44,15 @@ namespace GlobalHost.Persistencia
             if (obj.GetType() == typeof(Despesa))
             {
                 Despesa d = (Despesa)obj;
+<<<<<<< HEAD
                 string SQL = @"UPDATE Cliente SET descricao=@descricao, tipo=@tipo, estado=@estado";
                 banco.Connect();
                 result = banco.ExecuteNonQuery(SQL, "@descricao", d.Descricao, "@tipo", d.Tipo, "@estado", d.Estado);
+=======
+                string SQL = @"UPDATE Despesa SET descricao=@descricao, tipo=@tipo, estado=@estado where ID=@ID";
+                banco.Connect();
+                result = banco.ExecuteNonQuery(SQL, "@descricao", d.Descricao, "@tipo", d.Tipo, "@estado", d.Estado,"@ID",d.Id);
+>>>>>>> old-state
             }
             return result;
         }
@@ -71,7 +77,10 @@ namespace GlobalHost.Persistencia
             banco.Disconnect();
             return d;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> old-state
         public List<object> getAll()
         {
             List<object> list = new List<object>();
@@ -94,5 +103,39 @@ namespace GlobalHost.Persistencia
             banco.Disconnect();
             return list;
         }
+<<<<<<< HEAD
+=======
+        public List<object> getNotPaga()
+        {
+            List<object> list = new List<object>();
+            DataTable dt = new DataTable();
+            string SQL = @"SELECT * FROM Despesa WHERE estado <> 'PAGO'";
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out dt);
+            if (dt.Rows.Count > 0)
+            {
+                Despesa d;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    d = new Despesa((int)dt.Rows[i]["id"],
+                                    dt.Rows[i]["descricao"].ToString(),
+                                    dt.Rows[i]["tipo"].ToString(),
+                                    dt.Rows[i]["estado"].ToString());
+                    list.Add(d);
+                }
+            }
+            banco.Disconnect();
+            return list;
+        }
+        public int getIdentity()
+        {
+            string SQL = @"SELECT IDENT_CURRENT('Despesa')";
+            DataTable dt = new DataTable();
+            banco.Connect();
+            banco.ExecuteQuery(SQL, out dt);
+            banco.Disconnect();
+            return Convert.ToInt32(dt.Rows[0][0]);
+        }
+>>>>>>> old-state
     }
 }

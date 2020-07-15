@@ -40,6 +40,7 @@ namespace GlobalHost.Modelo
             this.cliente = cliente;
             this.funcionario = funcionario;
             this.remessa = remessa;
+            this.autorizacao = autorizacao;
         }
 
         public Pedido(int id, DateTime data, string modalidade, string origem, string destino, string despachante, string situacao, Cliente cliente, Funcionario funcionario)
@@ -53,6 +54,7 @@ namespace GlobalHost.Modelo
             this.situacao = situacao;
             this.cliente = cliente;
             this.funcionario = funcionario;
+            this.autorizacao = autorizacao;
         }
 
         public Pedido(DateTime data, string modalidade, string origem, string destino, string despachante, string situacao, Cliente cliente, Funcionario funcionario)
@@ -65,6 +67,7 @@ namespace GlobalHost.Modelo
             this.situacao = situacao;
             this.cliente = cliente;
             this.funcionario = funcionario;
+            this.autorizacao = autorizacao;
         }
 
         public int Id { get => id; set => id = value; }

@@ -283,6 +283,16 @@ namespace GlobalHost.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pic02 {
+            get {
+                object obj = ResourceManager.GetObject("pic02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user100 {
             get {
                 object obj = ResourceManager.GetObject("user100", resourceCulture);

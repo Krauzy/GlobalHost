@@ -52,6 +52,31 @@ namespace GlobalHost.Modelo
             this.email = email;
             this.login = login;
         }
+        public Funcionario(string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao,  string telefone, string email, Login login)
+        {
+            this.nome = nome;
+            this.dtnascimento = dtnascimento;
+            this.cpf = cpf;
+            this.salario = salario;
+            this.endereco = endereco;
+            this.dtadmissao = dtadmissao;
+            this.telefone = telefone;
+            this.email = email;
+            this.login = login;
+        }
+        public Funcionario(int id, string nome, DateTime dtnascimento, string cpf, double salario, string endereco, DateTime dtadmissao, string telefone, string email, Login login)
+        {
+            this.id = id;
+            this.nome = nome;
+            this.dtnascimento = dtnascimento;
+            this.cpf = cpf;
+            this.salario = salario;
+            this.endereco = endereco;
+            this.dtadmissao = dtadmissao;
+            this.telefone = telefone;
+            this.email = email;
+            this.login = login;
+        }
 
         public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }

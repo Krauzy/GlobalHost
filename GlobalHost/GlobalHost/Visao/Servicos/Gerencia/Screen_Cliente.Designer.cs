@@ -28,20 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label11 = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
-            this.dgvFuncionario = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_cpf_cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpNascimento = new System.Windows.Forms.DateTimePicker();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -65,7 +58,15 @@
             this.mtbCPF_CNPJ = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.mtbCEP = new System.Windows.Forms.MaskedTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
+            this.rbCPF = new System.Windows.Forms.RadioButton();
+            this.rbCNPJ = new System.Windows.Forms.RadioButton();
+            this.txtBairro = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtNum = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dgvCliente = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // label11
@@ -98,112 +99,14 @@
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Items.AddRange(new object[] {
             "Nome",
-            "Endereço",
+            "Endereco",
             "Telefone",
             "E-mail",
-            "CPF/CNPJ",
-            "E-mail"});
+            "CPF/CNPJ"});
             this.cbFiltro.Location = new System.Drawing.Point(849, 133);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(149, 24);
             this.cbFiltro.TabIndex = 106;
-            // 
-            // dgvFuncionario
-            // 
-            this.dgvFuncionario.AllowUserToAddRows = false;
-            this.dgvFuncionario.AllowUserToResizeRows = false;
-            this.dgvFuncionario.BackgroundColor = System.Drawing.Color.White;
-            this.dgvFuncionario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            this.dgvFuncionario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFuncionario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFuncionario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.nome,
-            this.valor,
-            this.col_cpf_cnpj,
-            this.contato,
-            this.cnpj,
-            this.tipo});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFuncionario.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dgvFuncionario.EnableHeadersVisualStyles = false;
-            this.dgvFuncionario.Location = new System.Drawing.Point(659, 180);
-            this.dgvFuncionario.Name = "dgvFuncionario";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFuncionario.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
-            this.dgvFuncionario.RowHeadersVisible = false;
-            this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFuncionario.Size = new System.Drawing.Size(339, 357);
-            this.dgvFuncionario.TabIndex = 104;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 50;
-            // 
-            // nome
-            // 
-            this.nome.DataPropertyName = "nome";
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            this.nome.Width = 150;
-            // 
-            // valor
-            // 
-            this.valor.DataPropertyName = "dtNascimento";
-            this.valor.HeaderText = "Data de Nascimento";
-            this.valor.Name = "valor";
-            this.valor.Width = 75;
-            // 
-            // col_cpf_cnpj
-            // 
-            this.col_cpf_cnpj.DataPropertyName = "cpf_cnpj";
-            this.col_cpf_cnpj.HeaderText = "CPF/CNPJ";
-            this.col_cpf_cnpj.Name = "col_cpf_cnpj";
-            this.col_cpf_cnpj.Width = 120;
-            // 
-            // contato
-            // 
-            this.contato.DataPropertyName = "endereco";
-            this.contato.HeaderText = "Endereco";
-            this.contato.Name = "contato";
-            this.contato.Width = 250;
-            // 
-            // cnpj
-            // 
-            this.cnpj.DataPropertyName = "telefone";
-            this.cnpj.HeaderText = "Telefone";
-            this.cnpj.Name = "cnpj";
-            this.cnpj.Width = 150;
-            // 
-            // tipo
-            // 
-            this.tipo.DataPropertyName = "email";
-            this.tipo.HeaderText = "E-mail";
-            this.tipo.Name = "tipo";
             // 
             // dtpNascimento
             // 
@@ -215,11 +118,10 @@
             // txtTelefone
             // 
             this.txtTelefone.BeepOnError = true;
-            this.txtTelefone.Enabled = false;
             this.txtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtTelefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtTelefone.HidePromptOnLeave = true;
-            this.txtTelefone.Location = new System.Drawing.Point(462, 243);
+            this.txtTelefone.Location = new System.Drawing.Point(457, 373);
             this.txtTelefone.Mask = "(99) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(136, 22);
@@ -231,19 +133,18 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label13.Location = new System.Drawing.Point(458, 221);
+            this.label13.Location = new System.Drawing.Point(453, 351);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(79, 20);
+            this.label13.Size = new System.Drawing.Size(86, 20);
             this.label13.TabIndex = 98;
-            this.label13.Text = "Telefone";
+            this.label13.Text = "Telefone*";
             // 
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.Enabled = false;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txtEmail.Location = new System.Drawing.Point(52, 301);
+            this.txtEmail.Location = new System.Drawing.Point(52, 373);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtEmail.Size = new System.Drawing.Size(378, 22);
@@ -255,11 +156,11 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label9.Location = new System.Drawing.Point(48, 278);
+            this.label9.Location = new System.Drawing.Point(48, 350);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 20);
+            this.label9.Size = new System.Drawing.Size(66, 20);
             this.label9.TabIndex = 97;
-            this.label9.Text = "E-mail";
+            this.label9.Text = "E-mail*";
             // 
             // label8
             // 
@@ -268,14 +169,13 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label8.Location = new System.Drawing.Point(295, 166);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(92, 20);
+            this.label8.Size = new System.Drawing.Size(99, 20);
             this.label8.TabIndex = 96;
-            this.label8.Text = "CPF/CNPJ";
+            this.label8.Text = "CPF/CNPJ*";
             // 
             // txtEndereco
             // 
             this.txtEndereco.BackColor = System.Drawing.Color.White;
-            this.txtEndereco.Enabled = false;
             this.txtEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEndereco.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtEndereco.Location = new System.Drawing.Point(52, 243);
@@ -292,9 +192,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label7.Location = new System.Drawing.Point(48, 220);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 20);
+            this.label7.Size = new System.Drawing.Size(93, 20);
             this.label7.TabIndex = 95;
-            this.label7.Text = "Endereço";
+            this.label7.Text = "Endereço*";
             // 
             // label5
             // 
@@ -303,14 +203,13 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label5.Location = new System.Drawing.Point(48, 165);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 20);
+            this.label5.Size = new System.Drawing.Size(179, 20);
             this.label5.TabIndex = 88;
-            this.label5.Text = "Data de Nascimento";
+            this.label5.Text = "Data de Nascimento*";
             // 
             // txtNome
             // 
             this.txtNome.BackColor = System.Drawing.Color.White;
-            this.txtNome.Enabled = false;
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtNome.Location = new System.Drawing.Point(187, 135);
@@ -327,9 +226,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.label4.Location = new System.Drawing.Point(183, 112);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 20);
+            this.label4.Size = new System.Drawing.Size(62, 20);
             this.label4.TabIndex = 87;
-            this.label4.Text = "Nome";
+            this.label4.Text = "Nome*";
             // 
             // txtID
             // 
@@ -483,7 +382,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.label6.Location = new System.Drawing.Point(461, 278);
+            this.label6.Location = new System.Drawing.Point(453, 280);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 20);
             this.label6.TabIndex = 110;
@@ -491,12 +390,131 @@
             // 
             // mtbCEP
             // 
-            this.mtbCEP.Location = new System.Drawing.Point(465, 303);
-            this.mtbCEP.Mask = "__.___-___";
+            this.mtbCEP.Location = new System.Drawing.Point(457, 303);
+            this.mtbCEP.Mask = "00.000-00";
             this.mtbCEP.Name = "mtbCEP";
-            this.mtbCEP.Size = new System.Drawing.Size(133, 20);
+            this.mtbCEP.Size = new System.Drawing.Size(136, 20);
             this.mtbCEP.TabIndex = 111;
             this.mtbCEP.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtbCEP_MaskInputRejected);
+            // 
+            // rbCPF
+            // 
+            this.rbCPF.AutoSize = true;
+            this.rbCPF.Location = new System.Drawing.Point(401, 168);
+            this.rbCPF.Name = "rbCPF";
+            this.rbCPF.Size = new System.Drawing.Size(45, 17);
+            this.rbCPF.TabIndex = 112;
+            this.rbCPF.TabStop = true;
+            this.rbCPF.Text = "CPF";
+            this.rbCPF.UseVisualStyleBackColor = true;
+            this.rbCPF.CheckedChanged += new System.EventHandler(this.rbCPF_CheckedChanged);
+            // 
+            // rbCNPJ
+            // 
+            this.rbCNPJ.AutoSize = true;
+            this.rbCNPJ.Location = new System.Drawing.Point(460, 168);
+            this.rbCNPJ.Name = "rbCNPJ";
+            this.rbCNPJ.Size = new System.Drawing.Size(52, 17);
+            this.rbCNPJ.TabIndex = 113;
+            this.rbCNPJ.TabStop = true;
+            this.rbCNPJ.Text = "CNPJ";
+            this.rbCNPJ.UseVisualStyleBackColor = true;
+            this.rbCNPJ.CheckedChanged += new System.EventHandler(this.rbCNPJ_CheckedChanged);
+            // 
+            // txtBairro
+            // 
+            this.txtBairro.BackColor = System.Drawing.Color.White;
+            this.txtBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBairro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtBairro.Location = new System.Drawing.Point(52, 303);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtBairro.Size = new System.Drawing.Size(378, 22);
+            this.txtBairro.TabIndex = 114;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label10.Location = new System.Drawing.Point(48, 280);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 20);
+            this.label10.TabIndex = 115;
+            this.label10.Text = "Bairro";
+            // 
+            // txtNum
+            // 
+            this.txtNum.BackColor = System.Drawing.Color.White;
+            this.txtNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txtNum.Location = new System.Drawing.Point(457, 243);
+            this.txtNum.Name = "txtNum";
+            this.txtNum.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtNum.Size = new System.Drawing.Size(136, 22);
+            this.txtNum.TabIndex = 116;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.label12.Location = new System.Drawing.Point(453, 220);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(27, 20);
+            this.label12.TabIndex = 117;
+            this.label12.Text = "N°";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // dgvCliente
+            // 
+            this.dgvCliente.AllowUserToAddRows = false;
+            this.dgvCliente.AllowUserToDeleteRows = false;
+            this.dgvCliente.AllowUserToResizeRows = false;
+            this.dgvCliente.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCliente.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvCliente.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCliente.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCliente.EnableHeadersVisualStyles = false;
+            this.dgvCliente.Location = new System.Drawing.Point(659, 180);
+            this.dgvCliente.MultiSelect = false;
+            this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCliente.RowHeadersVisible = false;
+            this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCliente.Size = new System.Drawing.Size(339, 357);
+            this.dgvCliente.TabIndex = 104;
+            this.dgvCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellContentClick);
+            this.dgvCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellContentClick);
+            this.dgvCliente.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellContentClick);
             // 
             // Screen_Cliente
             // 
@@ -504,13 +522,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1031, 562);
+            this.Controls.Add(this.txtNum);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtBairro);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.rbCNPJ);
+            this.Controls.Add(this.rbCPF);
             this.Controls.Add(this.mtbCEP);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.mtbCPF_CNPJ);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.cbFiltro);
-            this.Controls.Add(this.dgvFuncionario);
+            this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.dtpNascimento);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.label13);
@@ -534,7 +558,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Screen_Cliente";
             this.Text = "Screen_Cliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -545,7 +569,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtBusca;
         private System.Windows.Forms.ComboBox cbFiltro;
-        private System.Windows.Forms.DataGridView dgvFuncionario;
         private System.Windows.Forms.DateTimePicker dtpNascimento;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.Label label13;
@@ -566,15 +589,16 @@
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_cpf_cnpj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contato;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cnpj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
         private System.Windows.Forms.MaskedTextBox mtbCPF_CNPJ;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.MaskedTextBox mtbCEP;
+        private System.Windows.Forms.RadioButton rbCPF;
+        private System.Windows.Forms.RadioButton rbCNPJ;
+        private System.Windows.Forms.TextBox txtBairro;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtNum;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridView dgvCliente;
     }
 }

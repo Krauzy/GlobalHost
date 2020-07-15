@@ -94,15 +94,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controlador\Controle_AbrirFrete.cs" />
     <Compile Include="Controlador\Controle_Carga.cs" />
     <Compile Include="Controlador\Controle_ContasPagar.cs" />
+    <Compile Include="Controlador\Controle_ContasReceber.cs" />
     <Compile Include="Controlador\Controle_Despesa.cs" />
     <Compile Include="Controlador\Controle_Funcionario.cs" />
     <Compile Include="Controlador\Controle_Login.cs" />
+    <Compile Include="Controlador\Controle_Orcamento.cs" />
     <Compile Include="Controlador\Controle_Parametro.cs" />
     <Compile Include="Controlador\Controle_Cliente.cs" />
     <Compile Include="Controlador\Controle_Pedido.cs" />
     <Compile Include="Controlador\Controle_Remessa.cs" />
+    <Compile Include="Controlador\Controle_Taxa.cs" />
     <Compile Include="Controlador\Controle_TipoCarga.cs" />
     <Compile Include="Controlador\Controle_TipoTransporte.cs" />
     <Compile Include="Controlador\Controle_Transportadora.cs" />
@@ -126,6 +130,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GlobalDBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GlobalDBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlobalDBDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Carga.cs" />
     <Compile Include="Modelo\Cliente.cs" />
     <Compile Include="Modelo\Contas_Pagar.cs" />
@@ -139,10 +148,12 @@
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Recebimento.cs" />
     <Compile Include="Modelo\Remessa.cs" />
+    <Compile Include="Modelo\Taxa.cs" />
     <Compile Include="Modelo\Tipo_Carga.cs" />
     <Compile Include="Modelo\Tipo_Transporte.cs" />
     <Compile Include="Modelo\Transportadora.cs" />
     <Compile Include="Modelo\Transporte.cs" />
+    <Compile Include="Persistencia\AbrirFreteDB.cs" />
     <Compile Include="Persistencia\Banco.cs" />
     <Compile Include="Persistencia\CargaDB.cs" />
     <Compile Include="Persistencia\ContasPagarDB.cs" />
@@ -154,6 +165,7 @@
     <Compile Include="Persistencia\ParametrosDB.cs" />
     <Compile Include="Persistencia\PedidoDB.cs" />
     <Compile Include="Persistencia\RemessaDB.cs" />
+    <Compile Include="Persistencia\TaxaDB.cs" />
     <Compile Include="Persistencia\Tipo_CargaDB.cs" />
     <Compile Include="Persistencia\Tipo_TransporteDB.cs" />
     <Compile Include="Persistencia\TransportadoraDB.cs" />
@@ -207,11 +219,23 @@
     <Compile Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.Designer.cs">
       <DependentUpon>Screen_Pedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visao\Servicos\Funcoes\ScreenRealizarPagamento.cs">
+    <Compile Include="Visao\Servicos\Funcoes\Despesas\ScreenRealizarPagamento.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visao\Servicos\Funcoes\ScreenRealizarPagamento.Designer.cs">
+    <Compile Include="Visao\Servicos\Funcoes\Despesas\ScreenRealizarPagamento.Designer.cs">
       <DependentUpon>ScreenRealizarPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Screen_AbrirFrete.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Screen_AbrirFrete.Designer.cs">
+      <DependentUpon>Screen_AbrirFrete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Despesas\Screen_LancarDespesa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visao\Servicos\Funcoes\Despesas\Screen_LancarDespesa.Designer.cs">
+      <DependentUpon>Screen_LancarDespesa.cs</DependentUpon>
     </Compile>
     <Compile Include="Visao\Servicos\Funcoes\Screen_Orcamento.cs">
       <SubType>UserControl</SubType>
@@ -295,8 +319,14 @@
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Pedido\Screen_Pedido.resx">
       <DependentUpon>Screen_Pedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visao\Servicos\Funcoes\ScreenRealizarPagamento.resx">
+    <EmbeddedResource Include="Visao\Servicos\Funcoes\Despesas\ScreenRealizarPagamento.resx">
       <DependentUpon>ScreenRealizarPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_AbrirFrete.resx">
+      <DependentUpon>Screen_AbrirFrete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\Servicos\Funcoes\Despesas\Screen_LancarDespesa.resx">
+      <DependentUpon>Screen_LancarDespesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\Servicos\Funcoes\Screen_Orcamento.resx">
       <DependentUpon>Screen_Orcamento.cs</DependentUpon>
@@ -390,6 +420,17 @@
     </None>
     <None Include="GlobalDBDataSet1.xss">
       <DependentUpon>GlobalDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GlobalDBDataSet2.xsc">
+      <DependentUpon>GlobalDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GlobalDBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GlobalDBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GlobalDBDataSet2.xss">
+      <DependentUpon>GlobalDBDataSet2.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -494,6 +535,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GlobalDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\pic02.png" />
     <None Include="Resources\bba.png" />
     <None Include="Resources\icons8-atualizações-disponíveis-18.png" />
     <None Include="Resources\icons8-visível-18.png" />

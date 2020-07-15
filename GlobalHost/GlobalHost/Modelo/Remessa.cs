@@ -17,6 +17,11 @@ namespace GlobalHost.Modelo
         private DateTime requerimento;
         private Transportadora transportadora;
 
+        public Remessa(int id)
+        {
+            this.id = id;
+        }
+
         public Remessa(int id, string descricao, string origem, string destino, DateTime saida, DateTime previsao, DateTime requerimento, Transportadora transportadora)
         {
             this.id = id;

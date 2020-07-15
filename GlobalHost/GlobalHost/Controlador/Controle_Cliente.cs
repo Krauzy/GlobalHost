@@ -71,5 +71,38 @@ namespace GlobalHost.Controlador
             }
             return table;
         }
+        public static DataTable getByFilter(string atrib, string valor)
+        {
+            ClienteDB DB = new ClienteDB();
+            DataTable table = new DataTable();
+           List<object> list = new List<object>();
+            if (valor.Length > 0)
+                list = DB.getByFilter(atrib,valor);
+            else
+                list = DB.getAll();
+            table.Columns.Add("id", typeof(int));
+            table.Columns.Add("nome", typeof(string));
+            table.Columns.Add("endereco", typeof(string));
+            table.Columns.Add("dtnascimento", typeof(DateTime));
+            table.Columns.Add("cpf_cnpj", typeof(string));
+            table.Columns.Add("cep", typeof(string));
+            table.Columns.Add("email", typeof(string));
+            table.Columns.Add("telefone", typeof(string));
+            foreach (var item in list)
+            {
+                DataRow linha = table.NewRow();
+                Cliente aux = (Cliente)item;
+                linha["id"] = aux.Id;
+                linha["nome"] = aux.Nome;
+                linha["endereco"] = aux.Endereco;
+                linha["dtnascimento"] = aux.Dtnascimento;
+                linha["cpf_cnpj"] = aux.Cpf_cnpj;
+                linha["cep"] = aux.Cep;
+                linha["email"] = aux.Email;
+                linha["telefone"] = aux.Telefone;
+                table.Rows.Add(linha);
+            }
+            return table;
+        }
     }
 }

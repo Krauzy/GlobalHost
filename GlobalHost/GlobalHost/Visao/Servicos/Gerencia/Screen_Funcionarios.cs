@@ -20,6 +20,7 @@ namespace GlobalHost.Visao.Servicos
         private DataTable data;
         private int ID;
         private double V;
+        private double sal;
 
         public Screen_Funcionarios()
         {
@@ -40,6 +41,8 @@ namespace GlobalHost.Visao.Servicos
             dtpAdmissao.Enabled = false;
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
+            checkBox1.Enabled = false;
+
 
             dgvFuncionario.DataSource = Controle_Funcionario.get("");
         }
@@ -86,11 +89,11 @@ namespace GlobalHost.Visao.Servicos
             txtNome.Enabled = true;
             txtTelefone.Enabled = true;
             dtpAdmissao.Enabled = true;
-            dtpDemissao.Enabled = true;
             dtpNascimento.Enabled = true;
             txtLogin.Enabled = true;
             mtbSenha.Enabled = true;
             cbNivel.Enabled = true;
+            checkBox1.Enabled = true;
             insere = true;
             altera = false;
             exclui = false;
@@ -113,11 +116,11 @@ namespace GlobalHost.Visao.Servicos
             txtNome.Enabled = true;
             txtTelefone.Enabled = true;
             dtpAdmissao.Enabled = true;
-            dtpDemissao.Enabled = true;
             dtpNascimento.Enabled = true;
             txtLogin.Enabled = true;
             mtbSenha.Enabled = true;
             cbNivel.Enabled = true;
+            checkBox1.Enabled = true;
             insere = false;
             altera = true;
             exclui = false;
@@ -145,6 +148,7 @@ namespace GlobalHost.Visao.Servicos
             txtLogin.Enabled = false;
             mtbSenha.Enabled = false;
             cbNivel.Enabled = false;
+            checkBox1.Enabled = false;
             insere = false;
             altera = false;
             exclui = true;
@@ -152,47 +156,73 @@ namespace GlobalHost.Visao.Servicos
             btnOk.Enabled = true;
             btnCancelar.Enabled = true;
         }
-
-        private void btnOk_Click(object sender, EventArgs e)
+        public bool check()
         {
-            int nivel = 0;
-            if (cbNivel.SelectedIndex == 1)
-                nivel = 1;
-          
             bool result_CPF = API.Validate.CPF(mtbCPF.Text);
-            if (insere == true)
+            if (txtNome.Text == string.Empty)
             {
-                if (txtNome.Text != string.Empty && mtbCPF.Text != string.Empty && txtSalario.Text != string.Empty
-                    && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
-                    && dtpAdmissao.Text != string.Empty && dtpDemissao.Text != string.Empty && dtpNascimento.Text != string.Empty && result_CPF && txtLogin.Text != string.Empty && mtbSenha.Text != string.Empty)
-                {
-                    if (!Controle_Funcionario.insert(txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, mtbSenha.Text, nivel))
-                        MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-                else
-                    MessageBox.Show("Preencha todos os campos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Campo NOME vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            else if (altera == true)
+            else if (dtpNascimento.Value >= DateTime.Now)
             {
-                if (txtNome.Text != string.Empty && mtbCPF.Text != string.Empty && txtSalario.Text != string.Empty
-                    && txtEndereco.Text != string.Empty && txtEmail.Text != string.Empty && txtTelefone.Text != string.Empty
-                    && dtpAdmissao.Text != string.Empty && dtpDemissao.Text != string.Empty && dtpNascimento.Text != string.Empty && result_CPF && txtLogin.Text != string.Empty && mtbSenha.Text != string.Empty)
-                {
-                    if (!Controle_Funcionario.update(Convert.ToInt32(txtID.Text),txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, mtbSenha.Text, nivel))
-                        MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Data de NASCIMENTO inválida!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            else if (exclui == true)
+            else if (mtbCPF.Text == string.Empty)
             {
-                if (txtID.Text != string.Empty)
-                {
-                    string n = Controle_Funcionario.get(ID).Rows[0]["nome"].ToString();
-                    if (!Controle_Funcionario.delete(ID))
-                        MessageBox.Show("Falha ao exluir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Campo SENHA vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-
+            else if (!result_CPF)
+            {
+                MessageBox.Show("CPF INVÁLIDO!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (txtEndereco.Text == string.Empty)
+            {
+                MessageBox.Show("Campo ENDEREÇO vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (txtTelefone.Text == string.Empty)
+            {
+                MessageBox.Show("Campo TELEFONE vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (txtEmail.Text == string.Empty)
+            {
+                MessageBox.Show("Campo E MAIL vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (txtSalario.Text == string.Empty && Convert.ToDouble(txtSalario.Text)>0)
+            {
+                MessageBox.Show("Campo SALÁRIO vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (dtpAdmissao.Value <= DateTime.Now)
+            {
+                MessageBox.Show("Data de ADMISSÃO inferior ao dia corrente!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (txtLogin.Text == string.Empty)
+            {
+                MessageBox.Show("Campo LOGIN vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (mtbSenha.Text == string.Empty)
+            {
+                MessageBox.Show("Campo SENHA vazio!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (cbNivel.SelectedIndex < 0)
+            {
+                MessageBox.Show("Selecione seu NÍVEL DE ACESSO!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+        public void _default()
+        {
             insere = false;
             altera = false;
             exclui = false;
@@ -201,7 +231,7 @@ namespace GlobalHost.Visao.Servicos
             cbFiltro.SelectedIndex = 0;
             cbNivel.SelectedIndex = 0;
             cbNivel.Enabled = false;
-           
+
             txtID.Enabled = false;
             txtSalario.Enabled = false;
             mtbCPF.Enabled = false;
@@ -214,6 +244,7 @@ namespace GlobalHost.Visao.Servicos
             dtpAdmissao.Enabled = false;
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
+            checkBox1.Enabled = false;
 
             txtID.Text = string.Empty;
             txtNome.Text = string.Empty;
@@ -225,17 +256,87 @@ namespace GlobalHost.Visao.Servicos
             txtLogin.Text = string.Empty;
             mtbSenha.Text = string.Empty;
             mtbCPF.Text = string.Empty;
-            
+
             dtpAdmissao.Text = string.Empty;
             dtpDemissao.Text = string.Empty;
             dtpNascimento.Text = string.Empty;
 
             btnOk.Enabled = false;
             btnCancelar.Enabled = false;
-
             data = Controle_Funcionario.get("");
             dgvFuncionario.DataSource = data;
+        }
 
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            int nivel = 0;
+            if (cbNivel.SelectedIndex == 1)
+                nivel = 1;
+            
+          
+            bool result_CPF = API.Validate.CPF(mtbCPF.Text);
+            if (insere == true)
+            {
+                if(check())
+                {
+                    if (checkBox1.Enabled)
+                    {
+                        if (!Controle_Funcionario.insert(txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, mtbSenha.Text, nivel))
+                            MessageBox.Show("Falha ao inserir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            _default();
+                    }
+                    else
+                    {
+                        if (!Controle_Funcionario.insertSemDemissao(txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, mtbSenha.Text, nivel))
+                            MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            _default();
+                    }
+                }
+            }
+            else if (altera == true)
+            {
+                if(check())
+                {
+                    if (checkBox1.Enabled)
+                    {
+                        if (!Controle_Funcionario.update(Convert.ToInt32(txtID.Text), txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, (DateTime)dtpDemissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, mtbSenha.Text, nivel))
+                            MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            _default();
+                    }
+                    else
+                    {
+                        if (!Controle_Funcionario.updateSemDemissao(Convert.ToInt32(txtID.Text), txtNome.Text, (DateTime)dtpNascimento.Value, mtbCPF.Text, Convert.ToDouble(txtSalario.Text), txtEndereco.Text, (DateTime)dtpAdmissao.Value, txtTelefone.Text, txtEmail.Text, txtLogin.Text, mtbSenha.Text, nivel))
+                            MessageBox.Show("Falha ao alterar " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            _default();
+                    }         
+                }
+            }
+            else if (exclui == true)
+            {
+                if (txtID.Text != string.Empty)
+                {
+                    string n = Controle_Funcionario.get(ID).Rows[0]["nome"].ToString();
+                    int log = ((Login)Controle_Funcionario.get(ID).Rows[0]["login"]).Id;                
+                    if (!Controle_Funcionario.delete(ID))
+                        MessageBox.Show("Falha ao exluir " + txtNome.Text + 
+                            "! Não pode ser excluido um funcionário que tenha registrado um pedido recentemente!",
+                            "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        if(MessageBox.Show("Deseja realmente excluir este funcionário?","ATENÇÃO",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+                        {
+                           if (!Controle_Login.delete(log))
+                               MessageBox.Show("Falha ao exluir " + txtNome.Text + "!", "Falha de operação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                           else
+                               _default();
+                        }     
+                    }
+                }
+            }
             this.ActiveControl = null;
         }
 
@@ -294,6 +395,7 @@ namespace GlobalHost.Visao.Servicos
             dtpAdmissao.Enabled = false;
             dtpDemissao.Enabled = false;
             dtpNascimento.Enabled = false;
+            checkBox1.Enabled = false;
 
             txtID.Text = string.Empty;
             txtNome.Text = string.Empty;
@@ -330,6 +432,11 @@ namespace GlobalHost.Visao.Servicos
                 dtpDemissao.Value = Convert.ToDateTime(dgvFuncionario.SelectedRows[0].Cells["dtDemissao"].Value);
                 txtTelefone.Text = dgvFuncionario.SelectedRows[0].Cells["telefone"].Value.ToString();
                 txtEmail.Text = dgvFuncionario.SelectedRows[0].Cells["email"].Value.ToString();
+
+                int log = ((Login)(Controle_Funcionario.get("id = " + int.Parse(txtID.Text)).Rows[0]["login"])).Id;
+                txtLogin.Text = Controle_Login.get(log).Usuario;
+                mtbSenha.Text = Controle_Login.get(log).Senha;
+                cbNivel.SelectedIndex = Controle_Login.get(log).Nivel;
             }
         }
 
@@ -382,6 +489,20 @@ namespace GlobalHost.Visao.Servicos
             ex.ShowDialog();
             if (!ex.IsCancel)
                 txtEndereco.Text = ex.Str;
+        }
+
+        private void txtSalario_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSalario.Text != string.Empty)
+            {
+                txtSalario.Text = API.Validate.MONEY(txtSalario.Text);
+                sal = Convert.ToDouble(txtSalario.Text);
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpDemissao.Enabled = checkBox1.Checked;
         }
     }    
 }

@@ -14,6 +14,9 @@ namespace GlobalHost.Modelo
         private Orcamento orcamento;
         private Remessa remessa;
 
+        public Frete ()
+        {}
+
         public Frete(int id, double total, string situacao, Orcamento orcamento, Remessa remessa)
         {
             this.id = id;

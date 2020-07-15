@@ -29,7 +29,10 @@ namespace GlobalHost.Controlador
 
         public static bool delete(int id)
         {
+            PedidoDB pdb = new PedidoDB();
+            pdb.UpdatePorRemessa(id);
             RemessaDB DB = new RemessaDB();
+           
             return DB.Delete(id);
         }
 
@@ -67,6 +70,7 @@ namespace GlobalHost.Controlador
                 linha["id"] = r.Id;
                 linha["descricao"] = r.Descricao;
                 linha["origem"] = r.Origem;
+                linha["destino"] = r.Origem;
                 linha["data_saida"] = r.Saida;
                 linha["previsao_requerida"] = r.Previsao;
                 linha["data_requerida"] = r.Requerimento;
@@ -76,6 +80,12 @@ namespace GlobalHost.Controlador
 
 
             return table;
+        }
+
+        public static int MAX()
+        {
+            RemessaDB db = new RemessaDB();
+            return db.MAX();
         }
     }
 }

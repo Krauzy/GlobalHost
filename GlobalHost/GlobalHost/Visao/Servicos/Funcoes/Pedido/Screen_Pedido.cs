@@ -13,6 +13,8 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         private bool alt;
         private bool exc;
 
+        private int aux;
+
         private int id;
 
         private int cont;
@@ -21,14 +23,12 @@ namespace GlobalHost.Visao.Servicos.Funcoes
         public Screen_Pedido()
         {
             id = 0;
+            aux = 0;
             InitializeComponent();
             cont = 0;
             cbCliente.DataSource = Controle_Cliente.get("");
             cbCliente.DisplayMember = "nome";
             cbCliente.ValueMember = "id";
-            cbCliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbCliente.SelectedItem = null;
             cbCliente.Text = string.Empty;
             cbFiltroCarga.SelectedIndex = 0;
             cbFiltroPedido.SelectedIndex = 0;
@@ -43,6 +43,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             DataCarga.Columns.Add("valor_unitario", typeof(double));
             DataCarga.Columns.Add("valor", typeof(double));
             DataCarga.Columns.Add("tipo", typeof(string));
+
+            dotOrder.Visible = false;
+            dotID.Visible = false;
+            dotCliente.Visible = false;
+            dotDestino.Visible = false;
+            dotModalidade.Visible = false;
+            dotOrigem.Visible = false;
         }
 
         private void changebool()
@@ -88,6 +95,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             rdExclusivo.Enabled = true;
             rdExpresso.Enabled = true;
 
+            dotOrder.Visible = true;
+            dotID.Visible = false;
+            dotCliente.Visible = true;
+            dotDestino.Visible = true;
+            dotModalidade.Visible = true;
+            dotOrigem.Visible = true;
+
             ins = true;
             alt = false;
             exc = false;
@@ -114,6 +128,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             btUpdate.Enabled = true;
             rdExclusivo.Enabled = true;
             rdExpresso.Enabled = true;
+
+            dotOrder.Visible = true;
+            dotID.Visible = true;
+            dotCliente.Visible = true;
+            dotDestino.Visible = true;
+            dotModalidade.Visible = true;
+            dotOrigem.Visible = true;
 
             ins = false;
             alt = true;
@@ -145,7 +166,14 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             btUpdate.Enabled = false;
             rdExclusivo.Enabled = false;
             rdExpresso.Enabled = false;
-            dgvCarga.Rows.Clear();
+            //dgvCarga.Rows.Clear();
+
+            dotOrder.Visible = true;
+            dotID.Visible = true;
+            dotCliente.Visible = false;
+            dotDestino.Visible = false;
+            dotModalidade.Visible = false;
+            dotOrigem.Visible = false;
 
             ins = false;
             alt = false;
@@ -196,6 +224,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             rdExclusivo.Enabled = false;
             rdExpresso.Enabled = false;
 
+            dotOrder.Visible = false;
+            dotID.Visible = false;
+            dotCliente.Visible = false;
+            dotDestino.Visible = false;
+            dotModalidade.Visible = false;
+            dotOrigem.Visible = false;
+
             dgvCarga.Rows.Clear();
 
             ins = false;
@@ -218,7 +253,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 linha["dimensoes"] = dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value;
                 linha["valor_unitario"] = dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value;
                 linha["valor"] = dgvCarga.Rows[i].Cells["Carga_Valor"].Value;
-                linha["tipo"] = Controle_TipoCarga.get("descricao LIKE '%" + dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString() + "%'").Rows[0];
+                linha["tipo"] = dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString();//Controle_TipoCarga.get("descricao LIKE '%" + dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString() + "%'").Rows[0];
                 DataCarga.Rows.Add(linha);
             }
         }
@@ -243,13 +278,21 @@ namespace GlobalHost.Visao.Servicos.Funcoes
 
         private void btMais_Click(object sender, EventArgs e)
         {
+            if (aux == 0)
+            {
+                DataCarga.Rows.Clear();
+                aux++;
+            }                
             LoadGrid();
             Screen_Carga ex = new Screen_Carga(Screen_Carga.INSERT);
             ex.ShowDialog();
             if(!ex.Cancel)
+            {
                 dgvCarga.Rows.Add(cont++, ex.Descricao, ex.Volume, ex.Peso, ex.Dimensoes, ex.Valor, ex.Total, ex.Tipo);
+                LoadTable();
+            }                
             ex.Dispose();
-            LoadTable();
+            
         }
 
         private void btMenos_Click(object sender, EventArgs e)
@@ -504,7 +547,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                     dgvCarga.SelectedRows[0].Cells["Carga_Descricao"].Value = ex.Descricao;
                     dgvCarga.SelectedRows[0].Cells["Carga_Volume"].Value = ex.Volume;
                     dgvCarga.SelectedRows[0].Cells["Carga_Peso"].Value = ex.Peso;
-                    dgvCarga.SelectedRows[0].Cells["Carga_Dimensoes"].Value = ex.Dimensoes;
+                    dgvCarga.SelectedRows[0].Cells["Carga_Dimensoes"].Value = ex.Dimensoes; 
                     dgvCarga.SelectedRows[0].Cells["Carga_ValorUnit"].Value = ex.Valor;
                     dgvCarga.SelectedRows[0].Cells["Carga_Valor"].Value = ex.Total;
                     dgvCarga.SelectedRows[0].Cells["Carga_Tipo"].Value = ex.Tipo;
@@ -535,6 +578,13 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             rdExclusivo.Enabled = false;
             rdExpresso.Enabled = false;
             dgvCarga.Rows.Clear();
+
+            dotOrder.Visible = false;
+            dotID.Visible = false;
+            dotCliente.Visible = false;
+            dotDestino.Visible = false;
+            dotModalidade.Visible = false;
+            dotOrigem.Visible = false;
 
             ins = false;
             alt = false;
@@ -573,6 +623,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                                                         Controle_Pedido.MAX());
                             }
                             Clear();
+                            aux = 0;
                         }
                     }
                     else
@@ -581,6 +632,7 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                 else
                     MessageBox.Show("Todos os campos obrigatórios(*) devem estar preenchidos e válidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             if(alt == true)
             {
                 if (txtID.Text != string.Empty && cbCliente.Text != string.Empty && txtOrigem.Text != string.Empty && txtDestino.Text != string.Empty)
@@ -592,25 +644,31 @@ namespace GlobalHost.Visao.Servicos.Funcoes
                             n = "Expresso";
                         else
                             n = "Exclusivo";
-
-                        if (!Controle_Pedido.Update(id, DateTime.Now.Date, n, txtOrigem.Text, txtDestino.Text, Controle_Parametro.get().Razao_social, "Em espera", (int)Controle_Cliente.get(cbCliente.Text).Rows[0]["id"], Program.FUNC))
-                            MessageBox.Show("Pedido não atualizado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        else
+                        if (Controle_Pedido.get("id = " + txtID.Text).Rows[0]["remessa"].ToString() == "")
                         {
-                            Controle_Carga.DeleteByPedido(id);
-                            int i = 0;
-                            for (i = 0; i < dgvCarga.Rows.Count; i++)
+                            if (!Controle_Pedido.Update(id, DateTime.Now.Date, n, txtOrigem.Text, txtDestino.Text, Controle_Parametro.get().Razao_social, "Em espera", (int)Controle_Cliente.get(cbCliente.Text).Rows[0]["id"], Program.FUNC))
+                                MessageBox.Show("Pedido não atualizado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            else
                             {
-                                Controle_Carga.Insert(dgvCarga.Rows[i].Cells["Carga_Descricao"].Value.ToString(),
-                                                        Convert.ToInt32(dgvCarga.Rows[i].Cells["Carga_Volume"].Value),
-                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Peso"].Value),
-                                                        dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value.ToString(),
-                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value.ToString()),
-                                                        Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Valor"].Value.ToString()),
-                                                        dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString(), id);
+                                Controle_Carga.DeleteByPedido(id);
+                                int i = 0;
+                                for (i = 0; i < dgvCarga.Rows.Count; i++)
+                                {
+                                    Controle_Carga.Insert(dgvCarga.Rows[i].Cells["Carga_Descricao"].Value.ToString(),
+                                                            Convert.ToInt32(dgvCarga.Rows[i].Cells["Carga_Volume"].Value),
+                                                            Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Peso"].Value),
+                                                            dgvCarga.Rows[i].Cells["Carga_Dimensoes"].Value.ToString(),
+                                                            Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_ValorUnit"].Value.ToString()),
+                                                            Convert.ToDouble(dgvCarga.Rows[i].Cells["Carga_Valor"].Value.ToString()),
+                                                            dgvCarga.Rows[i].Cells["Carga_Tipo"].Value.ToString(), id);
+                                }
+                                Clear();
+                                aux = 0;
                             }
-                            Clear();
                         }
+                        else
+                            MessageBox.Show("Erro ao alterar pedido [" + txtID.Text + "]!\nNão é possível excluir um pedido que já está dentro de uma remessa!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        
                     }
                     else
                         MessageBox.Show("Deve ter ao menos uma carga no pedido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -622,15 +680,22 @@ namespace GlobalHost.Visao.Servicos.Funcoes
             {
                 if(txtID.Text != string.Empty)
                 {
-                    if(Controle_Pedido.get("id = " + txtID.Text).Rows.Count > 0)
+                    if(Controle_Pedido.get("id = " + txtID.Text).Rows[0]["remessa"].ToString() == "") 
                     {
-                        if (MessageBox.Show("Deseja realmente excluir o pedido (" + txtID.Text + ")?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                            if (!Controle_Pedido.Delete(Convert.ToInt32(txtID.Text)))
-                                MessageBox.Show("Pedido não excluído!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            else
-                                Clear();
-                        
+                        if (Controle_Pedido.get("id = " + txtID.Text).Rows.Count > 0)
+                        {
+                            if (MessageBox.Show("Deseja realmente excluir o pedido (" + txtID.Text + ")?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (!Controle_Pedido.Delete(Convert.ToInt32(txtID.Text)))
+                                    MessageBox.Show("Pedido não excluído!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                else
+                                {
+                                    Clear();
+                                    aux = 0;
+                                }                                   
+                        }
                     }
+                    else
+                        MessageBox.Show("Erro ao alterar pedido [" + txtID.Text + "]!\nNão é possível excluir um pedido que já está dentro de uma remessa!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
             dgvPedido.DataSource = Controle_Pedido.get("");

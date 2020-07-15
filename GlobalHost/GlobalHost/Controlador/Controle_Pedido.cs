@@ -6,20 +6,23 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GlobalHost.Controlador
 {
     class Controle_Pedido
     {
+
         public static bool Insert(DateTime data, string mod, string orig, string dest, string desp, string sit, int cli, int fun, int rem)
         {
             FuncionarioDB funcionarios = new FuncionarioDB();
             ClienteDB clientes = new ClienteDB();
+            RemessaDB remessas = new RemessaDB();
             PedidoDB pedidos = new PedidoDB();
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
-            Remessa r = null;                       /// Necessita da RemessaDB  <author>@campos</author>
-            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, r);
+            Remessa r = remessas.get(rem);
+            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, r, "Autorizado");
             return pedidos.Insert(p);
         }
 
@@ -30,7 +33,7 @@ namespace GlobalHost.Controlador
             PedidoDB pedidos = new PedidoDB();
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
-            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f);
+            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, "Autorizado");
             return pedidos.Insert(p);
         }
 
@@ -38,6 +41,12 @@ namespace GlobalHost.Controlador
         {
             PedidoDB db = new PedidoDB();
             return db.Delete(id);
+        }
+
+        public static bool DeletePorRemessa(int idR)
+        {
+            PedidoDB db = new PedidoDB();
+            return db.UpdatePorRemessa(idR);
         }
 
         public static bool Update(DateTime data, string mod, string orig, string dest, string desp, string sit, int cli, int fun, int rem)
@@ -48,7 +57,7 @@ namespace GlobalHost.Controlador
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
             Remessa r = null;                       /// Necessita da RemessaDB  <author>@campos</author>
-            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, r);
+            Pedido p = new Pedido(data, mod, orig, dest, desp, sit, c, f, "Autorizado");
             return pedidos.Update(p);
 
         }
@@ -60,7 +69,7 @@ namespace GlobalHost.Controlador
             PedidoDB pedidos = new PedidoDB();
             Funcionario f = funcionarios.get(fun);
             Cliente c = clientes.get(cli);
-            Pedido p = new Pedido(id, data, mod, orig, dest, desp, sit, c, f);
+            Pedido p = new Pedido(id, data, mod, orig, dest, desp, sit, c, f, "Autorizado");
             return pedidos.Update(p);
         }
 
@@ -75,7 +84,7 @@ namespace GlobalHost.Controlador
             PedidoDB db = new PedidoDB();
             DataTable table = new DataTable();
             List<object> list = new List<object>();
-            if(obj.GetType() == typeof(int))
+            if (obj.GetType() == typeof(int))
             {
                 Pedido p = db.get((int)obj);
                 list.Add(p);
@@ -97,6 +106,7 @@ namespace GlobalHost.Controlador
             table.Columns.Add("cliente", typeof(Cliente));
             table.Columns.Add("funcionario", typeof(Funcionario));
             table.Columns.Add("remessa", typeof(Remessa));
+            table.Columns.Add("autorizacao", typeof(string));
             list.Remove(null);
             foreach (var item in list)
             {
@@ -112,9 +122,37 @@ namespace GlobalHost.Controlador
                 linha["cliente"] = p.Cliente;
                 linha["funcionario"] = p.Funcionario;
                 linha["remessa"] = p.Remessa;
+                linha["autorizacao"] = p.Autorizacao;
                 table.Rows.Add(linha);
             }
             return table;
+        }
+
+        public static bool UpdateByRemessa(int ID, int Remessa)
+        {
+            PedidoDB db = new PedidoDB();
+            Pedido P = db.get(ID);
+            RemessaDB dbR = new RemessaDB();
+            Remessa R = dbR.get(Remessa);
+            P.Remessa = R;
+            return db.Update(P);
+        }
+
+        public static bool SetRemessaID(int ID, int remessa)
+        {
+            PedidoDB db = new PedidoDB();
+            Pedido P = db.get(ID);
+            Remessa R = new Modelo.Remessa(remessa);
+            P.Remessa = R;
+            return db.Update(P);
+        }
+
+        public static bool UpdateSituacao(int ID, string situacao)
+        {
+            PedidoDB db = new PedidoDB();
+            Pedido P = db.get(ID);
+            P.Situacao = situacao;
+            return db.Update(P);
         }
 
         public static void Reverse()
