@@ -1,3 +1,2 @@
-# Engenharia II
-Projeto de um sistema para a Empresa **CGF Global**
->**Nota:** Projeto com fins meramente educativos
+Projeto de gerenciamento de uma empresa de Importação e Exportação
+**Code Trainning
